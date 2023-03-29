@@ -71,11 +71,7 @@ function App() {
 
   return (
     <div className="App">
-<<<<<<< HEAD
-  <Lawyers props={lawyersData} />
-=======
-      <Calander/>
->>>>>>> 009377913fd1751b3ebe72358239a9ed6adbcad3
+      <Calander />
     </div >
   );
 }
