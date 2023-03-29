@@ -1,5 +1,7 @@
 import './App.css';
 import Lawyers from './pages/Lawyer/Lawyers';
+import Calander from './components/slots/Calander';
+// import Calander from './components/slots/calander';
 
 
 function App() {
@@ -69,8 +71,12 @@ function App() {
 
   return (
     <div className="App">
-      <Lawyers props={lawyersData} />
-    </div>
+<<<<<<< HEAD
+  <Lawyers props={lawyersData} />
+=======
+      <Calander/>
+>>>>>>> 009377913fd1751b3ebe72358239a9ed6adbcad3
+    </div >
   );
 }
 
