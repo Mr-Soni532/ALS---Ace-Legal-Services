@@ -3,9 +3,10 @@ import { Card } from "antd";
 
 const { Meta } = Card;
 
-const SupportCard = ({ imagesrc, text, description }) => (
+const SupportCard = ({ imagesrc, text, description, delay }) => (
   <Card
-    hoverable
+    data-aos="fade-up"
+    data-aos-delay={delay}
     className="Supportcard"
     style={{ width: 240, background: "transparent" }}
     cover={

@@ -29,6 +29,7 @@
   margin: 10px;
   justify-content: space-between;
   align-items: center;
+  transition: all 300ms ease-in-out;
 }
 .NubBumBar {
   margin: 10px;
@@ -38,4 +39,8 @@
 }
 .numbumnumber {
   font-size: 60px;
+}
+.NumBum:hover {
+  cursor: pointer;
+  scale: 1.05;
 }

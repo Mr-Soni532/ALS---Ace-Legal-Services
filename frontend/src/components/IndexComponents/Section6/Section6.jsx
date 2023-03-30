@@ -8,8 +8,8 @@ const Section6 = () => {
     <div className="SectionSix">
       <h1 className="AboutHead">About</h1>
       <div className="SecSixParent">
-        <div className="SecSixLeft">
-          <h1 style={{ fontSize: "47px" }}>
+        <div className="SecSixLeft" data-aos="fade-up">
+          <h1 style={{ fontSize: "47px", transform: "translateY(-30px)" }}>
             <label style={{ color: "#ffd41f", fontSize: "49px" }}>
               80 years
             </label>{" "}
@@ -31,7 +31,7 @@ at the coast of the Semantics."
             text="Who help you to fight your cases
 with utmost diligence and also
 provide legal support"
-            delay="100"
+            delay="150"
           />
           <NumBumCard
             number="1200"
@@ -39,7 +39,7 @@ provide legal support"
             text="That made peoples life better 
 and engraved our mark in 
 society's betterment"
-            delay="150"
+            delay="50"
           />
           <NumBumCard
             number="2700"

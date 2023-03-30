@@ -8,11 +8,16 @@
   padding: 5px;
   margin: 12px;
 }
+
 .YellowBorderImgs {
   z-index: 0;
   position: relative;
   border: 3px solid#FFDE59;
   border-bottom: 7px solid#FFDE59;
+  transition: all 300ms ease-in-out;
+}
+.YellowBorderImgs:hover {
+  scale: 1.05;
 }
 .YeloBarSec5 {
   height: 150px;
@@ -27,4 +32,8 @@
   background-color: rgb(230, 226, 226);
   font-size: 15px;
   padding: 2px 3px;
+}
+.CheckoutProfile:hover {
+  color: #ffd41f;
+  background-color: rgb(114, 112, 112);
 }

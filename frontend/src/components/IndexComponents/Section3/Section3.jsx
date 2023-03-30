@@ -3,7 +3,7 @@ import "./Section3.css";
 const Section3 = () => {
   return (
     <div className="SecThreeParent">
-      <div className="SecThreeLeft">
+      <div className="SecThreeLeft" data-aos="fade-right">
         <div className="HexaGonalImage">
           <img
             style={{ width: "100%" }}
@@ -12,7 +12,7 @@ const Section3 = () => {
           />
         </div>
       </div>
-      <div className="SecThreeRight">
+      <div className="SecThreeRight" data-aos="fade-left">
         <h1 className="RRResult">Reputation,Respect & Result</h1>
         <div>
           <p>

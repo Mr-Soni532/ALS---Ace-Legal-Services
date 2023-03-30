@@ -1,8 +1,8 @@
 import React from "react";
 
-const NumBumCard = ({ number, head, text }) => {
+const NumBumCard = ({ number, head, text, delay }) => {
   return (
-    <div className="NumBum">
+    <div className="NumBum" data-aos="fade-left" data-aos-delay={delay}>
       <div className="NubBumBar"></div>
       <div>
         <h1 className="numbumnumber">{number}+</h1>
