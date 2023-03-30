@@ -1,6 +1,6 @@
 import React from 'react'
 import formVector from '../../assets/vector-graphics/formVector.jpg'
-import Appointment_form from '../../components/appointment_form/Appointment_form'
+import AppointmentForm from '../../components/appointment_form/Appointment_form'
 import './appointment.styles.css'
 const Appointment = () => {
   return (
@@ -10,7 +10,7 @@ const Appointment = () => {
           <img src={formVector} alt="" />
         </div>
         <div className="col-2">
-          <Appointment_form/>
+          <AppointmentForm/>
         </div>
       </div>
     </div>
