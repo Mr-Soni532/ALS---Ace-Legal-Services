@@ -5,5 +5,26 @@
 }
 
 .SecFiveLawyerCard {
-  border: 2px solid red;
+  padding: 5px;
+  margin: 12px;
+}
+.YellowBorderImgs {
+  z-index: 0;
+  position: relative;
+  border: 3px solid#FFDE59;
+  border-bottom: 7px solid#FFDE59;
+}
+.YeloBarSec5 {
+  height: 150px;
+  position: absolute;
+  bottom: 5px;
+  width: 100%;
+  z-index: -1;
+  background-color: #ffd41f;
+}
+.CheckoutProfile {
+  border: none;
+  background-color: rgb(230, 226, 226);
+  font-size: 15px;
+  padding: 2px 3px;
 }

@@ -6,6 +6,9 @@
   box-sizing: border-box;
   scroll-behavior: smooth;
 }
+body {
+  overflow-x: hidden !important;
+}
 .flex {
   display: flex;
   align-items: center;
@@ -14,6 +17,7 @@ img,
 button {
   cursor: pointer;
 }
+
 a {
   text-decoration: none !important;
 }

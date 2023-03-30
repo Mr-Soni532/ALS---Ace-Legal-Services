@@ -2,11 +2,11 @@ import "./Navbar.css";
 import { NavLink } from "react-router-dom";
 const Navbar = () => {
   return (
-    <div className="NavBarParent" data-aos="fade-up">
+    <div className="NavBarParent" data-aos="fade">
       <div className="MainLogo">
         <img
           style={{ width: "100%" }}
-          src={require("../../../assets/IndexPageImages/ACE1.png")}
+          src="Images/IndexPageImages/ACE1.png"
           alt="acelogz"
         />
       </div>

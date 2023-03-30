@@ -7,7 +7,7 @@ const Section3 = () => {
         <div className="HexaGonalImage">
           <img
             style={{ width: "100%" }}
-            src={require("../../../assets/IndexPageImages/Section3/lawy2.png")}
+            src="Images/IndexPageImages/Section3/lawy2.png"
             alt="hexagonalimage"
           />
         </div>
@@ -18,7 +18,7 @@ const Section3 = () => {
           <p>
             <img
               className="hammersec3"
-              src={require("../../../assets/IndexPageImages/Section3/hammer.png")}
+              src="Images/IndexPageImages/Section3/hammer.png"
               alt="xc"
             />
             Most Reputed Lawyers & Attorneys for you
@@ -34,7 +34,7 @@ const Section3 = () => {
           <p>
             <img
               className="hammersec3"
-              src={require("../../../assets/IndexPageImages/Section3/hammer.png")}
+              src="Images/IndexPageImages/Section3/hammer.png"
               alt="xc"
             />
             We will for your justice and rights
@@ -51,7 +51,7 @@ const Section3 = () => {
           <p>
             <img
               className="hammersec3"
-              src={require("../../../assets/IndexPageImages/Section3/hammer.png")}
+              src="Images/IndexPageImages/Section3/hammer.png"
               alt="xc"
             />
             We provide you both civil and criminal lawyers

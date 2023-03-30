@@ -1,15 +1,41 @@
+.SectionSix {
+  min-height: 670px;
+  background-color: #3b3836;
+  padding: 20px 100px;
+  align-items: center;
+}
+.AboutHead {
+  text-align: center;
+  color: #ffd41f;
+  margin: 20px;
+  font-size: 50px;
+}
 .SecSixParent {
   display: flex;
   justify-content: space-around;
   align-items: center;
 }
+.SecSixParent > * {
+  color: white;
+}
 .SecSixRight {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 10px;
+  gap: 15px;
 }
 .NumBum {
   display: flex;
-  justify-content: center;
+  width: 320px;
+  margin: 10px;
+  justify-content: space-between;
   align-items: center;
+}
+.NubBumBar {
+  margin: 10px;
+  background-color: #ffd41f;
+  height: 100%;
+  width: 69px;
+}
+.numbumnumber {
+  font-size: 60px;
 }
