@@ -5,7 +5,7 @@ const BrimCard = ({ number, imgsrc, text }) => {
   return (
     <div className="BrimCard">
       <div className="YellowImg">
-        <img style={{ width: "50px" }} src={`${imgsrc}`} alt="abcd" />
+        <img src={imgsrc} style={{ width: "50px" }} alt="abcd" />
       </div>
       <div className="Sec4Brorn">
         <h1 className="SecFourBigTexts">{number}</h1>

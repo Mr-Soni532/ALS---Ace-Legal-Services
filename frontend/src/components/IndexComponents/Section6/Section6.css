@@ -1,0 +1,15 @@
+.SecSixParent {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.SecSixRight {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+}
+.NumBum {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

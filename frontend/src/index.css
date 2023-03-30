@@ -33,3 +33,7 @@ section {
   text-align: center;
   font-size: 40px;
 }
+div,
+section {
+  border: 1px solid black;
+}
