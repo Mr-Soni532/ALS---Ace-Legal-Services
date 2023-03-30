@@ -36,7 +36,7 @@ const Navbar = () => {
         <img
           style={{ width: "100%" }}
           src={require("../../../assets/IndexPageImages/ACE1.png")}
-          alt="acelogo"
+          alt="acelogz"
         />
       </div>
       <Menu
