@@ -3,7 +3,9 @@ import Lawyers from './pages/Lawyer/Lawyers';
 // import Calander from './components/slots/Calander';
 // import Calander from './components/slots/calander';
 
-
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import LoginPage from './pages/Login/LoginPage';
+import SignUpPage from './pages/signup/signupPage';
 function App() {
   const lawyersData = [
     {
@@ -70,10 +72,21 @@ function App() {
   ];
 
   return (
-    <div className="App">
-      <Lawyers props={lawyersData} />
-      {/* <Calander /> */}
-    </div >
+    <>
+      <BrowserRouter>
+        <Routes >
+          <Route path="/login" element={<LoginPage />} />
+          <Route path='/signup' element={<SignUpPage/>} />
+        </Routes>
+      </BrowserRouter>
+
+    </>
+    // <h1>Main Page</h1>
+    // <div className="App">
+    //    <Lawyers props={lawyersData} />
+    //    {/* <Calander /> */}
+    //  </div >
+
   );
 }
 
