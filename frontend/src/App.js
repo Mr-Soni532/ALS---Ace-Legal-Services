@@ -2,6 +2,7 @@ import './App.css';
 import Lawyers from './pages/Lawyer/Lawyers';
 // import Calander from './components/slots/Calander';
 // import Calander from './components/slots/calander';
+import LayerDta from "./assets/lawyers.json"
 
 
 function App() {
@@ -68,10 +69,10 @@ function App() {
     },
     // Add more lawyers here as needed
   ];
-
+  console.log(LayerDta);
   return (
     <div className="App">
-      <Lawyers props={lawyersData} />
+      <Lawyers props={LayerDta} />
       {/* <Calander /> */}
     </div >
   );
