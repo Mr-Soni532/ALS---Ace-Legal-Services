@@ -1,12 +1,14 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import './apo-form.style.css'
 import { Button, Form, Input, Select } from 'antd';
-import { ArrowRightOutlined, UserOutlined } from '@ant-design/icons';
+import { ArrowRightOutlined } from '@ant-design/icons';
 import styles from './hardStyling';
-import { Option } from 'antd/es/mentions';
+import { AppointmentContext } from '../../context/appointment/appointmentContext';
 const Appointment_form = () => {
+    const context  = useContext(AppointmentContext);
+    const {updateAppointmentDetails} = context;
     function handleForm(e){
-        console.log(e)
+        updateAppointmentDetails(e)
     }
     return (
         <>
@@ -14,18 +16,18 @@ const Appointment_form = () => {
                 <h1>Client Details</h1>
                 <Form onFinish={handleForm}>
                     <Form.Item
-                        name="username"
+                        name="name"
                         rules={[{ required: false, message: 'Please input your Username!' }]}
                         initialValue=""
                     >
                         <Input inputMode='text' name='name' placeholder="Name" style={styles.input} />
                     </Form.Item>
                     <Form.Item
-                        name="Email"
+                        name="email"
                         rules={[{ required: false, message: 'Please input your email address!' }]}
                         initialValue=""
                     >
-                        <Input inputMode='text' name='email' placeholder="Email Address" style={styles.input} />
+                        <Input inputMode='email' name='email' placeholder="Email Address" style={styles.input} />
                     </Form.Item>
                     <Form.Item
                         name="phone"
@@ -35,24 +37,25 @@ const Appointment_form = () => {
                         <Input name='phone' placeholder="Phone Number" style={styles.input} />
                     </Form.Item>
                     <Form.Item
-                        name="summary"
+                        name="description"
                         rules={[{ required: false, message: 'Please describe your case details!' }]}
                         initialValue=""
                     >
-                        <Input.TextArea rows={4} name='summary' placeholder="Case Summary" style={styles.input} />
+                        <Input.TextArea rows={4} name='description' placeholder="Case Summary" style={styles.input} />
                     </Form.Item>
 
                     <Form.Item
-                        name="gender"
-                        rules={[{ required: false, message: 'Please Select your Gender!' }]}
+                        name="type"
+                        rules={[{ required: false, message: 'Please Select Appointment Type!' }]}
                     >
                         <Select
                             placeholder="Select Appointment Type"
                             size='large'
                             style={{ lineHeight: '30px' }}
+                            name='type'
                         >
-                            <Select.Option value="male">Virtual</Select.Option>
-                            <Select.Option value="female">Personal</Select.Option>
+                            <Select.Option value="virtual">Virtual</Select.Option>
+                            <Select.Option value="personal">Personal</Select.Option>
                         </Select>
                     </Form.Item>
                     <Form.Item>
