@@ -1,0 +1,9 @@
+.Sec5Parent {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.SecFiveLawyerCard {
+  border: 2px solid red;
+}

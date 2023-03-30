@@ -14,7 +14,8 @@ const Section1 = () => {
           <button className="SecOneMeetLawBtn">Meet Our Lawyers</button>
         </div>
         <div>
-          <p>
+          <hr style={{ width: "74%" }} /> <br />
+          <p style={{ color: "grey" }}>
             Defend your constitutional rights with <br /> right Legal support
           </p>
         </div>
