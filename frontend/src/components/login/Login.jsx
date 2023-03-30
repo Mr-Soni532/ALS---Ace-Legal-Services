@@ -3,18 +3,22 @@ import { Link } from 'react-router-dom'
 import "./logincomponent.css"
 const Login = () => {
   const [value, setValue] = useState("User Email");
+  const [imgpath,setImgPath]=useState("user.jpg");
   // let links=[
   //   {id:1,name:"User"},
   //   {id:2,name:"Lawyer"},
   //   {id:3,name:"Admin"}
   // ]
   const handleClick = (str) => {
-    setValue(str)
+    setValue(str);
+    if(str==="User Email")  setImgPath("user.jpg")
+    else if(str==="Lawyer ID" ) setImgPath("lawyerpng.jpg")
+    else  setImgPath("admin3png.jpg")
   }
   const handleSubmit = (check) => {
-    if (check === 'User') {
+    if (check === 'User Email') {
       console.log('user request....')
-    } else if (check === 'Lawyer') {
+    } else if (check === 'Lawyer ID') {
       console.log('lawyer request....')
     } else {
       console.log('admin request....')
@@ -40,7 +44,7 @@ const Login = () => {
 
       </div>
       <div className="userpng">
-        <img src="user.jpg" alt="" />
+        <img src={imgpath} alt="" />
       </div>
       <div>
         <form className="form" onSubmit={() => handleSubmit(value)}>
@@ -81,7 +85,7 @@ const Login = () => {
         </div>
         <p className="signup">Don't have an account?
           {/* <a rel="noopener noreferrer" href="#" className="">Sign up</a> */}
-          <Link to="/signup" >Sign up</Link>
+          <Link to="/signup" style={{color:"rgba(167, 139, 250, 1)"}}>Sign up</Link>
         </p>
       </div>
 
