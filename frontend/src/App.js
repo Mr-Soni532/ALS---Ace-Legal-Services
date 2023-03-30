@@ -1,4 +1,5 @@
 import './App.css';
+import Appointment from './pages/appointment/Appointment';
 import Lawyers from './pages/Lawyer/Lawyers';
 // import Calander from './components/slots/Calander';
 // import Calander from './components/slots/calander';
@@ -70,10 +71,7 @@ function App() {
   ];
 
   return (
-    <div className="App">
-      <Lawyers props={lawyersData} />
-      {/* <Calander /> */}
-    </div >
+    <Appointment/>
   );
 }
 
