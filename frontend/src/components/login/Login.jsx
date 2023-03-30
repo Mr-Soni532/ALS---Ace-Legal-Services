@@ -50,11 +50,11 @@ const Login = () => {
         <form className="form" onSubmit={() => handleSubmit(value)}>
           <div className="input-group">
             <label for="username">{value}</label>
-            <input type="text" name="username" id="username" placeholder="" />
+            <input type="text" name="username" id="username" placeholder="" required/>
           </div>
           <div className="input-group">
             <label for="password">Password</label>
-            <input type="password" name="password" id="password" placeholder="" />
+            <input type="password" name="password" id="password" placeholder="" required/>
             <div className="forgot">
               <a rel="noopener noreferrer" href="#">Forgot Password ?</a>
             </div>

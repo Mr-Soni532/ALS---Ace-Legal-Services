@@ -7,14 +7,14 @@ const SignUpPage = () => {
       <div>
       <form className="Signupform">
       <h1>Register</h1>
-    <input type="text" className="input" placeholder="&nbsp;&nbsp;username"/>
-    <input type="email" className="input" placeholder="&nbsp;&nbsp;email"/>
-    <input type="password" className="input" placeholder="&nbsp;&nbsp;password"/> 
-    <input type="text" className="input" placeholder="&nbsp;&nbsp;Gender"/> 
-    <input type="number" className="input" placeholder="&nbsp;&nbsp;Phone number"/> 
+    <input type="text" className="input" placeholder="&nbsp;&nbsp;username" required/>
+    <input type="email" className="input" placeholder="&nbsp;&nbsp;email" required />
+    <input type="password" className="input" placeholder="&nbsp;&nbsp;password" required /> 
+    <input type="text" className="input" placeholder="&nbsp;&nbsp;Gender" required /> 
+    <input type="number" className="input" placeholder="&nbsp;&nbsp;Phone number" required /> 
   <span className="sub">Already have an account ? <Link to="/login">Sign in</Link></span>
-    {/* <Link to="/verifyEmail">Verify Email</Link> */}
-    <button>Continue</button>
+    <Link className='verifyOTP' to="/verifyOTP">Continue</Link>
+    {/* <button  >Continue</button> */}
 </form>
       </div>
     

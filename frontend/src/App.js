@@ -6,6 +6,7 @@ import Lawyers from './pages/Lawyer/Lawyers';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import LoginPage from './pages/Login/LoginPage';
 import SignUpPage from './pages/signup/signupPage';
+import OtpPage from './pages/verifyotp/OtpPage';
 function App() {
   const lawyersData = [
     {
@@ -77,6 +78,7 @@ function App() {
         <Routes >
           <Route path="/login" element={<LoginPage />} />
           <Route path='/signup' element={<SignUpPage/>} />
+          <Route path='/verifyOTP'element={<OtpPage/>} ></Route>
         </Routes>
       </BrowserRouter>
 

@@ -47,7 +47,7 @@
   align-self: flex-end;
 }
 
-.Signupform>input, button {
+.Signupform>input, .verifyOTP  {
   border: none;
   outline: none;
   width: 100%;
@@ -61,12 +61,13 @@
   box-shadow: 12.5px 12.5px 10px rgba(0, 0, 0, 0.015),100px 100px 80px rgba(0, 0, 0, 0.03);
 }
 
-button {
+.verifyOTP {
   margin-top: 12px;
   background-color: rgb(23, 111, 211);
   color: #fff;
-  text-transSignupform: uppercase;
+  text-decoration: none;
   font-weight: bold;
+  /* padding: 10px 10px ; */
 }
 
 .input:focus {
@@ -78,7 +79,7 @@ button {
 }
 .signUpdiv{
   text-align: center;
-  margin-top: 20vh;
+  /* margin-top: 20vh; */
 }
 /* .signUpdiv>div{
   display: flex;
