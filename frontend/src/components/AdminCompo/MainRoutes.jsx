@@ -1,8 +1,8 @@
 import React from "react";
 import { Route, Routes } from "react-router-dom";
-import ClientsPage from "../../pages/Client/Client";
-import Dashborad from "../../pages/Dashboard/Dashboard";
-import LawyersPage from "../../pages/lawyer/lawyer";
+import ClientsPage from "../../pages/Admin_page/Client";
+import Dashborad from "../../pages/Admin_page/Dashboard";
+import LawyersPage from "../../pages/Admin_page/lawyer";
 
 
 const MainRoutes= ()=> {
