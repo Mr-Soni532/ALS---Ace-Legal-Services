@@ -12,7 +12,8 @@ const styles = {
         '&::placeholder':{
             color:'red'
         },
-        resize: 'none'
+        resize: 'none',
+        minWidth: '100%'
     },
     formBtn:{
         background: '#4547ed',
