@@ -1,0 +1,67 @@
+.NavBarParent {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 10px;
+  background: none !important;
+}
+.MainLogo {
+  width: 170px;
+}
+.NavMenu {
+  width: 38%;
+  border: none;
+  background: none !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.NavMenu li {
+  font-size: 20px;
+  background: none !important;
+  margin: 12px !important;
+  border: 0 !important;
+}
+/*todo <!----------------------------------------------- < buttons > -----------------------------------------------> */
+.buttonslide {
+  z-index: 1;
+  color: white !important;
+  position: relative;
+  outline: none;
+  background-color: var(--themeblue);
+}
+.buttonslide::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: all 300ms ease-in-out;
+  background-color: rgb(55, 107, 240);
+}
+.buttonslide:hover::before {
+  transform: scale(1);
+}
+.buttonunderline {
+  z-index: 1;
+  position: relative;
+  transition: all 300ms ease-in-out;
+}
+.buttonunderline::before {
+  position: absolute;
+  content: "";
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 3px;
+  background-color: rgb(40, 105, 196);
+  transform: scaleX(0);
+  transition: all 300ms ease-in-out;
+}
+.buttonunderline:hover::before {
+  transform: scaleX(0.7);
+}
