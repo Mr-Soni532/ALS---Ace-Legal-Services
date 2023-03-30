@@ -13,7 +13,8 @@ const SignUpPage = () => {
     <input type="text" className="input" placeholder="&nbsp;&nbsp;Gender" required /> 
     <input type="number" className="input" placeholder="&nbsp;&nbsp;Phone number" required /> 
   <span className="sub">Already have an account ? <Link to="/login">Sign in</Link></span>
-    <Link className='verifyOTP' to="/verifyOTP">Continue</Link>
+  <button className='verifyOTP'>Continue</button>
+    {/* <Link  to="/verifyOTP">Continue</Link> */}
     {/* <button  >Continue</button> */}
 </form>
       </div>

@@ -1,14 +1,10 @@
 import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import "./logincomponent.css"
 const Login = () => {
   const [value, setValue] = useState("User Email");
   const [imgpath,setImgPath]=useState("user.jpg");
-  // let links=[
-  //   {id:1,name:"User"},
-  //   {id:2,name:"Lawyer"},
-  //   {id:3,name:"Admin"}
-  // ]
+  const navigate = useNavigate()
   const handleClick = (str) => {
     setValue(str);
     if(str==="User Email")  setImgPath("user.jpg")
@@ -18,29 +14,38 @@ const Login = () => {
   const handleSubmit = (check) => {
     if (check === 'User Email') {
       console.log('user request....')
+      // navigate("/login")
     } else if (check === 'Lawyer ID') {
       console.log('lawyer request....')
     } else {
       console.log('admin request....')
     }
   }
-//   let styleFn=({isActive})=>{
-//     return isActive  
-//     ? {color:"rgba(167, 139, 250, 1)" }
-//     : {color:"Black"}
-// }
   return (
     <div className="form-container">
-      <p className="title">Login</p>
+      <p className="logintitle">Login</p>
       <div className="labeldiv">
         {/* links.map((item) =>{
           return ( 
           <NavLink key={item.id} style={styleFn} >{item.name}</NavLink>
           )
         }); */}
-        <label onClick={() => handleClick("User Email")} >User</label>
-        <label onClick={() => handleClick("Lawyer ID")} >Lawyer</label>
-        <label onClick={() => handleClick("Admin ID")} >Admin</label>
+        <label onClick={() => handleClick("User Email")} style={{
+          backgroundColor:value!=="User Email"?"rgba(167, 139, 250, 1)":"rgb(253, 129, 41)",
+          border:"none",
+
+        }}
+        >User</label>
+        <label onClick={() => handleClick("Lawyer ID")} style={{
+          backgroundColor:value!=="Lawyer ID"?"rgba(167, 139, 250, 1)":"rgb(253, 129, 41)",
+          border:"none",
+
+        }}>Lawyer</label>
+        <label onClick={() => handleClick("Admin ID")} style={{
+          backgroundColor:value!=="Admin ID"?"rgba(167, 139, 250, 1)":"rgb(253, 129, 41)",
+          border:"none",
+
+        }}>Admin</label>
 
       </div>
       <div className="userpng">

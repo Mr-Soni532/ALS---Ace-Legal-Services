@@ -11,7 +11,7 @@
     padding-top: 15vh;
   }
   
-  .title {
+  .logintitle {
     text-align: center;
     font-size: 2rem;
     line-height: 2rem;
@@ -139,6 +139,7 @@
     cursor: pointer;
     margin-right: 5px;
     border-radius: 5px;
+    background-color: rgba(167, 139, 250, 1);
   }
   
   .labeldiv{
