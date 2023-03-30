@@ -1,0 +1,13 @@
+.SecTwoParent {
+  text-align: center;
+}
+
+.BigSearchBar {
+  border-radius: 30px;
+  width: 60%;
+  margin: auto;
+  font-size: 18px;
+  font-weight: 600;
+  outline: 2px solid grey;
+  padding: 12px 20px;
+}
