@@ -3,12 +3,15 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import AppointmentState from './context/appointment/appointmentContext';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <React.StrictMode> 
+
+    <AppointmentState>
       <App />
-  </React.StrictMode>
+    </AppointmentState>
+
 );
 
 reportWebVitals();
