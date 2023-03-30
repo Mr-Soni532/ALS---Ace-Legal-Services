@@ -1,7 +1,7 @@
 import React from 'react'
 import './apo-form.style.css'
 import { Button, Form, Input, Select } from 'antd';
-import { UserOutlined } from '@ant-design/icons';
+import { ArrowRightOutlined, UserOutlined } from '@ant-design/icons';
 import styles from './hardStyling';
 import { Option } from 'antd/es/mentions';
 const Appointment_form = () => {
@@ -57,7 +57,8 @@ const Appointment_form = () => {
                     </Form.Item>
                     <Form.Item>
                         <Button block type="primary" style={styles.formBtn} size='large' htmlType='submit'>
-                            Primary
+                            Book Slot
+                            <ArrowRightOutlined />
                         </Button>
                     </Form.Item>
                 </Form>
