@@ -9,12 +9,13 @@ const Section1 = () => {
         </h1>
         <br />
         <br />
-        <div className="SecOneLeftButtons">
+        <div className="SecOneLeftButtons" data-aos="fade-up">
           <button className="SecOneBookAppoBtn">Book An Appointment</button>
           <button className="SecOneMeetLawBtn">Meet Our Lawyers</button>
         </div>
         <div>
-          <p>
+          <hr style={{ width: "74%" }} /> <br />
+          <p style={{ color: "grey" }}>
             Defend your constitutional rights with <br /> right Legal support
           </p>
         </div>
@@ -24,7 +25,7 @@ const Section1 = () => {
       <div className="SecOneRight" data-aos="fade-up">
         <img
           style={{ width: "100%" }}
-          src={require("../../../assets/IndexPageImages/brown_ben3.png")}
+          src="Images/IndexPageImages/brown_ben3.png"
           alt="Brownben"
         />
       </div>

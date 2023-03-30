@@ -21,8 +21,9 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
-body {
-  overflow-x: hidden;
+body,
+main {
+  overflow-x: hidden !important;
 }
 
 section {

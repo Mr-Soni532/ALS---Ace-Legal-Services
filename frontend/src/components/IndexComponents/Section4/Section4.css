@@ -1,0 +1,39 @@
+.Sec4Parent {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.BrimCard {
+  border-radius: 3px;
+  border: 1px solid rgb(231, 228, 228);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.BrimCard > div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 140px;
+  text-align: left;
+  padding: 5px 22px;
+}
+.BrimCard > div:nth-child(1) {
+  background-color: #ffd41f;
+}
+.BrimCard > div:nth-child(2) {
+  text-align: center;
+  flex-direction: column;
+  width: 190px;
+  background-color: #3b3836;
+}
+.SecFourBigTexts {
+  text-align: center;
+  color: white;
+  font-size: 35px;
+}
+.Sec4Brorn {
+  text-align: center;
+  font-size: 12px;
+  color: rgb(253, 255, 209);
+}

@@ -1,0 +1,53 @@
+.SecThreeParent {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0px;
+}
+.SecThreeParent > div {
+  height: 629px;
+  margin: 0px;
+}
+
+.HexaGonalImage {
+  overflow: hidden;
+}
+.SecThreeLeft {
+  padding: 90px;
+  width: 43%;
+  background-color: #fafafa;
+}
+.SecThreeLeft > div {
+  height: 100%;
+}
+.SecThreeRight {
+  padding: 53px 110px;
+  width: 60%;
+  background-color: #3b3836;
+}
+
+.SecThreeRight > * {
+  color: white;
+}
+.SecThreeRight > div {
+  margin-top: 30px;
+}
+.SecThreeRight p {
+  font-size: 22px;
+  font-weight: 600;
+}
+.SecThreeRight span {
+  margin-left: 30px;
+}
+.RRResult {
+  font-size: 45px;
+}
+.hammersec3 {
+  width: 30px;
+  margin-right: 4px;
+}
+.sec3para {
+  color: rgb(214, 202, 202);
+  margin-left: 35px;
+}
