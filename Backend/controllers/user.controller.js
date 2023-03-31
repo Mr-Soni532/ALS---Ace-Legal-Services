@@ -17,7 +17,7 @@ exports.createUser = (req, res) => {
         .then((result) => {
             if (result.length) {
                 res.json(
-                    { msg: "you are already available , please login" }
+                    { msg: "you are already available , please login" ,exists:true}
                 )
             } else {
                 const saltRounds = 10;
