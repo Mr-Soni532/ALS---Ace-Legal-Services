@@ -1,16 +1,16 @@
 import React from 'react'
-import { Calendar, Col, Radio, Row, Select, Typography } from 'antd';
+import { Calendar, Col, Row, Select, Typography } from 'antd';
 import dayjs from 'dayjs';
 import moment from 'moment'
 import 'dayjs/locale/zh-cn';
 import dayLocaleData from 'dayjs/plugin/localeData';
 dayjs.extend(dayLocaleData);
-const Calander = () => {
-  const onPanelChange = (value, mode) => {
-    console.log(value.format('YYYY-MM-DD'), mode);
+const Calander = ({updateDate}) => {
+  const handleChange = (value) => {
+    updateDate(value.format('YYYY-MM-DD'))
+    // console.log(value.format('YYYY-MM-DD'));
   };
   function disabledDate(current) {
-    console.log(current)
     // Can not select days before today and today
     return current && current < moment().endOf('day');
   }
@@ -84,8 +84,9 @@ const Calander = () => {
           </div>
         );
       }}
-      onPanelChange={onPanelChange}
-      onChange={(value) => console.log(value.format('YYYY-MM-DD'))}
+      // onPanelChange={handleChange}
+      onChange={handleChange}
+      // onChange={(value) => console.log(value.format('YYYY-MM-DD'))}
     />
   )
 }
