@@ -1,0 +1,54 @@
+.UserProfileParent {
+  background-color: #fafafa;
+  border: 2px solid rgb(152, 151, 151);
+}
+.UserProfileParent > div:nth-child(1) {
+  min-height: 200px;
+}
+.UserProfileParent > div:nth-child(2) {
+  padding: 10px;
+}
+
+.UserProfileFirst {
+  display: flex;
+  padding: 10px 158px;
+  justify-content: space-between;
+  align-items: center;
+}
+.UserProfileFirst > div:nth-child(1) {
+  width: 28%;
+  text-align: left;
+}
+.UserAvatarCard {
+  display: flex;
+  justify-content: left;
+  align-items: center;
+}
+.UserAvatarCard > div {
+  margin-right: 20px;
+}
+.UserAvatarCard p {
+  font-size: 14px;
+}
+
+.BigBAPBTN {
+  padding: 15px 23px;
+  border-radius: 50px;
+  font-size: 18px;
+  border: none;
+  background-color: #ffd41d;
+  font-weight: 600;
+}
+.BigBAPBTN:hover {
+  background-color: #f9e93f;
+}
+.UserProfileSecond {
+  padding: 10px;
+}
+.UserProfileSecond > a {
+  margin-left: 150px;
+  color: black;
+}
+.UserProfileSecond > a:hover {
+  color: #ffd41d;
+}

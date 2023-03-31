@@ -1,20 +1,23 @@
 import './App.css';
-
-import IndexPage from "./pages/Index_Page/IndexPage"
+import { Route, Routes } from 'react-router-dom';
+import IndexPage from './pages/Index_Page/IndexPage';
 import Appointment from './pages/appointment/Appointment';
 import Lawyers from './pages/Lawyer/Lawyers';
-// import Calander from './components/slots/Calander';
-// import Calander from './components/slots/calander';
-import LayerDta from "./assets/lawyers.json"
-
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import LoginPage from './pages/Login/LoginPage';
-import SignUpPage from './pages/signup/signupPage';
-import OtpPage from './pages/verifyotp/OtpPage';
+import UserDashboard from './pages/User_Dashboard/UserDashboard';
+import PageNotFound from './pages/PageNotFound/PageNotFound';
 function App() {
-
-  console.log(LayerDta);
   return (
+    <div className="App">
+      <Routes>
+        <Route path="/" element={<IndexPage />} />
+        <Route path="/appointment" element={<Appointment />} />
+        <Route path="/lawyers" element={<Lawyers />} />
+        <Route path="/userdashboard" element={<UserDashboard />} />
+        <Route path="*" element={<PageNotFound />} />
+      </Routes>
+    </div >
+  );
+
 }
 
 export default App;

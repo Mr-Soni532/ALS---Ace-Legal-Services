@@ -30,9 +30,14 @@
 }
 .SecOneBookAppoBtn:hover {
   color: white;
+  background-color: rgb(31, 30, 30);
 }
 .SecOneMeetLawBtn {
   background-color: #ffd41f;
   color: black;
   border: 2px solid#ffd41f;
+}
+.SecOneMeetLawBtn:hover {
+  border: 2px solid#f5c811;
+  background-color: #fcdb57;
 }

@@ -1,0 +1,52 @@
+.BigAPCARD {
+  display: flex;
+  align-items: left;
+}
+.Yelowbar {
+  width: 4%;
+  height: 224px;
+  background-color: #ffd41f;
+  margin-right: 10px;
+}
+
+.AppointmentCard {
+  width: 100%;
+  padding: 10px;
+  padding-right: 00px;
+  display: flex;
+  align-items: center;
+  background-color: #fafafa;
+  border: 3px solid #d9d9d9;
+}
+.ApoBtns {
+  margin-left: 5px;
+  padding: 5px 18px;
+  margin-right: 6px;
+  border-radius: 25px;
+  background-color: white;
+  border-radius: 2px solid grey;
+}
+.ApoBtns:hover {
+  border: 2px solid rgb(255, 225, 0);
+  background-color: rgb(255, 225, 0);
+}
+
+.AdvThings {
+  font-size: 15px;
+  margin-left: 20px;
+  color: #675f5f;
+}
+
+.AppRightLOL {
+  width: 95%;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+.AppRightLOL > div:nth-child(2) svg {
+  opacity: 0.5;
+}
+.AppRightLOL > div:nth-child(2) svg:hover {
+  opacity: 1;
+  cursor: pointer;
+}

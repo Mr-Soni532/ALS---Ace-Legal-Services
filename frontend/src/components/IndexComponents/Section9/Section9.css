@@ -1,0 +1,48 @@
+.SecNineParent {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.YTvideoBox {
+  padding: 20px 120px;
+}
+.YTvideoBox > img {
+  width: 700px;
+}
+.ReqForm {
+  height: 550px;
+  width: 450px;
+  padding: 40px;
+  background-color: black;
+}
+.ReqForm > input,
+.ReqForm > textarea,
+.ReqForm > button {
+  width: 100%;
+  color: white;
+  padding: 10px;
+  outline: 2px solid transparent;
+
+  font-size: 17px;
+  background-color: rgb(87, 83, 83);
+}
+.ReqForm > input:focus,
+.ReqForm > textarea:focus {
+  outline: 2px solid #ffd41f;
+}
+.ReqForm > button:hover {
+  background-color: #ffdc4e;
+}
+.ReqACons {
+  font-size: 30px;
+  color: white;
+}
+.ContactUsNowReqBForm {
+  cursor: pointer;
+  background-color: #ffd41f !important;
+  color: black !important;
+}
+.CarouselFeeds {
+  padding: 12px;
+  background-color: whitesmoke;
+}

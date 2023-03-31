@@ -25,6 +25,7 @@ const IndexPage = () => {
       <Section7 />
       <Section8 />
       <Section9 />
+      <br />
       <Footer />
     </div>
   );
