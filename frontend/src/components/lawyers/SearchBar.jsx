@@ -5,7 +5,8 @@ const SearchBar = ({ query, setQuery, setOption }) => {
     return (
         <div className='search-bar'>
             <div className="select">
-                <strong>Search By:</strong>
+                {/* <strong>Search By:</strong> */}
+                <span className='search-by'>Search By: </span>
                 <div class="mydict">
                     <div>
                         <label>
