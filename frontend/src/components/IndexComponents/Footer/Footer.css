@@ -1,0 +1,31 @@
+.FooterParent {
+  padding: 40px 120px;
+  width: 100%;
+  min-height: 270px;
+  background: url("../../../../public/Images/FooterImages/footerbg.jpg");
+}
+.footeremail {
+  font-size: 22px;
+  color: #fdd41d !important;
+}
+.Footer1 {
+  display: flex;
+  justify-content: space-between;
+}
+.Footer2 {
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.Footer2 > * {
+  color: white;
+}
+.footerpara {
+  padding: 40px;
+  text-align: center;
+  color: white;
+}
+.footergoldenpara {
+  color: #fdd41d;
+}
