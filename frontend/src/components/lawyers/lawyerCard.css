@@ -1,95 +1,94 @@
-*{
-    margin: 0;
-    /* box-sizing: border-box; */
+* {
+  margin: 0;
+  /* box-sizing: border-box; */
 }
 
-.lawyer-card{
-    display: flex;
-    flex-direction: column;
-    /* justify-content: center; */
-    align-items: center;
-    
+.lawyer-card {
+  display: flex;
+  flex-direction: column;
+  /* justify-content: center; */
+  align-items: center;
 }
-.card {  display: grid;
-    grid-template-columns: 3fr 1fr;
-    grid-template-rows: 1fr 1fr .5fr;
-    gap: 0px 0px;
-    grid-auto-flow: row;
-    grid-template-areas:
-      "name pic"
-      "skills pic"
-      "language pic";
-      border: 1px solid #f1eded;
-      height: 250px;
-      padding: 1rem 2rem;
-      width: 70%;
-      background: #fcfcfc;
-      margin-top: 2rem;
-    border-radius: 20px;
-      box-shadow: rgba(159, 159, 241, 0.05) 0px 1px 0px, rgba(72, 72, 207, 0.1) 0px 0px 8px;
-  }
-
-  .name-div{
-    grid-area: name;
-  }
-
-  .experience{
-    color: gray;
-  }
-
-  .bio{
-    margin: .5rem 0;
-    color: #9b9b9b;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
-  }
-
-  .skills-div{
-    grid-area: skills;
-    display: flex;
-    gap: 10px;
-    padding: 1rem 0;
-  }
-
-  .skill{
-    background: #cfebf5;
-    border: 1px solid #83d9f8;
-    border-radius: 18px;
-    padding: 3px 16px 5px;
-    
-  }
-
-  .languages{
-    grid-area: language;
-    display: flex;
-    gap: 10px;
-  }
-
-  .language{
-     background: #f5e7cf;
-    border: 1px solid #f8e183;
-    border-radius: 18px;
-    padding: 3px 16px 5px;
-  }
-
-  .profile-pic{
-    grid-area: pic;
-    /* padding: 2rem; */
-    display: flex;
-    justify-content: end;
-    align-items: center;
-  }
-.pic{
-    width: 200px;
-    height: 200px;
+.card {
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  grid-template-rows: 1fr 1fr 0.5fr;
+  gap: 0px 0px;
+  grid-auto-flow: row;
+  grid-template-areas:
+    "name pic"
+    "skills pic"
+    "language pic";
+  border: 1px solid #f1eded;
+  height: 250px;
+  padding: 1rem 2rem;
+  width: 70%;
+  background: #fcfcfc;
+  margin-top: 2rem;
+  border-radius: 20px;
+  box-shadow: rgba(159, 159, 241, 0.05) 0px 1px 0px,
+    rgba(72, 72, 207, 0.1) 0px 0px 8px;
 }
-  .pic>img{
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 50%;
-  }
-  
+
+.name-div {
+  grid-area: name;
+}
+
+.experience {
+  color: gray;
+}
+
+.bio {
+  margin: 0.5rem 0;
+  color: #9b9b9b;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+.skills-div {
+  grid-area: skills;
+  display: flex;
+  gap: 10px;
+  padding: 1rem 0;
+}
+
+.skill {
+  background: #cfebf5;
+  border: 1px solid #83d9f8;
+  border-radius: 18px;
+  padding: 3px 16px 5px;
+}
+
+.languages {
+  grid-area: language;
+  display: flex;
+  gap: 10px;
+}
+
+.language {
+  background: #f5e7cf;
+  border: 1px solid #f8e183;
+  border-radius: 18px;
+  padding: 3px 16px 5px;
+}
+
+.profile-pic {
+  grid-area: pic;
+
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+.pic {
+  width: 200px;
+  height: 200px;
+}
+.pic > img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}

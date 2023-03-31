@@ -68,3 +68,19 @@
 .opentabicon {
   transform: translateY(3px);
 }
+.SecOneMeetLawBtnS {
+  margin: 20px 5px;
+  padding: 5px 20px;
+  border-radius: 25px;
+  font-weight: 600;
+  font-size: 17px;
+  background-color: #ffd41f;
+  color: black;
+  transform: translateY(-5px);
+  border: 2px solid#ffd41f;
+}
+
+.SecOneMeetLawBtnS:hover {
+  border: 2px solid#f5c811;
+  background-color: #fcdb57;
+}
