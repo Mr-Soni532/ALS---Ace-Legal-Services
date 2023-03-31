@@ -5,6 +5,7 @@ import Appointment from './pages/appointment/Appointment';
 import Lawyers from './pages/Lawyer/Lawyers';
 import UserDashboard from './pages/User_Dashboard/UserDashboard';
 import PageNotFound from './pages/PageNotFound/PageNotFound';
+import BookSlot from './pages/BookSlot/BookSlot';
 function App() {
   return (
     <div className="App">
@@ -13,9 +14,10 @@ function App() {
         <Route path="/appointment" element={<Appointment />} />
         <Route path="/lawyers" element={<Lawyers />} />
         <Route path="/userdashboard" element={<UserDashboard />} />
+        <Route path="/bookslot" element={<BookSlot />} />
         <Route path="*" element={<PageNotFound />} />
       </Routes>
-    </div >
+    </div>
   );
 
 }
