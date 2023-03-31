@@ -1,0 +1,18 @@
+.icons{
+    display: flex;
+    padding:15px;
+    padding-right: 0px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.142);
+    cursor: pointer;
+    border-top: 1px solid rgba(0, 0, 0, 0.518);
+    border-left: 1px solid rgb(0, 0, 0);
+}
+.icons:first-child{
+    border-top: 1px solid black;
+}
+.icons:last-child{
+    border-bottom: 1px solid black;
+}
+.icons>div:first-child{
+    color: #f9ad00;
+}

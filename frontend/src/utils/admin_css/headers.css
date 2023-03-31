@@ -1,8 +1,14 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
 .DashboardHeader{
-    height: 50px;
+    width: 90%;
+    margin: auto;
+    height: 18vh;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 4px;
-    border-bottom: 1px solid black;
 }
+

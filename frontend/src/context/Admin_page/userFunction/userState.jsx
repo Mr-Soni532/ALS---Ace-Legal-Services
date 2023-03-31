@@ -1,10 +1,11 @@
 // https://jsonplaceholder.typicode.com/users
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import UserContext from "./userContext"
 
 const UserState = ( {children} ) => {
-    const [user, setUser] = useState([]);
+    const [users, setUser] = useState([]);
+    const url = "https://jsonplaceholder.typicode.com/users"
 
     const getUser =  async () => {
         // API call
@@ -12,17 +13,16 @@ const UserState = ( {children} ) => {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json'
-                // 'auth-token': localStorage.getItem('token')
             },
         });
 
         const json = await response.json()
-        console.log(json)
+        // console.log(json)
         setUser(json)
     }
 
     return (
-        <UserContext.Provider value={{ getUser }}>
+        <UserContext.Provider value={{ getUser ,users }}>
             {children}
         </UserContext.Provider>
     )

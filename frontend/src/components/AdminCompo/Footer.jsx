@@ -1,6 +1,7 @@
 import { Typography } from "antd";
 import React from "react";
-import '../../utlis/css/footer.css'
+import "../../utlis/admin_css/footer.css";
+
 
 const FooterSide = () => {
   return (
