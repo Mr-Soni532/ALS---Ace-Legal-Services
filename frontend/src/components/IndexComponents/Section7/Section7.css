@@ -1,0 +1,16 @@
+.YellowBudsParent {
+  background-color: #f9f5e2c5;
+  min-height: 400px;
+  display: flex;
+  padding: 20px 80px;
+  justify-content: space-around;
+  align-items: center;
+}
+.Supportcard {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  text-align: center;
+  flex-direction: column;
+}

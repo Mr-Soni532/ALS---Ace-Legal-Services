@@ -1,0 +1,38 @@
+.SecOneParent {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0px 120px;
+  height: 85vh;
+}
+
+.SecOneRight {
+  height: 100%;
+  overflow: hidden;
+}
+.SecOneLeft {
+  width: 50%;
+}
+.highQualityLaw {
+  font-size: 60px;
+}
+
+.SecOneLeftButtons > button {
+  margin: 20px 5px;
+  padding: 10px 20px;
+  border-radius: 25px;
+  font-weight: 600;
+  font-size: 17px;
+}
+.SecOneBookAppoBtn {
+  background-color: black;
+  color: white;
+}
+.SecOneBookAppoBtn:hover {
+  color: white;
+}
+.SecOneMeetLawBtn {
+  background-color: #ffd41f;
+  color: black;
+  border: 2px solid#ffd41f;
+}

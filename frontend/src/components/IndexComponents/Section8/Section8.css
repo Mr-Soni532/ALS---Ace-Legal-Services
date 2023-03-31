@@ -1,0 +1,13 @@
+.FeebackBox {
+  margin: 80px 200px;
+  padding: 40px;
+  font-size: 20px;
+  border: 2px solid #ffd41f;
+}
+.FeebackBox h6 {
+  text-align: right;
+  font-size: 21px;
+}
+.FeebackBox > * {
+  color: black;
+}
