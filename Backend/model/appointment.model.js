@@ -2,8 +2,13 @@ const mongoose = require('mongoose');
 const appointmentSchema = mongoose.Schema({
     lawyerId: String,
     userId: String,
-    appointment_date: String,
-    AppointmentTime: String,
+    appointment_date: {
+        date: String,
+        year: String,
+        month: String,
+        day: String
+    },
+    appointmentTime: String,
     meeting_type: String,
 
 }, { timestamps: true })
