@@ -1,4 +1,5 @@
 import './App.css';
+import './MediaQSmall.css';
 import { Route, Routes } from 'react-router-dom';
 import IndexPage from './pages/Index_Page/IndexPage';
 import Appointment from './pages/appointment/Appointment';

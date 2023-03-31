@@ -30,6 +30,9 @@
   font-weight: 600;
   padding: 10px 20px;
 }
+.signInBtn:hover {
+  background-color: #fdd94c !important;
+}
 .loginpage input {
   padding-left: 12px !important;
 }

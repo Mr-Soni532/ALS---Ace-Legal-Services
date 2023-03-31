@@ -7,7 +7,9 @@ const SignUpPage = () => {
   };
   return (
     <div className="signUpdiv">
-      <img className="Aclabsolute" src="Images/ACEyellow.png" alt="acelogo" />
+      <Link to="/">
+        <img className="Aclabsolute" src="Images/ACEyellow.png" alt="acelogo" />
+      </Link>
       <div>
         <form className="Signupform">
           <h1 className="RegisterTitle">Register</h1>

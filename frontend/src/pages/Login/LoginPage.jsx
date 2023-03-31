@@ -1,11 +1,18 @@
 import React from "react";
 import Login from "../../components/login/Login";
 import "./login.css";
+import { Link } from "react-router-dom";
 const LoginPage = () => {
   return (
     <div className="loginpage">
       <div>
-        <img className="Aclabsolute" src="Images/ACEyellow.png" alt="acelogo" />
+        <Link to="/">
+          <img
+            className="Aclabsolute"
+            src="Images/ACEyellow.png"
+            alt="acelogo"
+          />
+        </Link>
         <Login />
       </div>
     </div>
