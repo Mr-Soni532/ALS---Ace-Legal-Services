@@ -1,0 +1,94 @@
+.Signupform {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 300px;
+  background-color: #fff;
+  border-radius: 20px;
+  padding: 30px 20px;
+  box-shadow: 100px 100px 80px rgba(0, 0, 0, 0.03)
+}
+
+.title {
+  color: black;
+  font-weight: bold;
+  text-align: center;
+  font-size: 20px;
+  margin-bottom: 4px;
+}
+
+.sub {
+  text-align: center;
+  color: black;
+  font-size: 14px;
+  width: 100%;
+}
+
+.sub.mb {
+  margin-bottom: 1px;
+}
+
+.sub a {
+  color: rgb(23, 111, 211);
+}
+
+.avatar {
+  height: 50px;
+  width: 50px;
+  background-color: rgb(23, 111, 211);
+  border-radius: 50%;
+  align-self: center;
+  padding: 6px;
+  cursor: pointer;
+  box-shadow: 12.5px 12.5px 10px rgba(0, 0, 0, 0.015),100px 100px 80px rgba(0, 0, 0, 0.03);
+}
+
+.Signupform button {
+  align-self: flex-end;
+}
+
+.Signupform>input, .verifyOTP  {
+  border: none;
+  outline: none;
+  width: 100%;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  padding-left: 0px;
+  padding-right: 0px;
+  /* padding: 16px 10px; */
+  background-color: rgb(247, 243, 243);
+  border-radius: 10px;
+  box-shadow: 12.5px 12.5px 10px rgba(0, 0, 0, 0.015),100px 100px 80px rgba(0, 0, 0, 0.03);
+}
+
+.verifyOTP {
+  margin-top: 12px;
+  background-color: rgb(23, 111, 211);
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+  cursor: pointer;
+  /* padding: 10px 10px ; */
+}
+
+.input:focus {
+  border: 1px solid rgb(23, 111, 211);
+}
+
+#file {
+  display: none;
+}
+.signUpdiv{
+  text-align: center;
+  /* margin-top: 20vh; */
+}
+/* .signUpdiv>div{
+  display: flex;
+  margin: auto;
+  border: 1px solid red;
+} */
+.Signupform{
+  margin: auto;
+  background-color: rgb(229, 226, 223);
+  border-radius: 5px;
+}
