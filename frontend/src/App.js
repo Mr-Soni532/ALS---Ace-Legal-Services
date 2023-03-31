@@ -5,6 +5,9 @@ import Appointment from './pages/appointment/Appointment';
 import Lawyers from './pages/Lawyer/Lawyers';
 import UserDashboard from './pages/User_Dashboard/UserDashboard';
 import PageNotFound from './pages/PageNotFound/PageNotFound';
+import LoginPage from './pages/Login/LoginPage';
+import SignUpPage from './pages/signup/signupPage';
+import OtpPage from './pages/verifyotp/OtpPage';
 function App() {
   return (
     <div className="App">
@@ -13,6 +16,9 @@ function App() {
         <Route path="/appointment" element={<Appointment />} />
         <Route path="/lawyers" element={<Lawyers />} />
         <Route path="/userdashboard" element={<UserDashboard />} />
+        <Route path='/login' element={<LoginPage />} />
+        <Route  path='/signup' element={<SignUpPage/>} />
+        <Route path='/verifyOTP' element={<OtpPage/>} />
         <Route path="*" element={<PageNotFound />} />
       </Routes>
     </div >
