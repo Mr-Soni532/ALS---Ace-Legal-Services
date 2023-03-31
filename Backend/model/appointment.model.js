@@ -4,9 +4,9 @@ const appointmentSchema = mongoose.Schema({
     userId: String,
     appointment_date: {
         date: String,
-        year: String,
-        month: String,
-        day: String
+        year: Number,
+        month: Number,
+        day: Number
     },
     appointmentTime: String,
     meeting_type: String,
