@@ -1,0 +1,17 @@
+*{
+  box-sizing: border-box;
+}
+.form-container{
+  width: 100%;
+  padding: 24px;
+  padding-bottom: 10px;
+  border: 2px solid #e1e9fe;
+  border-radius: 2rem;
+  text-align: center;
+}
+.form-container>h1{
+  color: #4547ed;
+  font-weight: 700;
+  margin-bottom: 40px;
+}
+

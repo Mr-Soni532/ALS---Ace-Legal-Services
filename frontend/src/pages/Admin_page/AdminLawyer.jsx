@@ -6,7 +6,7 @@ import DetailsCom from "../../component/AdminCompo/userDetails";
 import LawyerContext from "../../context/Admin_page/lawyercontext/lawyerContext";
 import "../../utlis/admin_css/content.css"
 
-const UserDetails  = () =>{
+const LawyerDetails  = () =>{
     const context= useContext(LawyerContext)
     const [ loading , setLoading ] = useState(false)
     const [ err, setError ] =useState(false)
@@ -38,4 +38,4 @@ const UserDetails  = () =>{
     </table>)
     
 }
-export default UserDetails;
+export default LawyerDetails;

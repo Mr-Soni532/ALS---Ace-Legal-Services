@@ -6,31 +6,30 @@
   box-sizing: border-box;
   scroll-behavior: smooth;
 }
+body {
+  overflow-x: hidden !important;
+}
 .flex {
   display: flex;
   align-items: center;
 }
-img {
+img,
+button {
   cursor: pointer;
 }
+
 a {
   text-decoration: none !important;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
-}
-body,
-main {
-  overflow-x: hidden !important;
-}
-
-section {
-  padding: 50px 120px;
-}
-.SectionHeads {
-  margin: auto;
-  text-align: center;
-  font-size: 40px;
+.SecOnebackgroundGreyBox {
+  position: absolute;
+  z-index: -1;
+  top: 150px;
+  left: -100px;
+  border: 2px solid rgb(204, 201, 201);
+  rotate: 11deg;
+  width: 180vw;
+  background-color: #fafafa;
+  height: 97vh;
 }
