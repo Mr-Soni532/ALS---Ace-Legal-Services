@@ -10,6 +10,7 @@ const appointmentSchema = mongoose.Schema({
     },
     appointmentTime: String,
     meeting_type: String,
+    slot: Number
 
 }, { timestamps: true })
 const AppointmentSchema = mongoose.model('appointment', appointmentSchema);
