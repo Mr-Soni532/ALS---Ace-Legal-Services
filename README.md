@@ -56,7 +56,7 @@
 
 | Node.js                                                                                                                        | Express.js                                                                                                                     | Redis                                                                                                                          | MongoDB                                                                                                       |
 | ------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------- |
-| <img width="50px" src="	https://user-images.githubusercontent.com/25181517/183568594-85e280a7-0d7e-4d1a-9028-c8c2209e073c.png"> | <img width="50px" src="	https://user-images.githubusercontent.com/25181517/183859966-a3462d8d-1bc7-4880-b353-e2cbed900ed6.png"> | <img width="50px" src="https://user-images.githubusercontent.com/25181517/182884894-d3fa6ee0-f2b4-4960-9961-64740f533f2a.png"> | <img width="50px" src="https://cdn.icon-icons.com/icons2/2415/PNG/512/mongodb_original_logo_icon_146424.png"> |
+| <img width="50px" src="https://user-images.githubusercontent.com/112753481/229047696-de3bf177-16a0-4161-a140-dd89e4fe7b22.png"> | <img width="50px" src="https://user-images.githubusercontent.com/112753481/229047705-ca204e6a-7980-48c8-8ea9-b001e5464304.png"> | <img width="50px" src="https://user-images.githubusercontent.com/25181517/182884894-d3fa6ee0-f2b4-4960-9961-64740f533f2a.png"> | <img width="50px" src="https://cdn.icon-icons.com/icons2/2415/PNG/512/mongodb_original_logo_icon_146424.png"> |
 
 #### Extra :-
 
@@ -64,7 +64,6 @@
 > - Bcrypt <br/>
 > - NodeMailer <br/>
 > - Twilio
-
 ---
 
 <br/>
