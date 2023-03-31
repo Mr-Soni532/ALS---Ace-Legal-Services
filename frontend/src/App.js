@@ -8,6 +8,7 @@ import PageNotFound from './pages/PageNotFound/PageNotFound';
 function App() {
   return (
     <div className="App">
+      {/* <Lawyers /> */}
       <Routes>
         <Route path="/" element={<IndexPage />} />
         <Route path="/appointment" element={<Appointment />} />
