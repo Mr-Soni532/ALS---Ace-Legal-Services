@@ -4,12 +4,13 @@ import "./Footer.css";
 const Footer = () => {
   return (
     <div className="FooterParent">
-      <div className="Footer1">
+      <div className="Footer1" data-aos="fade">
         <div>
           <img
             style={{ width: "280px" }}
             src="Images/FooterImages/ACEyellow.png"
-            alt=""
+            alt="acee"
+            data-aos="fade"
           />
           <br />
           <br />

@@ -1,17 +1,19 @@
 import "./DashNavbar.css";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 const DashNavbar = () => {
   return (
     <div className="DashNavbarParent" data-aos="fade">
       <div>
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          height="48"
-          viewBox="0 96 960 960"
-          width="48"
-        >
-          <path d="M120 816v-60h720v60H120Zm0-210v-60h720v60H120Zm0-210v-60h720v60H120Z" />
-        </svg>
+        <Link to="/">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            height="48"
+            viewBox="0 96 960 960"
+            width="48"
+          >
+            <path d="M120 816v-60h720v60H120Zm0-210v-60h720v60H120Zm0-210v-60h720v60H120Z" />
+          </svg>
+        </Link>
       </div>
       <div className="MainLogo">
         <NavLink to="/">

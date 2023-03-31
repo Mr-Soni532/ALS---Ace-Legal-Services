@@ -38,9 +38,9 @@ const UserProfile = () => {
       </center>
       <div className="UserProfileSecond">
         <Link to="/">Home</Link>
-        <Link to="/">Home</Link>
-        <Link to="/">Home</Link>
-        <Link to="/">Home</Link>
+        <Link to="/">Reminders</Link>
+        <Link to="/">Calendar</Link>
+        <Link to="/">Contact</Link>
       </div>
     </div>
   );
