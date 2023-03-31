@@ -4,11 +4,17 @@ import { Button, Form, Input, Select } from 'antd';
 import { ArrowRightOutlined } from '@ant-design/icons';
 import styles from './hardStyling';
 import { AppointmentContext } from '../../context/appointment/appointmentContext';
+import { useNavigate } from 'react-router-dom';
 const Appointment_form = () => {
     const context  = useContext(AppointmentContext);
-    const {updateAppointmentDetails} = context;
-    function handleForm(e){
-        updateAppointmentDetails(e)
+    const {setDetials} = context;
+    let navigate = useNavigate()
+    
+    function handleForm(formData){
+        setDetials(prev => ({
+            ...prev, ...formData
+        }))
+        navigate('/bookslot')
     }
     return (
         <>
