@@ -1,4 +1,4 @@
-
+/* 
 table{
     width: 100%;
     border-collapse: collapse;
@@ -15,11 +15,10 @@ td{
 }
 td>img{
     width: 30%;
-}
+} */
 .contentConatiner{
-    width:85%;
-    /* border:1px solid yellow; */
-    margin:'auto'
+    margin:auto;
+    border: 2px solid black;
 }
 
 tr:nth-child(even){background-color: #f2f2f2;}

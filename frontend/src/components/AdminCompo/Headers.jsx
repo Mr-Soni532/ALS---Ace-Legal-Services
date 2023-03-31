@@ -9,7 +9,7 @@ const Headers = () => {
   <div className="DashboardHeader">
 
     <img width={70} src={logo}/>
-    <Typography.Title>ALS DASHBOARD</Typography.Title>
+    <Typography.Title>ALS ADMIN PAGE</Typography.Title>
     <Space>
       <Space>
         <UserOutlined style={{fontSize:24,color:'#f9ad00'}}/>

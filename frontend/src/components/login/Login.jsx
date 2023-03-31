@@ -4,6 +4,8 @@ import "./logincomponent.css"
 const Login = () => {
   const [value, setValue] = useState("User Email");
   const [imgpath,setImgPath]=useState("user.jpg");
+  const [email,setEmail]=useState("");
+  const [password,setPassword]=useState("");
   const navigate = useNavigate()
   const handleClick = (str) => {
     setValue(str);
@@ -11,14 +13,39 @@ const Login = () => {
     else if(str==="Lawyer ID" ) setImgPath("lawyerpng.jpg")
     else  setImgPath("admin3png.jpg")
   }
-  const handleSubmit = (check) => {
-    if (check === 'User Email') {
-      console.log('user request....')
+  const signIN = async (data) => {
+		const response = await fetch("http://localhost:4000/user/login", {
+			method: 'POST',
+			headers: {
+				'Content-Type': 'application/json',
+			},
+			body: JSON.stringify({  email: data.email, password: data.password })
+		});
+		const json = await response.json()
+		if (json.status==="success") {
+			localStorage.setItem('token', json.token)
+			alert(json.msg);
+      navigate('/signup')
+		}else{
+      alert(json.msg)
+    }
+	}
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    if (value === 'User Email') {
+      let data={
+        email,
+        password
+      }
+    // console.log(name,password)
+    //   console.log('user request....')
+    signIN(data)
       // navigate("/login")
-    } else if (check === 'Lawyer ID') {
-      console.log('lawyer request....')
+    } else if (value === 'Lawyer ID') {
+      // console.log()
+      console.log('Hello from lawyer')
     } else {
-      console.log('admin request....')
+      console.log('hello from admin')
     }
   }
   return (
@@ -52,14 +79,18 @@ const Login = () => {
         <img src={imgpath} alt="" />
       </div>
       <div>
-        <form className="form" onSubmit={() => handleSubmit(value)}>
+        <form className="form" onSubmit={(event) => handleSubmit(event)}>
           <div className="input-group">
-            <label for="username">{value}</label>
-            <input type="text" name="username" id="username" placeholder="" required/>
+            <label htmlFor="username">{value}</label>
+            <input type="text" name="username" id="username" placeholder="" required onChange={(event) =>
+          setEmail(event.target.value)
+        }/>
           </div>
           <div className="input-group">
-            <label for="password">Password</label>
-            <input type="password" name="password" id="password" placeholder="" required/>
+            <label htmlFor="password">Password</label>
+            <input type="password" name="password" id="password" placeholder="" required onChange={(event) => {
+          setPassword(event.target.value);
+        }}/>
             <div className="forgot">
               <a rel="noopener noreferrer" href="#">Forgot Password ?</a>
             </div>

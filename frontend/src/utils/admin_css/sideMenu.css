@@ -1,18 +1,52 @@
-.icons{
+
+.container{
     display: flex;
-    padding:15px;
-    padding-right: 0px;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.142);
+}
+main{
+    width: 100%;
+    padding: 20px;
+}
+.sidebar{
+    background-color:black;
+    color:white;
+    height: auto;
+    width: 300px;
+    border: 1px solid black;
+}
+.top_section{
+    display: flex;
+    align-items: center;
+    padding: 20px 15px;
+}
+.logo{
+    font-size: 25px;
+}
+.bars{
+    font-size: 25px;
+    display: flex;
+    margin-left: 30px;
+}
+
+.link{
+    display: flex;
+    color: white;
+    padding: 10px 15px;
+    gap:15px;
+    transition: all 0.5s;
+}
+.link:hover{
     cursor: pointer;
-    border-top: 1px solid rgba(0, 0, 0, 0.518);
-    border-left: 1px solid rgb(0, 0, 0);
+    transition: all 0.5s;
+    color: #d6ac01;
+    background: white;
 }
-.icons:first-child{
-    border-top: 1px solid black;
+.active{
+    color: #d6ac01;
+    background-color: white;
 }
-.icons:last-child{
-    border-bottom: 1px solid black;
+.icon{
+    font-size: 20px;
 }
-.icons>div:first-child{
-    color: #f9ad00;
+.link_text{
+    font-size: 18px;
 }
