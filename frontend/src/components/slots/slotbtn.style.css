@@ -1,0 +1,29 @@
+.slot-btn{
+    background-color: yellow;
+    width: 70%;
+    text-align: center;
+    padding: 13px;
+    border-radius: 1rem;
+    /* margin-bottom: 22px; */
+    font-size: 20px;
+    color: rgb(92, 92, 92);
+    cursor: pointer;
+    transition: 0.25s ease-in-out;
+    font-weight: 600;
+    margin: 10px 0;
+    user-select: none;
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+}
+.slot-btn:hover{
+    background: rgba(235, 235, 67, 0.753);
+    color: black;
+}
+
+
+.inactive{
+    pointer-events: none;
+    background: rgb(206, 206, 206);
+    color: rgb(141, 137, 137);
+    border: 1px soild rgb(61, 61, 61);
+    box-shadow: rgba(218, 218, 230, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+}
