@@ -30,12 +30,10 @@ const CarouselM = () => (
             I received a reference for Attorney Brett Riegel after I was
             criminally charged in Bucks County, Pennsylvania. The charges were
             an attempt to take heat off an extremely exclusive gun club whose
-            rich, politically connected members shoot live pigeons for
-            entertainment. The case against me was made up of outrageous lies,
-            but they nonetheless comprised a very potent legal threat. Very few
-            lawyers were willing to go against the local "county good old boys."
+            rich, entertainment. The case against me was made up of outrageous
+            lies, but they nonetheless comprised."
           </p>
-          <h6>- Aman Kumar</h6>
+          <h6>- Vijay Mallya</h6>
         </div>
       </div>
       <div style={contentStyle}>

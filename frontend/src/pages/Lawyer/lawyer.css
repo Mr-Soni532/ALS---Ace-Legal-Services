@@ -1,3 +1,8 @@
 .lawyer-list{
     padding-top: 3rem;
 }
+@media only screen and (max-width: 768px) {
+    .lawyer-list{
+        padding-top: 5rem;
+    }
+}
