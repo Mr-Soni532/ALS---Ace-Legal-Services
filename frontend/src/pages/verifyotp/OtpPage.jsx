@@ -39,7 +39,10 @@ const OtpPage = () => {
     alert("hi");
   };
   return (
-    <div>
+    <div className="OTPPAGE">
+      <Link to="/">
+        <img className="Aclabsolute" src="Images/ACEyellow.png" alt="acelogo" />
+      </Link>
       <form className="otpform" onSubmit={(event) => handleSubmit(event)}>
         <div className="info">
           <span className="otptitle">OTP Verification</span>
