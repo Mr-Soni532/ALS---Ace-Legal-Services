@@ -2,7 +2,7 @@ const bcrypt = require('bcrypt');
 const AdminModel = require('../model/admin.model');
 const LawyerModel = require('../model/lawyer.model');
 const UserModel = require('../model/user.model');
-
+const { default: generatePassword } = require('../utils/generatePassword');
 //! ============> Admin
 exports.fetchAllAdmins = async (req, res) => {
     try {
@@ -29,9 +29,10 @@ exports.addAdmin = async (req, res) => {
         if (admin.length) {
             return res.status(403).json({ Error: "Admin already exsisted!" })
         }
-        bcrypt.hash(password, 10, async (err, hash) => {
+        const newPass = generatePassword();
+        bcrypt.hash(newPass, 10, async (err, hash) => {
             if (err) return res.json({ err: err.message });
-            payload.password = hash;
+            payload['password'] = hash;
             let newAdmin = new AdminModel(payload);
             await newAdmin.save(newAdmin);
             res.status(201).json({ message: 'Admin has been created.' });
@@ -70,13 +71,14 @@ exports.addLawyer = async (req, res) => {
         if (lawyer.length) {
             return res.status(403).json({ Error: "Lawyer already exsisted!" })
         }
-        bcrypt.hash(password, 10, async (err, hash) => {
+        const newPass = generatePassword();
+        bcrypt.hash(newPass, 10, async (err, hash) => {
             if (err) return res.json({ err: err.message });
-            payload.password = hash;
+            payload['password'] = hash;
             let newLawyer = new LawyerModel(payload);
             await newLawyer.save(newLawyer);
             res.status(201).json({ message: 'Lawyer has been created.' });
-            //! Pending password notification
+            //! Pending newPass notification 
         })
     } catch (error) {
         res.status(500).json({ Error: error.message })
