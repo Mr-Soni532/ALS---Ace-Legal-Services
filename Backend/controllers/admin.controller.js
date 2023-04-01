@@ -88,7 +88,7 @@ exports.addLawyer = async (req, res) => {
 exports.deleteLawyer = async (req, res) => {
     try {
         await LawyerModel.findByIdAndDelete(req.params.id)
-        res.status(200).json({ message: 'Lawyer has been removed from cart' });
+        res.status(200).json({ message: 'Lawyer has been removed.' });
     } catch (error) {
         res.status(500).json({ error: error.message })
     }
@@ -116,7 +116,7 @@ exports.fetchUserById = async (req, res) => {
 exports.deleteUser = async (req, res) => {
     try {
         await UserModel.findByIdAndDelete(req.params.id)
-        res.status(200).json({ message: 'User has been removed from cart' });
+        res.status(200).json({ message: 'User has been removed.' });
     } catch (error) {
         res.status(500).json({ error: error.message })
     }
