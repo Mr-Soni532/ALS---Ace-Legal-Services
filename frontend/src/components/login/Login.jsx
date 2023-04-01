@@ -127,6 +127,7 @@ const Login = () => {
           <p className="message">Login with social accounts</p>
           <div className="line"></div>
         </div>
+
         <div className="SocialIcons">
           <div>
             <img
