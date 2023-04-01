@@ -36,7 +36,7 @@ exports.otpEmail = (otp) => {
 }
 
 // < !--!  Sign In Success-- >
-exports.signinSuccess = () => {
+exports.signupSuccess = () => {
   return `<html lang="en">
   <head>
   <meta charset="UTF-8">
