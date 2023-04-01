@@ -15,7 +15,7 @@ const EventVerified = () => {
 
         <div className="EventVerifiedCard">
           <p className="appverified">
-            Appointment Verified &nbsp;
+            Appointment Review &nbsp;
             <img className="tick" src="Images/verified.png" alt="Tick" />
           </p>
           <hr />

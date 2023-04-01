@@ -25,6 +25,18 @@ const LawyerFilterer = () => {
         <div>
           <label for="csv">
             <input type="radio" name="format" id="csv" value="csv" />
+            Criminal Laywer
+          </label>
+        </div>
+        <div>
+          <label for="csv">
+            <input type="radio" name="format" id="csv" value="csv" />
+            Criminal
+          </label>
+        </div>
+        <div>
+          <label for="csv">
+            <input type="radio" name="format" id="csv" value="csv" />
             Criminal
           </label>
         </div>
