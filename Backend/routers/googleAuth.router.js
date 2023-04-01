@@ -23,7 +23,7 @@ GoogleRouter.get("/login/success", (req, res) => {
   
   GoogleRouter.get("/logout", (req, res) => {
     req.logout();
-    res.redirect("http://localhost:3001/");
+    res.redirect("http://localhost:3000/");
   });
   
   GoogleRouter.get("/google", passport.authenticate('google', { scope: ['profile','email'] }));
@@ -31,7 +31,7 @@ GoogleRouter.get("/login/success", (req, res) => {
   GoogleRouter.get(
     "/google/callback",
     passport.authenticate("google", {
-      successRedirect: "http://localhost:3001/userdashboard",
+      successRedirect: "http://localhost:3000/userdashboard",
       failureRedirect: "/auth/login/failed",
     })
   );
