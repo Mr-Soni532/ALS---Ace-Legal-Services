@@ -1,0 +1,20 @@
+.contentConatiner {
+  margin: auto;
+  border: 2px solid black;
+}
+
+tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+.action {
+  padding: 0px 30px;
+}
+
+.peginationBtn {
+  margin-top: 10px;
+  padding: 8px 15px;
+  background-color: #be8807;
+  border: none;
+  color: white;
+  border-radius: 5px;
+}
