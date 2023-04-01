@@ -101,7 +101,7 @@
   font-size: 0.75rem;
   line-height: 1rem;
   color: rgba(156, 163, 175, 1);
-  margin: 8px 0 14px 0;
+  margin: 8px 0 0 0;
 }
 
 .forgot a,
@@ -174,4 +174,14 @@
 .userpng img {
   border-radius: 5rem;
   width: 5rem;
+}
+.forgotpassbtn {
+  padding: 0px !important;
+  margin: 0px !important;
+  border: none !important
+  ;
+}
+div,
+section {
+  border: 1px solid black;
 }

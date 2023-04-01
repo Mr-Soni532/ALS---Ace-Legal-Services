@@ -2,7 +2,9 @@
   margin: auto;
   display: flex;
   align-items: center;
+  justify-content: center;
   flex-direction: column;
+  height: 100vh;
   gap: 10px;
   width: 30%;
   background-color: #fff;
@@ -69,11 +71,15 @@
   color: #ffd41f;
 }
 
+.SocialIcons {
+  width: 90%;
+}
 .SocialIcons > div {
   margin: 5px;
   cursor: pointer;
   display: flex;
   z-index: 1;
+  width: 100%;
   background-color: white;
   padding: 6px 30px;
   border-radius: 5px;

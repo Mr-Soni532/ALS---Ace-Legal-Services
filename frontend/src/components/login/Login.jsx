@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import ForgotModal from "./ForgotModal";
 
 const Login = () => {
   const [value, setValue] = useState("User Email");
@@ -22,6 +23,7 @@ const Login = () => {
       },
       body: JSON.stringify({ email: data.email, password: data.password }),
     });
+
     const json = await response.json();
     if (json.status === "success") {
       localStorage.setItem("token", json.token);
@@ -113,9 +115,9 @@ const Login = () => {
             />
 
             <div className="forgot">
-              <Link rel="noopener noreferrer" className="yellohover" to="/">
-                Forgot Password ?
-              </Link>
+              <div rel="noopener noreferrer" className="yellohover">
+                <ForgotModal />
+              </div>
             </div>
           </div>
           <button className="signInBtn" type="submit">
