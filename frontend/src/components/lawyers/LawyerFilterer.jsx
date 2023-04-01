@@ -10,7 +10,7 @@ const LawyerFilterer = () => {
   });
 
   return (
-    <div className="LawyerFilterer">
+    <div className="LawyerFilterer" data-aos="fade-up">
       <h1>Filter Lawyers by :</h1>
       <br />
       <hr />
@@ -22,6 +22,7 @@ const LawyerFilterer = () => {
             name="format"
             id="cdll"
             value="Criminal Defense Lawyer"
+            defaultChecked
           />
           <label for="cdll">Criminal Defense Lawyer</label>
         </div>

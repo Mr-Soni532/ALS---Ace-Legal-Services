@@ -19,7 +19,12 @@ const LawyerCard = (data) => {
   }
 
   return (
-    <div data-id={props.id} onClick={printdataid} className="lawyer-card">
+    <div
+      data-id={props.id}
+      onClick={printdataid}
+      className="lawyer-card"
+      data-aos="fade-right"
+    >
       <div className="card">
         <div className="name-div">
           <h1>
