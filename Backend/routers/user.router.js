@@ -10,9 +10,9 @@ UserRouter.post("/signup",controller.createUser);
 UserRouter.post("/login",controller.userLogin);
 UserRouter.post("/verifyOTP",controller.verifyOTP);
 UserRouter.patch("/forgotpassword",controller.forgotPassword);
-UserRouter.get("/getaUserDataByEmail",controller.getaUserDataByEmail);
+UserRouter.get("/getaUserDataByEmail",authorization,controller.getaUserDataByEmail);
 
 // appointment
-UserRouter.get("/addAppointment",appointmentController.addAppointment);
+UserRouter.get("/addAppointment",authorization,appointmentController.addAppointment);
 
 module.exports = UserRouter;
