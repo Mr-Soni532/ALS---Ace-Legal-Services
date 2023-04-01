@@ -2,34 +2,51 @@ import React, { useState } from "react";
 import { Button, Modal } from "antd";
 
 const ForgotModal = () => {
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [open, setOpen] = useState(false);
 
   const showModal = () => {
-    setIsModalOpen(true);
+    setOpen(true);
   };
 
   const handleOk = () => {
-    setIsModalOpen(false);
+    setLoading(true);
+    setTimeout(() => {
+      setLoading(false);
+      setOpen(false);
+    }, 3000);
   };
 
   const handleCancel = () => {
-    setIsModalOpen(false);
+    setOpen(false);
   };
 
   return (
     <>
       <Button className="forgotpassbtn" onClick={showModal}>
-        Forgot Password ?
+        Forgot Password?
       </Button>
       <Modal
-        title="Basic Modal"
-        open={isModalOpen}
+        open={open}
+        title="Reset Password with Email"
         onOk={handleOk}
         onCancel={handleCancel}
+        footer={[
+          <Button key="back" onClick={handleCancel}>
+            Return
+          </Button>,
+          <Button
+            key="submit"
+            type="primary"
+            loading={loading}
+            onClick={handleOk}
+          >
+            Submit
+          </Button>,
+        ]}
       >
-        <p>Some contents...</p>
-        <p>Some contents...</p>
-        <p>Some contents...</p>
+        <p>Email</p>
+        <input className="InputModalt" type="text" placeholder="Enter Email" />
       </Modal>
     </>
   );
