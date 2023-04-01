@@ -4,6 +4,9 @@ import { Link, useNavigate } from "react-router-dom";
 const Login = () => {
   const [value, setValue] = useState("User Email");
   const [imgpath, setImgPath] = useState("Images/Signup/avatar.png");
+  let [email, setEmail] = useState("");
+
+  let [password, setPassword] = useState("");
   const navigate = useNavigate();
   const handleClick = (str) => {
     setValue(str);
@@ -11,14 +14,39 @@ const Login = () => {
     else if (str === "Lawyer ID") setImgPath("Images/Signup/lawyerpng.jpg");
     else setImgPath("Images/Signup/adminpng.png");
   };
-  const handleSubmit = (check) => {
-    if (check === "User Email") {
-      console.log("user request....");
-      navigate("/login");
-    } else if (check === "Lawyer ID") {
-      console.log("lawyer request....");
+  const signIN = async (data) => {
+    const response = await fetch("http://localhost:4000/user/login", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ email: data.email, password: data.password }),
+    });
+    const json = await response.json();
+    if (json.status === "success") {
+      localStorage.setItem("token", json.token);
+      alert(json.msg);
+      navigate("/signup");
     } else {
-      console.log("admin request....");
+      alert(json.msg);
+    }
+  };
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    if (value === "User Email") {
+      let data = {
+        email,
+        password,
+      };
+      // console.log(name,password)
+      //   console.log('user request....')
+      signIN(data);
+      // navigate("/login")
+    } else if (value === "Lawyer ID") {
+      // console.log()
+      console.log("Hello from lawyer");
+    } else {
+      console.log("hello from admin");
     }
   };
   return (
@@ -57,12 +85,13 @@ const Login = () => {
         <img src={imgpath} alt="" />
       </div>
       <div>
-        <form className="form" onSubmit={() => handleSubmit(value)}>
+        <form className="form" onSubmit={(event) => handleSubmit(event)}>
           <div className="input-group">
             <label for="username" className="fontweightfive">
               {value}
             </label>
             <input
+              onChange={(e) => setEmail(e.target.value)}
               type="text"
               name="username"
               id="username"
@@ -75,12 +104,14 @@ const Login = () => {
               Password
             </label>
             <input
+              onChange={(e) => setPassword(e.target.value)}
               type="password"
               name="password"
               id="password"
               placeholder="Password"
               required
             />
+
             <div className="forgot">
               <Link rel="noopener noreferrer" className="yellohover" to="/">
                 Forgot Password ?

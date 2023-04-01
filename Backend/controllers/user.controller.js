@@ -17,6 +17,7 @@ exports.createUser = (req, res) => {
         .then((result) => {
             if (result.length) {
                 res.json(
+
                     { Message: "you are already available , please login" }
                 )
             } else {
@@ -31,11 +32,13 @@ exports.createUser = (req, res) => {
                             .save()
                             .then((result) => {
                                 sendOTPVerificationEmail(result, res);
+                                // res.send({"status":"success","msg":"Sign up Successfull"});
                             })
                             .catch((err) => {
                                 console.log(err);
                                 res.json({
                                     status: "FAILED",
+                                    msg:"Sign Up Failed"
                                 })
                             })
                     })
@@ -43,6 +46,7 @@ exports.createUser = (req, res) => {
                         console.log(err);
                         res.json({
                             status: "FAILED",
+                            msg:"Sign Up Failed"
                         })
                     })
             }
@@ -77,8 +81,15 @@ exports.userLogin = async (req, res) => {
             if (err) {
                 res.send({ Message: "Password is incorrect" })
             }
-            const token = jwt.sign({ id: userid }, "ALS");
-            res.send({ Message: "login successful", "token": token, status: "success", "name": username })
+
+            if(result){
+                const token = jwt.sign({ id: userid }, "ALS");
+                res.send({ msg: "login successful", "token": token, status: "success", "name": username })
+            }else{
+                res.send({msg:"login failed",status:"error"})
+            }
+            
+
         })
     }
     else {
@@ -104,7 +115,7 @@ const sendOTPVerificationEmail = async ({ _id, email }, res) => {
         const saltRounds = 10;
         let hashedOTP = await bcrypt.hash(otp, saltRounds);
         let newOTPVerification = await new UserOTP({
-            userId: _id,
+            _id,
             otp: hashedOTP,
             createdAt: Date.now(),
             expireAt: Date.now() + 3600000
@@ -113,7 +124,7 @@ const sendOTPVerificationEmail = async ({ _id, email }, res) => {
         await transporter.sendMail(mailOptions);
         res.json({
             status: "Pending",
-            message: "Verification otp email sent",
+            msg: "Verification otp email sent",
             data: {
                 userId: _id,
                 email
@@ -130,22 +141,22 @@ exports.verifyOTP = async (req, res) => {
     try {
         let { userId, otp } = req.body;
         if (!userId || !otp) {
-            res.send("Some of the fields are missing ")
+            res.send({msg:"Some of the fields are missing "})
         } else {
             let userRecords = await UserOTP.find({ userId });
             let hashedOTP = userRecords[0].otp;
             if (userRecords.length <= 0) {
-                res.send("Account record doesn't exist or has already been verified");
+                res.send({msg:"Account record doesn't exist or has already been verified"});
             } else {
                 let validOTP = await bcrypt.compare(otp, hashedOTP);
                 if (!validOTP) {
-                    res.send("otp is wrong")
+                    res.send({msg:"otp is wrong"})
                 } else {
                     await UserSchema.findByIdAndUpdate({ _id: userId }, payload);
                     await UserOTP.deleteMany({ userId });
                     res.json({
                         status: 'VERIFIED',
-                        message: "Email Successfully Verified"
+                        msg: "Email Successfully Verified"
                     })
 
                 }
@@ -156,6 +167,40 @@ exports.verifyOTP = async (req, res) => {
             status: 'FAILED',
             error: error.message
         })
+    }
+}
+
+exports.forgotPassword = async(req,res)=>{
+    let {email}=req.body;
+    let url="https://genuine-gumdrop-3d4c31.netlify.app/"
+    try {
+        const mailOptions = {
+            from: "ace.legal.services.official@gmail.com",
+            to: email,
+            subject: "Reset Password",
+            html: `<p>Click <a href=${url}>here</a> to reset your password</p> `// html body
+            
+        };
+        await transporter.sendMail(mailOptions);
+        res.json({
+           msg:"Password change link is sended",
+           Status:"Success",
+        })
+    } catch (error) {
+        res.json(error)
+    }
+}
+exports.getaUserDataByEmail=async (req,res)=>{
+    let email=req.query.email;
+    try {
+        let userData=await UserSchema.findOne({email});
+        if(userData){
+        res.send({msg:"User Found",userData})
+        }else{
+            res.send({msg:"Not Found UserData for this Email"})
+        }
+    } catch (error) {
+        res.send({msg:"Some error"})
     }
 }
 

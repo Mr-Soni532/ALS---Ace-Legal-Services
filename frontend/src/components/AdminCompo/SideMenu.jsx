@@ -1,56 +1,68 @@
-import { Menu } from "antd";
-import { GiHamburgerMenu} from 'react-icons/gi';
-import { AiFillHome , AiOutlineUserAdd } from 'react-icons/ai';
-import {RiAdminFill} from 'react-icons/ri';
-import {FaUserGraduate} from 'react-icons/fa'
-import React, { useState } from "react";
+
+import { FaBars, FaTh, FaUserAlt } from 'react-icons/fa';
+import { AiOutlineUserAdd } from 'react-icons/ai';
+import { RiAdminFill } from 'react-icons/ri';
+import { FaUserGraduate } from 'react-icons/fa'
+import { NavLink } from "react-router-dom";
 import "../../utlis/admin_css/sideMenu.css"
-import { useNavigate } from "react-router-dom";
-
-const SideMenu = () => {
-  const [ show, setShow]  = useState(false)
-  const navigate = useNavigate()
-  const [state, setState] = useState(false)
-
-  const arr = [
-    {elemnt:<AiFillHome/>,title:'Dashboard',key:'/'},
-    {elemnt:<RiAdminFill/>,title:'Admin',key:'/admin'},
-    {elemnt:<AiOutlineUserAdd/>,title:'User',key:'/Client'},
-    {elemnt:<FaUserGraduate/>,title:'Lawyer',key:'/lawyer'}
+import React,{ useState } from 'react';
+// import { useContext } from "react";
+// import NormalContext from '../../context/Admin_page/normalFun/functioncontext';
+let open = false
+const SideMenu = ({children}) => {
+  const menuItem = [
+    {
+      path: '/',
+      name: 'Dashboard',
+      icon: <FaTh />
+    },
+    {
+      path: '/about',
+      name: 'About',
+      icon: <FaUserAlt />
+    },
+    {
+      path: '/admin',
+      name: 'Admin',
+      icon: <RiAdminFill />,
+    },
+    {
+      path: '/client',
+      name: 'User',
+      icon: <AiOutlineUserAdd />,
+    },
+    {
+      path: '/lawyer',
+      name: 'Lawyer',
+      icon: <FaUserGraduate />,
+    },
   ]
-
-  const routekey = (el)=>{
-    navigate(el.key)
-  }
-
-  const hideShow = ()=>{
-  }
-
+  const [isOpen,setOpen]=useState(false)
+  const toggle = () => {setOpen(!isOpen); open=isOpen}
   return (
-  <div style={{width:'15%'}} >
-    <div className="icons"><div><GiHamburgerMenu onClick={hideShow}  style={{paddingRight:'13px'}}/></div> <div>Menu</div></div>
-    {arr.map((el,i)=>{
-      return (
-      <>
-      <div className="icons" key={i} onClick={()=>{routekey(el)}}> <div style={{paddingRight:'13px'}}>{el.elemnt}</div> <div>{el.title}</div></div>
-      </>
-      )
-    })}
-  </div>
+    <div className="container">
+      <div style={{width:isOpen?'250px':'50px'}} className="sidebar">
+        <div className="top_section">
+          <h1 className="logo" style={{display:isOpen?'block':'none'}}>Logo</h1>
+          <div style={{marginLeft:isOpen?'50px':'0px'}} className='bars'>
+            <FaBars onClick={toggle}/>
+          </div>
+        </div>
+        {menuItem.map((el, i) => {
+          return <NavLink to={el.path} key={i} className={"link"} activeClassname='active'>
+            <div className="icon">{el.icon}</div>
+            <div style={{display:isOpen?'block':'none'}} className="link_text">{el.name}</div>
+          </NavLink>
+        })}
+      </div>
+      <main>{children}</main>
+    </div>
   )
-};
+}
 
+function openornot(){
+  return open
+}
 export default SideMenu;
 
-
-// style={{color: 'red'}}
-// style={{borderBottom:'1px solid grey',padding:'20px'}}
-{/* <MenuFoldOutlined/> */}
-{/* <Menu onClick={(item)=>{navigate(item.key)}} items={
-        [
-          {label:"Home",icon:<AppstoreOutlined/>,key:"/"},
-          {label:"Lawyers",icon:<UserOutlined/>,key:"/lawyer"},
-          {label:"Client",icon:<UserOutlined/>,key:"/client"}
-        ]
-}>
-</Menu> */}
+// activeClassname='active'

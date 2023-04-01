@@ -6,9 +6,12 @@ import Appointment from './pages/appointment/Appointment';
 import Lawyers from './pages/Lawyer/Lawyers';
 import UserDashboard from './pages/User_Dashboard/UserDashboard';
 import PageNotFound from './pages/PageNotFound/PageNotFound';
+import BookSlot from './pages/BookSlot/BookSlot';
 import LoginPage from './pages/Login/LoginPage';
 import SignUpPage from './pages/signup/signupPage';
 import EventVerified from './pages/EventVerified/EventVerified';
+import OtpPage from './pages/verifyotp/OtpPage';
+
 function App() {
   return (
     <div className="App">
@@ -20,9 +23,13 @@ function App() {
         <Route path="/login" element={<LoginPage />} />
         <Route path="/signup" element={<SignUpPage />} />
         <Route path="/eventverified" element={<EventVerified />} />
+        <Route path="/bookslot" element={<BookSlot />} />
+        <Route path='/login' element={<LoginPage />} />
+        <Route path='/signup' element={<SignUpPage />} />
+        <Route path='/verifyOTP' element={<OtpPage />} />
         <Route path="*" element={<PageNotFound />} />
       </Routes>
-    </div >
+    </div>
   );
 
 }
