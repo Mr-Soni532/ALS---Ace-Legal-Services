@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 import "./signupPage.css";
-import { Link, Navigate } from "react-router-dom";
+import { Link, Navigate, useNavigate } from "react-router-dom";
 const SignUpPage = () => {
   let [name, setName] = useState("");
   let [email, setEmail] = useState("");
   let [phone, setPhone] = useState("");
   let [gender, setGender] = useState("");
   let [password, setPassword] = useState("");
-
+  const navigate = useNavigate()
   const signUp = async (data) => {
     const response = await fetch("http://localhost:4000/user/signup", {
       method: "POST",
@@ -17,10 +17,10 @@ const SignUpPage = () => {
       body: JSON.stringify(data),
     });
     const json = await response.json();
-    console.log(json);
+    localStorage.setItem("userId",json.data.userId)
     if (json.status === "Pending") {
       alert(json.msg);
-      Navigate("/verifyOTP");
+      navigate("/verifyOTP");
     } else {
       alert(json.msg);
     }
