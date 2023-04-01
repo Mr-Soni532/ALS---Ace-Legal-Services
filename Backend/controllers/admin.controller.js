@@ -52,7 +52,7 @@ exports.addAdmin = async (req, res) => {
             res.status(201).json({ message: 'Admin has been created.' });
 
             //! sending account details notification
-            sendEmail(payload.email, newPass)
+            sendEmail(emailTemplate(payload.email, newPass))
         })
     } catch (error) {
         res.status(500).json({ Error: error.message })
@@ -94,9 +94,9 @@ exports.addLawyer = async (req, res) => {
             let newLawyer = new LawyerModel(payload);
             await newLawyer.save(newLawyer);
             res.status(201).json({ message: 'Lawyer has been created.' });
-            
+
             //! sending account details notification
-            sendEmail(payload.email, newPass)
+            sendEmail(emailTemplate(payload.email, newPass))
 
         })
     } catch (error) {
