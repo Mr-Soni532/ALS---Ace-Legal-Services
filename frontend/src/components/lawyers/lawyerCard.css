@@ -2,46 +2,6 @@
   margin: 0;
 }
 
-.lawyer-card {
-  /* display: flex;
-  flex-direction: column;
-  /* justify-content: center; */
-  /* align-items: center; */
-}
-
-/* .card {
-  display: grid;
-  grid-template-columns: 3fr 1fr;
-  grid-template-rows: 1fr 1fr 0.5fr;
-  gap: 0px 0px;
-  grid-auto-flow: row;
-  grid-template-areas:
-    "name pic"
-    "skills pic"
-    "language pic";
-  border: 1px solid #f1eded;
-  height: 250px;
-  padding: 1rem 2rem;
-  width: 70%;
-  background: #fcfcfc;
-  margin-top: 2rem;
-  border-radius: 20px;
-  box-shadow: rgba(159, 159, 241, 0.05) 0px 1px 0px,
-    rgba(72, 72, 207, 0.1) 0px 0px 8px;
-} */
-.lawyer-card {
-  display: flex;
-  flex-direction: column;
-  /* justify-content: center; */
-  align-items: center;
-}
-
-.lawyer-card {
-  display: flex;
-  flex-direction: column;
-  /* justify-content: center; */
-  align-items: center;
-}
 .card {
   display: grid;
   gap: 0px 0px;
@@ -51,18 +11,18 @@
     "skills pic"
     "language pic";
   border: 1px solid #f1eded;
-  height: 250px;
+  height: auto;
   display: grid;
   grid-template-columns: 3fr 1fr;
   grid-template-rows: auto auto auto auto;
   border: 1px solid #f1eded;
   padding: 1rem 2rem;
-  width: 70%;
+  width: 100%;
   background: #fcfcfc;
   margin-top: 2rem;
-  border-radius: 20px;
-  box-shadow: rgba(159, 159, 241, 0.05) 0px 1px 0px, rgba(72, 72, 207, 0.1) 0px 0px 8px;
-  transition: all .4s;
+  border-radius: 7px;
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px;
+  transition: all 0.4s;
   cursor: pointer;
 }
 
@@ -105,15 +65,13 @@
 }
 
 .skill {
-  background: #cfebf5;
-  border: 1px solid #83d9f8;
+  background: #ffd83e;
+  border: 1px solid #ffffff;
   border-radius: 18px;
-  /* padding: 3px 16px 5px; */
-  padding: .8% 2.4%;
+  padding: 0.4% 2.4%;
 }
 
 .languages {
-  /* grid-area: languages; */
   grid-column: 1/2;
   grid-row: 4/5;
   display: flex;
@@ -124,7 +82,7 @@
   background: #f5e7cf;
   border: 1px solid #f8e183;
   border-radius: 18px;
-  padding: 3px 16px 5px;
+  padding: 0.4% 2.4%;
 }
 
 .profile-pic {
@@ -140,38 +98,31 @@
   /* height: 200px; */
 }
 
-.pic>img {
+.pic > img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   border-radius: 50%;
 }
 
-
-.pic>img {
-
+.pic > img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   border-radius: 50%;
 }
-
-/* -------------  Search Bar CSS --------------------- */
-
-=======
-
-
 
 /* -------------  Search Bar CSS --------------------- */
 
 .search-bar {
-  position: fixed;
-  top: 0;
+  position: static;
+  top: 100px;
   width: 100%;
   background: #ffffff;
-
-  padding: .5rem;
-  box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 1px, rgba(0, 0, 0, 0.07) 0px 2px 2px, rgba(0, 0, 0, 0.07) 0px 4px 4px, rgba(0, 0, 0, 0.07) 0px 4px 4px, rgba(0, 0, 0, 0.07) 0px 16px 16px;
+  padding: 0.5rem;
+  box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 1px, rgba(0, 0, 0, 0.07) 0px 2px 2px,
+    rgba(0, 0, 0, 0.07) 0px 4px 4px, rgba(0, 0, 0, 0.07) 0px 4px 4px,
+    rgba(0, 0, 0, 0.07) 0px 16px 16px;
 
   z-index: 99;
   display: flex;
@@ -179,26 +130,33 @@
   justify-content: center;
   gap: 4rem;
 }
-/*
-  .search-bar input{
-    font-size: 22px;
-    font-weight: 400;
-    color: #757575;
-    border: 1px solid rgb(186, 188, 190);
-    outline: none;
-    padding: .5rem 1rem;
-    width: 50%;
-    border-radius: 20px;
-    position: relative;
-    left: 50%;
-    transform: translateX(-50%);
-  }
 
-  .search-bar input::placeholder{
-    font-size: 18px;
-    color: #9b9b9b;
-    font-weight: 100;
-  } */
+.search-bar input {
+  font-size: 22px;
+  font-weight: 400;
+  color: #757575;
+  border: 1px solid rgb(186, 188, 190);
+  outline: none;
+  padding: 0.5rem 1rem;
+  width: 100%;
+  border-radius: 20px;
+  position: relative;
+  left: 50%;
+  transition: all 300ms ease-in-out;
+  transform: translateX(-50%);
+}
+
+.search-bar input:focus,
+.search-bar input:hover {
+  border: 1px solid yellow;
+  box-shadow: none !important;
+  width: 110%;
+}
+.search-bar input::placeholder {
+  font-size: 18px;
+  color: #9b9b9b;
+  font-weight: 200;
+}
 
 .group {
   display: flex;
@@ -222,7 +180,6 @@
   background-color: #f3f3f4;
   color: #0d0c22;
   transition: 0.3s ease;
-
 }
 
 .input::placeholder {
@@ -278,9 +235,7 @@ input:hover {
   width: 1px;
 }
 
-
-.mydict input[type="radio"]:checked+span {
-
+.mydict input[type="radio"]:checked + span {
   box-shadow: 0 0 0 0.0625em #0043ed;
   background-color: #dee7ff;
   z-index: 1;
@@ -291,22 +246,34 @@ label span {
   display: block;
   cursor: pointer;
   background-color: #fff;
-  padding: 0.375em .75em;
+  padding: 0.375em 0.75em;
   position: relative;
-  margin-left: .0625em;
+  margin-left: 0.0625em;
   box-shadow: 0 0 0 0.0625em #b5bfd9;
-  letter-spacing: .05em;
+  letter-spacing: 0.05em;
   color: #3e4963;
   text-align: center;
-  transition: background-color .5s ease;
+  transition: background-color 0.5s ease;
 }
-
+.searchDot {
+  position: absolute;
+  opacity: 0.5;
+  top: 20%;
+  right: 5%;
+  width: 20px;
+}
 label:first-child span {
-  border-radius: .375em 0 0 .375em;
+  border-radius: 0.375em 0 0 0.375em;
+}
+.mydict input[type="radio"]:checked + span {
+  box-shadow: 0 0 0 0.0625em #edcd00;
+  background-color: #fdffde;
+  z-index: 1;
+  color: #000000;
 }
 
 label:last-child span {
-  border-radius: 0 .375em .375em 0;
+  border-radius: 0 0.375em 0.375em 0;
 }
 
 @media only screen and (max-width: 768px) {
@@ -316,7 +283,6 @@ label:last-child span {
 
   .card {
     width: 96%;
-
   }
 
   .profile-pic {
@@ -329,12 +295,10 @@ label:last-child span {
 
   .skills-div {
     grid-column: 1/3;
-
   }
 
   .languages {
     grid-column: 1/3;
-
   }
 
   .search-bar {

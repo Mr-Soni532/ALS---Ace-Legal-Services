@@ -25,10 +25,18 @@ const DashNavbar = () => {
         </NavLink>
       </div>
       <div className="DashNavMenu">
-        <NavLink className="buttonunderline">Dashboard</NavLink>
-        <NavLink className="buttonunderline">Services</NavLink>
-        <NavLink className="buttonunderline">Search</NavLink>
-        <NavLink className="buttonunderline">Contact Us</NavLink>
+        <NavLink to="/userdashboard" className="buttonunderline">
+          Dashboard
+        </NavLink>
+        <NavLink to="/userdashboard" className="buttonunderline">
+          Services
+        </NavLink>
+        <NavLink to="/userdashboard" className="buttonunderline">
+          Search
+        </NavLink>
+        <NavLink to="/userdashboard" className="buttonunderline">
+          Contact Us
+        </NavLink>
       </div>
       <div className="logoutarea">
         <NavLink>
