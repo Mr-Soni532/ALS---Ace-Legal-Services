@@ -38,7 +38,7 @@ exports.createUser = (req, res) => {
                                 console.log(err);
                                 res.json({
                                     status: "FAILED",
-                                    msg:"Sign Up Failed"
+                                    msg: "Sign Up Failed"
                                 })
                             })
                     })
@@ -46,27 +46,11 @@ exports.createUser = (req, res) => {
                         console.log(err);
                         res.json({
                             status: "FAILED",
-                            msg:"Sign Up Failed"
+                            msg: "Sign Up Failed"
                         })
                     })
             }
         })
-    // const userAvailable = await UserSchema.findOne({ email });
-    // if (userAvailable) {
-    //     res.send({ Message: "you are already available , please login" })
-    // }
-    // bcrypt.hash(password, 5, async (err, hash) => {
-    //     if (err) {
-    //         res.send({ Message: "something is wrong", status: "error" })
-    //     }
-    //     const user = new UserSchema({ name, gender, email, phone, password: hash,verified:false });
-    //     await user.save()
-    //         .then((result) => {
-    //             sendOTPVerificationEmail(result,res);
-    //             // console.log(result);
-    //         });
-    //     res.send({ Message: "signup successful", status: "success" })
-    // })
 }
 exports.userLogin = async (req, res) => {
     const { email, password } = req.body;
@@ -82,13 +66,13 @@ exports.userLogin = async (req, res) => {
                 res.send({ Message: "Password is incorrect" })
             }
 
-            if(result){
+            if (result) {
                 const token = jwt.sign({ id: userid }, "ALS");
                 res.send({ msg: "login successful", "token": token, status: "success", "name": username })
-            }else{
-                res.send({msg:"login failed",status:"error"})
+            } else {
+                res.send({ msg: "login failed", status: "error" })
             }
-            
+
 
         })
     }
@@ -141,16 +125,16 @@ exports.verifyOTP = async (req, res) => {
     try {
         let { userId, otp } = req.body;
         if (!userId || !otp) {
-            res.send({msg:"Some of the fields are missing "})
+            res.send({ msg: "Some of the fields are missing " })
         } else {
             let userRecords = await UserOTP.find({ userId });
             let hashedOTP = userRecords[0].otp;
             if (userRecords.length <= 0) {
-                res.send({msg:"Account record doesn't exist or has already been verified"});
+                res.send({ msg: "Account record doesn't exist or has already been verified" });
             } else {
                 let validOTP = await bcrypt.compare(otp, hashedOTP);
                 if (!validOTP) {
-                    res.send({msg:"otp is wrong"})
+                    res.send({ msg: "otp is wrong" })
                 } else {
                     await UserSchema.findByIdAndUpdate({ _id: userId }, payload);
                     await UserOTP.deleteMany({ userId });
@@ -170,37 +154,37 @@ exports.verifyOTP = async (req, res) => {
     }
 }
 
-exports.forgotPassword = async(req,res)=>{
-    let {email}=req.body;
-    let url="https://genuine-gumdrop-3d4c31.netlify.app/"
+exports.forgotPassword = async (req, res) => {
+    let { email } = req.body;
+    let url = "https://genuine-gumdrop-3d4c31.netlify.app/"
     try {
         const mailOptions = {
             from: "ace.legal.services.official@gmail.com",
             to: email,
             subject: "Reset Password",
             html: `<p>Click <a href=${url}>here</a> to reset your password</p> `// html body
-            
+
         };
         await transporter.sendMail(mailOptions);
         res.json({
-           msg:"Password change link is sended",
-           Status:"Success",
+            msg: "Password change link is sended",
+            Status: "Success",
         })
     } catch (error) {
         res.json(error)
     }
 }
-exports.getaUserDataByEmail=async (req,res)=>{
-    let email=req.query.email;
+exports.getaUserDataByEmail = async (req, res) => {
+    let email = req.query.email;
     try {
-        let userData=await UserSchema.findOne({email});
-        if(userData){
-        res.send({msg:"User Found",userData})
-        }else{
-            res.send({msg:"Not Found UserData for this Email"})
+        let userData = await UserSchema.findOne({ email });
+        if (userData) {
+            res.send({ msg: "User Found", userData })
+        } else {
+            res.send({ msg: "Not Found UserData for this Email" })
         }
     } catch (error) {
-        res.send({msg:"Some error"})
+        res.send({ msg: "Some error" })
     }
 }
 

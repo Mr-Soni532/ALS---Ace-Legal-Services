@@ -68,22 +68,22 @@
 #### User Routes :-
 
 ```
-POST    /signup
-POST    /login
-POST    /verifyOTP
-PATCH   /forgotpassword
-GET     /getaUserDataByEmail
-GET     /addAppointment
+POST    /user/signup
+POST    /user/login
+POST    /user/verifyOTP
+PATCH   /user/forgotpassword
+GET     /user/getaUserDataByEmail
+GET     /user/addAppointment
 
 ```
 
 #### Lawyer Routes :-
 
 ```
-POST    /login
-PATCH   /forgotpassword
-GET     /getaUserDataByEmail
-GET     /deleteAppointment
+POST    /lawyer/login
+PATCH   /lawyer/forgotpassword
+GET     /lawyer/getaUserDataByEmail
+GET     /lawyer/deleteAppointment
 
 ```
 
@@ -91,21 +91,21 @@ GET     /deleteAppointment
 
 ```
 // Admin
-GET     /getAllAdmins
-GET     /getAdmin/:id
-POST    /addAdmin
+GET     /admin/getAllAdmins
+GET     /admin/getAdmin/:id
+POST    /admin/addAdmin
 
 // Lawyer
-GET     /getAllLawyers
-GET     /getLawyer/:id
-POST    /addLawyer
-DELETE  /deleteLawyer/:id
-POST    /postAllLawyers
+GET     /admin/getAllLawyers
+GET     /admin/getLawyer/:id
+POST    /admin/addLawyer
+DELETE  /admin/deleteLawyer/:id
+POST    /admin/postAllLawyers
 
 // User
-GET     /getAllUsers
-GET     /getUser/:id
-DELETE  /deleteUser/:id
+GET     /admin/getAllUsers
+GET     /admin/getUser/:id
+DELETE  /admin/deleteUser/:id
 
 ```
 
