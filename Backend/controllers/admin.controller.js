@@ -46,10 +46,22 @@ exports.addAdmin = async (req, res) => {
 
 //! ============> Lawyer
 exports.fetchAllLawyer = async (req, res) => {
-
+    try {
+        const lawyer = await LawyerModel.find();
+        res.send(lawyer);
+    } catch (error) {
+        res.status(500).json({ error: error.message })
+        console.log(error)
+    }
 }
 exports.fetchLawyerById = async (req, res) => {
-
+    try {
+        const lawyer = await LawyerModel.findById(req.params.id);
+        res.send(lawyer);
+    } catch (error) {
+        res.status(500).json({ error: error.message })
+        console.log(error)
+    }
 }
 exports.addLawyer = async (req, res) => {
     const payload = req.body;
