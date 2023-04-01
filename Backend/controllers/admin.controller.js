@@ -3,17 +3,18 @@ const AdminModel = require('../model/admin.model');
 const LawyerModel = require('../model/lawyer.model');
 const UserModel = require('../model/user.model');
 const nodemailer = require("nodemailer");
-const generatePassword=require("../utils/generatePassword.js")
-
+const generatePassword = require("../utils/generatePassword.js")
+const emailTemplate = require('../utils/email-templates.js');
+const sendEmail = require('../utils/notificaton.js');
 //! ============> NodeMailer utils
 
-const transporter = nodemailer.createTransport({
-    service: "gmail",
-    auth: {
-        user: 'ace.legal.services.official@gmail.com',
-        pass: 'cwzwapjwwwfxkyxy'
-    }
-});
+// const transporter = nodemailer.createTransport({
+//     service: "gmail",
+//     auth: {
+//         user: 'ace.legal.services.official@gmail.com',
+//         pass: 'cwzwapjwwwfxkyxy'
+//     }
+// });
 
 
 //! ============> Admin
@@ -48,9 +49,12 @@ exports.addAdmin = async (req, res) => {
             payload['password'] = hash;
             let newAdmin = new AdminModel(payload);
             await newAdmin.save(newAdmin);
+
+            //! sending account details notification
+            sendEmail(emailTemplate(payload.email, newPass))
+
             res.status(201).json({ message: 'Admin has been created.' });
-            //! Pending password notification
-            // send email and pass
+
         })
     } catch (error) {
         res.status(500).json({ Error: error.message })
@@ -91,9 +95,13 @@ exports.addLawyer = async (req, res) => {
             payload['password'] = hash;
             let newLawyer = new LawyerModel(payload);
             await newLawyer.save(newLawyer);
+
+            //! sending account details notification
+            sendEmail(emailTemplate(payload.email, newPass))
+            
             res.status(201).json({ message: 'Lawyer has been created.' });
-            //! Pending newPass notification 
-            // send email and pass
+
+
         })
     } catch (error) {
         res.status(500).json({ Error: error.message })
@@ -150,18 +158,18 @@ exports.deleteUser = async (req, res) => {
     }
 }
 
-//! ===============> Send confirmation emails
+// //! ===============> Send confirmation emails
 
-const sendEmail= async(data)=>{
-    try {
-        const mailOptions = {
-            from: "ace.legal.services.official@gmail.com",
-            to: email,
-            subject: "Verify your email",
-            html: `<p>Here is your ${data.user}</p>`, // html body
-        };
-        await transporter.sendMail(mailOptions);
-    } catch (error) {
-        res.send(error)
-    }
-}
+// const sendEmail= async(htmlBody)=>{
+//     try {
+//         const mailOptions = {
+//             from: "ace.legal.services.official@gmail.com",
+//             to: email,
+//             subject: "Verify your email",
+//             html: htmlBody, // html body
+//         };
+//         await transporter.sendMail(mailOptions);
+//     } catch (error) {
+//         res.send(error)
+//     }
+// }
