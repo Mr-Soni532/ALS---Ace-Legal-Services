@@ -1,46 +1,92 @@
-import React from "react";
+
+import React, { useState } from 'react'
 import "./signupPage.css";
-import { Link } from "react-router-dom";
+import { Link, Navigate } from 'react-router-dom';
 const SignUpPage = () => {
-  const redirectToVerifyForm = () => {
-    console.log("redirectingto verify");
-  };
+
+  let [name,setName]=useState("");
+  let [email,setEmail]=useState("");
+  let [phone,setPhone]=useState("");
+  let [gender,setGender]=useState("");
+  let [password,setPassword]=useState("");
+
+  const signUp = async (data) => {
+
+		const response = await fetch("http://localhost:4000/user/signup", {
+			method: 'POST',
+			headers: {
+				'Content-Type': 'application/json',
+			},
+			body: JSON.stringify(data)
+		});
+		const json = await response.json();
+    console.log(json);
+		if (json.status=="Pending") {
+			alert(json.msg);
+    Navigate('/verifyOTP')
+		}else{
+      alert(json.msg)
+    }
+
+	}
+  const handleSubmit = (event) => {
+    event.preventDefault();
+      let data={
+        email,
+        password,
+        name,
+        gender,
+        phone
+      }
+    signUp(data);
+  }
   return (
     <div className="signUpdiv">
       <Link to="/">
         <img className="Aclabsolute" src="Images/ACEyellow.png" alt="acelogo" />
       </Link>
       <div>
+
         <form className="Signupform">
           <h1 className="RegisterTitle">Register</h1>
           <p style={{ color: "grey", fontSize: "13px" }}>
             Signup to Ace Legal Services
           </p>
           <input
+           onChange={(event) => {
+          setName(event.target.value)}}
             type="text"
             className="SignupUserName"
             placeholder="&nbsp;&nbsp;Username"
             required
           />
           <input
+          onChange={(event) => {
+          setEmail(event.target.value)}}
             type="email"
             className="SignupEmail"
             placeholder="&nbsp;&nbsp;Email"
             required
           />
           <input
+          onChange={(event) => {
+          setPassword(event.target.value)}}
             type="password"
             className="SignupPass"
             placeholder="&nbsp;&nbsp;Password"
             required
           />
           <input
+          onChange={(event) => {
+          setGender(event.target.value)}}
             type="text"
             className="SignupGender"
             placeholder="&nbsp;&nbsp;Gender"
             required
           />
           <input
+          onChange={(event) => {
+          setPhone(event.target.value)}}
             type="number"
             className="SignupPhone"
             placeholder="&nbsp;&nbsp;Phone Number"
@@ -80,6 +126,7 @@ const SignUpPage = () => {
             </div>
           </div>
         </form>
+
       </div>
     </div>
   );

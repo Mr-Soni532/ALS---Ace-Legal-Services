@@ -1,6 +1,39 @@
 * {
   margin: 0;
-  /* box-sizing: border-box; */
+}
+
+.lawyer-card {
+  /* display: flex;
+  flex-direction: column;
+  /* justify-content: center; */
+  /* align-items: center; */
+}
+
+/* .card {
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  grid-template-rows: 1fr 1fr 0.5fr;
+  gap: 0px 0px;
+  grid-auto-flow: row;
+  grid-template-areas:
+    "name pic"
+    "skills pic"
+    "language pic";
+  border: 1px solid #f1eded;
+  height: 250px;
+  padding: 1rem 2rem;
+  width: 70%;
+  background: #fcfcfc;
+  margin-top: 2rem;
+  border-radius: 20px;
+  box-shadow: rgba(159, 159, 241, 0.05) 0px 1px 0px,
+    rgba(72, 72, 207, 0.1) 0px 0px 8px;
+} */
+.lawyer-card {
+  display: flex;
+  flex-direction: column;
+  /* justify-content: center; */
+  align-items: center;
 }
 
 .lawyer-card {
@@ -11,8 +44,6 @@
 }
 .card {
   display: grid;
-  grid-template-columns: 3fr 1fr;
-  grid-template-rows: 1fr 1fr 0.5fr;
   gap: 0px 0px;
   grid-auto-flow: row;
   grid-template-areas:
@@ -21,54 +52,36 @@
     "language pic";
   border: 1px solid #f1eded;
   height: 250px;
-  padding: 1rem 2rem;
-  width: 70%;
-  background: #fcfcfc;
-  margin-top: 2rem;
-  border-radius: 20px;
-  box-shadow: rgba(159, 159, 241, 0.05) 0px 1px 0px,
-    rgba(72, 72, 207, 0.1) 0px 0px 8px;
-}
-/* ======= */
-.lawyer-card {
-  display: flex;
-  flex-direction: column;
-  /* justify-content: center; */
-  align-items: center;
-}
-.card {
   display: grid;
   grid-template-columns: 3fr 1fr;
-  grid-template-rows: 1fr 1fr 0.5fr;
-  gap: 0px 0px;
-  grid-auto-flow: row;
-  grid-template-areas:
-    "name pic"
-    "skills pic"
-    "language pic";
+  grid-template-rows: auto auto auto auto;
   border: 1px solid #f1eded;
-  height: 250px;
   padding: 1rem 2rem;
   width: 70%;
   background: #fcfcfc;
   margin-top: 2rem;
   border-radius: 20px;
-  box-shadow: rgba(159, 159, 241, 0.05) 0px 1px 0px,
-    rgba(72, 72, 207, 0.1) 0px 0px 8px;
-  transition: all 0.4s;
+  box-shadow: rgba(159, 159, 241, 0.05) 0px 1px 0px, rgba(72, 72, 207, 0.1) 0px 0px 8px;
+  transition: all .4s;
   cursor: pointer;
 }
 
 .card:hover {
   transform: translateY(-2px);
 }
-
 .name-div {
-  grid-area: name;
+  /* grid-area: name; */
+  grid-column: 1/2;
+  grid-row: 1/2;
 }
 
 .experience {
   color: gray;
+}
+
+.bio-div {
+  grid-column: 1/2;
+  grid-row: 2/3;
 }
 
 .bio {
@@ -82,8 +95,11 @@
 }
 
 .skills-div {
-  grid-area: skills;
+  /* grid-area: skills; */
+  grid-column: 1/2;
+  grid-row: 3/4;
   display: flex;
+  flex-wrap: wrap;
   gap: 10px;
   padding: 1rem 0;
 }
@@ -92,11 +108,14 @@
   background: #cfebf5;
   border: 1px solid #83d9f8;
   border-radius: 18px;
-  padding: 3px 16px 5px;
+  /* padding: 3px 16px 5px; */
+  padding: .8% 2.4%;
 }
 
 .languages {
-  grid-area: language;
+  /* grid-area: languages; */
+  grid-column: 1/2;
+  grid-row: 4/5;
   display: flex;
   gap: 10px;
 }
@@ -109,24 +128,28 @@
 }
 
 .profile-pic {
-  grid-area: pic;
-
+  grid-column: 2/3;
+  grid-row: 1/5;
   display: flex;
   justify-content: flex-end;
   align-items: center;
 }
+
 .pic {
-  width: 200px;
-  height: 200px;
+  width: 96%;
+  /* height: 200px; */
 }
-.pic > img {
+
+.pic>img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   border-radius: 50%;
 }
 
-.pic > img {
+
+.pic>img {
+
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -135,15 +158,21 @@
 
 /* -------------  Search Bar CSS --------------------- */
 
+=======
+
+
+
+/* -------------  Search Bar CSS --------------------- */
+
 .search-bar {
   position: fixed;
   top: 0;
   width: 100%;
   background: #ffffff;
-  padding: 0.5rem;
-  box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 1px, rgba(0, 0, 0, 0.07) 0px 2px 2px,
-    rgba(0, 0, 0, 0.07) 0px 4px 4px, rgba(0, 0, 0, 0.07) 0px 4px 4px,
-    rgba(0, 0, 0, 0.07) 0px 16px 16px;
+
+  padding: .5rem;
+  box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 1px, rgba(0, 0, 0, 0.07) 0px 2px 2px, rgba(0, 0, 0, 0.07) 0px 4px 4px, rgba(0, 0, 0, 0.07) 0px 4px 4px, rgba(0, 0, 0, 0.07) 0px 16px 16px;
+
   z-index: 99;
   display: flex;
   align-items: center;
@@ -193,6 +222,7 @@
   background-color: #f3f3f4;
   color: #0d0c22;
   transition: 0.3s ease;
+
 }
 
 .input::placeholder {
@@ -222,6 +252,7 @@ input:hover {
   border-color: #2260ff;
   box-shadow: 0 0 0 4px #b5c9fc;
 }
+
 .select {
   position: relative;
   top: -4px;
@@ -247,7 +278,9 @@ input:hover {
   width: 1px;
 }
 
-.mydict input[type="radio"]:checked + span {
+
+.mydict input[type="radio"]:checked+span {
+
   box-shadow: 0 0 0 0.0625em #0043ed;
   background-color: #dee7ff;
   z-index: 1;
@@ -258,20 +291,66 @@ label span {
   display: block;
   cursor: pointer;
   background-color: #fff;
-  padding: 0.375em 0.75em;
+  padding: 0.375em .75em;
   position: relative;
-  margin-left: 0.0625em;
+  margin-left: .0625em;
   box-shadow: 0 0 0 0.0625em #b5bfd9;
-  letter-spacing: 0.05em;
+  letter-spacing: .05em;
   color: #3e4963;
   text-align: center;
-  transition: background-color 0.5s ease;
+  transition: background-color .5s ease;
 }
 
 label:first-child span {
-  border-radius: 0.375em 0 0 0.375em;
+  border-radius: .375em 0 0 .375em;
 }
 
 label:last-child span {
-  border-radius: 0 0.375em 0.375em 0;
+  border-radius: 0 .375em .375em 0;
+}
+
+@media only screen and (max-width: 768px) {
+  body {
+    background-color: lightblue;
+  }
+
+  .card {
+    width: 96%;
+
+  }
+
+  .profile-pic {
+    grid-row: 1/2;
+  }
+
+  .bio-div {
+    grid-column: 1/3;
+  }
+
+  .skills-div {
+    grid-column: 1/3;
+
+  }
+
+  .languages {
+    grid-column: 1/3;
+
+  }
+
+  .search-bar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0;
+  }
+
+  .mydict div {
+    display: flex;
+    flex-wrap: nowrap;
+  }
+
+  .search-by {
+    display: none;
+  }
 }
