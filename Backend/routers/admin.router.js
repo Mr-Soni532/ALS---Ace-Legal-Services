@@ -12,6 +12,7 @@ AdminRouter.get('/getAllLawyers', controller.fetchAllLawyer)
 AdminRouter.get('/getLawyer/:id', controller.fetchLawyerById)
 AdminRouter.post('/addLawyer', controller.addLawyer)
 AdminRouter.delete('/deleteLawyer/:id', controller.deleteLawyer)
+AdminRouter.post("/postAllLawyers", controller.bulkPostAdmin);
 
 // User
 AdminRouter.get('/getAllUsers', controller.fetchAllUsers)

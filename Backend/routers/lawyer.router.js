@@ -1,31 +1,14 @@
 const express = require('express');
 const authorization = require('../middlewares/authorization.middleware');
 const LawyerRouter = express.Router();
-const controller = require('../controllers/lawyer.controller');
-const LawyerSchema = require('../model/lawyer.model');
+const lawyerController = require('../controllers/lawyer.controller');
+const appointmentController = require('../controllers/appointment.controller.js')
+
+LawyerRouter.post("/login", lawyerController.userLogin);
+LawyerRouter.patch("/forgotpassword", lawyerController.forgetPasswordorgotPassword);
+LawyerRouter.get("/getaUserDataByEmail", lawyerController.getaUserDataByEmail);
 
 
-// /lawyer/fetch-lawyer
-LawyerRouter.get("/getAllLawyers", async (req, res) => {
-    try {
-        const Data = await LawyerSchema.find();
-        res.json({ Messagge: "All Lawyers Data", Data });
-    } catch (err) {
-        console.log(err);
-        res.json({ Error: err })
-    }
-});
-
-
-LawyerRouter.post("/postAllLawyers", async (req, res) => {
-    let data = req.body
-    try {
-        await LawyerSchema.insertMany(data)
-        res.json({ Messagge: "Inserted all Lawyers data" });
-    } catch (err) {
-        console.log(err);
-        res.json({ Error: err })
-    }
-});
+LawyerRouter.get("/deleteAppointment", appointmentController.deleteAppointment);
 
 module.exports = LawyerRouter;
