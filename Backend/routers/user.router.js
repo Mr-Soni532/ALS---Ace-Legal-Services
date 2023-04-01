@@ -9,18 +9,5 @@ UserRouter.get("/getAllUsers",controller.fetchAllUsers);
 UserRouter.post("/verifyOTP",controller.verifyOTP);
 UserRouter.patch("/forgotpassword",controller.forgotPassword);
 UserRouter.get("/getaUserDataByEmail",controller.getaUserDataByEmail);
-// UserRouter.get('/auth/google',
-//   passport.authenticate('google', { scope: ['profile',"email"] }));
-
-// UserRouter.get('/auth/google/callback', 
-//   passport.authenticate('google', { failureRedirect: '/login',session:false }),
-//   function(req, res) {
-//     // Successful authentication, redirect home.
-//     res.redirect('/');
-//   });
-
-// UserRouter.listen(5051,()=>{
-//     console.log("http://localhost:5051")
-// })
 
 module.exports = UserRouter;

@@ -1,0 +1,187 @@
+/** ----------------------------Small Screen Sizes -------------------------------- */
+@media all and (min-width: 320px) and (max-width: 809px) {
+  /*todo <!----------------------------------------------- < IndexPage > -----------------------------------------------> */
+  * {
+    font-size: 10px;
+  }
+
+  section {
+    margin: 10px 5px !important;
+  }
+  .NavMenu {
+    position: fixed;
+    top: 0;
+    left: 100%;
+    z-index: 0;
+    width: 100vw !important;
+    height: 100vh;
+    transition: all 300ms ease;
+    background-color: white !important;
+    flex-direction: column;
+    gap: 20px;
+    font-weight: 600;
+    justify-content: center !important;
+  }
+  .SecOneParent,
+  .SecThreeParent {
+    flex-direction: column !important;
+    height: auto !important;
+    margin: 0px !important;
+  }
+  .SecOneParent > div {
+    height: auto !important;
+    width: 100%;
+  }
+  .SecOneLeft {
+    padding: 12px;
+  }
+  .highQualityLaw {
+    font-size: 44px !important;
+  }
+  .SecTwoParent {
+    padding: 10px 0px;
+  }
+  .SecOneLeftButtons button {
+    font-size: 14px !important;
+  }
+  .SecThreeRight {
+    padding: 15px !important;
+  }
+  .SecThreeParent > div {
+    padding: 10px;
+    margin: 0px;
+    width: 100%;
+  }
+  .SecFourParent {
+    padding: 0px;
+  }
+  .Sec4Parent {
+    flex-direction: column;
+    gap: 10px;
+  }
+  .SecFiveParent {
+    padding: 0px;
+  }
+  .Sec5Parent {
+    flex-direction: column;
+    padding: 40px;
+  }
+  .SectionSix {
+    padding: 0px !important;
+  }
+  .AboutHead {
+    font-size: 80px;
+  }
+  .SecSixParent {
+    flex-direction: column !important;
+  }
+  .SecSixRight {
+    grid-template-columns: repeat(1, 1fr) !important;
+  }
+  .YellowBudsParent {
+    flex-direction: column;
+    padding: 10px !important;
+  }
+  .FeebackBox {
+    height: fit-content !important;
+    margin: 0 !important;
+  }
+  .CarouselFeeds {
+    height: 300px !important;
+  }
+  .SecNineParent {
+    flex-direction: column;
+    text-align: center;
+  }
+  .YTvideoBox > img {
+    width: 400px !important;
+  }
+  .FooterParent {
+    background-size: contain !important;
+    padding: 0px !important;
+  }
+  .ant-carousel {
+    max-height: 280px;
+  }
+  .ant-carousel .slick-dots-bottom {
+    bottom: -20px !important;
+  }
+  .gettoknowusmoreparargafasdkfjnas {
+    width: 100% !important;
+  }
+  .Footer2 {
+    flex-direction: column;
+  }
+  .hamburger {
+    position: fixed;
+    top: 30px;
+    right: 30px;
+    display: block !important;
+    z-index: 10000;
+  }
+  /*todo <!----------------------------------------------- < User Dashboard > -----------------------------------------------> */
+
+  .UserProfileParent > div {
+    padding: 20px !important;
+  }
+  .UserAvatarCard {
+    flex-direction: column;
+  }
+  .DashNavMenu {
+    display: none !important;
+  }
+  .UserAvatarCard + p {
+    display: none;
+  }
+  .BigBAPBTN {
+    padding: 8px 15px !important;
+  }
+  .UserProfileSecond > a {
+    margin: 5px 22px !important;
+    padding: 10px !important;
+  }
+  .AppointmentsArea {
+    margin: 0px !important;
+    padding: 10px !important;
+  }
+  .Yelowbar {
+    height: 100% !important;
+  }
+  .AppRightLOL h1 {
+    font-size: 25px !important;
+  }
+  .AdvThings {
+    font-size: 10px !important;
+  }
+  .ApoBtns {
+    font-size: 10px;
+    padding: 5px 7px !important;
+  }
+  .YellowBorderImgs + h1 {
+    font-size: 22px;
+  }
+  /*todo <!----------------------------------------------- < Login > -----------------------------------------------> */
+  .loginpage > div {
+    width: 100% !important;
+  }
+  .form-container {
+    width: 100% !important;
+    margin: 0px !important;
+    height: auto !important;
+  }
+  .logintitle,
+  .RegisterTitle {
+    font-size: 4rem !important;
+  }
+  .Aclabsolute {
+    width: 113px !important;
+    position: absolute;
+    top: 9px !important;
+    left: 4px !important;
+    filter: saturate(2);
+  }
+  .Signupform {
+    margin: 0px !important;
+    width: 100% !important;
+  }
+}

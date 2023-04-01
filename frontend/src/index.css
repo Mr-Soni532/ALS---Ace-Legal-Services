@@ -14,10 +14,16 @@ img,
 svg {
   cursor: pointer;
 }
-a {
+a,
+a:focus {
   text-decoration: none !important;
+  outline: none !important;
+  border: none !important;
+  box-shadow: none !important;
 }
-
+button:focus {
+  box-shadow: none !important;
+}
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
