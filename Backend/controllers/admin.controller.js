@@ -25,7 +25,7 @@ exports.getAdminById = async (req, res) => {
 exports.addAdmin = async (req, res) => {
     const payload = req.body;
     try {
-        const admin = await AdminModel.find({ email });
+        const admin = await AdminModel.find({ email: payload.email });
         if (admin.length) {
             return res.status(403).json({ Error: "Admin already exsisted!" })
         }
@@ -37,6 +37,7 @@ exports.addAdmin = async (req, res) => {
             await newAdmin.save(newAdmin);
             res.status(201).json({ message: 'Admin has been created.' });
             //! Pending password notification
+
         })
     } catch (error) {
         res.status(500).json({ Error: error.message })
@@ -67,7 +68,7 @@ exports.fetchLawyerById = async (req, res) => {
 exports.addLawyer = async (req, res) => {
     const payload = req.body;
     try {
-        const lawyer = await LawyerModel.find({ email });
+        const lawyer = await LawyerModel.find({ email: payload.email });
         if (lawyer.length) {
             return res.status(403).json({ Error: "Lawyer already exsisted!" })
         }
