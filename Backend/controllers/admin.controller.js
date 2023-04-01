@@ -49,10 +49,12 @@ exports.addAdmin = async (req, res) => {
             payload['password'] = hash;
             let newAdmin = new AdminModel(payload);
             await newAdmin.save(newAdmin);
-            res.status(201).json({ message: 'Admin has been created.' });
 
             //! sending account details notification
             sendEmail(emailTemplate(payload.email, newPass))
+
+            res.status(201).json({ message: 'Admin has been created.' });
+
         })
     } catch (error) {
         res.status(500).json({ Error: error.message })
@@ -93,10 +95,12 @@ exports.addLawyer = async (req, res) => {
             payload['password'] = hash;
             let newLawyer = new LawyerModel(payload);
             await newLawyer.save(newLawyer);
-            res.status(201).json({ message: 'Lawyer has been created.' });
 
             //! sending account details notification
             sendEmail(emailTemplate(payload.email, newPass))
+            
+            res.status(201).json({ message: 'Lawyer has been created.' });
+
 
         })
     } catch (error) {
