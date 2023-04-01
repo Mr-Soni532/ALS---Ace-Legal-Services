@@ -1,6 +1,46 @@
+import { useEffect, useState } from "react";
 import "./DashNavbar.css";
 import { Link, NavLink } from "react-router-dom";
 const DashNavbar = () => {
+
+  // const [user, setUser] = useState(null);
+  const [email,setEmail]=useState("User Email");
+  const [name,setName]=useState("User Name")
+
+  useEffect(() => {
+    const getUser = () => {
+      fetch("http://localhost:4000/auth/login/success", {
+        method: "GET",
+        credentials: "include",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+          "Access-Control-Allow-Credentials": true,
+        },
+      })
+        .then((response) => {
+          // console.log(response)
+          if (response.status === 200) return response.json();
+          throw new Error("authentication has been failed!");
+        })
+        .then((resObject) => {
+          let email=resObject.user.emails[0].value
+          let name=resObject.user.displayName;
+          console.log(name)
+          setEmail(email)
+          setName(name)
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    };
+    getUser();
+    
+  }, []);
+
+  const logout = () => {
+    window.open("http://localhost:4000/auth/logout", "_self");
+  };
   return (
     <div className="DashNavbarParent" data-aos="fade">
       <div>
@@ -40,7 +80,7 @@ const DashNavbar = () => {
       </div>
       <div className="logoutarea">
         <NavLink>
-          <button className="SecOneMeetLawBtnDASH">
+          <button className="SecOneMeetLawBtnDASH" onClick={logout}>
             <svg
               className="opentabicon"
               xmlns="http://www.w3.org/2000/svg"
@@ -54,8 +94,8 @@ const DashNavbar = () => {
         </NavLink>
 
         <div style={{ transform: "translateY(-4px)" }}>
-          <h4>UserName</h4>
-          <p>useremail</p>
+          <h4>{name}</h4>
+          <p>{email}</p>
         </div>
       </div>
     </div>
