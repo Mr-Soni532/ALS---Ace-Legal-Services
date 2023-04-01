@@ -94,10 +94,22 @@ exports.deleteLawyer = async (req, res) => {
 
 //! ============> User
 exports.fetchAllUsers = async (req, res) => {
-
+    try {
+        const user = await UserModel.find();
+        res.send(user);
+    } catch (error) {
+        res.status(500).json({ error: error.message })
+        console.log(error)
+    }
 }
 exports.fetchUserById = async (req, res) => {
-
+    try {
+        const users = await UserModel.findById(req.params.id);
+        res.send(users);
+    } catch (error) {
+        res.status(500).json({ error: error.message })
+        console.log(error)
+    }
 }
 exports.deleteUser = async (req, res) => {
     try {
