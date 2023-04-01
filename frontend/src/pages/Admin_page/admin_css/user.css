@@ -8,7 +8,7 @@
   justify-items: baseline;
   padding: 2% 0;
 }
-.UserAdminBoxxx button {
+.RemoveButtonAdmin {
   background-color: red;
   border: none;
   border-radius: 5px;

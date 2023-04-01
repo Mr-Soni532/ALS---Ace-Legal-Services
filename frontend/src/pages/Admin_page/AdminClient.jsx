@@ -6,7 +6,7 @@ import "./admin_css/user.css";
 import Headers from "../../components/AdminCompo/Headers";
 import SearchBar from "../../components/AdminCompo/SearchCompo";
 
-const UserDetails = () => {
+const AdminClient = () => {
   const context = useContext(UserContext);
   const { getUser, users, setUser, loading, err, deletefun } = context;
   const [data, setData] = useState([...users]);
@@ -78,7 +78,7 @@ const UserDetails = () => {
     </div>
   );
 };
-export default UserDetails;
+export default AdminClient;
 
 // function searchItem(){
 //     let searchValue = document.querySelector("#search").value;

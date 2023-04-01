@@ -2,6 +2,9 @@ import React from "react";
 
 const LawyerFilterer = () => {
   window.addEventListener("scroll", () => {
+    if (!document.getElementsByClassName("LawyerFilterer")) {
+      return;
+    }
     if (window.scrollY >= 150) {
       document.getElementsByClassName("LawyerFilterer")[0].style.top = "75px";
     } else {

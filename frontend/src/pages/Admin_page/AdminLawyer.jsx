@@ -2,12 +2,11 @@ import { useContext, useState } from "react";
 import { useEffect } from "react";
 import DetailsCom from "../../components/AdminCompo/lawyersDetails";
 import LawyerContext from "../../context/Admin_page/lawyercontext/lawyerContext";
-// import "./admin_css/content.css";
-// import "./admin_css/lawyer.css";
+import "../../components/AdminCompo/lawyer.css";
 import Headers from "../../components/AdminCompo/Headers";
 import SearchBar from "../../components/AdminCompo/SearchCompo";
 
-const UserDetails = () => {
+const AdminLawyer = () => {
   const context = useContext(LawyerContext);
 
   // const [ loading , setLoading ] = useState(false)
@@ -37,7 +36,7 @@ const UserDetails = () => {
   }, []);
 
   return (
-    <div>
+    <div className="LawyerBIgParent">
       <Headers />
       <SearchBar name="Lawyers" />
       <div>
@@ -67,6 +66,6 @@ const UserDetails = () => {
     </div>
   );
 };
-export default UserDetails;
+export default AdminLawyer;
 
 // deletEele={deletEele}
