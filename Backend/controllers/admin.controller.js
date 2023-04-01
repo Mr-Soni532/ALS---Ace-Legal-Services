@@ -2,7 +2,20 @@ const bcrypt = require('bcrypt');
 const AdminModel = require('../model/admin.model');
 const LawyerModel = require('../model/lawyer.model');
 const UserModel = require('../model/user.model');
-const { default: generatePassword } = require('../utils/generatePassword');
+const nodemailer = require("nodemailer");
+const generatePassword=require("../utils/generatePassword.js")
+
+//! ============> NodeMailer utils
+
+const transporter = nodemailer.createTransport({
+    service: "gmail",
+    auth: {
+        user: 'ace.legal.services.official@gmail.com',
+        pass: 'cwzwapjwwwfxkyxy'
+    }
+});
+
+
 //! ============> Admin
 exports.fetchAllAdmins = async (req, res) => {
     try {
@@ -37,7 +50,7 @@ exports.addAdmin = async (req, res) => {
             await newAdmin.save(newAdmin);
             res.status(201).json({ message: 'Admin has been created.' });
             //! Pending password notification
-
+            // send email and pass
         })
     } catch (error) {
         res.status(500).json({ Error: error.message })
@@ -80,6 +93,7 @@ exports.addLawyer = async (req, res) => {
             await newLawyer.save(newLawyer);
             res.status(201).json({ message: 'Lawyer has been created.' });
             //! Pending newPass notification 
+            // send email and pass
         })
     } catch (error) {
         res.status(500).json({ Error: error.message })
@@ -133,5 +147,21 @@ exports.deleteUser = async (req, res) => {
         res.status(200).json({ message: 'User has been removed.' });
     } catch (error) {
         res.status(500).json({ error: error.message })
+    }
+}
+
+//! ===============> Send confirmation emails
+
+const sendEmail= async(data)=>{
+    try {
+        const mailOptions = {
+            from: "ace.legal.services.official@gmail.com",
+            to: email,
+            subject: "Verify your email",
+            html: `<p>Here is your ${data.user}</p>`, // html body
+        };
+        await transporter.sendMail(mailOptions);
+    } catch (error) {
+        res.send(error)
     }
 }

@@ -7,4 +7,4 @@ function generatePassword() {
     }
     return password;
   }
-export default generatePassword;
+  module.exports=generatePassword;
