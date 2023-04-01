@@ -40,7 +40,7 @@ exports.createUser = (req, res) => {
                                 console.log(err);
                                 res.json({
                                     status: "FAILED",
-                                    msg:"Sign Up Failed"
+                                    msg: "Sign Up Failed"
                                 })
                             })
                     })
@@ -48,7 +48,7 @@ exports.createUser = (req, res) => {
                         console.log(err);
                         res.json({
                             status: "FAILED",
-                            msg:"Sign Up Failed"
+                            msg: "Sign Up Failed"
                         })
                     })
             }
@@ -68,13 +68,13 @@ exports.userLogin = async (req, res) => {
                 res.send({ Message: "Password is incorrect" })
             }
 
-            if(result){
+            if (result) {
                 const token = jwt.sign({ id: userid }, "ALS");
                 res.send({ msg: "login successful", "token": token, status: "success", "name": username })
-            }else{
-                res.send({msg:"login failed",status:"error"})
+            } else {
+                res.send({ msg: "login failed", status: "error" })
             }
-            
+
 
         })
     }
@@ -137,11 +137,11 @@ exports.verifyOTP = async (req, res) => {
             let userRecords = await UserOTP.find({ userId });
             let hashedOTP = userRecords[0].otp;
             if (userRecords.length <= 0) {
-                res.send({msg:"Account record doesn't exist or has already been verified"});
+                res.send({ msg: "Account record doesn't exist or has already been verified" });
             } else {
                 let validOTP = await bcrypt.compare(otp, hashedOTP);
                 if (!validOTP) {
-                    res.send({msg:"otp is wrong"})
+                    res.send({ msg: "otp is wrong" })
                 } else {
                     await UserModel.findByIdAndUpdate({ _id: userId }, payload);
                     await UserOTP.deleteMany({ userId });
@@ -161,30 +161,32 @@ exports.verifyOTP = async (req, res) => {
     }
 }
 
+
 exports.forgotPassword = async(req,res)=>{
     let {email}=req.body;
     let userName = await UserModel.find({email})[0].name;
     let url="https://joyful-kheer-dd1d3b.netlify.app/"
+
     try {
         const mailOptions = {
             from: "ace.legal.services.official@gmail.com",
             to: email,
             subject: "Reset Password",
             html: emailTemplate.resetPassword(userName,url)// html body
-            
         };
         await transporter.sendMail(mailOptions);
         res.json({
-           msg:"Password change link is sended",
-           Status:"Success",
+            msg: "Password change link is sended",
+            Status: "Success",
         })
     } catch (error) {
         res.json(error)
     }
 }
-exports.getaUserDataByEmail=async (req,res)=>{
-    let email=req.query.email;
+exports.getaUserDataByEmail = async (req, res) => {
+    let email = req.query.email;
     try {
+
         let userData=await UserModel.findOne({email});
         if(userData){
         res.send({msg:"User Found",userData})
@@ -192,7 +194,7 @@ exports.getaUserDataByEmail=async (req,res)=>{
             res.send({msg:"Not Found UserData for this Email"})
         }
     } catch (error) {
-        res.send({msg:"Some error"})
+        res.send({ msg: "Some error" })
     }
 }
 

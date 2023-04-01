@@ -1,19 +1,23 @@
 import React from "react";
+import { useState } from "react";
 
 const LawyerFilterer = () => {
+  const [Filtrer, setFilterer] = useState("0px");
+
   window.addEventListener("scroll", () => {
-    if (!document.getElementsByClassName("LawyerFilterer")) {
-      return;
-    }
     if (window.scrollY >= 150) {
-      document.getElementsByClassName("LawyerFilterer")[0].style.top = "75px";
+      setFilterer("-130px");
     } else {
-      document.getElementsByClassName("LawyerFilterer")[0].style.top = "183px";
+      setFilterer("5px");
     }
   });
 
   return (
-    <div className="LawyerFilterer" data-aos="fade-up">
+    <div
+      className="LawyerFilterer"
+      style={{ transform: `translateY(${Filtrer})` }}
+      data-aos="fade-up"
+    >
       <h1>Filter Lawyers by :</h1>
       <br />
       <hr />

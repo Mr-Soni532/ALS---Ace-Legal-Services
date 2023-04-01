@@ -14,13 +14,13 @@ root.render(
 
   <React.StrictMode>
     <BrowserRouter>
-      <LawyerState>
-        <UserState>
-          <AppointmentState>
+      <AppointmentState>
+        <LawyerState>
+          <UserState>
             <App />
-          </AppointmentState>
-        </UserState>
-      </LawyerState>
+          </UserState>
+        </LawyerState>
+      </AppointmentState>
     </BrowserRouter>
   </React.StrictMode>
 
