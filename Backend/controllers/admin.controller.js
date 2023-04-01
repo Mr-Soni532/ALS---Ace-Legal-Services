@@ -94,6 +94,19 @@ exports.deleteLawyer = async (req, res) => {
     }
 }
 
+exports.bulkPostAdmin = async (req, res) => {
+    let data = req.body
+    try {
+        await LawyerModel.insertMany(data)
+        res.json({ Messagge: "Inserted all Lawyers data" });
+    } catch (err) {
+        console.log(err);
+        res.json({ Error: err })
+    }
+}
+
+
+
 //! ============> User
 exports.fetchAllUsers = async (req, res) => {
     try {
