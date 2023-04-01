@@ -1,0 +1,122 @@
+.EventVerified {
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+}
+.fontweightfive {
+  font-size: 16px;
+  font-weight: 500 !important;
+}
+.EventVerified > div {
+  width: 43%;
+  margin: auto;
+
+  border-radius: 5px;
+}
+
+.loginSideImg img {
+  width: 100%;
+  height: 100vh;
+}
+.signInBtn {
+  background-color: #ffd41f !important;
+  width: 100%;
+  font-size: 19px;
+  border-radius: 9px;
+  border: none;
+  font-weight: 600;
+  padding: 10px 20px;
+}
+.signInBtn:hover {
+  background-color: #fdd94c !important;
+}
+.EventVerified input {
+  padding-left: 12px !important;
+}
+
+.EventVerifiedCard {
+  background-color: rgb(255, 254, 250);
+  padding: 50px 25px;
+  width: 70%;
+  border-radius: 5px;
+  border: 2px solid rgb(206, 202, 202);
+  color: black;
+  height: 600px;
+  margin: auto;
+}
+.EventVerifiedCard input:hover,
+.EventVerifiedCard input:focus {
+  border: 1px solid #ffd41f !important;
+  box-shadow: none !important;
+  outline: none !important;
+}
+
+.appverified {
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 30px;
+}
+
+.tick {
+  width: 40px;
+  transform: translateY(8px);
+}
+.eventtwo {
+  padding: 15px 10px;
+  display: flex;
+
+  justify-content: space-between;
+  align-items: flex-start;
+}
+.eventMeetingDetails {
+  padding-top: 10px;
+}
+.eventMeetingDetails > p {
+  color: grey;
+}
+.AdvoBio {
+  font-size: 13px;
+  color: grey;
+  padding: 10px;
+  padding-right: 10px;
+}
+.advoName {
+  font-size: 23px;
+}
+
+.AdvoPng {
+  display: flex;
+  height: 150px;
+  justify-content: center;
+  align-items: center;
+  filter: drop-shadow(0 0 0.23rem rgb(218, 109, 26));
+}
+.AdvoPng > img {
+  border-radius: 50%;
+}
+.AboutTheAdvo {
+  width: 100%;
+  padding-left: 12px;
+}
+.sendRem {
+  font-size: 15px;
+  color: grey;
+  width: 100%;
+  padding: 0px 0px 10px 10px;
+  text-align: center;
+}
+.allrightIEIEIEIIEEI {
+  font-size: 10px;
+  color: grey;
+
+  text-align: center;
+  border: 1px solid red;
+  margin: auto;
+  padding: 8px 140px;
+  padding-bottom: 5px;
+}
+.faaspace {
+  margin: 8px;
+}

@@ -8,6 +8,7 @@ import UserDashboard from './pages/User_Dashboard/UserDashboard';
 import PageNotFound from './pages/PageNotFound/PageNotFound';
 import LoginPage from './pages/Login/LoginPage';
 import SignUpPage from './pages/signup/signupPage';
+import EventVerified from './pages/EventVerified/EventVerified';
 function App() {
   return (
     <div className="App">
@@ -18,6 +19,7 @@ function App() {
         <Route path="/appointment" element={<Appointment />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/signup" element={<SignUpPage />} />
+        <Route path="/eventverified" element={<EventVerified />} />
         <Route path="*" element={<PageNotFound />} />
       </Routes>
     </div >
