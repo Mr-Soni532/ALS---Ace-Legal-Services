@@ -51,6 +51,9 @@ const Login = () => {
       console.log("hello from admin");
     }
   };
+  const google = () => {
+    window.open("http://localhost:4000/auth/google", "_self");
+  };
   return (
     <div className="form-container">
       <p className="logintitle">Login</p>
@@ -131,13 +134,13 @@ const Login = () => {
         </div>
 
         <div className="SocialIcons">
-          <div>
+          <div onClick={google}>
             <img
               style={{ width: "30px" }}
               src="https://www.freepnglogos.com/uploads/google-logo-png/google-logo-png-webinar-optimizing-for-success-google-business-webinar-13.png"
               alt="icon"
             />
-            <label>Continue With Google</label>
+            <label >Continue With Google</label>
           </div>
           <div>
             <img

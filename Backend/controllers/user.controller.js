@@ -18,7 +18,7 @@ exports.createUser = (req, res) => {
             if (result.length) {
                 res.json(
 
-                    { Message: "you are already available , please login" }
+                    { msg: "you are already available , please login" }
                 )
             } else {
                 const saltRounds = 10;
@@ -124,9 +124,14 @@ exports.verifyOTP = async (req, res) => {
     let payload = { verified: true }
     try {
         let { userId, otp } = req.body;
-        if (!userId || !otp) {
-            res.send({ msg: "Some of the fields are missing " })
-        } else {
+        console.log(req.body);
+        if (!userId ) {
+            res.send({msg:"userId is missing "})
+        }
+        if(!otp){
+            res.send({msg:"otp is missing"})
+        } 
+        else {
             let userRecords = await UserOTP.find({ userId });
             let hashedOTP = userRecords[0].otp;
             if (userRecords.length <= 0) {
@@ -154,9 +159,11 @@ exports.verifyOTP = async (req, res) => {
     }
 }
 
-exports.forgotPassword = async (req, res) => {
-    let { email } = req.body;
-    let url = "https://genuine-gumdrop-3d4c31.netlify.app/"
+
+exports.forgotPassword = async(req,res)=>{
+    let {email}=req.body;
+    let url="https://joyful-kheer-dd1d3b.netlify.app/"
+
     try {
         const mailOptions = {
             from: "ace.legal.services.official@gmail.com",

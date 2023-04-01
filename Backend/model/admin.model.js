@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const lawyerSchema = mongoose.Schema({
+const adminSchema = mongoose.Schema({
     name: String,
     gender: String,
     phone: Number,
@@ -7,5 +7,5 @@ const lawyerSchema = mongoose.Schema({
     password: String,
     Rank: Number
 }, { timestamps: true })
-const LawyerSchema = mongoose.model('user', lawyerSchema);
-module.exports = LawyerSchema;
+const AdminModel = mongoose.model('admin', adminSchema);
+module.exports = AdminModel;
