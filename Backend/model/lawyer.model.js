@@ -7,14 +7,12 @@ const lawyerSchema = mongoose.Schema({
    profession: String,
    gender: String,
    phone: Number,
-   address: String,
    image: String,
    price: String,
    languages: [String],
    rating: Number,
    experience: String,
    email: String,
-   password: String,
    Rank: Number
 
 }, { timestamps: true })
