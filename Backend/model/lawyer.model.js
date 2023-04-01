@@ -18,5 +18,5 @@ const lawyerSchema = mongoose.Schema({
    Rank: Number
 
 }, { timestamps: true })
-const LawyerSchema = mongoose.model('lawyer', lawyerSchema);
-module.exports = LawyerSchema;
+const LawyerModel = mongoose.model('lawyer', lawyerSchema);
+module.exports = LawyerModel;

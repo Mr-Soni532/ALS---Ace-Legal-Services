@@ -1,8 +1,41 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./UserProfile.css";
 import { Link } from 'react-router-dom';
 
 const UserProfile = () => {
+  const [email,setEmail]=useState("User Email");
+  const [name,setName]=useState("User Name")
+
+  useEffect(() => {
+    const getUser = () => {
+      fetch("http://localhost:4000/auth/login/success", {
+        method: "GET",
+        credentials: "include",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+          "Access-Control-Allow-Credentials": true,
+        },
+      })
+        .then((response) => {
+          // console.log(response)
+          if (response.status === 200) return response.json();
+          throw new Error("authentication has been failed!");
+        })
+        .then((resObject) => {
+          let email=resObject.user.emails[0].value
+          let name=resObject.user.displayName;
+          console.log(name)
+          setEmail(email)
+          setName(name)
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    };
+    getUser();
+    
+  }, []);
   return (
     <div className="UserProfileParent">
       <div className="UserProfileFirst">
@@ -16,8 +49,8 @@ const UserProfile = () => {
               />
             </div>
             <div>
-              <h1>UserName</h1>
-              <p>User@email.com</p>
+              <h1>{name}</h1>
+              <p>{email}</p>
               <p>Case: IRM</p>
             </div>
           </div>

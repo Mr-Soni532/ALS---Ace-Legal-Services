@@ -11,7 +11,6 @@ const appointmentSchema = mongoose.Schema({
     appointmentTime: String,
     meeting_type: String,
     slot: Number
-
 }, { timestamps: true })
-const AppointmentSchema = mongoose.model('appointment', appointmentSchema);
-module.exports = AppointmentSchema;
+const AppointmentModel = mongoose.model('appointment', appointmentSchema);
+module.exports = AppointmentModel;

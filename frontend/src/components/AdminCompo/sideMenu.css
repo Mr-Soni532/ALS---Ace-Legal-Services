@@ -1,0 +1,52 @@
+.SideBarX {
+  height: 100vh;
+  display: flex;
+}
+main {
+  width: 100%;
+}
+.sidebar {
+  background-color: black;
+  color: white;
+  height: auto;
+  width: 300px;
+  border: 1px solid black;
+}
+.top_section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px 15px;
+}
+.logo {
+  font-size: 25px;
+}
+.bars {
+  font-size: 25px;
+  display: flex;
+  margin-left: 30px;
+}
+
+.link {
+  display: flex;
+  color: white;
+  padding: 10px 15px;
+  gap: 15px;
+  transition: all 0.5s;
+}
+.link:hover {
+  cursor: pointer;
+  transition: all 0.5s;
+  color: #d6ac01;
+  background: white;
+}
+.SMactive {
+  color: #d6ac01;
+  background-color: white;
+}
+.Sidebaricons {
+  font-size: 20px;
+}
+.link_text {
+  font-size: 18px;
+}
