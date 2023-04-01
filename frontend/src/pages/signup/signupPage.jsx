@@ -18,7 +18,7 @@ const SignUpPage = () => {
     });
     const json = await response.json();
     console.log(json);
-    if (json.status == "Pending") {
+    if (json.status === "Pending") {
       alert(json.msg);
       Navigate("/verifyOTP");
     } else {

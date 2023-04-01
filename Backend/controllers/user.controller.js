@@ -79,7 +79,7 @@ exports.userLogin = async (req, res) => {
         bcrypt.compare(password, hashpassword, (err, result) => {
 
             if (err) {
-                res.send({ "msg": "Password is incorrect" })
+                res.send({ Message: "Password is incorrect" })
             }
 
             if(result){

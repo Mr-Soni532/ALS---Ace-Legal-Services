@@ -1,436 +1,527 @@
 [
-    {
-      "name": "John Smith",
-      "address": "123 Main St, Anytown, USA",
-      "profession": "Personal Injury Lawyer",
-      "bio": "John Smith is a personal injury lawyer with over 10 years of experience helping clients get the compensation they deserve. He is passionate about justice and fighting for the rights of his clients.",
-      "skills": [
-        "Negotiation",
-        "Litigation",
-        "Mediation"
-      ],
-      "experience": "10+ years",
-      "image": "https://randomuser.me/api/portraits/men/1.jpg",
-      "languages": [
-        "English",
-        "Spanish"
-      ]
-    },
-    {
-      "name": "Jane Doe",
-      "address": "456 Oak St, Anytown, USA",
-      "profession": "Criminal Defense Lawyer",
-      "bio": "Jane Doe is a criminal defense lawyer with a proven track record of success in the courtroom. She has a deep understanding of criminal law and is passionate about defending her clients' rights.",
-      "skills": [
-        "Trial Preparation",
-        "Cross-Examination",
-        "Plea Bargaining"
-      ],
-      "experience": "8+ years",
-      "image": "https://randomuser.me/api/portraits/women/2.jpg",
-      "languages": [
-        "English",
-        "French"
-      ]
-    },
-    {
-      "name": "David Lee",
-      "address": "789 Maple Ave, Anytown, USA",
-      "profession": "Corporate Lawyer",
-      "bio": "David Lee is a corporate lawyer with extensive experience advising businesses on legal matters. He is skilled at drafting contracts, negotiating deals, and providing legal guidance to clients.",
-      "skills": [
-        "Contract Drafting",
-        "Mergers & Acquisitions",
-        "Corporate Governance"
-      ],
-      "experience": "15+ years",
-      "image": "https://randomuser.me/api/portraits/men/3.jpg",
-      "languages": [
-        "English",
-        "Mandarin"
-      ]
-    },
-    {
-      "name": "Karen Wilson",
-      "address": "234 Elm St, Anycity, USA",
-      "profession": "Immigration Lawyer",
-      "bio": "Karen Wilson is an immigration lawyer who is dedicated to helping clients navigate the complex immigration system.",
-      "skills": [
-        "Visa applications",
-        "Deportation defense",
-        "Citizenship applications"
-      ],
-      "experience": "8+ years",
-      "image": "https://randomuser.me/api/portraits/women/4.jpg",
-      "languages": [
-        "English",
-        "Spanish",
-        "Mandarin"
-      ]
-    },
-    {
-      "name": "Robert Johnson",
-      "address": "789 Pine St, Anystate, USA",
-      "profession": "Criminal Defense Lawyer",
-      "bio": "Robert Johnson is a criminal defense lawyer with a track record of successfully defending his clients.",
-      "skills": [
-        "DUI defense",
-        "Drug offenses",
-        "Assault and battery"
-      ],
-      "experience": "15+ years",
-      "image": "https://randomuser.me/api/portraits/men/3.jpg",
-      "languages": [
-        "English",
-        "French"
-      ]
-    },
-    {
-      "name": "Samantha Lee",
-      "address": "456 Elm St, Anytown, USA",
-      "profession": "Immigration Lawyer",
-      "bio": "Samantha Lee is an immigration lawyer with a deep understanding of the complexities of immigration law.",
-      "skills": [
-        "Green card applications",
-        "Asylum cases",
-        "Deportation defense"
-      ],
-      "experience": "7+ years",
-      "image": "https://randomuser.me/api/portraits/women/4.jpg",
-      "languages": [
-        "English",
-        "Mandarin"
-      ]
-    },
-    {
-      "name": "Emily Chen",
-      "address": "456 Main St, Anytown, USA",
-      "profession": "Immigration Lawyer",
-      "bio": "Emily Chen is an immigration lawyer who specializes in helping clients navigate the complex U.S. immigration system.",
-      "skills": [
-        "Visa applications",
-        "Deportation defense",
-        "Citizenship"
-      ],
-      "experience": "8+ years",
-      "image": "https://randomuser.me/api/portraits/women/4.jpg",
-      "languages": [
-        "English",
-        "Mandarin"
-      ]
-    },
-    {
-      "name": "Michael Davis",
-      "address": "789 Oak Ave, Anycity, USA",
-      "profession": "Personal Injury Lawyer",
-      "bio": "Michael Davis is a personal injury lawyer who fights for his clients to receive fair compensation for their injuries.",
-      "skills": [
-        "Car accidents",
-        "Slip and fall",
-        "Medical malpractice"
-      ],
-      "experience": "12+ years",
-      "image": "https://randomuser.me/api/portraits/men/5.jpg",
-      "languages": [
-        "English",
-        "Spanish"
-      ]
-    },
-    {
-      "name": "David Jones",
-      "address": "456 Main St, Anytown, USA",
-      "profession": "Real Estate Lawyer",
-      "bio": "David Jones is a real estate lawyer who helps clients with buying, selling, and leasing property.",
-      "skills": [
-        "Commercial real estate",
-        "Residential real estate",
-        "Landlord-tenant disputes"
-      ],
-      "experience": "9+ years",
-      "image": "https://randomuser.me/api/portraits/men/7.jpg",
-      "languages": [
-        "English",
-        "Hindi"
-      ]
-    },
-    {
-        "name": "Amanda Wilson",
-        "address": "789 Oak Ave, Anycity, USA",
-        "profession": "Employment Lawyer",
-        "bio": "Amanda Wilson is an employment lawyer who fights for employees who have been wrongfully terminated, harassed, or discriminated against.",
-        "skills": ["Discrimination", "Wrongful termination", "Harassment"],
-        "experience": "11+ years",
-        "image": "https://randomuser.me/api/portraits/women/8.jpg",
-        "languages": ["English", "Spanish"]
-      },
-      {
-        "name": "William Thompson",
-        "address": "123 Main St, Anytown, USA",
-        "profession": "Bankruptcy Lawyer",
-        "bio": "William Thompson is a bankruptcy lawyer who helps clients with debt relief and financial restructuring.",
-        "skills": ["Chapter 7 bankruptcy", "Chapter 13 bankruptcy", "Debt negotiation"],
-        "experience": "8+ years",
-        "image": "https://randomuser.me/api/portraits/men/9.jpg",
-        "languages": ["English"]
-      },
-      {
-        "name": "Jennifer Chen",
-        "address": "456 Oak Ave, Anystate, USA",
-        "profession": "Medical Malpractice Lawyer",
-        "bio": "Jennifer Chen is a medical malpractice lawyer who helps clients who have been injured as a result of medical negligence.",
-        "skills": ["Misdiagnosis", "Surgical errors", "Medication errors"],
-        "experience": "14+ years",
-        "image": "https://randomuser.me/api/portraits/women/10.jpg",
-        "languages": ["English", "Mandarin"]
-      },
-      {
-        "name": "Daniel Rodriguez",
-        "address": "789 Pine St, Anycity, USA",
-        "profession": "Immigration Lawyer",
-        "bio": "Daniel Rodriguez is an immigration lawyer who helps clients with visas, green cards, and citizenship.",
-        "skills": ["Family-based immigration", "Employment-based immigration", "Deportation defense"],
-        "experience": "6+ years",
-        "image": "https://randomuser.me/api/portraits/men/11.jpg",
-        "languages": ["English", "Spanish"]
-      },
-      {
-        "name": "Samantha Kim",
-        "address": "123 Pine St, Anystate, USA",
-        "profession": "Family Lawyer",
-        "bio": "Samantha Kim is a family lawyer who helps clients with divorce, child custody, and adoption.",
-        "skills": ["Divorce law", "Child custody", "Adoption"],
-        "experience": "7+ years",
-        "image": "https://randomuser.me/api/portraits/women/12.jpg",
-        "languages": ["English", "Korean"]
-      },
-      {
-        "name": "Robert Garcia",
-        "address": "456 Main St, Anytown, USA",
-        "profession": "Criminal Defense Lawyer",
-        "bio": "Robert Garcia is a criminal defense lawyer who has successfully defended clients against charges of DUI, drug offenses, and assault and battery.",
-        "skills": ["DUI defense", "Drug offenses", "Assault and battery"],
-        "experience": "10+ years",
-        "image": "https://randomuser.me/api/portraits/men/13.jpg",
-        "languages": ["English", "Spanish"]
-      },
-      {
-        "name": "Katherine Lee",
-        "address": "789 Oak Ave, Anycity, USA",
-        "profession": "Personal Injury Lawyer",
-        "bio": "Katherine Lee is a personal injury lawyer who fights for clients who have been injured in accidents.",
-        "skills": ["Car accidents", "Slip and fall", "Medical malpractice"],
-        "experience": "9+ years",
-        "image": "https://randomuser.me/api/portraits/men/14.jpg",
-        "languages": ["English", "Spanish", "Italian"]
-     },
-     {
-        "name": "Maria Hernandez",
-        "address": "789 Oak Ave, Anytown, USA",
-        "profession": "Immigration Lawyer",
-        "bio": "Maria Hernandez is an immigration lawyer who is committed to helping her clients achieve their immigration goals.",
-        "skills": ["Green cards", "Asylum", "Family immigration"],
-        "experience": "10+ years",
-        "image": "https://randomuser.me/api/portraits/women/8.jpg",
-        "languages": ["English", "Spanish"]
-      },
-      {
-        "name": "Joseph Kim",
-        "address": "123 Pine St, Anystate, USA",
-        "profession": "Corporate Lawyer",
-        "bio": "Joseph Kim is a corporate lawyer who advises businesses on legal issues related to their operations and growth.",
-        "skills": ["Corporate finance", "Securities regulation", "Intellectual property"],
-        "experience": "7+ years",
-        "image": "https://randomuser.me/api/portraits/men/9.jpg",
-        "languages": ["English", "Korean"]
-      },
-      {
-        "name": "Sophia Chen",
-        "address": "456 Main St, Anytown, USA",
-        "profession": "Family Lawyer",
-        "bio": "Sophia Chen is a family lawyer who understands the emotional and financial challenges of family law disputes.",
-        "skills": ["Child support", "Spousal support", "Paternity"],
-        "experience": "6+ years",
-        "image": "https://randomuser.me/api/portraits/women/10.jpg",
-        "languages": ["English", "Mandarin"]
-      },
-      {
-        "name": "Daniel Rodriguez",
-        "address": "789 Oak Ave, Anycity, USA",
-        "profession": "Criminal Defense Lawyer",
-        "bio": "Daniel Rodriguez is a criminal defense lawyer who has successfully defended clients facing a wide range of criminal charges.",
-        "skills": ["White collar crimes", "Domestic violence", "Federal offenses"],
-        "experience": "13+ years",
-        "image": "https://randomuser.me/api/portraits/men/11.jpg",
-        "languages": ["English", "Spanish"]
-      },
-      {
-        "name": "Ava Patel",
-        "address": "123 Pine St, Anytown, USA",
-        "profession": "Personal Injury Lawyer",
-        "bio": "Ava Patel is a personal injury lawyer who has a track record of obtaining significant compensation for her clients.",
-        "skills": ["Wrongful death", "Brain injuries", "Product liability"],
-        "experience": "11+ years",
-        "image": "https://randomuser.me/api/portraits/women/12.jpg",
-        "languages": ["English", "Hindi"]
-      },
-      {
-        "name": "Mark Thompson",
-        "address": "456 Oak Ave, Anystate, USA",
-        "profession": "Real Estate Lawyer",
-        "bio": "Mark Thompson is a real estate lawyer who has a deep understanding of the legal issues involved in real estate transactions.",
-        "skills": ["Title disputes", "Easements", "Zoning"],
-        "experience": "14+ years",
-        "image": "https://randomuser.me/api/portraits/men/13.jpg",
-        "languages": ["English"]
-      },
-      {
-        "name": "Rachel Kim",
-        "address": "789 Main St, Anytown, USA",
-        "profession": "Employment Lawyer",
-        "bio": "Rachel Kim is an employment lawyer who is passionate about protecting workers' rights.",
-        "skills": ["Discrimination", "Harassment", "Wrongful termination"],
-        "experience": "8+ years",
-        "image": "https://randomuser.me/api/portraits/women/14.jpg",
-        "languages": ["English", "Korean"]
-      },
-      {
-        "name": "Elizabeth Taylor",
-        "address": "123 Main St, Anytown, USA",
-        "profession": "Environmental Lawyer",
-        "bio": "Elizabeth Taylor is an environmental lawyer who advocates for sustainable practices and protecting the environment.",
-        "skills": ["Climate change law", "Renewable energy", "Pollution regulation"],
-        "experience": "6+ years",
-        "image": "https://randomuser.me/api/portraits/women/8.jpg",
-        "languages": ["English", "French"]
-      },
-      {
-        "name": "Christopher Lee",
-        "address": "456 Oak Ave, Anycity, USA",
-        "profession": "Bankruptcy Lawyer",
-        "bio": "Christopher Lee is a bankruptcy lawyer who helps clients eliminate or restructure their debt.",
-        "skills": ["Chapter 7 bankruptcy", "Chapter 13 bankruptcy", "Debt negotiation"],
-        "experience": "11+ years",
-        "image": "https://randomuser.me/api/portraits/men/9.jpg",
-        "languages": ["English", "Spanish"]
-      },
-      {
-        "name": "Olivia Wilson",
-        "address": "789 Pine St, Anystate, USA",
-        "profession": "Employment Lawyer",
-        "bio": "Olivia Wilson is an employment lawyer who helps clients with workplace issues such as discrimination, harassment, and wrongful termination.",
-        "skills": ["Employment contracts", "Workplace investigations", "Severance negotiations"],
-        "experience": "7+ years",
-        "image": "https://randomuser.me/api/portraits/women/10.jpg",
-        "languages": ["English"]
-      },
-      {
-        "name": "Anthony Nguyen",
-        "address": "123 Oak Ave, Anytown, USA",
-        "profession": "Tax Lawyer",
-        "bio": "Anthony Nguyen is a tax lawyer who helps clients navigate complex tax laws and resolve tax disputes.",
-        "skills": ["Tax planning", "IRS audits", "Tax controversy"],
-        "experience": "14+ years",
-        "image": "https://randomuser.me/api/portraits/men/11.jpg",
-        "languages": ["English", "Vietnamese"]
-      },
-      {
-        "name": "Sophia Martinez",
-        "address": "456 Main St, Anycity, USA",
-        "profession": "Civil Rights Lawyer",
-        "bio": "Sophia Martinez is a civil rights lawyer who fights for justice and equality for all.",
-        "skills": ["Police misconduct", "Discrimination", "Voting rights"],
-        "experience": "9+ years",
-        "image": "https://randomuser.me/api/portraits/women/12.jpg",
-        "languages": ["English", "Spanish"]
-      },
-      {
-        "name": "Adam Patel",
-        "address": "789 Pine St, Anytown, USA",
-        "profession": "Personal Bankruptcy Lawyer",
-        "bio": "Adam Patel is a personal bankruptcy lawyer who helps clients file for bankruptcy and get a fresh start.",
-        "skills": ["Chapter 7 bankruptcy", "Chapter 13 bankruptcy", "Debt consolidation"],
-        "experience": "6+ years",
-        "image": "https://randomuser.me/api/portraits/men/13.jpg",
-        "languages": ["English", "Hindi"]
-      },
-      {
-        "name": "Ava Brown",
-        "address": "123 Oak Ave, Anycity, USA",
-        "profession": "Entertainment Lawyer",
-        "bio": "Ava Brown is an entertainment lawyer who helps clients in the music, film, and television industries protect their creative works.",
-        "skills": ["Contracts", "Copyright", "Trademark"],
-        "experience": "8+ years",
-        "image": "https://randomuser.me/api/portraits/women/14.jpg",
-        "languages": ["English", "Hindi"]
-      },
-      {
-        "name": "Jessica Chen",
-        "address": "789 Oak Ave, Anytown, USA",
-        "profession": "Employment Lawyer",
-        "bio": "Jessica Chen is an employment lawyer who specializes in workplace discrimination and harassment cases.",
-        "skills": ["Discrimination", "Harassment", "Wrongful termination"],
-        "experience": "6+ years",
-        "image": "https://randomuser.me/api/portraits/women/8.jpg",
-        "languages": ["English", "Mandarin"]
-      },
-      {
-        "name": "Richard Johnson",
-        "address": "123 Pine St, Anycity, USA",
-        "profession": "Bankruptcy Lawyer",
-        "bio": "Richard Johnson is a bankruptcy lawyer who helps clients navigate the complex process of filing for bankruptcy.",
-        "skills": ["Chapter 7", "Chapter 11", "Chapter 13"],
-        "experience": "10+ years",
-        "image": "https://randomuser.me/api/portraits/men/9.jpg",
-        "languages": ["English", "Spanish"]
-      },
-      {
-        "name": "Karen Lee",
-        "address": "456 Main St, Anytown, USA",
-        "profession": "Estate Planning Lawyer",
-        "bio": "Karen Lee is an estate planning lawyer who helps clients create wills, trusts, and other estate planning documents.",
-        "skills": ["Wills", "Trusts", "Probate"],
-        "experience": "8+ years",
-        "image": "https://randomuser.me/api/portraits/women/10.jpg",
-        "languages": ["English"]
-      },
-      {
-        "name": "David Kim",
-        "address": "789 Oak Ave, Anystate, USA",
-        "profession": "Tax Lawyer",
-        "bio": "David Kim is a tax lawyer who helps clients with tax planning and resolving tax disputes with the IRS.",
-        "skills": ["Tax planning", "Tax disputes", "Tax fraud"],
-        "experience": "12+ years",
-        "image": "https://randomuser.me/api/portraits/men/11.jpg",
-        "languages": ["English", "Korean"]
-      },
-      {
-        "name": "Jennifer Park",
-        "address": "123 Main St, Anytown, USA",
-        "profession": "Immigration Lawyer",
-        "bio": "Jennifer Park is an immigration lawyer who helps clients obtain visas, green cards, and citizenship.",
-        "skills": ["Visa applications", "Green cards", "Citizenship"],
-        "experience": "7+ years",
-        "image": "https://randomuser.me/api/portraits/women/12.jpg",
-        "languages": ["English", "Korean"]
-      },
-      {
-        "name": "Mark Thompson",
-        "address": "456 Oak Ave, Anycity, USA",
-        "profession": "Personal Injury Lawyer",
-        "bio": "Mark Thompson is a personal injury lawyer who specializes in catastrophic injury cases.",
-        "skills": ["Brain injuries", "Spinal cord injuries", "Burn injuries"],
-        "experience": "15+ years",
-        "image": "https://randomuser.me/api/portraits/men/13.jpg",
-        "languages": ["English", "Spanish"]
-      },
-      {
-        "name": "Laura Lee",
-        "address": "789 Pine St, Anystate, USA",
-        "profession": "Family Lawyer",
-        "bio": "Laura Lee is a family lawyer who helps clients with divorce, child custody, and adoption cases.",
-        "skills": ["Divorce law", "Child custody", "Adoption"],
-        "experience": "9+ years",
-        "image": "https://randomuser.me/api/portraits/women/14.jpg",
-        "languages": ["English"]
-      }
-  ]
+  {
+    "_id": "642792ca28ed9a17526177ce",
+    "name": "John Smith",
+    "address": "123 Main St, Anytown, USA",
+    "profession": "Personal Injury Lawyer",
+    "bio": "John Smith is a personal injury lawyer with over 10 years of experience helping clients get the compensation they deserve. He is passionate about justice and fighting for the rights of his clients.",
+    "skills": ["Negotiation", "Litigation", "Mediation"],
+    "experience": "10+ years",
+    "image": "https://randomuser.me/api/portraits/men/1.jpg",
+    "languages": ["English", "Spanish"],
+    "price": "$599",
+    "rating": 4
+  },
+  {
+    "_id": "642792ca28ed9a17526177cf",
+    "name": "Jane Doe",
+    "address": "456 Oak St, Anytown, USA",
+    "profession": "Criminal Defense Lawyer",
+    "bio": "Jane Doe is a criminal defense lawyer with a proven track record of success in the courtroom. She has a deep understanding of criminal law and is passionate about defending her clients' rights.",
+    "skills": ["Trial Preparation", "Cross-Examination", "Plea Bargaining"],
+    "experience": "8+ years",
+    "image": "https://randomuser.me/api/portraits/women/2.jpg",
+    "languages": ["English", "French"],
+    "price": "$599",
+    "rating": 3
+  },
+  {
+    "_id": "642792ca28ed9a17526177d0",
+    "name": "David Lee",
+    "address": "789 Maple Ave, Anytown, USA",
+    "profession": "Corporate Lawyer",
+    "bio": "David Lee is a corporate lawyer with extensive experience advising businesses on legal matters. He is skilled at drafting contracts, negotiating deals, and providing legal guidance to clients.",
+    "skills": [
+      "Contract Drafting",
+      "Mergers & Acquisitions",
+      "Corporate Governance"
+    ],
+    "experience": "15+ years",
+    "image": "https://randomuser.me/api/portraits/men/3.jpg",
+    "languages": ["English", "Mandarin"],
+    "price": "$2500",
+    "rating": 3
+  },
+  {
+    "_id": "642792ca28ed9a17526177d1",
+    "name": "Karen Wilson",
+    "address": "234 Elm St, Anycity, USA",
+    "profession": "Immigration Lawyer",
+    "bio": "Karen Wilson is an immigration lawyer who is dedicated to helping clients navigate the complex immigration system.",
+    "skills": [
+      "Visa applications",
+      "Deportation defense",
+      "Citizenship applications"
+    ],
+    "experience": "8+ years",
+    "image": "https://randomuser.me/api/portraits/women/4.jpg",
+    "languages": ["English", "Spanish", "Mandarin"],
+    "price": "$599",
+    "rating": 3
+  },
+  {
+    "_id": "642792ca28ed9a17526177d2",
+    "name": "Robert Johnson",
+    "address": "789 Pine St, Anystate, USA",
+    "profession": "Criminal Defense Lawyer",
+    "bio": "Robert Johnson is a criminal defense lawyer with a track record of successfully defending his clients.",
+    "skills": ["DUI defense", "Drug offenses", "Assault and battery"],
+    "experience": "15+ years",
+    "image": "https://randomuser.me/api/portraits/men/3.jpg",
+    "languages": ["English", "French"],
+    "price": "$2500",
+    "rating": 4
+  },
+  {
+    "_id": "642792ca28ed9a17526177d3",
+    "name": "Samantha Lee",
+    "address": "456 Elm St, Anytown, USA",
+    "profession": "Immigration Lawyer",
+    "bio": "Samantha Lee is an immigration lawyer with a deep understanding of the complexities of immigration law.",
+    "skills": [
+      "Green card applications",
+      "Asylum cases",
+      "Deportation defense"
+    ],
+    "experience": "7+ years",
+    "image": "https://randomuser.me/api/portraits/women/4.jpg",
+    "languages": ["English", "Mandarin"],
+    "price": "$599",
+    "rating": 4
+  },
+  {
+    "_id": "642792ca28ed9a17526177d4",
+    "name": "Emily Chen",
+    "address": "456 Main St, Anytown, USA",
+    "profession": "Immigration Lawyer",
+    "bio": "Emily Chen is an immigration lawyer who specializes in helping clients navigate the complex U.S. immigration system.",
+    "skills": ["Visa applications", "Deportation defense", "Citizenship"],
+    "experience": "8+ years",
+    "image": "https://randomuser.me/api/portraits/women/4.jpg",
+    "languages": ["English", "Mandarin"],
+    "price": "$599",
+    "rating": 3
+  },
+  {
+    "_id": "642792ca28ed9a17526177d5",
+    "name": "Michael Davis",
+    "address": "789 Oak Ave, Anycity, USA",
+    "profession": "Personal Injury Lawyer",
+    "bio": "Michael Davis is a personal injury lawyer who fights for his clients to receive fair compensation for their injuries.",
+    "skills": ["Car accidents", "Slip and fall", "Medical malpractice"],
+    "experience": "12+ years",
+    "image": "https://randomuser.me/api/portraits/men/5.jpg",
+    "languages": ["English", "Spanish"],
+    "price": "$1000",
+    "rating": 4
+  },
+  {
+    "_id": "642792ca28ed9a17526177d6",
+    "name": "David Jones",
+    "address": "456 Main St, Anytown, USA",
+    "profession": "Real Estate Lawyer",
+    "bio": "David Jones is a real estate lawyer who helps clients with buying, selling, and leasing property.",
+    "skills": [
+      "Commercial real estate",
+      "Residential real estate",
+      "Landlord-tenant disputes"
+    ],
+    "experience": "9+ years",
+    "image": "https://randomuser.me/api/portraits/men/7.jpg",
+    "languages": ["English", "Hindi"],
+    "price": "$599",
+    "rating": 3
+  },
+  {
+    "_id": "642792ca28ed9a17526177d7",
+    "name": "Amanda Wilson",
+    "address": "789 Oak Ave, Anycity, USA",
+    "profession": "Employment Lawyer",
+    "bio": "Amanda Wilson is an employment lawyer who fights for employees who have been wrongfully terminated, harassed, or discriminated against.",
+    "skills": ["Discrimination", "Wrongful termination", "Harassment"],
+    "experience": "11+ years",
+    "image": "https://randomuser.me/api/portraits/women/8.jpg",
+    "languages": ["English", "Spanish"],
+    "price": "$500",
+    "rating": 3
+  },
+  {
+    "_id": "642792ca28ed9a17526177d8",
+    "name": "William Thompson",
+    "address": "123 Main St, Anytown, USA",
+    "profession": "Bankruptcy Lawyer",
+    "bio": "William Thompson is a bankruptcy lawyer who helps clients with debt relief and financial restructuring.",
+    "skills": [
+      "Chapter 7 bankruptcy",
+      "Chapter 13 bankruptcy",
+      "Debt negotiation"
+    ],
+    "experience": "8+ years",
+    "image": "https://randomuser.me/api/portraits/men/9.jpg",
+    "languages": ["English"],
+    "price": "$599",
+    "rating": 3
+  },
+  {
+    "_id": "642792ca28ed9a17526177d9",
+    "name": "Jennifer Chen",
+    "address": "456 Oak Ave, Anystate, USA",
+    "profession": "Medical Malpractice Lawyer",
+    "bio": "Jennifer Chen is a medical malpractice lawyer who helps clients who have been injured as a result of medical negligence.",
+    "skills": ["Misdiagnosis", "Surgical errors", "Medication errors"],
+    "experience": "14+ years",
+    "image": "https://randomuser.me/api/portraits/women/10.jpg",
+    "languages": ["English", "Mandarin"],
+    "price": "$2000",
+    "rating": 2
+  },
+  {
+    "_id": "642792ca28ed9a17526177da",
+    "name": "Daniel Willionson",
+    "address": "895 Pine St, Anycity, USA",
+    "profession": "Immigration Lawyer",
+    "bio": "Daniel Willionson is an immigration lawyer who helps clients with visas, green cards, and citizenship.",
+    "skills": [
+      "Family-based immigration",
+      "Employment-based immigration",
+      "Deportation defense"
+    ],
+    "experience": "9+ years",
+    "image": "https://randomuser.me/api/portraits/men/11.jpg",
+    "languages": ["English", "Spanish"],
+    "price": "$599",
+    "rating": 4
+  },
+  {
+    "_id": "642792ca28ed9a17526177db",
+    "name": "Samantha Kim",
+    "address": "123 Pine St, Anystate, USA",
+    "profession": "Family Lawyer",
+    "bio": "Samantha Kim is a family lawyer who helps clients with divorce, child custody, and adoption.",
+    "skills": ["Divorce law", "Child custody", "Adoption"],
+    "experience": "7+ years",
+    "image": "https://randomuser.me/api/portraits/women/12.jpg",
+    "languages": ["English", "Korean"],
+    "price": "$599",
+    "rating": 3
+  },
+  {
+    "_id": "642792ca28ed9a17526177dc",
+    "name": "Robert Garcia",
+    "address": "456 Main St, Anytown, USA",
+    "profession": "Criminal Defense Lawyer",
+    "bio": "Robert Garcia is a criminal defense lawyer who has successfully defended clients against charges of DUI, drug offenses, and assault and battery.",
+    "skills": ["DUI defense", "Drug offenses", "Assault and battery"],
+    "experience": "10+ years",
+    "image": "https://randomuser.me/api/portraits/men/13.jpg",
+    "languages": ["English", "Spanish"],
+    "price": "$599",
+    "rating": 3
+  },
+  {
+    "_id": "642792ca28ed9a17526177dd",
+    "name": "Katherine Lee",
+    "address": "789 Oak Ave, Anycity, USA",
+    "profession": "Personal Injury Lawyer",
+    "bio": "Katherine Lee is a personal injury lawyer who fights for clients who have been injured in accidents.",
+    "skills": ["Car accidents", "Slip and fall", "Medical malpractice"],
+    "experience": "9+ years",
+    "image": "https://randomuser.me/api/portraits/men/14.jpg",
+    "languages": ["English", "Spanish", "Italian"],
+    "price": "$599",
+    "rating": 3
+  },
+  {
+    "_id": "642792ca28ed9a17526177de",
+    "name": "Maria Hernandez",
+    "address": "789 Oak Ave, Anytown, USA",
+    "profession": "Immigration Lawyer",
+    "bio": "Maria Hernandez is an immigration lawyer who is committed to helping her clients achieve their immigration goals.",
+    "skills": ["Green cards", "Asylum", "Family immigration"],
+    "experience": "10+ years",
+    "image": "https://randomuser.me/api/portraits/women/8.jpg",
+    "languages": ["English", "Spanish"],
+    "price": "$599",
+    "rating": 3
+  },
+  {
+    "_id": "642792ca28ed9a17526177df",
+    "name": "Joseph Kim",
+    "address": "123 Pine St, Anystate, USA",
+    "profession": "Corporate Lawyer",
+    "bio": "Joseph Kim is a corporate lawyer who advises businesses on legal issues related to their operations and growth.",
+    "skills": [
+      "Corporate finance",
+      "Securities regulation",
+      "Intellectual property"
+    ],
+    "experience": "7+ years",
+    "image": "https://randomuser.me/api/portraits/men/9.jpg",
+    "languages": ["English", "Korean"],
+    "price": "$599",
+    "rating": 4
+  },
+  {
+    "_id": "642792ca28ed9a17526177e0",
+    "name": "Sophia Chen",
+    "address": "456 Main St, Anytown, USA",
+    "profession": "Family Lawyer",
+    "bio": "Sophia Chen is a family lawyer who understands the emotional and financial challenges of family law disputes.",
+    "skills": ["Child support", "Spousal support", "Paternity"],
+    "experience": "6+ years",
+    "image": "https://randomuser.me/api/portraits/women/10.jpg",
+    "languages": ["English", "Mandarin"],
+    "price": "$599",
+    "rating": 4
+  },
+  {
+    "_id": "642792ca28ed9a17526177e1",
+    "name": "Daniel Rodriguez",
+    "address": "789 Oak Ave, Anycity, USA",
+    "profession": "Criminal Defense Lawyer",
+    "bio": "Daniel Rodriguez is a criminal defense lawyer who has successfully defended clients facing a wide range of criminal charges.",
+    "skills": ["White collar crimes", "Domestic violence", "Federal offenses"],
+    "experience": "13+ years",
+    "image": "https://randomuser.me/api/portraits/men/11.jpg",
+    "languages": ["English", "Spanish"],
+    "price": "$1500",
+    "rating": 4
+  },
+  {
+    "_id": "642792ca28ed9a17526177e2",
+    "name": "Ava Patel",
+    "address": "123 Pine St, Anytown, USA",
+    "profession": "Personal Injury Lawyer",
+    "bio": "Ava Patel is a personal injury lawyer who has a track record of obtaining significant compensation for her clients.",
+    "skills": ["Wrongful death", "Brain injuries", "Product liability"],
+    "experience": "11+ years",
+    "image": "https://randomuser.me/api/portraits/women/12.jpg",
+    "languages": ["English", "Hindi"],
+    "price": "$500",
+    "rating": 2
+  },
+  {
+    "_id": "642792ca28ed9a17526177e3",
+    "name": "Mark Batter",
+    "address": "256 Oak Ave, Anystate, USA",
+    "profession": "Employment Lawyer",
+    "bio": "Mark Batter is a Employment Lawyer who has a deep understanding of the legal issues involved in real estate transactions.",
+    "skills": ["Title disputes", "Easements", "Zoning"],
+    "experience": "14+ years",
+    "image": "https://randomuser.me/api/portraits/men/13.jpg",
+    "languages": ["English"],
+    "price": "$2000",
+    "rating": 4
+  },
+  {
+    "_id": "642792ca28ed9a17526177e4",
+    "name": "Rachel Kim",
+    "address": "789 Main St, Anytown, USA",
+    "profession": "Employment Lawyer",
+    "bio": "Rachel Kim is an employment lawyer who is passionate about protecting workers' rights.",
+    "skills": ["Discrimination", "Harassment", "Wrongful termination"],
+    "experience": "8+ years",
+    "image": "https://randomuser.me/api/portraits/women/14.jpg",
+    "languages": ["English", "Korean"],
+    "price": "$599",
+    "rating": 3
+  },
+  {
+    "_id": "642792ca28ed9a17526177e5",
+    "name": "Elizabeth Taylor",
+    "address": "123 Main St, Anytown, USA",
+    "profession": "Environmental Lawyer",
+    "bio": "Elizabeth Taylor is an environmental lawyer who advocates for sustainable practices and protecting the environment.",
+    "skills": [
+      "Climate change law",
+      "Renewable energy",
+      "Pollution regulation"
+    ],
+    "experience": "6+ years",
+    "image": "https://randomuser.me/api/portraits/women/8.jpg",
+    "languages": ["English", "French"],
+    "price": "$599",
+    "rating": 2
+  },
+  {
+    "_id": "642792ca28ed9a17526177e6",
+    "name": "Christopher Lee",
+    "address": "456 Oak Ave, Anycity, USA",
+    "profession": "Bankruptcy Lawyer",
+    "bio": "Christopher Lee is a bankruptcy lawyer who helps clients eliminate or restructure their debt.",
+    "skills": [
+      "Chapter 7 bankruptcy",
+      "Chapter 13 bankruptcy",
+      "Debt negotiation"
+    ],
+    "experience": "11+ years",
+    "image": "https://randomuser.me/api/portraits/men/9.jpg",
+    "languages": ["English", "Spanish"],
+    "price": "$500",
+    "rating": 3
+  },
+  {
+    "_id": "642792ca28ed9a17526177e7",
+    "name": "Olivia Wilson",
+    "address": "789 Pine St, Anystate, USA",
+    "profession": "Employment Lawyer",
+    "bio": "Olivia Wilson is an employment lawyer who helps clients with workplace issues such as discrimination, harassment, and wrongful termination.",
+    "skills": [
+      "Employment contracts",
+      "Workplace investigations",
+      "Severance negotiations"
+    ],
+    "experience": "7+ years",
+    "image": "https://randomuser.me/api/portraits/women/10.jpg",
+    "languages": ["English"],
+    "price": "$599",
+    "rating": 3
+  },
+  {
+    "_id": "642792ca28ed9a17526177e8",
+    "name": "Anthony Nguyen",
+    "address": "123 Oak Ave, Anytown, USA",
+    "profession": "Tax Lawyer",
+    "bio": "Anthony Nguyen is a tax lawyer who helps clients navigate complex tax laws and resolve tax disputes.",
+    "skills": ["Tax planning", "IRS audits", "Tax controversy"],
+    "experience": "14+ years",
+    "image": "https://randomuser.me/api/portraits/men/11.jpg",
+    "languages": ["English", "Vietnamese"],
+    "price": "$2000",
+    "rating": 4
+  },
+  {
+    "_id": "642792ca28ed9a17526177e9",
+    "name": "Sophia Martinez",
+    "address": "456 Main St, Anycity, USA",
+    "profession": "Civil Rights Lawyer",
+    "bio": "Sophia Martinez is a civil rights lawyer who fights for justice and equality for all.",
+    "skills": ["Police misconduct", "Discrimination", "Voting rights"],
+    "experience": "9+ years",
+    "image": "https://randomuser.me/api/portraits/women/12.jpg",
+    "languages": ["English", "Spanish"],
+    "price": "$599",
+    "rating": 4
+  },
+  {
+    "_id": "642792ca28ed9a17526177ea",
+    "name": "Adam Patel",
+    "address": "789 Pine St, Anytown, USA",
+    "profession": "Personal Bankruptcy Lawyer",
+    "bio": "Adam Patel is a personal bankruptcy lawyer who helps clients file for bankruptcy and get a fresh start.",
+    "skills": [
+      "Chapter 7 bankruptcy",
+      "Chapter 13 bankruptcy",
+      "Debt consolidation"
+    ],
+    "experience": "6+ years",
+    "image": "https://randomuser.me/api/portraits/men/13.jpg",
+    "languages": ["English", "Hindi"],
+    "price": "$599",
+    "rating": 3
+  },
+  {
+    "_id": "642792ca28ed9a17526177eb",
+    "name": "Ava Brown",
+    "address": "123 Oak Ave, Anycity, USA",
+    "profession": "Entertainment Lawyer",
+    "bio": "Ava Brown is an entertainment lawyer who helps clients in the music, film, and television industries protect their creative works.",
+    "skills": ["Contracts", "Copyright", "Trademark"],
+    "experience": "8+ years",
+    "image": "https://randomuser.me/api/portraits/women/14.jpg",
+    "languages": ["English", "Hindi"],
+    "price": "$599",
+    "rating": 3
+  },
+  {
+    "_id": "642792ca28ed9a17526177ec",
+    "name": "Jessica Chen",
+    "address": "789 Oak Ave, Anytown, USA",
+    "profession": "Employment Lawyer",
+    "bio": "Jessica Chen is an employment lawyer who specializes in workplace discrimination and harassment cases.",
+    "skills": ["Discrimination", "Harassment", "Wrongful termination"],
+    "experience": "6+ years",
+    "image": "https://randomuser.me/api/portraits/women/8.jpg",
+    "languages": ["English", "Mandarin"],
+    "price": "$599",
+    "rating": 3
+  },
+  {
+    "_id": "642792ca28ed9a17526177ed",
+    "name": "Richard Johnson",
+    "address": "123 Pine St, Anycity, USA",
+    "profession": "Bankruptcy Lawyer",
+    "bio": "Richard Johnson is a bankruptcy lawyer who helps clients navigate the complex process of filing for bankruptcy.",
+    "skills": ["Chapter 7", "Chapter 11", "Chapter 13"],
+    "experience": "10+ years",
+    "image": "https://randomuser.me/api/portraits/men/9.jpg",
+    "languages": ["English", "Spanish"],
+    "price": "$599",
+    "rating": 3
+  },
+  {
+    "_id": "642792ca28ed9a17526177ee",
+    "name": "Karen Lee",
+    "address": "456 Main St, Anytown, USA",
+    "profession": "Estate Planning Lawyer",
+    "bio": "Karen Lee is an estate planning lawyer who helps clients create wills, trusts, and other estate planning documents.",
+    "skills": ["Wills", "Trusts", "Probate"],
+    "experience": "8+ years",
+    "image": "https://randomuser.me/api/portraits/women/10.jpg",
+    "languages": ["English"],
+    "price": "$599",
+    "rating": 2
+  },
+  {
+    "_id": "642792ca28ed9a17526177ef",
+    "name": "David Kim",
+    "address": "789 Oak Ave, Anystate, USA",
+    "profession": "Tax Lawyer",
+    "bio": "David Kim is a tax lawyer who helps clients with tax planning and resolving tax disputes with the IRS.",
+    "skills": ["Tax planning", "Tax disputes", "Tax fraud"],
+    "experience": "12+ years",
+    "image": "https://randomuser.me/api/portraits/men/11.jpg",
+    "languages": ["English", "Korean"],
+    "price": "$1000",
+    "rating": 4
+  },
+  {
+    "_id": "642792ca28ed9a17526177f0",
+    "name": "Jennifer Park",
+    "address": "123 Main St, Anytown, USA",
+    "profession": "Immigration Lawyer",
+    "bio": "Jennifer Park is an immigration lawyer who helps clients obtain visas, green cards, and citizenship.",
+    "skills": ["Visa applications", "Green cards", "Citizenship"],
+    "experience": "7+ years",
+    "image": "https://randomuser.me/api/portraits/women/12.jpg",
+    "languages": ["English", "Korean"],
+    "price": "$599",
+    "rating": 3
+  },
+  {
+    "_id": "642792ca28ed9a17526177f1",
+    "name": "Mark Thompson",
+    "address": "456 Oak Ave, Anycity, USA",
+    "profession": "Personal Injury Lawyer",
+    "bio": "Mark Thompson is a personal injury lawyer who specializes in catastrophic injury cases.",
+    "skills": ["Brain injuries", "Spinal cord injuries", "Burn injuries"],
+    "experience": "15+ years",
+    "image": "https://randomuser.me/api/portraits/men/13.jpg",
+    "languages": ["English", "Spanish"],
+    "price": "$2500",
+    "rating": 2
+  },
+  {
+    "_id": "642792ca28ed9a17526177f2",
+    "name": "Laura Lee",
+    "address": "789 Pine St, Anystate, USA",
+    "profession": "Family Lawyer",
+    "bio": "Laura Lee is a family lawyer who helps clients with divorce, child custody, and adoption cases.",
+    "skills": ["Divorce law", "Child custody", "Adoption"],
+    "experience": "9+ years",
+    "image": "https://randomuser.me/api/portraits/women/14.jpg",
+    "languages": ["English"],
+    "price": "$599",
+    "rating": 2
+  }
+]
