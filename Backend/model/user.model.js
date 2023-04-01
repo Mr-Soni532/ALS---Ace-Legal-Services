@@ -7,5 +7,5 @@ const userSchema = mongoose.Schema({
     password: String,
     verified:Boolean
 }, { timestamps: true })
-const UserSchema = mongoose.model('user', userSchema);
-module.exports = UserSchema;
+const UserModel = mongoose.model('user', userSchema);
+module.exports = UserModel;
