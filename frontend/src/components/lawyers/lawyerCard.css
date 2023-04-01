@@ -48,6 +48,7 @@
   margin: 0.5rem 0;
   color: #9b9b9b;
   overflow: hidden;
+  font-size: 13px;
   text-overflow: ellipsis;
   display: -webkit-box;
   -webkit-line-clamp: 2;
@@ -60,8 +61,8 @@
   grid-row: 3/4;
   display: flex;
   flex-wrap: wrap;
-  gap: 10px;
-  padding: 1rem 0;
+  gap: 5px;
+  padding: 0.4rem 0;
 }
 
 .skill {
@@ -275,12 +276,20 @@ label:first-child span {
 label:last-child span {
   border-radius: 0 0.375em 0.375em 0;
 }
-
+.LawyerImageX {
+  width: 220px !important;
+  height: 220px !important;
+  transition: all 300ms ease-in-out !important;
+}
 @media only screen and (max-width: 768px) {
   body {
-    background-color: lightblue;
+    background-color: rgb(255, 255, 255);
   }
 
+  .LawyerImageX {
+    width: 60px !important;
+    height: 60px !important;
+  }
   .card {
     width: 96%;
   }
@@ -317,4 +326,30 @@ label:last-child span {
   .search-by {
     display: none;
   }
+}
+.LawyerImageXDark {
+  opacity: 0;
+  position: absolute;
+  bottom: 7px;
+  background-color: #f9e15b6c;
+  text-align: center;
+  width: 220px !important;
+  height: 220px !important;
+  border-radius: 50%;
+  font-weight: 600;
+  border: 0;
+  color: rgb(0, 0, 0);
+  box-shadow: rgba(0, 0, 0, 0.04) 0px 3px 5px;
+  justify-self: center;
+  display: flex;
+  justify-content: center;
+  font-size: large;
+  align-items: flex-end;
+  padding-bottom: 40px;
+  -webkit-text-stroke: 0.2px rgb(0, 0, 0);
+  transition: all 300ms ease-in-out;
+}
+
+.card:hover .LawyerImageXDark {
+  opacity: 1;
 }

@@ -1,0 +1,35 @@
+.contentConatiner {
+  height: auto;
+  display: flex;
+  flex-wrap: wrap;
+  margin: auto;
+  row-gap: 10px;
+  justify-content: space-evenly;
+  justify-items: baseline;
+  padding: 2% 0;
+}
+.UserAdminBoxxx button {
+  background-color: red;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  font-weight: bold;
+  padding: 8px 12px;
+  margin-bottom: 5%;
+  margin-top: 3%;
+}
+.customerCard {
+  width: 22%;
+  text-align: center;
+  margin: auto;
+  border: 2px solid #d6ac01;
+  border-radius: 8px;
+  padding: 2% 0 1% 0;
+}
+
+h2 {
+  font-size: 1rem;
+}
+.customerCard img {
+  width: 100%;
+}

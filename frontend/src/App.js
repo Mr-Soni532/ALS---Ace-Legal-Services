@@ -9,8 +9,11 @@ import PageNotFound from './pages/PageNotFound/PageNotFound';
 import BookSlot from './pages/BookSlot/BookSlot';
 import LoginPage from './pages/Login/LoginPage';
 import SignUpPage from './pages/signup/signupPage';
+import Dashboard from './pages/Admin_page/Dashboard';
 import EventVerified from './pages/EventVerified/EventVerified';
 import OtpPage from './pages/verifyotp/OtpPage';
+import AdminLawyer from './pages/Admin_page/AdminLawyer';
+import Client from './pages/Admin_page/Client';
 
 function App() {
   return (
@@ -26,6 +29,9 @@ function App() {
         <Route path="/bookslot" element={<BookSlot />} />
         <Route path='/login' element={<LoginPage />} />
         <Route path='/signup' element={<SignUpPage />} />
+        <Route path='/adminpage' element={<Dashboard />} />
+        <Route path="/admin/lawyer" element={<AdminLawyer />} />
+        <Route path="/admin/client" element={<Client />} />
         <Route path='/verifyOTP' element={<OtpPage />} />
         <Route path="*" element={<PageNotFound />} />
       </Routes>

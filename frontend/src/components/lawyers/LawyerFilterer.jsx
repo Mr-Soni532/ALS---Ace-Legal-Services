@@ -15,30 +15,92 @@ const LawyerFilterer = () => {
       <br />
       <hr />
       <fieldset>
-        <legend>Output format</legend>
+        <legend>Based on Profession :</legend>
         <div>
-          <label for="txt">
-            <input type="radio" name="format" id="txt" value="txt" checked />
-            Civil Lawyer
-          </label>
+          <input
+            type="radio"
+            name="format"
+            id="cdll"
+            value="Criminal Defense Lawyer"
+          />
+          <label for="cdll">Criminal Defense Lawyer</label>
         </div>
         <div>
-          <label for="csv">
-            <input type="radio" name="format" id="csv" value="csv" />
-            Criminal Laywer
-          </label>
+          <input
+            type="radio"
+            name="format"
+            id="illy"
+            value="Immigration Lawyer"
+          />
+          <label for="illy">Immigration Lawyer</label>
         </div>
         <div>
-          <label for="csv">
-            <input type="radio" name="format" id="csv" value="csv" />
-            Criminal
-          </label>
+          <input
+            type="radio"
+            name="format"
+            id="clopo"
+            value="Corporate Lawyer"
+          />
+          <label for="clopo">Corporate Lawyer</label>
         </div>
         <div>
-          <label for="csv">
-            <input type="radio" name="format" id="csv" value="csv" />
-            Criminal
-          </label>
+          <input
+            type="radio"
+            name="format"
+            id="asdfd"
+            value="Intellectual Property Lawyer"
+          />
+          <label for="asdfd">Intellectual Property Lawyer</label>
+        </div>
+        <div>
+          <input
+            type="radio"
+            name="format"
+            id="rels"
+            value=" Real Estate Lawyer"
+          />
+          <label for="rels">Real Estate Lawyer</label>
+        </div>
+        <div>
+          <input type="radio" name="format" id="terer" value="Tax Lawyer" />
+          <label for="terer">Tax Lawyer</label>
+        </div>
+        <div>
+          <input
+            type="radio"
+            name="format"
+            id="qwerwew"
+            value="Employment Lawyer"
+          />
+          <label for="qwerwew">Employment Lawyer</label>
+        </div>
+        <div>
+          <input
+            type="radio"
+            name="format"
+            id="adsdsds"
+            value="Bankruptcy Lawyer"
+          />
+          <label for="adsdsds">Bankruptcy Lawyer</label>
+        </div>
+        <div>
+          <input
+            type="radio"
+            name="format"
+            id="dfgdsfg"
+            value="Family Lawyer"
+          />
+          <label for="dfgdsfg">Family Lawyer</label>
+        </div>
+
+        <div>
+          <input
+            type="radio"
+            name="format"
+            id="fdfdfdfdf"
+            value="Estate Planning Lawyer"
+          />
+          <label for="fdfdfdfdf">Estate Planning Lawyer</label>
         </div>
       </fieldset>
     </div>
