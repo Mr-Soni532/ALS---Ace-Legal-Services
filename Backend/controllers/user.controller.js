@@ -17,7 +17,7 @@ exports.createUser = (req, res) => {
         .then((result) => {
             if (result.length) {
                 res.json(
-                    { msg: "you are already available , please login" }
+                    { Message: "you are already available , please login" }
                 )
             } else {
                 const saltRounds = 10;
@@ -49,11 +49,11 @@ exports.createUser = (req, res) => {
         })
     // const userAvailable = await UserSchema.findOne({ email });
     // if (userAvailable) {
-    //     res.send({ msg: "you are already available , please login" })
+    //     res.send({ Message: "you are already available , please login" })
     // }
     // bcrypt.hash(password, 5, async (err, hash) => {
     //     if (err) {
-    //         res.send({ msg: "something is wrong", status: "error" })
+    //         res.send({ Message: "something is wrong", status: "error" })
     //     }
     //     const user = new UserSchema({ name, gender, email, phone, password: hash,verified:false });
     //     await user.save()
@@ -61,7 +61,7 @@ exports.createUser = (req, res) => {
     //             sendOTPVerificationEmail(result,res);
     //             // console.log(result);
     //         });
-    //     res.send({ msg: "signup successful", status: "success" })
+    //     res.send({ Message: "signup successful", status: "success" })
     // })
 }
 exports.userLogin = async (req, res) => {
@@ -78,11 +78,11 @@ exports.userLogin = async (req, res) => {
                 res.send({ "msg": "Password is incorrect" })
             }
             const token = jwt.sign({ id: userid }, "ALS");
-            res.send({ msg: "login successful", "token": token, status: "success", "name": username })
+            res.send({ Message: "login successful", "token": token, status: "success", "name": username })
         })
     }
     else {
-        res.send({ msg: "please signup", status: "error" })
+        res.send({ Message: "please signup", status: "error" })
     }
 }
 const transporter = nodemailer.createTransport({

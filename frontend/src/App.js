@@ -13,9 +13,9 @@ function App() {
     <div className="App">
       <Routes>
         <Route path="/" element={<IndexPage />} />
-        <Route path="/appointment" element={<Appointment />} />
         <Route path="/lawyers" element={<Lawyers />} />
         <Route path="/userdashboard" element={<UserDashboard />} />
+        <Route path="/appointment" element={<Appointment />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/signup" element={<SignUpPage />} />
         <Route path="*" element={<PageNotFound />} />

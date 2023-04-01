@@ -14,20 +14,20 @@ app.use(express.json())
 app.use(cors())
 
 //=============> Testing endpoint
-app.get('/', (req,res)=> res.send({msg: 'ALS server working fine'}))
+app.get('/', (req, res) => res.send({ Message: 'ALS server working fine' }))
 
 //=============> ROUTES
 
-app.use('/user',UserRouter)
-app.use('/lawyer',LawyerRouter)
-app.use('/admin',AdminRouter)
+app.use('/user', UserRouter)
+app.use('/lawyer', LawyerRouter)
+app.use('/admin', AdminRouter)
 
 //=============> CONNECTION
-app.listen(PORT, async(err)=>{
-    try{
+app.listen(PORT, async (err) => {
+    try {
         await connectToMongo();
         console.log(`ALS backend running @ ${PORT}`)
-    } catch(error){
+    } catch (error) {
         console.log(error)
     }
 })
