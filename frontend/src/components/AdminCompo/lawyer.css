@@ -1,0 +1,43 @@
+.LawyerBIgParent {
+  padding: 25px;
+}
+
+.lawyerCard {
+  margin: 2%;
+  border: 2px solid #d6ac01;
+  display: flex;
+  align-items: center;
+  border-radius: 7px;
+  padding: 2% 2%;
+}
+.lawyerCard > div > img {
+  width: 80%;
+}
+
+.lawyerDetails {
+  width: 60%;
+}
+.editDltBtn {
+  width: 15%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.editDltBtn > button {
+  padding: 7px 19px;
+}
+.editDltBtn > button:first-child {
+  margin-right: 18%;
+  background-color: #d6ac01;
+  border: none;
+  border-radius: 5px;
+  font-weight: bold;
+  color: white;
+}
+.editDltBtn > button:last-child {
+  background-color: red;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  font-weight: bold;
+}

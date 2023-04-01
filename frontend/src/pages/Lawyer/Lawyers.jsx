@@ -1,13 +1,12 @@
 import React, { useState } from "react";
-import "./lawyer.css";
 import LawyerCard from "../../components/lawyers/LawyerCard";
 import SearchBar from "../../components/lawyers/SearchBar";
 import lawyerData from "../../assets/lawyers.json";
 import DashNavbar from "../../components/UserDashboardComponents/DashNavbar/DashNavbar";
 import LawyerFilterer from "../../components/lawyers/LawyerFilterer";
+import "./lawyer.css";
 
 const Lawyers = () => {
-  console.log(lawyerData);
   const [query, setQuery] = useState("");
   const [option, setOption] = useState("name");
   const keys = ["name", "profession", "experience"];
@@ -34,7 +33,6 @@ const Lawyers = () => {
         <LawyerFilterer />
         <div className="lawyer-list">
           {items?.map((el) => {
-            // console.log(el);
             return <LawyerCard props={el} />;
           })}
         </div>

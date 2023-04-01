@@ -6,18 +6,24 @@ import reportWebVitals from './reportWebVitals';
 import AppointmentState from './context/appointment/appointmentContext';
 
 import { BrowserRouter } from 'react-router-dom';
+import UserState from './context/Admin_page/userFunction/userState';
+import LawyerState from './context/Admin_page/lawyercontext/lawyerState';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
 
   <React.StrictMode>
     <BrowserRouter>
-      <AppointmentState>
-        <App />
-      </AppointmentState>
+      <LawyerState>
+        <UserState>
+          <AppointmentState>
+            <App />
+          </AppointmentState>
+        </UserState>
+      </LawyerState>
     </BrowserRouter>
   </React.StrictMode>
-  
+
 );
 
 reportWebVitals();

@@ -1,16 +1,8 @@
 import React from "react";
 import "./AppointmentCard.css";
 import ApoBtns from "./ApoBtns";
+import Star from "./Star";
 
-const Star = ({ size, trans }) => {
-  return (
-    <img
-      style={{ width: `${size}px`, transform: `translateY( ${trans}px)` }}
-      src="Images/DashboardImages/star.svg"
-      alt="star"
-    ></img>
-  );
-};
 const AppointmentCard = () => {
   return (
     <div className="BigAPCARD" data-aos="fade-right" data-aos-delay="50">

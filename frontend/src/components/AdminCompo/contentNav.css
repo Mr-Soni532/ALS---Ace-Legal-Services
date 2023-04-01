@@ -1,0 +1,37 @@
+.contentNav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 2%;
+}
+.contentNav > div {
+  width: 60%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.contentNav > div > div {
+  position: relative;
+  width: 50%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.contentNav input[type="search"] {
+  position: absolute;
+  width: 100%;
+  padding: 7px 0;
+  border: 2px solid #ffd117;
+  border-radius: 5px;
+}
+select {
+  width: 30%;
+  padding: 7px 0;
+  border: 2px solid black;
+  border-radius: 5px;
+}
+.searchIcon {
+  position: absolute;
+  z-index: 1;
+  right: 10px;
+}

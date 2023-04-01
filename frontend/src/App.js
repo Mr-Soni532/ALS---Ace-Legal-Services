@@ -11,6 +11,7 @@ import LoginPage from './pages/Login/LoginPage';
 import SignUpPage from './pages/signup/signupPage';
 import EventVerified from './pages/EventVerified/EventVerified';
 import OtpPage from './pages/verifyotp/OtpPage';
+import AdminPage from './pages/Admin_page/AdminPage';
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
         <Route path="/bookslot" element={<BookSlot />} />
         <Route path='/login' element={<LoginPage />} />
         <Route path='/signup' element={<SignUpPage />} />
+        <Route path='/adminpage' element={<AdminPage />} />
         <Route path='/verifyOTP' element={<OtpPage />} />
         <Route path="*" element={<PageNotFound />} />
       </Routes>
