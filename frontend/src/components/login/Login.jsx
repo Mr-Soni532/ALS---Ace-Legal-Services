@@ -119,6 +119,9 @@ const Login = () => {
             </svg>
           </button>
         </div>
+        {/* <a href="www.google.com"><button>Google</button>/a> */}
+        {/* <Link to="www.google.com" >Google</Link> */}
+        <a href="http://localhost:4000/auth/google/callback">Google</a>
         <p className="signup">Don't have an account?
           {/* <a rel="noopener noreferrer" href="#" className="">Sign up</a> */}
           <Link to="/signup" style={{color:"rgba(167, 139, 250, 1)"}}>Sign up</Link>

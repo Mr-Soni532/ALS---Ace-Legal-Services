@@ -5,7 +5,9 @@ const UserRouter = require('./routers/user.router');
 const LawyerRouter = require('./routers/lawyer.router');
 const AdminRouter = require('./routers/admin.router');
 const app = express();
-const passport=require("./config/google.auth")
+const passport=require("./config/google.auth");
+// const UserSchema = require('./model/user.model');
+const cookieSession = require("cookie-session");
 
 require('dotenv').config()
 
@@ -19,58 +21,65 @@ app.use(cors())
 app.get('/', (req,res)=> res.send({msg: 'ALS server working fine'}))
 
 //=============> ROUTES
+app.use(
+  cookieSession({ name: "session", keys: ["lama"], maxAge: 24 * 60 * 60 * 100 })
+);
 
+app.use(passport.initialize());
+app.use(passport.session());
 app.use('/user',UserRouter)
 app.use('/lawyer',LawyerRouter)
 app.use('/admin',AdminRouter)
-// app.get('/auth/google',
-//   passport.authenticate('google', { scope: ['profile',"email"] }));
+app.get("/auth/login/success", (req, res) => {
+  if (req.user) {
+    res.status(200).json({
+      success: true,
+      message: "successfull",
+      user: req.user,
+      //   cookies: req.cookies
+    });
+  }
+});
 
-// app.get('/auth/google/callback', 
-//   passport.authenticate('google', { failureRedirect: '/login',session:false }),
-//   function(req, res) {
-//     // Successful authentication, redirect home.
-//     res.redirect('/');
-//   });
-app.get("/auth/google",passport.authenticate("google", { scope: ["profile","email"] }));
+app.get("/auth/login/failed", (req, res) => {
+  res.status(401).json({
+    success: false,
+    message: "failure",
+  });
+});
+app.get('/auth/google',
+  passport.authenticate('google', { scope: ['profile',"email"] }));
+
+app.get('/auth/google/callback', 
+  passport.authenticate('google', { failureRedirect: '/login',session:false }),
+  function(req, res) {
+    // Successful authentication, redirect home.
+    res.redirect('http://localhost:3000/userdashboard');
+  });
+// app.get("/auth/google",passport.authenticate("google", { scope: ["profile","email"] }));
   
-  app.get("/auth/google/callback",
-    passport.authenticate("google", {
-      failureRedirect: "/login",
-      session: false,
-    }),
-    async function (req, res) {
-        console.log(req.user._json.email)
-        console.log(req.user._json.name)
-      // Successful authentication, redirect home.
-    //   const name = req.user._json.name;
-    //   const email = req.user._json.email;
-    //   const pro_pic = req.user._json.picture;
-    //   const user_data = {
-    //     name,
-    //     email,
-    //     picture: pro_pic,
-    //   };
-    //   const user = new Usermodel(user_data);
-    //   await user.save();
-      // let userEmail = await Usermodel({ email: email });
-      // let data = await fetch("https://finalcalender.vercel.app/regis", {
-      //   method: POST,
-      //   headers: {
-      //     "Content-Type": "application/json",
-      //   },
-      //   body: JSON.stringify({
-      //     email: userEmail.email,
-      //   }),
-      // });
-      // console.log(user_data);
-      // console.log(".." + __dirname);
-      // dir="C:\Users\User\OneDrive\Desktop\organic-pets-4780-\Frontend\Dashboard\Dashboard.html"
-  
-    //   res.cookie("userEmail", email);
-      res.redirect("http://localhost:3000/userdashboard");
-    }
-  );
+// app.get("/auth/google/callback",
+//   passport.authenticate("google", {
+//     successRedirect: "http://localhost:3000/userdashboard",
+//     failureRedirect: "auth/login/failed",
+//   })
+// );
+  // app.get("/auth/google/callback",
+  //   passport.authenticate("google", {
+  //     failureRedirect: "/login",
+  //     session: false,
+  //   }),
+  //   async function (req, res) {
+  //       // let email=req.user._json.email;
+  //       // let name=req.user._json.given_name;
+  //       // let verified=req.user._json.email_verified;
+  //       // const user=new UserSchema({email,name,verified});
+  //       // await user.save();
+  //     res.redirect("http://localhost:3000/userdashboard");
+  //   }
+  // );
+  // router.get("/google", passport.authenticate("google", { scope: ["profile"] }));
+
 //=============> CONNECTION
 app.listen(PORT, async(err)=>{
     try{
