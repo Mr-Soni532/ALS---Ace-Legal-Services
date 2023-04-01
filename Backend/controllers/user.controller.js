@@ -75,7 +75,7 @@ exports.userLogin = async (req, res) => {
         bcrypt.compare(password, hashpassword, (err, result) => {
 
             if (err) {
-                res.send({ "msg": "Password is incorrect" })
+                res.send({ Message: "Password is incorrect" })
             }
             const token = jwt.sign({ id: userid }, "ALS");
             res.send({ Message: "login successful", "token": token, status: "success", "name": username })
