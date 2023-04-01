@@ -51,7 +51,7 @@ const SearchBar = ({ query, setQuery, setOption }) => {
             type="search"
             class="input"
             value={query}
-            onChange={(e) => setQuery(e.target.value)}
+            onChange={(e) => setQuery((e.target.value).toLowerCase())}
           />
           <svg className="searchDot" aria-hidden="true" viewBox="0 0 24 24">
             <g>
