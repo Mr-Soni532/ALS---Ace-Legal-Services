@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import LawyerCard from "../../components/lawyers/LawyerCard";
 import SearchBar from "../../components/lawyers/SearchBar";
 import lawyerData from "../../assets/lawyers.json";
@@ -24,8 +24,15 @@ const Lawyers = () => {
 
   };
 
-  const items = search(lawyerData);
+  const [items, setItems] = useState(search(lawyerData))
 
+  useEffect(() => {
+    let timeOut = setTimeout(() => {
+      setItems(search(lawyerData))
+    }, 800);
+
+    return () => clearTimeout(timeOut)
+  }, [query])
   return (
     <div>
       <DashNavbar />

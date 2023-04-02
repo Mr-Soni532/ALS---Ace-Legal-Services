@@ -37,7 +37,7 @@
 
 | React                                                                                                                          | Ant Design                                                                                                                     | Bootstrap                                                                                                                      | HTML                                                                                                                           | CSS                                                                                                                            | JavaScript                                                                                                                     |
 | ------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------ |
-| <img width="50px" src="https://user-images.githubusercontent.com/25181517/183897015-94a058a6-b86e-4e42-a37f-bf92061753e5.png"> | <img width="50px" src="https://user-images.githubusercontent.com/25181517/190887795-99cb0921-e57f-430b-a111-e165deedaa36.png"> | <img width="50px" src="https://user-images.githubusercontent.com/25181517/183898054-b3d693d4-dafb-4808-a509-bab54cf5de34.png"> | <img width="50px" src="https://user-images.githubusercontent.com/25181517/192158954-f88b5814-d510-4564-b285-dff7d6400dad.png"> | <img width="50px" src="https://user-images.githubusercontent.com/25181517/183898674-75a4a1b1-f960-4ea9-abcb-637170a00a75.png"> | <img width="50px" src="https://user-images.githubusercontent.com/25181517/117447155-6a868a00-af3d-11eb-9cfe-245df15c9f3f.png"> |
+| <img width="75px" src="https://user-images.githubusercontent.com/25181517/183897015-94a058a6-b86e-4e42-a37f-bf92061753e5.png"> | <img width="75px" src="https://user-images.githubusercontent.com/25181517/190887795-99cb0921-e57f-430b-a111-e165deedaa36.png"> | <img width="75px" src="https://user-images.githubusercontent.com/25181517/183898054-b3d693d4-dafb-4808-a509-bab54cf5de34.png"> | <img width="75px" src="https://user-images.githubusercontent.com/25181517/192158954-f88b5814-d510-4564-b285-dff7d6400dad.png"> | <img width="75px" src="https://user-images.githubusercontent.com/25181517/183898674-75a4a1b1-f960-4ea9-abcb-637170a00a75.png"> | <img width="70px" src="https://user-images.githubusercontent.com/25181517/117447155-6a868a00-af3d-11eb-9cfe-245df15c9f3f.png"> |
 
 #### Extra :-
 
@@ -45,23 +45,17 @@
 
 ---
 
-<!-- - React -->
-<!-- - Ant Design
-- BootStrap
-- AOS (Animate On Scroll)
-- HTML & CSS
-- JavaScript -->
-
 ### Backend
 
-| Node.js                                                                                                                         | Express.js                                                                                                                      | Redis                                                                                                                          | MongoDB                                                                                                       |
-| ------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------- |
-| <img width="50px" src="https://user-images.githubusercontent.com/112753481/229047696-de3bf177-16a0-4161-a140-dd89e4fe7b22.png"> | <img width="50px" src="https://user-images.githubusercontent.com/112753481/229164589-4e724000-542d-4deb-9e11-cca7739c2b01.png"> | <img width="50px" src="https://user-images.githubusercontent.com/25181517/182884894-d3fa6ee0-f2b4-4960-9961-64740f533f2a.png"> | <img width="50px" src="https://cdn.icon-icons.com/icons2/2415/PNG/512/mongodb_original_logo_icon_146424.png"> |
+| Node.js                                                                                                                         | Express.js                                                                                                                      | Redis                                                                                                                          | ChatGPT                                                                                                                         | MongoDB                                                                                                       |
+| ------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- |
+| <img width="70px" src="https://user-images.githubusercontent.com/112753481/229047696-de3bf177-16a0-4161-a140-dd89e4fe7b22.png"> | <img width="75px" src="https://user-images.githubusercontent.com/112753481/229164589-4e724000-542d-4deb-9e11-cca7739c2b01.png"> | <img width="75px" src="https://user-images.githubusercontent.com/25181517/182884894-d3fa6ee0-f2b4-4960-9961-64740f533f2a.png"> | <img width="60px" src="https://user-images.githubusercontent.com/112753481/229306156-d2f82fe0-abb5-469a-9dfd-af3207e1e421.png"> | <img width="75px" src="https://cdn.icon-icons.com/icons2/2415/PNG/512/mongodb_original_logo_icon_146424.png"> |
 
 #### Extra :-
 
 > - JWT (JsonWebToken) <br/>
 > - Bcrypt <br/>
+> - ChatGPT (Used for dummy-data generation only)
 > - NodeMailer <br/>
 > - Twilio
 
@@ -74,14 +68,44 @@
 #### User Routes :-
 
 ```
-/// Get Users
+POST    /user/signup
+POST    /user/login
+POST    /user/verifyOTP
+PATCH   /user/forgotpassword
+GET     /user/getaUserDataByEmail
+GET     /user/addAppointment
 
 ```
 
 #### Lawyer Routes :-
 
 ```
-/// Get Users
+POST    /lawyer/login
+PATCH   /lawyer/forgotpassword
+GET     /lawyer/getaUserDataByEmail
+GET     /lawyer/deleteAppointment
+
+```
+
+#### Admin Routes :-
+
+```
+// Admin
+GET     /admin/getAllAdmins
+GET     /admin/getAdmin/:id
+POST    /admin/addAdmin
+
+// Lawyer
+GET     /admin/getAllLawyers
+GET     /admin/getLawyer/:id
+POST    /admin/addLawyer
+DELETE  /admin/deleteLawyer/:id
+POST    /admin/postAllLawyers
+
+// User
+GET     /admin/getAllUsers
+GET     /admin/getUser/:id
+DELETE  /admin/deleteUser/:id
 
 ```
 

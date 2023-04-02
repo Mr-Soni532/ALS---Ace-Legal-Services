@@ -28,6 +28,9 @@ function App() {
         <Route path="/bookslot" element={<BookSlot />} />
         <Route path='/login' element={<LoginPage />} />
         <Route path='/signup' element={<SignUpPage />} />
+        <Route path='/verifyOTP' element={<OtpPage />} />
+
+        <Route path='/signup' element={<SignUpPage />} />
         <Route path='/adminpage' element={<AdminPage />} />
         <Route path='/addlawyer' element={<AddLawyerForm />} />
         <Route path='/verifyOTP' element={<OtpPage />} />

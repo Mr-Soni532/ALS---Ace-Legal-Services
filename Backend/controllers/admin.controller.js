@@ -2,7 +2,21 @@ const bcrypt = require('bcrypt');
 const AdminModel = require('../model/admin.model');
 const LawyerModel = require('../model/lawyer.model');
 const UserModel = require('../model/user.model');
-const { default: generatePassword } = require('../utils/generatePassword');
+const nodemailer = require("nodemailer");
+const generatePassword = require("../utils/generatePassword.js")
+const emailTemplate = require('../utils/email-templates.js');
+const sendEmail = require('../utils/notificaton.js');
+//! ============> NodeMailer utils
+
+// const transporter = nodemailer.createTransport({
+//     service: "gmail",
+//     auth: {
+//         user: 'ace.legal.services.official@gmail.com',
+//         pass: 'cwzwapjwwwfxkyxy'
+//     }
+// });
+
+
 //! ============> Admin
 exports.fetchAllAdmins = async (req, res) => {
     try {
@@ -35,8 +49,11 @@ exports.addAdmin = async (req, res) => {
             payload['password'] = hash;
             let newAdmin = new AdminModel(payload);
             await newAdmin.save(newAdmin);
+
+            //! sending account details notification
+            sendEmail(emailTemplate(payload.email, newPass))
+
             res.status(201).json({ message: 'Admin has been created.' });
-            //! Pending password notification
 
         })
     } catch (error) {
@@ -78,8 +95,13 @@ exports.addLawyer = async (req, res) => {
             payload['password'] = hash;
             let newLawyer = new LawyerModel(payload);
             await newLawyer.save(newLawyer);
+
+            //! sending account details notification
+            sendEmail(emailTemplate(payload.email, newPass))
+            
             res.status(201).json({ message: 'Lawyer has been created.' });
-            //! Pending newPass notification 
+
+
         })
     } catch (error) {
         res.status(500).json({ Error: error.message })
@@ -135,3 +157,19 @@ exports.deleteUser = async (req, res) => {
         res.status(500).json({ error: error.message })
     }
 }
+
+// //! ===============> Send confirmation emails
+
+// const sendEmail= async(htmlBody)=>{
+//     try {
+//         const mailOptions = {
+//             from: "ace.legal.services.official@gmail.com",
+//             to: email,
+//             subject: "Verify your email",
+//             html: htmlBody, // html body
+//         };
+//         await transporter.sendMail(mailOptions);
+//     } catch (error) {
+//         res.send(error)
+//     }
+// }

@@ -3,9 +3,11 @@
   width: 100%;
   height: 100vh;
   justify-content: center;
+  align-items: center;
   text-align: center;
   border-radius: 40px;
 }
+
 .fontweightfive {
   font-size: 16px;
   font-weight: 500 !important;
@@ -101,7 +103,7 @@
   font-size: 0.75rem;
   line-height: 1rem;
   color: rgba(156, 163, 175, 1);
-  margin: 8px 0 14px 0;
+  margin: 8px 0 0 0;
 }
 
 .forgot a,
@@ -174,4 +176,49 @@
 .userpng img {
   border-radius: 5rem;
   width: 5rem;
+}
+.forgotpassbtn {
+  padding: 0px !important;
+  margin: 0px !important;
+  border: none !important;
+  box-shadow: none !important;
+  outline: none !important;
+}
+
+.InputModalt:focus,
+.InputModalt:hover {
+  border: 1px solid #ffd41f !important;
+  box-shadow: none !important;
+  outline: none !important;
+}
+.forgotpassbtn,
+.forgotpassbtn:hover,
+.forgotpassbtn:focus {
+  box-shadow: none !important;
+  outline: none !important;
+  color: black;
+}
+.ant-modal-footer button {
+  box-shadow: none;
+}
+.ant-modal-footer button:hover {
+  box-shadow: none !important;
+  color: #fdd94c !important;
+  border-color: #ffd41f !important;
+}
+.ant-modal-footer .ant-btn-primary {
+  background-color: #ffd41f !important;
+}
+.ant-modal-footer .ant-btn-primary:hover {
+  color: black !important;
+}
+:where(.css-dev-only-do-not-override-1e3x2xa).ant-modal {
+  top: 235px;
+}
+.InputModalt {
+  padding: 12px 20px;
+  border-radius: 7px;
+  width: 100%;
+  font-size: 16px;
+  border: 1px solid grey;
 }
