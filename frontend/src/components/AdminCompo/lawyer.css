@@ -3,12 +3,14 @@
 }
 
 .lawyerCard {
-  margin: 2%;
+  margin: 1.5% 1.5%;
   border: 2px solid #d6ac01;
   display: flex;
+  justify-content: space-between;
   align-items: center;
   border-radius: 7px;
   padding: 2% 2%;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 .lawyerCard > div > img {
   width: 80%;
@@ -40,4 +42,34 @@
   border-radius: 5px;
   color: white;
   font-weight: bold;
+}
+
+.adminLayerName{
+  font-size: 1.5rem;
+}
+.adminLayerType{
+    font-size: 1rem;
+    margin-top: 5px;
+}
+
+.skilsDiv{
+  display: flex;
+  margin: 10px 0;
+}
+.skilsDiv>p{
+  padding: 5px 12px;
+  background-color: yellow;
+  margin-right:7px;
+  border-radius: 8px;
+  font-weight: 600;
+}
+.rankDiv{
+  width: 10%;
+  display: flex;
+  
+}
+.rankDiv>img{
+  width: 100%;
+  margin-left: 10px;
+  overflow: hidden;
 }

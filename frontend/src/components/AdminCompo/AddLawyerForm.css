@@ -1,0 +1,63 @@
+.formContainer{
+    width: 40%;
+    margin: 2% auto;
+    border: 2px solid #d6ac01;
+    text-align: center;
+    padding: 2% 0;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+}
+/* .formContainer label{
+    font-weight: 600px;
+    margin-bottom: 10px;
+} */
+.layerForm{
+    width: 90%;
+    margin: auto;
+    text-align: left;
+}
+
+input[type="text"],
+input[type="number"],
+input[type="submit"],
+input[type = "email"],
+input[type = "password"],
+.selectGender
+{
+    margin-top: 3px;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+    width: 100%;
+    padding: 10px;
+}
+
+.languageContainer{
+    display: flex;
+    justify-content: space-between;
+}
+.languageContainer>div{
+    width: 32%;
+}
+.skillContainer{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap; 
+}
+.skillContainer>div, .rankAndprice>div, .phoneAndgender>div{
+    width: 48%;
+}
+.rankAndprice,.phoneAndgender{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.layerForm button{
+    width: 100%;
+    margin-top: 3%;
+    padding: 10px 0;
+    font-weight: 600px;
+    background-color: #d6ac01;
+    border: 2px solid black;
+    color: white;
+    font-size: 1.2rem;
+}

@@ -2,7 +2,7 @@ import React from "react";
 import { UserOutlined, DiffOutlined } from "@ant-design/icons";
 import { Space } from "antd";
 import "./headers.css";
-// import logo from "./Images/ACEyellow.png";
+
 import { FaTh } from "react-icons/fa";
 
 const Headers = () => {
