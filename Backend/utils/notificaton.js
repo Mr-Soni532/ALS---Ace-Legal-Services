@@ -13,7 +13,7 @@ const transporter = nodemailer.createTransport({
 
 //! ===============> Send confirmation emails
 
-const sendEmail= async(htmlBody)=>{
+const sendEmail = async (htmlBody) => {
     try {
         const mailOptions = {
             from: "ace.legal.services.official@gmail.com",

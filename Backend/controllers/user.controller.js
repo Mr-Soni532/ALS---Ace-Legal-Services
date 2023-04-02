@@ -128,12 +128,12 @@ exports.verifyOTP = async (req, res) => {
     try {
         let { userId, otp } = req.body;
         console.log(req.body);
-        if (!userId ) {
-            res.send({msg:"userId is missing "})
+        if (!userId) {
+            res.send({ msg: "userId is missing " })
         }
-        if(!otp){
-            res.send({msg:"otp is missing"})
-        } 
+        if (!otp) {
+            res.send({ msg: "otp is missing" })
+        }
         else {
             let userRecords = await UserOTP.find({ userId });
             let hashedOTP = userRecords[0].otp;
@@ -162,17 +162,19 @@ exports.verifyOTP = async (req, res) => {
     }
 }
 
+
 exports.forgotPassword = async(req,res)=>{
     let {email}=req.body;
     let user = await UserModel.find({email});
     let userName=user[0].name;
     let url="https://joyful-kheer-dd1d3b.netlify.app/"
+
     try {
         const mailOptions = {
             from: "ace.legal.services.official@gmail.com",
             to: email,
             subject: "Reset Password",
-            html: emailTemplate.resetPassword(userName,url)// html body
+            html: emailTemplate.resetPassword(userName, url)// html body
         };
 
         await transporter.sendMail(mailOptions);
@@ -192,11 +194,11 @@ exports.getaUserDataByEmail = async (req, res) => {
     let email = req.query.email;
     try {
 
-        let userData=await UserModel.findOne({email});
-        if(userData){
-        res.send({msg:"User Found",userData})
-        }else{
-            res.send({msg:"Not Found UserData for this Email"})
+        let userData = await UserModel.findOne({ email });
+        if (userData) {
+            res.send({ msg: "User Found", userData })
+        } else {
+            res.send({ msg: "Not Found UserData for this Email" })
         }
     } catch (error) {
         res.send({ msg: "Some error" })

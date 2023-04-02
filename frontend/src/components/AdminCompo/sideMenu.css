@@ -1,18 +1,26 @@
 .SideBarX {
-  height: 100vh;
+  height: 100%;
   display: flex;
+  z-index: 10;
+  transition: all 300ms ease-in-out;
 }
-main {
+.main {
   width: 100%;
+  margin: auto;
+  padding: 0px 0px;
 }
 .sidebar {
-  background-color: black;
+  background-color: rgb(40, 39, 39);
   color: white;
+
+  z-index: 10;
   height: auto;
   width: 300px;
   border: 1px solid black;
+  transition: all 300ms ease-in-out;
 }
 .top_section {
+  cursor: pointer;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -46,7 +54,62 @@ main {
 }
 .Sidebaricons {
   font-size: 20px;
+  transition: all 300ms ease-in-out;
 }
 .link_text {
   font-size: 18px;
 }
+
+/* ---------------------- */
+
+/* .container{
+  display: flex;
+}
+main{
+  width: 90%;
+  padding: 20px;
+}
+.sidebar{
+  background-color:black;
+  color:white;
+  height: auto;
+  width: 300px;
+  border: 1px solid black;
+}
+.top_section{
+  display: flex;
+  align-items: center;
+  padding: 20px 15px;
+}
+.logo{
+  font-size: 25px;
+}
+.bars{
+  font-size: 25px;
+  display: flex;
+  margin-left: 30px;
+}
+
+.link{
+  display: flex;
+  color: white;
+  padding: 10px 15px;
+  gap:15px;
+  transition: all 0.5s;
+}
+.link:hover{
+  cursor: pointer;
+  transition: all 0.5s;
+  color: #d6ac01;
+  background: white;
+}
+.active{
+  color: #d6ac01;
+  background-color: white;
+}
+.icon{
+  font-size: 20px;
+}
+.link_text{
+  font-size: 18px;
+} */

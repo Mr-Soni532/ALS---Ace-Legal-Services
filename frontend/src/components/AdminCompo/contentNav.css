@@ -1,28 +1,31 @@
 .contentNav {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  margin-bottom: 2%;
+  justify-content: space-around;
+  margin-bottom: 2px;
+  padding-top: 18px;
 }
-.contentNav > div {
-  width: 60%;
+.SectionNameAdmin {
+  font-size: 38px;
+}
+.contentNav > div:nth-child(3) {
+  width: 65%;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 .contentNav > div > div {
   position: relative;
-  width: 50%;
+  width: 48%;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 .contentNav input[type="search"] {
-  position: absolute;
   width: 100%;
-  padding: 7px 0;
+  padding: 12px 18px;
   border: 2px solid #ffd117;
-  border-radius: 5px;
+  border-radius: 25px;
 }
 select {
   width: 30%;
@@ -34,4 +37,31 @@ select {
   position: absolute;
   z-index: 1;
   right: 10px;
+}
+
+.AddLawyerButton {
+  margin-left: 10px;
+  border: 2px solid #f6d450;
+
+  font-weight: 600;
+  font-size: 18px;
+  border-radius: 25px;
+  padding: 8px 18px;
+  color: black;
+  font-weight: 800px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #fed83f;
+}
+
+.AddLawyerButton:hover {
+  background-color: rgb(255, 200, 50);
+}
+.userName {
+  font-size: 1.3rem;
+}
+
+.selectoption {
+  width: 0%;
 }

@@ -1,31 +1,30 @@
 import { useContext, useState } from "react";
 import { useEffect } from "react";
 import DetailsComUser from "../../components/AdminCompo/userDetails";
-import UserContext from "../../context/Admin_page/userFunction/userContext";
 import "./admin_css/user.css";
 import Headers from "../../components/AdminCompo/Headers";
 import SearchBar from "../../components/AdminCompo/SearchCompo";
+import AdminrContext from "../../context/Admin_page/adminContext/adminContext";
 import { DoubleLeftOutlined, DoubleRightOutlined } from "@ant-design/icons";
 
-const AdminClient = () => {
-  const context = useContext(UserContext);
+const AdminDetails = () => {
+  const context = useContext(AdminrContext);
 
-  const keys = ["name", "Email", "UserID"];
   const [query, setQuery] = useState(null);
   const [option, setOption] = useState("name");
-
-  const { getUser, users, setUser, loading, err, deletefun } = context;
-  // const [ loadings , setLoading ] = useState(loading)
-  let data = [...users];
+  const keys = ["name", "AdminID", "Email"];
+  const { getUser, users, err, loading, deletefun, postAdmin } = context;
   const [currentPage, setCurrentPage] = useState(1);
-  const userPerpage = 8;
+  const userPerpage = 4;
+  let data = [...users];
+
   const totalPages = Math.ceil(data.length / userPerpage);
 
-  const sliceTodos = () => {
+  function sliceTodos() {
     const indexOfLastTodo = currentPage * userPerpage;
     const indexOfFirstTodo = indexOfLastTodo - userPerpage;
     return data.slice(indexOfFirstTodo, indexOfLastTodo);
-  };
+  }
 
   const handlePageChange = (page) => {
     setCurrentPage(page);
@@ -34,10 +33,6 @@ const AdminClient = () => {
   const deletEele = (el) => {
     deletefun(el);
   };
-
-  useEffect(() => {
-    getUser();
-  }, []);
 
   const search = (data) => {
     return data.filter((item) => {
@@ -51,11 +46,15 @@ const AdminClient = () => {
 
   data = search(users);
 
+  useEffect(() => {
+    getUser();
+  }, []);
+
   return (
     <div className="UserAdminBoxxx">
       <Headers />
       <SearchBar
-        name="Clients"
+        name="Admin"
         query={query}
         setQuery={setQuery}
         setOption={setOption}
@@ -102,12 +101,4 @@ const AdminClient = () => {
     </div>
   );
 };
-export default AdminClient;
-
-// function searchItem(){
-//     let searchValue = document.querySelector("#search").value;
-//     let filterData =wholeData.filter((e)=>{
-//           return e.title.toLowerCase().includes(searchValue.toLowerCase())
-//     })
-//     displayData(filterData)
-//     }
+export default AdminDetails;

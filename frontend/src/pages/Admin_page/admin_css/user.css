@@ -1,30 +1,37 @@
-.contentConatiner {
+.contentConatinerCust {
   height: auto;
   display: flex;
   flex-wrap: wrap;
   margin: auto;
   row-gap: 10px;
-  justify-content: space-evenly;
-  justify-items: baseline;
-  padding: 2% 0;
+  width: 100%;
+  justify-content: center;
+  justify-items: center;
+  padding: 40px 80px;
+  transition: all 300ms ease-in-out;
+  background-color: #fafafa;
 }
 .RemoveButtonAdmin {
-  background-color: red;
+  background-color: rgb(251, 51, 51);
   border: none;
-  border-radius: 5px;
+  border-radius: 10px;
   color: white;
-  font-weight: bold;
-  padding: 8px 12px;
-  margin-bottom: 5%;
-  margin-top: 3%;
+  font-size: 15px;
+  width: 100px;
+  font-weight: 500;
+  border: 1px solid transparent;
+  padding: 8px 15px;
+  margin: 10px;
 }
 .customerCard {
-  width: 22%;
+  width: 23%;
   text-align: center;
   margin: auto;
-  border: 2px solid #d6ac01;
+  background-color: white;
   border-radius: 8px;
-  padding: 2% 0 1% 0;
+  padding: 18px 12px;
+  box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px,
+    rgba(17, 17, 26, 0.05) 0px 8px 32px;
 }
 
 h2 {
@@ -32,4 +39,23 @@ h2 {
 }
 .customerCard img {
   width: 100%;
+}
+.InfoBtnAdmin {
+  background-color: #ffd632;
+  border: none;
+  border-radius: 10px;
+  color: rgb(0, 0, 0);
+  font-weight: 500;
+  font-size: 15px;
+  padding: 8px 15px;
+  border: 1px solid transparent;
+
+  width: 100px;
+
+  margin: 10px;
+}
+.InfoBtnAdmin:hover,
+.RemoveButtonAdmin:hover {
+  filter: saturate(4);
+  border: 1px solid rgb(160, 160, 160);
 }

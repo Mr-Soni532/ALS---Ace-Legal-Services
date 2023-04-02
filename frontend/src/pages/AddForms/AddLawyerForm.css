@@ -1,0 +1,97 @@
+.formContainer {
+  width: 90%;
+  margin: 2% auto;
+  border: 2px solid #ffd311;
+  box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px,
+    rgba(17, 17, 26, 0.05) 0px 8px 32px;
+  text-align: center;
+  padding: 12px 30px;
+  background-color: white;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+}
+
+.acleses {
+  width: 170px;
+}
+.FirstViewFomer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.FirstViewFomer h1 {
+  transform: translateY(-12px);
+}
+.formContainer input {
+  font-size: 17px;
+}
+.formContainer input:hover,
+.formContainer input:focus {
+  box-shadow: none !important;
+
+  border: 2px solid #ffd311 !important;
+}
+.layerForm {
+  width: 90%;
+  margin: auto;
+  text-align: left;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.layerForm > div {
+  margin: 2px 20px;
+  width: 50%;
+}
+
+input[type="text"],
+input[type="number"],
+input[type="submit"],
+input[type="email"],
+input[type="password"],
+.selectGender {
+  margin-top: 3px;
+  margin-bottom: 10px;
+  box-sizing: border-box;
+  width: 100%;
+  padding: 10px;
+}
+
+.languageContainer {
+  display: flex;
+  justify-content: space-between;
+}
+.languageContainer > div {
+  width: 32%;
+}
+.skillContainer {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.skillContainer > div,
+.rankAndprice > div,
+.phoneAndgender > div {
+  width: 48%;
+}
+.rankAndprice,
+.phoneAndgender {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.layerForm button {
+  width: 100%;
+  margin-top: 3%;
+  padding: 10px 0;
+  font-weight: 600;
+  background-color: #ffd311;
+  color: black;
+  border-radius: 25px;
+  border: 1px solid white;
+  font-size: 1.2rem;
+}
+.layerForm button:hover {
+  background-color: wheat;
+}

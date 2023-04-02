@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
-import UserContext from "./userContext";
+import AdminrContext from "./adminContext";
+import { Navigate } from "react-router-dom";
 
-const UserState = ({ children }) => {
+const AdminState = ({ children }) => {
   const [users, setUser] = useState([]);
   const [ err, setError ] =useState(false)
   const [ loading , setLoading ] = useState(false)
@@ -21,6 +22,16 @@ const UserState = ({ children }) => {
     // console.log(json)
     setUser(json);
   };
+
+  const postAdmin = (obj) =>{
+    const requestOptions = {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(obj)
+        };
+        fetch('https://jsonplaceholder.typicode.com/posts', requestOptions).then(response => response.json())
+        .then(data => {alert("New Lawyer Added");console.log(data);Navigate("/adminpage")}).catch((err)=>{alert("Something went wrong")})
+  }
 
   const deletefun =  (els) => {
     setLoading(true)
@@ -46,10 +57,10 @@ const UserState = ({ children }) => {
   };
 
   return (
-    <UserContext.Provider value={{ getUser, users , deletefun }}>
+    <AdminrContext.Provider value={{ getUser, users , err , loading , deletefun , postAdmin }}>
       {children}
-    </UserContext.Provider>
+    </AdminrContext.Provider>
   );
 };
 
-export default UserState;
+export default AdminState;
