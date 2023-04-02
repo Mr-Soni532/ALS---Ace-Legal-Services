@@ -31,7 +31,7 @@ const LawyerFilterer = () => {
             value="Criminal Defense Lawyer"
             defaultChecked
           />
-          <label for="cdll">Criminal Defense Lawyer</label>
+          <label name="cdll">Criminal Defense Lawyer</label>
         </div>
         <div>
           <input
@@ -40,7 +40,7 @@ const LawyerFilterer = () => {
             id="illy"
             value="Immigration Lawyer"
           />
-          <label for="illy">Immigration Lawyer</label>
+          <label name="illy">Immigration Lawyer</label>
         </div>
         <div>
           <input
@@ -49,7 +49,7 @@ const LawyerFilterer = () => {
             id="clopo"
             value="Corporate Lawyer"
           />
-          <label for="clopo">Corporate Lawyer</label>
+          <label name="clopo">Corporate Lawyer</label>
         </div>
         <div>
           <input
@@ -58,7 +58,7 @@ const LawyerFilterer = () => {
             id="asdfd"
             value="Intellectual Property Lawyer"
           />
-          <label for="asdfd">Intellectual Property Lawyer</label>
+          <label name="asdfd">Intellectual Property Lawyer</label>
         </div>
         <div>
           <input
@@ -67,11 +67,11 @@ const LawyerFilterer = () => {
             id="rels"
             value=" Real Estate Lawyer"
           />
-          <label for="rels">Real Estate Lawyer</label>
+          <label name="rels">Real Estate Lawyer</label>
         </div>
         <div>
           <input type="radio" name="format" id="terer" value="Tax Lawyer" />
-          <label for="terer">Tax Lawyer</label>
+          <label name="terer">Tax Lawyer</label>
         </div>
         <div>
           <input
@@ -80,7 +80,7 @@ const LawyerFilterer = () => {
             id="qwerwew"
             value="Employment Lawyer"
           />
-          <label for="qwerwew">Employment Lawyer</label>
+          <label name="qwerwew">Employment Lawyer</label>
         </div>
         <div>
           <input
@@ -89,7 +89,7 @@ const LawyerFilterer = () => {
             id="adsdsds"
             value="Bankruptcy Lawyer"
           />
-          <label for="adsdsds">Bankruptcy Lawyer</label>
+          <label name="adsdsds">Bankruptcy Lawyer</label>
         </div>
         <div>
           <input
@@ -98,7 +98,7 @@ const LawyerFilterer = () => {
             id="dfgdsfg"
             value="Family Lawyer"
           />
-          <label for="dfgdsfg">Family Lawyer</label>
+          <label name="dfgdsfg">Family Lawyer</label>
         </div>
 
         <div>
@@ -108,7 +108,7 @@ const LawyerFilterer = () => {
             id="fdfdfdfdf"
             value="Estate Planning Lawyer"
           />
-          <label for="fdfdfdfdf">Estate Planning Lawyer</label>
+          <label name="fdfdfdfdf">Estate Planning Lawyer</label>
         </div>
       </fieldset>
     </div>

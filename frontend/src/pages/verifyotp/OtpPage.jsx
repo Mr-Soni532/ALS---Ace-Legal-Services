@@ -23,7 +23,7 @@ const OtpPage = () => {
     // alert("hi");
   };
   const verifyOTP = async (data) => {
-    const response = await fetch("http://localhost:4000/user/verifyOTP", {
+    const response = await fetch("${HOST}/user/verifyOTP", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

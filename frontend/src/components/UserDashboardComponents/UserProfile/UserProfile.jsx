@@ -8,7 +8,7 @@ const UserProfile = () => {
 
   useEffect(() => {
     const getUser = () => {
-      fetch("http://localhost:4000/auth/login/success", {
+      fetch("${HOST}/auth/login/success", {
         method: "GET",
         credentials: "include",
         headers: {
@@ -60,7 +60,7 @@ const UserProfile = () => {
           </p>
         </div>
         <div className="UserProfileRight" data-aos="fade-left">
-          <Link to="/">
+          <Link to="/lawyers">
             <button className="BigBAPBTN">Book an Appointment + </button>
           </Link>
         </div>
