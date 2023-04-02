@@ -9,7 +9,7 @@ const SignUpPage = () => {
   let [password, setPassword] = useState("");
   const navigate = useNavigate()
   const signUp = async (data) => {
-    const response = await fetch("http://localhost:4000/user/signup", {
+    const response = await fetch("${HOST}/user/signup", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

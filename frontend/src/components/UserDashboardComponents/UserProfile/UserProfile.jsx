@@ -14,7 +14,7 @@ const UserProfile = () => {
       setName(userData.name);
     }else{
       const getUser = () => {
-        fetch("http://localhost:4000/auth/login/success", {
+        fetch(`${HOST}/auth/login/success`, {
           method: "GET",
           credentials: "include",
           headers: {
@@ -22,6 +22,7 @@ const UserProfile = () => {
             "Content-Type": "application/json",
             "Access-Control-Allow-Credentials": true,
           },
+
         })
           .then((response) => {
             // console.log(response)
@@ -68,7 +69,7 @@ const UserProfile = () => {
           </p>
         </div>
         <div className="UserProfileRight" data-aos="fade-left">
-          <Link to="/">
+          <Link to="/lawyers">
             <button className="BigBAPBTN">Book an Appointment + </button>
           </Link>
         </div>

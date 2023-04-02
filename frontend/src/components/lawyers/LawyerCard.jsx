@@ -1,13 +1,9 @@
 import React from "react";
 import "./lawyerCard.css";
 import Star from "../UserDashboardComponents/AppointmentCard/Star";
-const LawyerCard = (data) => {
-  const { props } = data;
+const LawyerCard = ({data}) => {
 
-  const printdataid = (e) => {
-    // ! GET LAWER ID FROM HERE , Change props.name to -->  props.id
-    console.log(props.name);
-  };
+
 
   function returnStar(bum) {
     let arr = [];
@@ -18,10 +14,10 @@ const LawyerCard = (data) => {
     return arr;
   }
 
+  // console.count(data)
   return (
     <div
-      data-id={props.id}
-      onClick={printdataid}
+      data-id={data.id}
       className="lawyer-card"
       data-aos="fade-right"
     >
@@ -34,30 +30,30 @@ const LawyerCard = (data) => {
               alt="df"
             />
             &nbsp;
-            {props.name}
+            {data.name}
           </h1>
           <p>
-            {props.profession} {returnStar(props.rating)}
+            {data.profession} {returnStar(data.rating)}
           </p>
-          <p className="experience">Experience: {props.experience}</p>
+          <p className="experience">Experience: {data.experience}</p>
         </div>
         <div className="bio-div">
-          <p className="bio">{props.bio}</p>
+          <p className="bio">{data.bio}</p>
         </div>
         <div className="skills-div">
-          {props.skills.map((el) => {
-            return <div className="skill">{el}</div>;
+          {data.skills.map((el) => {
+            return <div className="skill" key={el}>{el}</div>;
           })}
         </div>
         <div className="languages">
-          {props.languages.map((el) => {
-            return <div className="language">{el}</div>;
+          {data.languages.map((el) => {
+            return <div className="language" key={el}>{el}</div>;
           })}
         </div>
 
         <div className="profile-pic">
           <div style={{ position: "relative" }} className="pic">
-            <img className="LawyerImageX" src={props.image} alt="ssss" />
+            <img className="LawyerImageX" src={data.image} alt="ssss" />
             <div className="LawyerImageXDark" alt="ssss">
               Book an <br /> Appointment
             </div>

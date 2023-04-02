@@ -2,8 +2,8 @@ import { useEffect, useState } from "react";
 import "./DashNavbar.css";
 import { Link, NavLink } from "react-router-dom";
 const DashNavbar = () => {
+  const HOST = '${HOST}'
   let userData=JSON.parse(localStorage.getItem("userData"));
-  // console.log(userData);
   const [email,setEmail]=useState("User Email");
   const [name,setName]=useState("User Name")
 
@@ -15,7 +15,7 @@ const DashNavbar = () => {
       setName(userData.name);
     }else{
       const getUser = () => {
-        fetch("http://localhost:4000/auth/login/success", {
+        fetch(`${HOST}/auth/login/success`, {
           method: "GET",
           credentials: "include",
           headers: {
@@ -43,12 +43,14 @@ const DashNavbar = () => {
       getUser();
     }
     
+
     
   }, []);
 
   const logout = () => {
-    localStorage.clear();
-    window.open("http://localhost:4000/auth/logout", "_self");
+   localStorage.clear();  
+    window.open(`${HOST}/auth/logout`, "_self");
+    
   };
   return (
     <div className="DashNavbarParent" data-aos="fade">
@@ -80,10 +82,10 @@ const DashNavbar = () => {
         <NavLink to="/userdashboard" className="buttonunderline">
           Services
         </NavLink>
-        <NavLink to="/userdashboard" className="buttonunderline">
+        <NavLink to="/lawyers" className="buttonunderline">
           Search
         </NavLink>
-        <NavLink to="/userdashboard" className="buttonunderline">
+        <NavLink to="/" className="buttonunderline">
           Contact Us
         </NavLink>
       </div>

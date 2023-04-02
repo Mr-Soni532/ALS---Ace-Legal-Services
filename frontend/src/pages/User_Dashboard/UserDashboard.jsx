@@ -3,11 +3,12 @@ import DashNavbar from "../../components/UserDashboardComponents/DashNavbar/Dash
 import UserProfile from "../../components/UserDashboardComponents/UserProfile/UserProfile";
 import AppointmentsArea from "../../components/UserDashboardComponents/AppointmentsArea/AppointmentsArea";
 
+const HOST = '${HOST}'
 const UserDashboard = () => {
 
   useEffect(() => {
     const getUser = () => {
-      fetch("http://localhost:4000/auth/login/success", {
+      fetch(`${HOST}/auth/login/success`, {
         method: "GET",
         credentials: "include",
         headers: {
@@ -17,7 +18,6 @@ const UserDashboard = () => {
         },
       })
         .then((response) => {
-          // console.log(response)
           if (response.status === 200) return response.json();
           throw new Error("authentication has been failed!");
         })
@@ -46,7 +46,7 @@ const UserDashboard = () => {
   }, []);
 
   const addUser = async (data) => {
-    const response = await fetch("http://localhost:4000/user/signup", {
+    const response = await fetch(`${HOST}/user/signup`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

@@ -1,13 +1,29 @@
 import React, { useState } from "react";
 import "./LawyerCard";
 const SearchBar = ({ query, setQuery, setOption }) => {
+
+  //! =============> DEBOUNCE
+  function debounce(func, timeout = 300) {
+    let timer;
+    return (...args) => {
+      clearTimeout(timer);
+      timer = setTimeout(() => { func.apply(this, args); }, timeout);
+    };
+  }
+  function saveInput(e) {
+    setQuery(e.target.value)
+  }
+  const processChange = debounce((e) => saveInput(e));
+  //! ===================================================>
+  
+  
   return (
     <div className="search-bar">
       <h1>Meet our Lawyers</h1>
-      
+
       <div className="select">
         <span className="search-by">Search By : </span>
-        <div class="mydict">
+        <div className="mydict">
           <div>
             <label>
               <input
@@ -45,15 +61,14 @@ const SearchBar = ({ query, setQuery, setOption }) => {
           </div>
         </div>
       </div>
-
       <div className="group">
         <form action="/" method="get">
           <input
             placeholder="Search"
             type="search"
-            class="input"
-            value={query}
-            onChange={(e) => setQuery((e.target.value).toLowerCase())}
+            className="input"
+            
+            onKeyUp={(e) => processChange(e)}
           />
           <svg className="searchDot" aria-hidden="true" viewBox="0 0 24 24">
             <g>

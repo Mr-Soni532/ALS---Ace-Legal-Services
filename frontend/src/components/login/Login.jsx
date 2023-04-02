@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import ForgotModal from "./ForgotModal";
+import HOST from "../../utils/baseUrl.js";
 
 const Login = () => {
   const [value, setValue] = useState("User Email");
@@ -16,7 +17,7 @@ const Login = () => {
     else setImgPath("Images/Signup/adminpng.png");
   };
   const signIN = async (data) => {
-    const response = await fetch("http://localhost:4000/user/login", {
+    const response = await fetch(`${HOST}/user/login`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -42,12 +43,8 @@ const Login = () => {
         email,
         password,
       };
-      // console.log(name,password)
-      //   console.log('user request....')
       signIN(data);
-      // navigate("/login")
     } else if (value === "Lawyer ID") {
-      // console.log()
       console.log("Hello from lawyer");
     } else {
      if(email=="admin@gmail.com" && password=="admin"){
@@ -57,9 +54,8 @@ const Login = () => {
     }
   };
   const google = () => {
-    
-    window.open("http://localhost:4000/auth/google", "_self");
-    localStorage.clear();
+localStorage.clear();
+    window.open(`${HOST}/auth/google`, "_self");
   };
   return (
     <div className="form-container">
