@@ -2,7 +2,6 @@ import { useContext, useState } from "react";
 import { useEffect } from "react";
 import DetailsComUser from "../../components/AdminCompo/userDetails";
 import "./admin_css/user.css";
-import { Pagination } from "antd";
 import Headers from "../../components/AdminCompo/Headers";
 import SearchBar from "../../components/AdminCompo/SearchCompo";
 import AdminrContext from "../../context/Admin_page/adminContext/adminContext";
