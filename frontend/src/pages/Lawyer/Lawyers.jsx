@@ -1,38 +1,32 @@
 import React, { useEffect, useState } from "react";
 import LawyerCard from "../../components/lawyers/LawyerCard";
 import SearchBar from "../../components/lawyers/SearchBar";
-import lawyerData from "../../assets/lawyers.json";
+
 import DashNavbar from "../../components/UserDashboardComponents/DashNavbar/DashNavbar";
 import LawyerFilterer from "../../components/lawyers/LawyerFilterer";
 import "./lawyer.css";
-
+// import { uuid } from 'uuidv4';
+import { v4 as uuidv4 } from 'uuid';
 const Lawyers = () => {
-
   const [query, setQuery] = useState("");
   const [option, setOption] = useState("name");
-  const keys = ["name", "profession", "experience"];
-
-  const search = (data) => {
-
-    return data.filter((item) => {
-      if (!query) {
-        return item;
-      } else {
-        return keys.some(() => item[option].toLowerCase().includes(query));
-      }
-    });
-
-  };
-
-  const [items, setItems] = useState(search(lawyerData))
 
   useEffect(() => {
-    let timeOut = setTimeout(() => {
-      setItems(search(lawyerData))
-    }, 800);
-
-    return () => clearTimeout(timeOut)
+    fetch('http://localhost:3100/lawyer/searchLawyer', {
+      method: 'post',
+      // authorization: 'bearer ' + JSON.stringify(localStorage.getItem('token')),
+      headers: {
+        'Content-Type': 'application/json'
+    },
+      body: JSON.stringify({
+        type : option,
+        value: query.toLowerCase()
+      })
+    }).then(data => data.json()).then(data => setItems(data.data))
   }, [query])
+
+  const [items, setItems] = useState([])
+
   return (
     <div>
       <DashNavbar />
@@ -44,7 +38,7 @@ const Lawyers = () => {
         <LawyerFilterer />
         <div className="lawyer-list">
           {items?.map((el) => {
-            return <LawyerCard props={el} />;
+            return <div key={uuidv4()}><LawyerCard data={el}/></div>;
           })}
         </div>
       </div>

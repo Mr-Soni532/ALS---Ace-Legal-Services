@@ -2,44 +2,55 @@ import { useEffect, useState } from "react";
 import "./DashNavbar.css";
 import { Link, NavLink } from "react-router-dom";
 const DashNavbar = () => {
-
-  // const [user, setUser] = useState(null);
+  const HOST = '${HOST}'
+  let userData=JSON.parse(localStorage.getItem("userData"));
   const [email,setEmail]=useState("User Email");
   const [name,setName]=useState("User Name")
 
+ 
+
   useEffect(() => {
-    const getUser = () => {
-      fetch("http://localhost:4000/auth/login/success", {
-        method: "GET",
-        credentials: "include",
-        headers: {
-          Accept: "application/json",
-          "Content-Type": "application/json",
-          "Access-Control-Allow-Credentials": true,
-        },
-      })
-        .then((response) => {
-          // console.log(response)
-          if (response.status === 200) return response.json();
-          throw new Error("authentication has been failed!");
+    if(userData){
+      setEmail(userData.email);
+      setName(userData.name);
+    }else{
+      const getUser = () => {
+        fetch(`${HOST}/auth/login/success`, {
+          method: "GET",
+          credentials: "include",
+          headers: {
+            Accept: "application/json",
+            "Content-Type": "application/json",
+            "Access-Control-Allow-Credentials": true,
+          },
         })
-        .then((resObject) => {
-          let email=resObject.user.emails[0].value
-          let name=resObject.user.displayName;
-          console.log(name)
-          setEmail(email)
-          setName(name)
-        })
-        .catch((err) => {
-          console.log(err);
-        });
-    };
-    getUser();
+          .then((response) => {
+            // console.log(response)
+            if (response.status === 200) return response.json();
+            throw new Error("authentication has been failed!");
+          })
+          .then((resObject) => {
+            let email=resObject.user.emails[0].value
+            let name=resObject.user.displayName;
+            console.log(name)
+            setEmail(email)
+            setName(name)
+          })
+          .catch((err) => {
+            console.log(err);
+          });
+      };
+      getUser();
+    }
+    
+
     
   }, []);
 
   const logout = () => {
-    window.open("http://localhost:4000/auth/logout", "_self");
+   localStorage.clear();  
+    window.open(`${HOST}/auth/logout`, "_self");
+    
   };
   return (
     <div className="DashNavbarParent" data-aos="fade">
@@ -71,10 +82,10 @@ const DashNavbar = () => {
         <NavLink to="/userdashboard" className="buttonunderline">
           Services
         </NavLink>
-        <NavLink to="/userdashboard" className="buttonunderline">
+        <NavLink to="/lawyers" className="buttonunderline">
           Search
         </NavLink>
-        <NavLink to="/userdashboard" className="buttonunderline">
+        <NavLink to="/" className="buttonunderline">
           Contact Us
         </NavLink>
       </div>
