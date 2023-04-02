@@ -22,10 +22,10 @@ const Section1 = () => {
         <br />
         <br />
       </div>
-      <div className="SecOneRight" data-aos="fade-up">
+      <div className="SecOneRight" style={{}} data-aos="fade-up">
         <img
-          style={{ width: "100%" }}
-          src="Images/IndexPageImages/brown_ben3.png"
+          style={{ width: "70%" }}
+          src="Images/IndexPageImages/ladki.png"
           alt="Brownben"
         />
       </div>
