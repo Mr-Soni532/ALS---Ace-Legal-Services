@@ -7,11 +7,11 @@ import logo from "../../assets/logoIMG.jpeg";
 const Headers = () => {
   return (
     <div className="DashboardHeader">
-      <img width={70} src={logo} />
+      <img width={100} src={logo} />
       <Typography.Title>ALS ADMIN PAGE</Typography.Title>
       <Space>
         <Space>
-          <UserOutlined style={{ fontSize: 24, color: "#f9ad00" }} />
+          <UserOutlined style={{ fontSize: 26, color: "#f9ad00" }} />
           <h4>Mohima Bahadur</h4>
         </Space>
         <BellFilled

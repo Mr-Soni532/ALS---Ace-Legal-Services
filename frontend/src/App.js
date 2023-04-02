@@ -12,6 +12,7 @@ import SignUpPage from './pages/signup/signupPage';
 import EventVerified from './pages/EventVerified/EventVerified';
 import OtpPage from './pages/verifyotp/OtpPage';
 import AdminPage from './pages/Admin_page/AdminPage';
+import AddLawyerForm from './components/AdminCompo/AddLawyerForm';
 
 function App() {
   return (
@@ -31,6 +32,7 @@ function App() {
 
         <Route path='/signup' element={<SignUpPage />} />
         <Route path='/adminpage' element={<AdminPage />} />
+        <Route path='/addlawyer' element={<AddLawyerForm />} />
         <Route path='/verifyOTP' element={<OtpPage />} />
         <Route path="*" element={<PageNotFound />} />
       </Routes>

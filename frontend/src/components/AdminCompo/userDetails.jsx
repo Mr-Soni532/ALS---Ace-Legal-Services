@@ -1,7 +1,8 @@
 import React from "react";
 
-const DetailsComUser = ({ users }) => {
+const DetailsComUser = ({ users ,deletEele }) => {
   // console.log(users)
+  console.log(users)
   return users.lenght == 0 ? (
     <>
       <h1>No Data here</h1>
@@ -19,9 +20,11 @@ const DetailsComUser = ({ users }) => {
                   alt="img"
                 />
               </div>
-              <h2>{el.name}</h2>
-              <p>{el.email}</p>
-              <button className="RemoveButtonAdmin">Remove</button>
+              <h2 className="userName">{el.name}</h2>
+              <p>Number: +{el.address.zipcode}</p>
+              <p>Email: {el.email}</p>
+              <p>Gender: Male</p>
+              <button className="RemoveButtonAdmin" onClick={()=>{deletEele(el)}}>Remove</button>
             </div>
           );
         })}

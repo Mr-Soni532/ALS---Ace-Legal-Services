@@ -1,20 +1,20 @@
-import { FaBars, FaTh, FaUserAlt } from "react-icons/fa";
+import { FaBars, FaTh } from "react-icons/fa";
 import { AiOutlineUserAdd } from "react-icons/ai";
 import { RiAdminFill } from "react-icons/ri";
 import { FaUserGraduate } from "react-icons/fa";
+import { MdMore } from 'react-icons/md'
 import "./sideMenu.css";
 import React, { useState } from "react";
 
-let open = false;
 const SideMenu = ({ children, ChangeSection }) => {
   const menuItem = [
     {
-      path: "/",
+      path: '/adminpage',
       name: "Dashboard",
       icon: <FaTh />,
     },
     {
-      path: "/adminpage",
+      path: '/admin/lawyer',
       name: "Admin",
       icon: <RiAdminFill />,
     },
@@ -24,21 +24,21 @@ const SideMenu = ({ children, ChangeSection }) => {
       icon: <AiOutlineUserAdd />,
     },
     {
-      path: "/admin/lawyer",
+      path: '/admin/admin',
       name: "Lawyer",
       icon: <FaUserGraduate />,
     },
     ,
     {
-      path: "/userdashboard",
+      path: '/admin/about',
       name: "About",
-      icon: <FaUserAlt />,
+      icon: <MdMore />,
     },
   ];
   const [isOpen, setOpen] = useState(false);
   const toggle = () => {
     setOpen(!isOpen);
-    open = isOpen;
+
   };
   return (
     <div className="SideBarX">
@@ -64,13 +64,13 @@ const SideMenu = ({ children, ChangeSection }) => {
                 style={{ display: isOpen ? "block" : "none" }}
                 className="link_text"
               >
-                {el.name}
+              {el.name}
               </div>
             </div>
           );
         })}
       </div>
-      <main>{children}</main>
+      <div className="main">{children}</div>
     </div>
   );
 };
