@@ -27,9 +27,11 @@ const Login = () => {
 
     const json = await response.json();
     if (json.status === "success") {
+      console.log(json)
       localStorage.setItem("token", json.token);
+      localStorage.setItem("userData",JSON.stringify(json.userData));
       alert(json.msg);
-      navigate("/signup");
+      navigate("/userdashboard");
     } else {
       alert(json.msg);
     }
@@ -45,10 +47,14 @@ const Login = () => {
     } else if (value === "Lawyer ID") {
       console.log("Hello from lawyer");
     } else {
+     if(email=="admin@gmail.com" && password=="admin"){
+        navigate('/admin')
+     }
       console.log("hello from admin");
     }
   };
   const google = () => {
+localStorage.clear();
     window.open(`${HOST}/auth/google`, "_self");
   };
   return (

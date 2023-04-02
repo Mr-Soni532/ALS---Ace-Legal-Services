@@ -1,36 +1,37 @@
-import { FaBars, FaTh } from "react-icons/fa";
+import { FaBars, FaUserAlt } from "react-icons/fa";
 import { AiOutlineUserAdd } from "react-icons/ai";
 import { RiAdminFill } from "react-icons/ri";
 import { FaUserGraduate } from "react-icons/fa";
-import { MdMore } from 'react-icons/md'
+import { MdMore } from "react-icons/md";
 import "./sideMenu.css";
 import React, { useState } from "react";
+import { HomeFilled } from "@ant-design/icons";
 
 const SideMenu = ({ children, ChangeSection }) => {
   const menuItem = [
     {
-      path: '/adminpage',
+      path: "/admin",
       name: "Dashboard",
-      icon: <FaTh />,
+      icon: <HomeFilled />,
     },
     {
-      path: '/admin/lawyer',
+      path: "/admin",
       name: "Admin",
       icon: <RiAdminFill />,
     },
     {
-      path: "/admin/client",
+      path: "/admin",
       name: "User",
       icon: <AiOutlineUserAdd />,
     },
     {
-      path: '/admin/admin',
+      path: "/admin",
       name: "Lawyer",
       icon: <FaUserGraduate />,
     },
     ,
     {
-      path: '/admin/about',
+      path: "/admin",
       name: "About",
       icon: <MdMore />,
     },
@@ -38,14 +39,13 @@ const SideMenu = ({ children, ChangeSection }) => {
   const [isOpen, setOpen] = useState(false);
   const toggle = () => {
     setOpen(!isOpen);
-
   };
   return (
     <div className="SideBarX">
       <div style={{ width: isOpen ? "250px" : "50px" }} className="sidebar">
         <div className="top_section">
           <h1 className="logo" style={{ display: isOpen ? "block" : "none" }}>
-            Menu
+            ALS
           </h1>
           <div style={{ marginLeft: isOpen ? "50px" : "0px" }} className="bars">
             <FaBars onClick={toggle} />
@@ -64,7 +64,7 @@ const SideMenu = ({ children, ChangeSection }) => {
                 style={{ display: isOpen ? "block" : "none" }}
                 className="link_text"
               >
-              {el.name}
+                {el.name}
               </div>
             </div>
           );

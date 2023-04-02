@@ -9,9 +9,8 @@
   font-weight: 500 !important;
 }
 .EventVerified > div {
-  width: 43%;
+  width: 44%;
   margin: auto;
-
   border-radius: 5px;
 }
 
@@ -19,7 +18,8 @@
   width: 100%;
   height: 100vh;
 }
-.signInBtn {
+.signInBtn,
+.BookAppBtntwo {
   background-color: #ffd41f !important;
   width: 100%;
   font-size: 19px;
@@ -27,6 +27,11 @@
   border: none;
   font-weight: 600;
   padding: 10px 20px;
+}
+.BookAppBtntwo {
+  margin-top: 5px;
+  background-color: #ffffff !important;
+  border: 1px solid grey;
 }
 .signInBtn:hover {
   background-color: #fdd94c !important;
@@ -37,12 +42,12 @@
 
 .EventVerifiedCard {
   background-color: rgb(255, 254, 250);
-  padding: 50px 25px;
+  padding: 20px 25px;
   width: 70%;
   border-radius: 5px;
   border: 2px solid rgb(206, 202, 202);
   color: black;
-  height: 600px;
+  height: fit-content;
   margin: auto;
 }
 .EventVerifiedCard input:hover,
@@ -56,42 +61,46 @@
   text-align: center;
   font-size: 2rem;
   font-weight: 700;
-  margin-bottom: 30px;
+  margin-bottom: 15px;
 }
 
 .tick {
-  width: 40px;
-  transform: translateY(8px);
+  width: 45px;
+  transform: translateY(10px);
 }
 .eventtwo {
   padding: 15px 10px;
   display: flex;
-
+  flex-direction: column-reverse;
   justify-content: space-between;
-  align-items: flex-start;
+  align-items: center;
+  gap: 5px;
 }
+
 .eventMeetingDetails {
   padding-top: 10px;
 }
 .eventMeetingDetails > p {
   color: grey;
+  font-size: 15px;
 }
 .AdvoBio {
   font-size: 13px;
   color: grey;
   padding: 10px;
+  text-align: center;
   padding-right: 10px;
 }
 .advoName {
-  font-size: 23px;
+  font-size: 28px;
 }
 
 .AdvoPng {
   display: flex;
-  height: 150px;
+  height: 100px;
   justify-content: center;
   align-items: center;
-  filter: drop-shadow(0 0 0.23rem rgb(218, 109, 26));
+  filter: drop-shadow(0 0 0.23rem rgb(154, 252, 255));
 }
 .AdvoPng > img {
   border-radius: 50%;

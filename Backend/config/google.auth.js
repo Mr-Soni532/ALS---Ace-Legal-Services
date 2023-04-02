@@ -1,6 +1,6 @@
 const GoogleStrategy = require("passport-google-oauth20").Strategy;
 const passport = require("passport");
-const UserSchema=require("../model/user.model");
+const UserSchema = require("../model/user.model");
 
 const GOOGLE_CLIENT_ID =
   "147798063236-iv20ceu6gpr21g5kdeg53rjehvenvg1d.apps.googleusercontent.com";
@@ -16,15 +16,15 @@ passport.use(
       scope: ["profile", "email"],
     },
     function (accessToken, refreshToken, profile, done) {
-        // let payload={
-        //   _id:profile.id,
-        //   email:profile.emails[0].value,
-        //   name:profile.displayName
-        // }
-        //   let user=await new UserSchema(payload);
-        //   await user.save();
-          done(null,profile);
-        }
+      // let payload={
+      //   _id:profile.id,
+      //   email:profile.emails[0].value,
+      //   name:profile.displayName
+      // }
+      //   let user=await new UserSchema(payload);
+      //   await user.save();
+      done(null, profile);
+    }
   )
 );
 
@@ -38,4 +38,4 @@ passport.deserializeUser((user, done) => {
 });
 
 
-module.exports=passport;
+module.exports = passport;

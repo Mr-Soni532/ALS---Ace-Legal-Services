@@ -1,8 +1,7 @@
 import React from "react";
 
-const DetailsComUser = ({ users ,deletEele }) => {
-  // console.log(users)
-  console.log(users)
+const DetailsComUser = ({ users, deletEele }) => {
+  console.log(users);
   return users.lenght == 0 ? (
     <>
       <h1>No Data here</h1>
@@ -10,9 +9,14 @@ const DetailsComUser = ({ users ,deletEele }) => {
   ) : (
     <>
       {users &&
-        users.map((el) => {
+        users.map((el, index) => {
           return (
-            <div className="customerCard" key={el.id}>
+            <div
+              className="customerCard"
+              key={el.id}
+              data-aos="fade-left"
+              data-aos-delay={index * 50}
+            >
               <div>
                 <img
                   style={{ clipPath: "circle()" }}
@@ -24,7 +28,15 @@ const DetailsComUser = ({ users ,deletEele }) => {
               <p>Number: +{el.address.zipcode}</p>
               <p>Email: {el.email}</p>
               <p>Gender: Male</p>
-              <button className="RemoveButtonAdmin" onClick={()=>{deletEele(el)}}>Remove</button>
+              <button className="InfoBtnAdmin">Info</button>
+              <button
+                className="RemoveButtonAdmin"
+                onClick={() => {
+                  deletEele(el);
+                }}
+              >
+                Remove
+              </button>
             </div>
           );
         })}
