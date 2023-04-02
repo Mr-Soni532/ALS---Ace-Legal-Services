@@ -5,17 +5,18 @@ import UserContext from "../../context/Admin_page/userFunction/userContext";
 import "./admin_css/user.css";
 import Headers from "../../components/AdminCompo/Headers";
 import SearchBar from "../../components/AdminCompo/SearchCompo";
+import { DoubleLeftOutlined, DoubleRightOutlined } from "@ant-design/icons";
 
 const AdminClient = () => {
   const context = useContext(UserContext);
 
   const keys = ["name", "Email", "UserID"];
-  const [ query , setQuery ] = useState(null)
-  const [ option, setOption ] =useState('name')
+  const [query, setQuery] = useState(null);
+  const [option, setOption] = useState("name");
 
   const { getUser, users, setUser, loading, err, deletefun } = context;
   // const [ loadings , setLoading ] = useState(loading)
-  let data = [...users]
+  let data = [...users];
   const [currentPage, setCurrentPage] = useState(1);
   const userPerpage = 8;
   const totalPages = Math.ceil(data.length / userPerpage);
@@ -39,7 +40,6 @@ const AdminClient = () => {
   }, []);
 
   const search = (data) => {
-
     return data.filter((item) => {
       if (!query) {
         return item;
@@ -47,15 +47,19 @@ const AdminClient = () => {
         return keys.some(() => item[option].toLowerCase().includes(query));
       }
     });
-      
   };
 
-  data= search(users)
+  data = search(users);
 
   return (
     <div className="UserAdminBoxxx">
       <Headers />
-      <SearchBar name="Clients" query={query} setQuery={setQuery} setOption={setOption}/>
+      <SearchBar
+        name="Clients"
+        query={query}
+        setQuery={setQuery}
+        setOption={setOption}
+      />
       <div>
         {loading ? (
           <h1>Loading...</h1>
@@ -66,16 +70,31 @@ const AdminClient = () => {
             <div className="contentConatinerCust">
               <DetailsComUser users={sliceTodos()} deletEele={deletEele} />
             </div>
-            <div style={{ textAlign: "right" ,margin: '2%'}}>
-              {Array.from({ length: totalPages }, (_, index) => (
-                <button
-                  className="peginationBtn"
-                  key={index + 1}
-                  onClick={() => handlePageChange(index + 1)}
-                >
-                  {index + 1}
-                </button>
-              ))}
+
+            <div className="PaginationBOXXX">
+              <DoubleLeftOutlined
+                style={{
+                  color: "black",
+                  transform: "translateY(5px) translateX(-8px)",
+                }}
+              />
+              <div>
+                {Array.from({ length: totalPages }, (_, index) => (
+                  <button
+                    className="peginationBtn"
+                    key={index + 1}
+                    onClick={() => handlePageChange(index + 1)}
+                  >
+                    {index + 1}
+                  </button>
+                ))}
+              </div>
+              <DoubleRightOutlined
+                style={{
+                  color: "black",
+                  transform: "translateY(5px) translateX(5px)",
+                }}
+              />
             </div>
           </>
         )}

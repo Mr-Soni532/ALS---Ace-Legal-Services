@@ -3,41 +3,54 @@ import "./DashNavbar.css";
 import { Link, NavLink } from "react-router-dom";
 const DashNavbar = () => {
   const HOST = '${HOST}'
-
+  let userData=JSON.parse(localStorage.getItem("userData"));
   const [email,setEmail]=useState("User Email");
   const [name,setName]=useState("User Name")
 
+ 
+
   useEffect(() => {
-    const getUser = () => {
-      fetch(`${HOST}/auth/login/success`, {
-        method: "GET",
-        credentials: "include",
-        headers: {
-          Accept: "application/json",
-          "Content-Type": "application/json",
-          "Access-Control-Allow-Credentials": true,
-        },
-      })
-        .then((response) => {
-          if (response.status === 200) return response.json();
-          throw new Error("authentication has been failed!");
+    if(userData){
+      setEmail(userData.email);
+      setName(userData.name);
+    }else{
+      const getUser = () => {
+        fetch(`${HOST}/auth/login/success`, {
+          method: "GET",
+          credentials: "include",
+          headers: {
+            Accept: "application/json",
+            "Content-Type": "application/json",
+            "Access-Control-Allow-Credentials": true,
+          },
         })
-        .then((resObject) => {
-          let email=resObject.user.emails[0].value
-          let name=resObject.user.displayName;
-          setEmail(email)
-          setName(name)
-        })
-        .catch((err) => {
-          console.log(err);
-        });
-    };
-    getUser();
+          .then((response) => {
+            // console.log(response)
+            if (response.status === 200) return response.json();
+            throw new Error("authentication has been failed!");
+          })
+          .then((resObject) => {
+            let email=resObject.user.emails[0].value
+            let name=resObject.user.displayName;
+            console.log(name)
+            setEmail(email)
+            setName(name)
+          })
+          .catch((err) => {
+            console.log(err);
+          });
+      };
+      getUser();
+    }
+    
+
     
   }, []);
 
   const logout = () => {
+   localStorage.clear();  
     window.open(`${HOST}/auth/logout`, "_self");
+    
   };
   return (
     <div className="DashNavbarParent" data-aos="fade">

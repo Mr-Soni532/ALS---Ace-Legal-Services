@@ -90,7 +90,7 @@ exports.addLawyer = async (req, res) => {
 
             //! sending account details notification
             sendEmail(emailTemplate(payload.email, newPass))
-            
+
             res.status(201).json({ message: 'Lawyer has been created.' });
 
 

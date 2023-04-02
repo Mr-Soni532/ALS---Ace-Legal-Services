@@ -17,7 +17,7 @@ const SignUpPage = () => {
       body: JSON.stringify(data),
     });
     const json = await response.json();
-    localStorage.setItem("userId",json.data.userId)
+    localStorage.setItem("otp_userId",json.data.userId)
     if (json.status === "Pending") {
       alert(json.msg);
       navigate("/verifyOTP");

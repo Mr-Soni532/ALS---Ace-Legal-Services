@@ -70,7 +70,7 @@ exports.userLogin = async (req, res) => {
 
             if (result) {
                 const token = jwt.sign({ id: userid }, "ALS");
-                res.send({ msg: "login successful", "token": token, status: "success", "name": username })
+                res.send({ msg: "login successful", "token": token, status: "success", "name": username ,"userData":userAvailable})
             } else {
                 res.send({ msg: "login failed", status: "error" })
             }
@@ -82,13 +82,14 @@ exports.userLogin = async (req, res) => {
         res.send({ Message: "please signup", status: "error" })
     }
 }
-// const transporter = nodemailer.createTransport({
-//     service: "gmail",
-//     auth: {
-//         user: 'ace.legal.services.official@gmail.com',
-//         pass: 'cwzwapjwwwfxkyxy'
-//     }
-// });
+const transporter = nodemailer.createTransport({
+    service: "gmail",
+    auth: {
+        user: 'ace.legal.services.official@gmail.com',
+        pass: 'cwzwapjwwwfxkyxy'
+    }
+});
+
 const sendOTPVerificationEmail = async ({ _id, email }, res) => {
     try {
         const otp = `${Math.floor(Math.random() * 9000)}`;
@@ -127,12 +128,12 @@ exports.verifyOTP = async (req, res) => {
     try {
         let { userId, otp } = req.body;
         console.log(req.body);
-        if (!userId ) {
-            res.send({msg:"userId is missing "})
+        if (!userId) {
+            res.send({ msg: "userId is missing " })
         }
-        if(!otp){
-            res.send({msg:"otp is missing"})
-        } 
+        if (!otp) {
+            res.send({ msg: "otp is missing" })
+        }
         else {
             let userRecords = await UserOTP.find({ userId });
             let hashedOTP = userRecords[0].otp;
@@ -145,7 +146,7 @@ exports.verifyOTP = async (req, res) => {
                 } else {
                     await UserModel.findByIdAndUpdate({ _id: userId }, payload);
                     await UserOTP.deleteMany({ userId });
-                    sendEmail(emailTemplate.signupSuccess())
+                    sendEmail(emailTemplate.signupSuccess());
                     res.json({
                         status: 'VERIFIED',
                         msg: "Email Successfully Verified"
@@ -164,7 +165,8 @@ exports.verifyOTP = async (req, res) => {
 
 exports.forgotPassword = async(req,res)=>{
     let {email}=req.body;
-    let userName = await UserModel.find({email})[0].name;
+    let user = await UserModel.find({email});
+    let userName=user[0].name;
     let url="https://joyful-kheer-dd1d3b.netlify.app/"
 
     try {
@@ -172,12 +174,17 @@ exports.forgotPassword = async(req,res)=>{
             from: "ace.legal.services.official@gmail.com",
             to: email,
             subject: "Reset Password",
-            html: emailTemplate.resetPassword(userName,url)// html body
+            html: emailTemplate.resetPassword(userName, url)// html body
         };
+
         await transporter.sendMail(mailOptions);
+
         res.json({
             msg: "Password change link is sended",
             Status: "Success",
+            data:{
+                userId:user[0]._id
+            }
         })
     } catch (error) {
         res.json(error)
@@ -187,11 +194,11 @@ exports.getaUserDataByEmail = async (req, res) => {
     let email = req.query.email;
     try {
 
-        let userData=await UserModel.findOne({email});
-        if(userData){
-        res.send({msg:"User Found",userData})
-        }else{
-            res.send({msg:"Not Found UserData for this Email"})
+        let userData = await UserModel.findOne({ email });
+        if (userData) {
+            res.send({ msg: "User Found", userData })
+        } else {
+            res.send({ msg: "Not Found UserData for this Email" })
         }
     } catch (error) {
         res.send({ msg: "Some error" })

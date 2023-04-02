@@ -16,7 +16,12 @@ const EventVerified = () => {
         <div className="EventVerifiedCard">
           <p className="appverified">
             Appointment Review &nbsp;
-            <img className="tick" src="Images/verified.png" alt="Tick" />
+            <img
+              className="tick"
+              style={{ filter: "saturate(2) hue-rotate(20deg)" }}
+              src="Images/infopng.png"
+              alt="Tick"
+            />
           </p>
           <hr />
           <div className="eventtwo">
@@ -27,7 +32,8 @@ const EventVerified = () => {
                 <p>Meeting Time : 12 baje</p>
                 <p>Meeting Date : 87-54-6512</p>
                 <p>Remaining Time: 5days </p>
-                <p>Lawyer Contact :+ 9302338475 </p>
+                <p>Lawyer Contact : 9302338475 </p>
+                <p>Payment Fee : $ -lawyerfeehere- </p>
               </div>
             </div>
 
@@ -41,23 +47,15 @@ const EventVerified = () => {
               </div>
             </div>
           </div>
-          <p className="AboutTheAdvo">About the Lawyer</p>
 
-          <hr style={{ width: "60%" }} />
-          <p className="AdvoBio">
-            John Smith is a personal injury lawyer with over 10 years of
-            experience helping clients get the compensation they deserve. He is
-            passionate about justice and fighting for the rights of his clients
-          </p>
           <hr />
-          <div>
-            <br />
-            <label className="sendRem">
-              <input type="checkbox" /> Send Reminder of Meet 1 Day Before
-            </label>
+          <p className="AdvoBio">Payment will be recieved via online banking</p>
 
+          <div>
             <div className="faaspace"></div>
             <button className="signInBtn">Proceed to Fee Payment</button>
+            <br />
+            <button className="BookAppBtntwo">Book an Appoinetment</button>
             <label className="allrightIEIEIEIIEEI">
               © All Copyrights reserved
             </label>

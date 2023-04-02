@@ -18,7 +18,9 @@ root.render(
       <AppointmentState>
         <LawyerState>
           <UserState>
-            <App />
+            <AdminState>
+              <App />
+            </AdminState>
           </UserState>
         </LawyerState>
       </AppointmentState>

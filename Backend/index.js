@@ -4,7 +4,7 @@ const cors = require('cors');
 const UserRouter = require('./routers/user.router');
 const LawyerRouter = require('./routers/lawyer.router');
 const AdminRouter = require('./routers/admin.router');
-const GoogleRouter=require("./routers/googleAuth.router")
+const GoogleRouter = require("./routers/googleAuth.router")
 const app = express();
 const passport = require("./config/google.auth");
 const cookieSession = require("cookie-session");
@@ -42,11 +42,11 @@ app.get('/', (req, res) => res.send({ Message: 'ALS server working fine' }))
 
 //=============> ROUTES
 
+
 app.use('/user',UserRouter)
 app.use('/lawyer',LawyerRouter)
 app.use('/admin',AdminRouter)
 app.use("/auth",GoogleRouter)
-
 
 
 

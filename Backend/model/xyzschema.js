@@ -7,7 +7,6 @@ const xyzschema = mongoose.Schema({
     profession: String,
     gender: String,
     phone: Number,
-
     image: String,
     price: String,
     languages: [String],
