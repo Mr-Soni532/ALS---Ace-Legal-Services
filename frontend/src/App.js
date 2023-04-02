@@ -13,7 +13,6 @@ import EventVerified from './pages/EventVerified/EventVerified';
 import OtpPage from './pages/verifyotp/OtpPage';
 import AdminPage from './pages/Admin_page/AdminPage';
 import AddLawyerForm from './pages/AddForms/AddLawyerForm';
-import AddAdminForm from './pages/AddForms/AddAdminForm';
 
 function App() {
   return (
@@ -24,7 +23,6 @@ function App() {
         <Route path="/eventverified" element={<EventVerified />} />
         <Route path="/appointment" element={<Appointment />} />
         <Route path='/addlawyer' element={<AddLawyerForm />} />
-        <Route path='/addadmin' element={<AddAdminForm />} />
         <Route path='/verifyOTP' element={<OtpPage />} />
         <Route path="/bookslot" element={<BookSlot />} />
         <Route path="/signup" element={<SignUpPage />} />
