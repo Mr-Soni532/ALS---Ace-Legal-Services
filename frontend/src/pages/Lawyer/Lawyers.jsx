@@ -7,10 +7,13 @@ import LawyerFilterer from "../../components/lawyers/LawyerFilterer";
 import "./lawyer.css";
 
 const Lawyers = () => {
+
   const [query, setQuery] = useState("");
   const [option, setOption] = useState("name");
   const keys = ["name", "profession", "experience"];
+
   const search = (data) => {
+
     return data.filter((item) => {
       if (!query) {
         return item;
@@ -18,6 +21,7 @@ const Lawyers = () => {
         return keys.some(() => item[option].toLowerCase().includes(query));
       }
     });
+
   };
 
   const items = search(lawyerData);

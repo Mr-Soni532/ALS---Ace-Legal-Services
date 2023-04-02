@@ -8,18 +8,22 @@ import SearchBar from "../../components/AdminCompo/SearchCompo";
 
 const AdminClient = () => {
   const context = useContext(UserContext);
-  const { getUser, users, setUser, loading, err, deletefun } = context;
-  const [data, setData] = useState([...users]);
-  const [errors, setError] = useState(err);
-  // const [ loadings , setLoading ] = useState(loading)
 
+  const keys = ["name", "Email", "UserID"];
+  const [ query , setQuery ] = useState(null)
+  const [ option, setOption ] =useState('name')
+
+  const { getUser, users, setUser, loading, err, deletefun } = context;
+  // const [ loadings , setLoading ] = useState(loading)
+  let data = [...users]
   const [currentPage, setCurrentPage] = useState(1);
   const userPerpage = 8;
   const totalPages = Math.ceil(data.length / userPerpage);
+
   const sliceTodos = () => {
     const indexOfLastTodo = currentPage * userPerpage;
     const indexOfFirstTodo = indexOfLastTodo - userPerpage;
-    return users.slice(indexOfFirstTodo, indexOfLastTodo);
+    return data.slice(indexOfFirstTodo, indexOfLastTodo);
   };
 
   const handlePageChange = (page) => {
@@ -34,34 +38,35 @@ const AdminClient = () => {
     getUser();
   }, []);
 
-  const searchFun = (e) => {
-    // let searchValue = document.querySelector("#search").value;
-    let filterData = users.filter((el) => {
-      let x = e.target.value;
-      return el.name.toLowerCase().includes(x.toLowerCase());
+  const search = (data) => {
+
+    return data.filter((item) => {
+      if (!query) {
+        return item;
+      } else {
+        return keys.some(() => item[option].toLowerCase().includes(query));
+      }
     });
-    // // console.log(filterData)
-    setUser(filterData);
-    // setUser(filterData)
-    // console.log(filterData)
-    // console.log(e.target.value)
+      
   };
+
+  data= search(users)
 
   return (
     <div className="UserAdminBoxxx">
       <Headers />
-      <SearchBar name="Clients" searchFun={searchFun} />
+      <SearchBar name="Clients" query={query} setQuery={setQuery} setOption={setOption}/>
       <div>
         {loading ? (
           <h1>Loading...</h1>
-        ) : errors ? (
+        ) : err ? (
           <h1>Something went wrong</h1>
         ) : (
           <>
-            <div className="contentConatiner">
+            <div className="contentConatinerCust">
               <DetailsComUser users={sliceTodos()} deletEele={deletEele} />
             </div>
-            <div style={{ textAlign: "right" }}>
+            <div style={{ textAlign: "right" ,margin: '2%'}}>
               {Array.from({ length: totalPages }, (_, index) => (
                 <button
                   className="peginationBtn"

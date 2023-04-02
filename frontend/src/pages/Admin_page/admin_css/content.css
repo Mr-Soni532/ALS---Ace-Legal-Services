@@ -1,5 +1,5 @@
 .contentConatiner {
-  margin: auto;
+  /* margin: auto; */
   border: 2px solid black;
 }
 
@@ -17,4 +17,5 @@ tr:nth-child(even) {
   border: none;
   color: white;
   border-radius: 5px;
+  margin-right: 5px;
 }

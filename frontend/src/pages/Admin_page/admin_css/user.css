@@ -1,12 +1,14 @@
-.contentConatiner {
+.contentConatinerCust {
   height: auto;
   display: flex;
   flex-wrap: wrap;
   margin: auto;
   row-gap: 10px;
-  justify-content: space-evenly;
-  justify-items: baseline;
-  padding: 2% 0;
+  justify-content: center;
+  justify-items: center;
+  padding: 1% 0%;
+  border: 2px solid black;
+  margin: 2%;
 }
 .RemoveButtonAdmin {
   background-color: red;
@@ -19,12 +21,13 @@
   margin-top: 3%;
 }
 .customerCard {
-  width: 22%;
+  width: 23%;
   text-align: center;
   margin: auto;
   border: 2px solid #d6ac01;
   border-radius: 8px;
   padding: 2% 0 1% 0;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
 h2 {
