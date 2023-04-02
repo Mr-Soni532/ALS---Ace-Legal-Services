@@ -1,7 +1,6 @@
 import React from "react";
 
 const DetailsComUser = ({ users }) => {
-  // console.log(users)
   return users.lenght == 0 ? (
     <>
       <h1>No Data here</h1>

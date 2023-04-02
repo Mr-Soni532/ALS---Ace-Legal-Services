@@ -1,9 +1,10 @@
-import { FaBars, FaTh, FaUserAlt } from "react-icons/fa";
+import { FaBars, FaUserAlt } from "react-icons/fa";
 import { AiOutlineUserAdd } from "react-icons/ai";
 import { RiAdminFill } from "react-icons/ri";
 import { FaUserGraduate } from "react-icons/fa";
 import "./sideMenu.css";
 import React, { useState } from "react";
+import { HomeFilled } from "@ant-design/icons";
 
 let open = false;
 const SideMenu = ({ children, ChangeSection }) => {
@@ -11,7 +12,7 @@ const SideMenu = ({ children, ChangeSection }) => {
     {
       path: "/",
       name: "Dashboard",
-      icon: <FaTh />,
+      icon: <HomeFilled />,
     },
     {
       path: "/adminpage",

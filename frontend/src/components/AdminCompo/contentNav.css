@@ -1,8 +1,12 @@
 .contentNav {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  margin-bottom: 2%;
+  justify-content: space-around;
+  margin-bottom: 20px;
+}
+
+.SectionNameAdmin {
+  font-size: 38px;
 }
 .contentNav > div {
   width: 60%;
@@ -18,7 +22,6 @@
   align-items: center;
 }
 .contentNav input[type="search"] {
-  position: absolute;
   width: 100%;
   padding: 7px 0;
   border: 2px solid #ffd117;

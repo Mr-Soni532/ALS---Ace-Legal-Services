@@ -5,7 +5,7 @@ import { AiOutlineSearch } from "react-icons/ai";
 const SearchBar = (props) => {
   return (
     <div className="contentNav">
-      <h2>{props.name}</h2>
+      <h2 className="SectionNameAdmin">{props.name}</h2>
       <div>
         {props.name == "lawyers" ? (
           <select>
