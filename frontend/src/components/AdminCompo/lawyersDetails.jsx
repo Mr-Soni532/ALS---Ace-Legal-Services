@@ -15,7 +15,7 @@ const DetailsCom = ({ users, deletEele }) => {
   }
   return users.lenght == 0 ? (
     <>
-      <h1>No Data here</h1>
+      <h1>Data Unavailable</h1>
     </>
   ) : (
     <>

@@ -12,27 +12,25 @@ import SignUpPage from './pages/signup/signupPage';
 import EventVerified from './pages/EventVerified/EventVerified';
 import OtpPage from './pages/verifyotp/OtpPage';
 import AdminPage from './pages/Admin_page/AdminPage';
-import AddLawyerForm from './components/AdminCompo/AddLawyerForm';
+import AddLawyerForm from './pages/AddForms/AddLawyerForm';
+import AddAdminForm from './pages/AddForms/AddAdminForm';
 
 function App() {
   return (
     <div className="App">
       <Routes>
         <Route path="/" element={<IndexPage />} />
-        <Route path="/lawyers" element={<Lawyers />} />
         <Route path="/userdashboard" element={<UserDashboard />} />
-        <Route path="/appointment" element={<Appointment />} />
-        <Route path="/login" element={<LoginPage />} />
-        <Route path="/signup" element={<SignUpPage />} />
         <Route path="/eventverified" element={<EventVerified />} />
+        <Route path="/appointment" element={<Appointment />} />
+        <Route path='/addlawyer' element={<AddLawyerForm />} />
+        <Route path='/addadmin' element={<AddAdminForm />} />
+        <Route path='/verifyOTP' element={<OtpPage />} />
         <Route path="/bookslot" element={<BookSlot />} />
-        <Route path='/login' element={<LoginPage />} />
-        <Route path='/signup' element={<SignUpPage />} />
-        <Route path='/verifyOTP' element={<OtpPage />} />
-        <Route path='/signup' element={<SignUpPage />} />
+        <Route path="/signup" element={<SignUpPage />} />
+        <Route path="/lawyers" element={<Lawyers />} />
+        <Route path="/login" element={<LoginPage />} />
         <Route path='/admin' element={<AdminPage />} />
-        <Route path='/addlawyerform' element={<AddLawyerForm />} />
-        <Route path='/verifyOTP' element={<OtpPage />} />
         <Route path="*" element={<PageNotFound />} />
       </Routes>
     </div>
