@@ -6,15 +6,7 @@ const nodemailer = require("nodemailer");
 const generatePassword = require("../utils/generatePassword.js")
 const emailTemplate = require('../utils/email-templates.js');
 const sendEmail = require('../utils/notificaton.js');
-//! ============> NodeMailer utils
 
-// const transporter = nodemailer.createTransport({
-//     service: "gmail",
-//     auth: {
-//         user: 'ace.legal.services.official@gmail.com',
-//         pass: 'cwzwapjwwwfxkyxy'
-//     }
-// });
 
 
 //! ============> Admin
@@ -117,7 +109,7 @@ exports.deleteLawyer = async (req, res) => {
     }
 }
 
-exports.bulkPostAdmin = async (req, res) => {
+exports.bulkPostLawyer = async (req, res) => {
     let data = req.body
     try {
         await LawyerModel.insertMany(data)
@@ -158,18 +150,3 @@ exports.deleteUser = async (req, res) => {
     }
 }
 
-// //! ===============> Send confirmation emails
-
-// const sendEmail= async(htmlBody)=>{
-//     try {
-//         const mailOptions = {
-//             from: "ace.legal.services.official@gmail.com",
-//             to: email,
-//             subject: "Verify your email",
-//             html: htmlBody, // html body
-//         };
-//         await transporter.sendMail(mailOptions);
-//     } catch (error) {
-//         res.send(error)
-//     }
-// }
