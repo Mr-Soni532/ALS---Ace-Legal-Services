@@ -2,7 +2,8 @@
   display: flex;
   align-items: center;
   justify-content: space-around;
-  margin-bottom: 20px;
+  margin-bottom: 2px;
+  padding-top: 18px;
 }
 .SectionNameAdmin {
   font-size: 38px;
@@ -22,9 +23,9 @@
 }
 .contentNav input[type="search"] {
   width: 100%;
-  padding: 7px 0;
+  padding: 12px 18px;
   border: 2px solid #ffd117;
-  border-radius: 5px;
+  border-radius: 25px;
 }
 select {
   width: 30%;
@@ -38,29 +39,24 @@ select {
   right: 10px;
 }
 
-.addBtn {
+.AddLawyerButton {
   margin-left: 10px;
-  padding: 5px 10px;
-  border: 2px solid #ffd117;
-  background-color: white;
+  border: 2px solid #f6d450;
+
   font-weight: 600;
-  font-size: 1.5rem;
-  border-radius: 48% 50%;
-  padding: 0 8px;
+  font-size: 18px;
+  border-radius: 25px;
+  padding: 8px 18px;
   color: black;
   font-weight: 800px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #fed83f;
 }
 
-.addlawyerdiv {
-  border: 2px solid grey;
-  padding: 10px 25px;
-  border-radius: 10px;
-  color: black;
-  font-weight: 800px;
-}
-.addlawyerdiv:hover {
-  background-color: rgba(255, 255, 0, 0.365);
-  border: 2px solid black;
+.AddLawyerButton:hover {
+  background-color: rgb(255, 200, 50);
 }
 .userName {
   font-size: 1.3rem;

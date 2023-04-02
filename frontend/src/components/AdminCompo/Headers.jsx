@@ -9,7 +9,7 @@ const Headers = () => {
   return (
     <div className="DashboardHeader">
       <img width={130} src="Images/ACE1.png" />
-      <h1 className="HearderAdminPage"> ADMIN PAGE</h1>
+      <h1 className="HearderAdminPage"> ADMIN PANEL</h1>
       <Space>
         <Space>
           <UserOutlined style={{ fontSize: 34, color: "#f9ad00" }} />

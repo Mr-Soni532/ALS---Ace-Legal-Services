@@ -9,9 +9,14 @@ const DetailsComUser = ({ users, deletEele }) => {
   ) : (
     <>
       {users &&
-        users.map((el) => {
+        users.map((el, index) => {
           return (
-            <div className="customerCard" key={el.id}>
+            <div
+              className="customerCard"
+              key={el.id}
+              data-aos="fade-left"
+              data-aos-delay={index * 50}
+            >
               <div>
                 <img
                   style={{ clipPath: "circle()" }}
@@ -23,6 +28,7 @@ const DetailsComUser = ({ users, deletEele }) => {
               <p>Number: +{el.address.zipcode}</p>
               <p>Email: {el.email}</p>
               <p>Gender: Male</p>
+              <button className="InfoBtnAdmin">Info</button>
               <button
                 className="RemoveButtonAdmin"
                 onClick={() => {

@@ -4,13 +4,14 @@
 
 .lawyerCard {
   margin: 1.5% 1.5%;
-  border: 2px solid #d6ac01;
+  border: 2px solid #c1c0bf;
   display: flex;
   justify-content: space-between;
   align-items: center;
   border-radius: 7px;
   padding: 2% 2%;
-  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px,
+    rgba(17, 17, 26, 0.05) 0px 8px 32px;
 }
 .lawyerCard > div > img {
   width: 80%;
@@ -22,53 +23,56 @@
 .editDltBtn {
   width: 15%;
   display: flex;
-  justify-content: space-between;
+  height: 200px;
+  justify-content: center;
+  align-items: flex-end;
 }
 
 .editDltBtn > button {
-  padding: 7px 19px;
+  padding: 7px 22px;
+  margin: 7px;
+  font-size: 17px;
+  border-radius: 24px !important;
 }
 .editDltBtn > button:first-child {
-  margin-right: 18%;
-  background-color: #d6ac01;
+  background-color: #e3e3e3;
   border: none;
   border-radius: 5px;
   font-weight: bold;
-  color: white;
+  color: rgb(0, 0, 0);
 }
 .editDltBtn > button:last-child {
-  background-color: red;
+  background-color: rgb(246, 32, 32);
   border: none;
   border-radius: 5px;
   color: white;
   font-weight: bold;
 }
 
-.adminLayerName{
+.adminLayerName {
   font-size: 1.5rem;
 }
-.adminLayerType{
-    font-size: 1rem;
-    margin-top: 5px;
+.adminLayerType {
+  font-size: 1rem;
+  margin-top: 5px;
 }
 
-.skilsDiv{
+.skilsDiv {
   display: flex;
   margin: 10px 0;
 }
-.skilsDiv>p{
+.skilsDiv > p {
   padding: 5px 12px;
-  background-color: yellow;
-  margin-right:7px;
-  border-radius: 8px;
+  background-color: #f8d447;
+  margin-right: 7px;
+  border-radius: 28px;
   font-weight: 600;
 }
-.rankDiv{
+.rankDiv {
   width: 10%;
   display: flex;
-  
 }
-.rankDiv>img{
+.rankDiv > img {
   width: 100%;
   margin-left: 10px;
   overflow: hidden;

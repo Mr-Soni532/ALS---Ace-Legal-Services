@@ -2,6 +2,7 @@ import React from "react";
 import "./contentNav.css";
 import { AiOutlineSearch } from "react-icons/ai";
 import { Link } from "react-router-dom";
+import { UserAddOutlined } from "@ant-design/icons";
 const SearchBar = ({ name, query, setQuery, setOption }) => {
   return (
     <div className="contentNav">
@@ -9,10 +10,10 @@ const SearchBar = ({ name, query, setQuery, setOption }) => {
       {name == "Lawyers" ? (
         <div>
           <Link to="/addlawyer">
-            <div className="addlawyerdiv">
-              <span>Add Lawyers</span>
-              <button className="addBtn">+</button>
-            </div>
+            <button className="AddLawyerButton">
+              Add Lawyer
+              <UserAddOutlined style={{ fontSize: 25, padding: 5 }} />
+            </button>
           </Link>
         </div>
       ) : null}
