@@ -50,11 +50,16 @@ const Login = () => {
       // console.log()
       console.log("Hello from lawyer");
     } else {
+     if(email=="admin@gmail.com" && password=="admin"){
+        navigate('/admin')
+     }
       console.log("hello from admin");
     }
   };
   const google = () => {
+    
     window.open("http://localhost:4000/auth/google", "_self");
+    localStorage.clear();
   };
   return (
     <div className="form-container">
