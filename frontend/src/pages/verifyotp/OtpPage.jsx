@@ -10,7 +10,7 @@ const OtpPage = () => {
   let [three, setThree] = useState("");
   let [four, setFour] = useState("");
 
-  let userId=localStorage.getItem("userId");
+  let userId=localStorage.getItem("otp_userId");
   const handleSubmit = (event) => {
     event.preventDefault();
     let formOTP = one + two + three + four;
