@@ -100,12 +100,12 @@ const AdminDashboard = () => {
         </Space>
       </div>
       <div className="Graps">
-        <div>
+        <div data-aos="fade-up">
           <Typography.Title>Appointments Share</Typography.Title>
           <BarChart />
         </div>
 
-        <div style={{ width: "400px", height: "500px" }}>
+        <div style={{ width: "400px", height: "500px" }} data-aos="fade-up">
           <Typography.Title>Meetings Share</Typography.Title>
           <PieChart />
         </div>
