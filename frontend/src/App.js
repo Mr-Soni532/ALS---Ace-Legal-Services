@@ -30,8 +30,8 @@ function App() {
         <Route path='/signup' element={<SignUpPage />} />
         <Route path='/verifyOTP' element={<OtpPage />} />
         <Route path='/signup' element={<SignUpPage />} />
-        <Route path='/adminpage' element={<AdminPage />} />
-        <Route path='/addlawyer' element={<AddLawyerForm />} />
+        <Route path='/admin' element={<AdminPage />} />
+        <Route path='/addlawyerform' element={<AddLawyerForm />} />
         <Route path='/verifyOTP' element={<OtpPage />} />
         <Route path="*" element={<PageNotFound />} />
       </Routes>

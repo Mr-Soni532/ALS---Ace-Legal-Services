@@ -4,9 +4,9 @@
   transition: all 300ms ease-in-out;
 }
 .main {
-  width: 95%;
+  width: 100%;
   margin: auto;
-  padding: 20px;
+  padding: 0px 0px;
 }
 .sidebar {
   background-color: rgb(40, 39, 39);

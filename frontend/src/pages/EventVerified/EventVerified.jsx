@@ -16,7 +16,12 @@ const EventVerified = () => {
         <div className="EventVerifiedCard">
           <p className="appverified">
             Appointment Review &nbsp;
-            <img className="tick" src="Images/verified.png" alt="Tick" />
+            <img
+              className="tick"
+              style={{ filter: "hue-rotate(70deg)" }}
+              src="Images/infopng.png"
+              alt="Tick"
+            />
           </p>
           <hr />
           <div className="eventtwo">

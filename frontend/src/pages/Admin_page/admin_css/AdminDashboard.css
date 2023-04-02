@@ -1,12 +1,17 @@
 .AdminDashboardParent {
+  width: 100%;
   padding: 12px;
   margin-top: 2px;
   background-color: rgb(249, 247, 247);
 }
+
 .Graps {
+  width: 90%;
   display: flex;
   justify-content: space-around;
-  padding: 40px;
+  padding: 20px 50px;
+  margin: auto;
+  background-color: rgb(255, 255, 255);
 }
 .Graps > div {
   padding: 20px;

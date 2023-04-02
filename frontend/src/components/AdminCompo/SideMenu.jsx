@@ -10,28 +10,28 @@ import { HomeFilled } from "@ant-design/icons";
 const SideMenu = ({ children, ChangeSection }) => {
   const menuItem = [
     {
-      path: "/adminpage",
+      path: "/admin",
       name: "Dashboard",
       icon: <HomeFilled />,
     },
     {
-      path: "/admin/lawyer",
+      path: "/admin",
       name: "Admin",
       icon: <RiAdminFill />,
     },
     {
-      path: "/admin/client",
+      path: "/admin",
       name: "User",
       icon: <AiOutlineUserAdd />,
     },
     {
-      path: "/admin/admin",
+      path: "/admin",
       name: "Lawyer",
       icon: <FaUserGraduate />,
     },
     ,
     {
-      path: "/admin/about",
+      path: "/admin",
       name: "About",
       icon: <MdMore />,
     },
