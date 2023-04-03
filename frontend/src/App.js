@@ -19,7 +19,7 @@ import { useState } from 'react';
 import { func } from 'prop-types';
 
 function App() {
-  const [isAuthenticated, setAuthentication] = useState(false);
+  const [isAuthenticated, setAuthentication] = useState(true);
   function handleAuthentication(value){
     setAuthentication(value)
   }

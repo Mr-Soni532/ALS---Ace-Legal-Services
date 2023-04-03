@@ -8,10 +8,10 @@ const AppointmentsArea = () => {
 
   useEffect(() => {
   const userEmail = JSON.parse(localStorage.getItem('userData'))?.email;
-    fetch(`${HOST}appointment/fetch/userEmail?email=${userEmail}`
+    fetch(`${HOST}/appointment/fetch/userEmail?email=${userEmail}`
     ).then(data => data.json()).then(data => setAppointment(data.data))
   }, [appointment])
-
+ 
   return (
     <div className="AppointmentsArea">
       <h2>Upcoming Appointments</h2>
@@ -21,7 +21,7 @@ const AppointmentsArea = () => {
       <br />
       { appointment.length === 0 ? <Empty/> :
         appointment.map((el, index) => {
-          return (<><AppointmentCard data={el} index={index} /> <br /></>)
+          return (<div key={index}><AppointmentCard data={el} index={index} key={index}/> <br /></div>)
         })
       }
     </div>
