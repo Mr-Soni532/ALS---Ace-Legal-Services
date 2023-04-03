@@ -9,7 +9,7 @@ const AppointmentsArea = () => {
   useEffect(() => {
 
     const userEmail = JSON.parse(localStorage.getItem("userData"))?.email;
-    fetch(`${HOST}appointment/fetch/userEmail?email=${userEmail}`)
+    fetch(`${HOST}/appointment/fetch/userEmail?email=${userEmail}`)
       .then((data) => data.json())
       .then((data) => setAppointment(data.data));
   }, [appointment]);
