@@ -13,7 +13,7 @@ const connectToMongo = async () => {
         await mongoose.connect(mongoURI);
         console.log('Connnected to Mongoose');
     } catch (error) {
-        console.log({ Error: error })
+        console.log({ Error: error.message })
     }
 }
 module.exports = connectToMongo;
