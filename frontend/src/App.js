@@ -16,11 +16,10 @@ import AddLawyerForm from './pages/AddForms/AddLawyerForm';
 import BookingSuccess from './pages/bookingSuccess/BookingSuccess';
 import FailedBooking from './pages/failedBooking/FailedBooking';
 import { useState } from 'react';
-import { func } from 'prop-types';
-
 function App() {
   const [isAuthenticated, setAuthentication] = useState(true);
-  function handleAuthentication(value){
+
+  function handleAuthentication(value) {
     setAuthentication(value)
   }
   return (
@@ -28,19 +27,18 @@ function App() {
       <Routes>
         <Route path="/" element={<IndexPage />} />
         <Route path="/signup" element={<SignUpPage />} />
-        <Route path="/login" element={<LoginPage setAuthentication={handleAuthentication}/>} />
+        <Route path="/login" element={<LoginPage setAuthentication={handleAuthentication} />} />
         <Route path='/verifyOTP' element={<OtpPage />} />
         <Route path='/admin' element={<AdminPage />} />
         <Route path="*" element={<PageNotFound />} />
-
-        <Route path="/userdashboard" element={isAuthenticated?<UserDashboard />:<LoginPage/>} />
-        <Route path="/appointmentReview" element={isAuthenticated?<EventVerified />:<LoginPage/>} />
-        <Route path='/addlawyer' element={isAuthenticated?<AddLawyerForm />:<LoginPage/>} />
-        <Route path="/appointment" element={isAuthenticated?<Appointment />:<LoginPage/>} />
-        <Route path="/bookslot" element={isAuthenticated?<BookSlot />:<LoginPage/>} />
-        <Route path="/lawyers" element={isAuthenticated?<Lawyers />:<LoginPage/>} />
-        <Route path='/successBooking' element={isAuthenticated?<BookingSuccess/>:<LoginPage/>} />
-        <Route path='/failedBooking' element={isAuthenticated?<FailedBooking/>:<LoginPage/>} />
+        <Route path="/userdashboard" element={isAuthenticated ? <UserDashboard /> : <LoginPage />} />
+        <Route path="/appointmentReview" element={isAuthenticated ? <EventVerified /> : <LoginPage />} />
+        <Route path='/addlawyer' element={isAuthenticated ? <AddLawyerForm /> : <LoginPage />} />
+        <Route path="/appointment" element={isAuthenticated ? <Appointment /> : <LoginPage />} />
+        <Route path="/bookslot" element={isAuthenticated ? <BookSlot /> : <LoginPage />} />
+        <Route path="/lawyers" element={isAuthenticated ? <Lawyers /> : <LoginPage />} />
+        <Route path='/successBooking' element={isAuthenticated ? <BookingSuccess /> : <LoginPage />} />
+        <Route path='/failedBooking' element={isAuthenticated ? <FailedBooking /> : <LoginPage />} />
       </Routes>
     </div>
   );

@@ -1,8 +1,11 @@
-import React, { useContext, useEffect, useState } from 'react'
-import Calander from '../../components/slots/Calander'
-import SlotBtn from '../../components/slots/SlotBtn';
-import { AppointmentContext } from '../../context/appointment/appointmentContext';
-import './bookSlot.style.css'
+import React, { useContext, useEffect, useState } from "react";
+import Calander from "../../components/slots/Calander";
+import SlotBtn from "../../components/slots/SlotBtn";
+import { AppointmentContext } from "../../context/appointment/appointmentContext";
+import "./bookSlot.style.css";
+import DashNavbar from "../../components/UserDashboardComponents/DashNavbar/DashNavbar";
+import { Breadcrumb, Space } from "antd";
+import Stepss from "./Progress";
 import HOST from '../../utils/baseUrl';
 
 const BookSlot = () => {
@@ -42,29 +45,56 @@ const BookSlot = () => {
         setAvailableSlot(newArr)
     }
 
-    // updating the appointment context
-    useEffect(() => {
-        setDetials(prev => ({
-            ...prev, ...{ date: inputDate }
-        }))
-    }, [inputDate, setDetials])
+  // updating the appointment context
+  useEffect(() => {
+    setDetials((prev) => ({
+      ...prev,
+      ...{ date: inputDate },
+    }));
+  }, [inputDate, setDetials]);
+
+  function api() {}
+  api();
 
     return (
-        <div className='slot_mainContainer'>
-            <div className="slot_col-1">
-                <Calander updateDate={updateDate} />
-            </div>
-            <div className="slot_col-2">
+        <div>
+      <DashNavbar />
+      <hr /> <br />
+      <div style={{ paddingLeft: "20px" }}>
+        {" "}
+        <Breadcrumb
+          style={{}}
+          items={[
+            { title: "Home" },
+            { title: "Dashboard" },
+            { title: "Booking Slot" },
+          ]}
+        ></Breadcrumb>
+      </div>
+      <div className="StepsVo">
+        <Space>
+          <div className="Stepssics">
+            {" "}
+            <Stepss></Stepss>
+          </div>
+        </Space>
+        <div className="slot_mainContainer">
+              <div className="slot_col-1">
+                <Calander updateDate={updateDate}  />
+              </div>
+              <div className="slot_col-2">
                 <span>Select Slot</span>
                 <div className="slot_container">
-                    <SlotBtn time={'9:00 AM'} active={availableSlot[0]} slot={1} />
-                    <SlotBtn time={'11:00 AM'} active={availableSlot[1]} slot={2} />
-                    <SlotBtn time={'2:00 PM'} active={availableSlot[2]} slot={3} />
-                    <SlotBtn time={'4:00 PM'} active={availableSlot[3]} slot={4} />
-                </div>
+                  <SlotBtn time={"9:00 AM"} active={availableSlot[0]} slot={1}  />
+                  <SlotBtn time={"11:00 AM"} active={availableSlot[1]} slot={2}  />
+                  <SlotBtn time={"2:00 PM"} active={availableSlot[2]} slot={3}  />
+                  <SlotBtn time={"4:00 PM"} active={availableSlot[3]} slot={4}  />
             </div>
+          </div>
+                </div>
         </div>
-    )
-}
+      </div>
+    );
+};
 
-export default BookSlot
+export default BookSlot;

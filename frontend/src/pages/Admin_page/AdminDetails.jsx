@@ -6,6 +6,7 @@ import Headers from "../../components/AdminCompo/Headers";
 import SearchBar from "../../components/AdminCompo/SearchCompo";
 import AdminrContext from "../../context/Admin_page/adminContext/adminContext";
 import { DoubleLeftOutlined, DoubleRightOutlined } from "@ant-design/icons";
+import Loading from "../../components/AdminCompo/Loading";
 
 const AdminDetails = () => {
   const context = useContext(AdminrContext);
@@ -53,19 +54,20 @@ const AdminDetails = () => {
   return (
     <div className="UserAdminBoxxx">
       <Headers />
-      <SearchBar
-        name="Admin"
-        query={query}
-        setQuery={setQuery}
-        setOption={setOption}
-      />
+
       <div>
         {loading ? (
-          <h1>Loading...</h1>
+          <Loading />
         ) : err ? (
           <h1>Something went wrong</h1>
         ) : (
           <>
+            <SearchBar
+              name="Admin"
+              query={query}
+              setQuery={setQuery}
+              setOption={setOption}
+            />
             <div className="contentConatinerCust">
               <DetailsComUser users={sliceTodos()} deletEele={deletEele} />
             </div>
