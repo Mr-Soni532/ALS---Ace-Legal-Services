@@ -13,6 +13,6 @@ UserRouter.post("/forgotpassword",controller.forgotPassword);
 UserRouter.get("/getaUserDataByEmail",authorization,controller.getaUserDataByEmail);
 
 // appointment
-UserRouter.get("/addAppointment",authorization,appointmentController.addAppointment);
+UserRouter.post("/addAppointment",authorization,appointmentController.addAppointment);
 
 module.exports = UserRouter;

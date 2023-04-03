@@ -7,12 +7,14 @@ import LawyerFilterer from "../../components/lawyers/LawyerFilterer";
 import "./lawyer.css";
 // import { uuid } from 'uuidv4';
 import { v4 as uuidv4 } from 'uuid';
+import HOST from "../../utils/baseUrl";
 const Lawyers = () => {
+  
   const [query, setQuery] = useState("");
   const [option, setOption] = useState("name");
 
   useEffect(() => {
-    fetch('http://localhost:3100/lawyer/searchLawyer', {
+    fetch(`${HOST}/lawyer/searchLawyer`, {
       method: 'post',
       // authorization: 'bearer ' + JSON.stringify(localStorage.getItem('token')),
       headers: {

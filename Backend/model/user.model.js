@@ -5,7 +5,11 @@ const userSchema = mongoose.Schema({
     phone: Number,
     email: String,
     password: String,
-    verified:Boolean
+    img: String,
+    verified: {
+        type: Boolean,
+        default: false
+    }
 }, { timestamps: true })
 const UserModel = mongoose.model('user', userSchema);
 module.exports = UserModel;

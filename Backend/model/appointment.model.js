@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const appointmentSchema = mongoose.Schema({
-    lawyerId: String,
-    userId: String,
+    lawyerEmail: String,
+    userEmail: String,
     appointment_date: {
         date: String,
         year: Number,

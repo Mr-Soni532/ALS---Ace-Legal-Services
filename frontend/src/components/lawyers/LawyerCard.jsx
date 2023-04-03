@@ -1,9 +1,14 @@
 import React from "react";
 import "./lawyerCard.css";
 import Star from "../UserDashboardComponents/AppointmentCard/Star";
-const LawyerCard = ({data}) => {
+import { useNavigate } from "react-router";
 
-
+const LawyerCard = ({ data }) => {
+  const navigator = useNavigate();
+  function handleClick(e) {
+    localStorage.setItem('lawyerData', JSON.stringify({email: data.email, name: data.name,price: data.price,image: data.image}))
+    navigator('/appointment')
+  }
 
   function returnStar(bum) {
     let arr = [];
@@ -17,9 +22,10 @@ const LawyerCard = ({data}) => {
   // console.count(data)
   return (
     <div
-      data-id={data.id}
+      data-email={data.email}
       className="lawyer-card"
       data-aos="fade-right"
+      onClick={handleClick}
     >
       <div className="card">
         <div className="name-div">

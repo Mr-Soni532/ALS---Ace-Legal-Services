@@ -1,22 +1,22 @@
 const jwt = require('jsonwebtoken');
 require('dotenv').config();
-
+const JWT_SECRET = process.env.JWT_SECRET;
 const authorization = async (req, res, next) => {
 
     try {
         const token = req.headers.authorization?.split(" ")[1];
         if (!token) {
-            res.send({ Message: "please login" })
+           return res.status(403).json({ Message: "Unorthorised route" })
         }
-        jwt.verify(token, "ALS", (err, decoded) => {
+        jwt.verify(token, JWT_SECRET, (err, decoded) => {
             if (err) {
-                res.send({ Message: err.message, status: "error" })
+              return  res.json({ Message: err.message, status: "error" })
             }
             req.body.userid = decoded.id;
-            next()
+            next();
         })
     } catch (error) {
-        res.send({ Message: "Some error", "err": error })
+        res.status(500).json({ Message: "Something went wrong while authorizing user", "err": error })
     }
 
 }

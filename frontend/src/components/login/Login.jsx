@@ -3,7 +3,20 @@ import { Link, useNavigate } from "react-router-dom";
 import ForgotModal from "./ForgotModal";
 import HOST from "../../utils/baseUrl.js";
 
-const Login = () => {
+import { notification } from 'antd';
+
+
+const Login = ({ setAuthentication }) => {
+  const [api, contextHolder] = notification.useNotification();
+
+  const openNotification = (msg) => {
+    api.info({
+      message: msg,
+      description: 'Enter valid account details.',
+      placement: 'top',
+    });
+  };
+
   const [value, setValue] = useState("User Email");
   const [imgpath, setImgPath] = useState("Images/Signup/avatar.png");
   let [email, setEmail] = useState("");
@@ -26,14 +39,13 @@ const Login = () => {
     });
 
     const json = await response.json();
-    if (json.status === "success") {
-      console.log(json)
+    if (json.ok) {
       localStorage.setItem("token", json.token);
-      localStorage.setItem("userData",JSON.stringify(json.userData));
-      alert(json.msg);
+      localStorage.setItem("userData", JSON.stringify(json.userData));
+      setAuthentication(true)
       navigate("/userdashboard");
     } else {
-      alert(json.msg);
+      openNotification('Invalid Credentials')
     }
   };
   const handleSubmit = (event) => {
@@ -47,18 +59,19 @@ const Login = () => {
     } else if (value === "Lawyer ID") {
       console.log("Hello from lawyer");
     } else {
-     if(email=="admin@gmail.com" && password=="admin"){
+      if (email === "admin@gmail.com" && password === "admin") {
         navigate('/admin')
-     }
-      console.log("hello from admin");
+      }
     }
   };
   const google = () => {
-localStorage.clear();
+    localStorage.clear();
+    setAuthentication(true)
     window.open(`${HOST}/auth/google`, "_self");
   };
   return (
     <div className="form-container">
+      {contextHolder}
       <p className="logintitle">Login</p>
       <div className="labeldiv">
         <label
@@ -95,7 +108,7 @@ localStorage.clear();
       <div>
         <form className="form" onSubmit={(event) => handleSubmit(event)}>
           <div className="input-group">
-            <label for="username" className="fontweightfive">
+            <label htmlFor="username" className="fontweightfive">
               {value}
             </label>
             <input
@@ -108,7 +121,7 @@ localStorage.clear();
             />
           </div>
           <div className="input-group">
-            <label for="password" className="fontweightfive">
+            <label htmlFor="password" className="fontweightfive">
               Password
             </label>
             <input
