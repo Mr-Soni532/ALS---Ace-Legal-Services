@@ -15,6 +15,7 @@ const UserProfile = () => {
       setEmail(userData.email);
       setName(userData.name);
       setImg(userData.img);
+
       console.log(userData.img);
     } else {
       const getUser = () => {
