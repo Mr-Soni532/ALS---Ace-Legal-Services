@@ -6,8 +6,35 @@ import "../../components/AdminCompo/lawyer.css";
 import Headers from "../../components/AdminCompo/Headers";
 import SearchBar from "../../components/AdminCompo/SearchCompo";
 import Loading from "../../components/AdminCompo/Loading";
+import "./admin_css/AdminDashboard.css";
+import { notification } from "antd";
+import HOST from "../../utils/baseUrl";
+import NoDataHere from "../../components/AdminCompo/NoDataHere";
 
 const AdminLawyer = () => {
+  const [AllLawyers, setAllLawyers] = useState([]);
+  const [api, contextHolder] = notification.useNotification();
+
+  const openNotification = (msg) => {
+    api.success({
+      message: msg,
+      description: '"Lawyer Has been Deleted Successfully".',
+      placement: "top",
+    });
+  };
+
+  async function GetAllLawyers() {
+    try {
+      let res = await fetch(`${HOST}/admin/getAllLawyers`);
+      let data = await res.json();
+      console.log(data);
+      setAllLawyers(data);
+    } catch (error) {
+      console.log(error);
+      alert(error.message);
+    }
+  }
+
   const context = useContext(LawyerContext);
 
   const [query, setQuery] = useState(null);
@@ -30,8 +57,20 @@ const AdminLawyer = () => {
     setCurrentPage(page);
   };
 
-  const deletEele = (el) => {
-    deletefun(el);
+  const deletEele = async (id) => {
+    console.log(id);
+    try {
+      let res = await fetch(`${HOST}/admin/deleteLawyer/${id}`, {
+        method: "DELETE",
+      });
+      let data = await res.json();
+      console.log(data);
+      openNotification("Success");
+      setAllLawyers(AllLawyers);
+    } catch (error) {
+      console.log(error);
+      alert(error.message);
+    }
   };
 
   const search = (data) => {
@@ -46,11 +85,13 @@ const AdminLawyer = () => {
 
   data = search(lawyers);
   useEffect(() => {
+    GetAllLawyers();
     getLawyer();
   }, []);
 
   return (
     <div>
+      {contextHolder}
       <Headers />
       <SearchBar
         name="Lawyers"
@@ -62,13 +103,14 @@ const AdminLawyer = () => {
         {loading ? (
           <Loading />
         ) : err ? (
-          <h1>Something went wrong</h1>
+          <NoDataHere />
         ) : (
           <>
             <div className="contentConatiner">
-              <DetailsCom users={sliceTodos()} deletEele={deletEele} />
+              {/* <DetailsCom users={sliceTodos()} deletEele={deletEele} /> */}
+              <DetailsCom users={AllLawyers} deletEele={deletEele} />
             </div>
-            <div style={{ textAlign: "right" }}>
+            {/* <div style={{ textAlign: "right" }}>
               {Array.from({ length: totalPages }, (_, index) => (
                 <button
                   className="peginationBtn"
@@ -78,7 +120,7 @@ const AdminLawyer = () => {
                   {index + 1}
                 </button>
               ))}
-            </div>
+            </div> */}
           </>
         )}
       </div>

@@ -5,21 +5,24 @@ import { AppointmentContext } from "../../context/appointment/appointmentContext
 import HOST from "../../utils/baseUrl";
 
 const EventVerified = () => {
-
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const context = useContext(AppointmentContext);
   const { appointment_detials } = context;
+
   let cloneDate = appointment_detials.date;
-  console.log(appointment_detials.date,cloneDate)
-  let newDateArr = cloneDate.split("-").map(Number)
-  const lawyerData = JSON.parse(localStorage.getItem('lawyerData'))
+  console.log(appointment_detials.date, cloneDate);
+
+  let newDateArr = cloneDate.split("-").map(Number);
+
+  const lawyerData = JSON.parse(localStorage.getItem("lawyerData"));
+
   async function handleBook() {
-    console.log("inside handle book")
     let res = await fetch(`${HOST}/user/addAppointment`, {
-      method: 'POST',
+      method: "POST",
       headers: {
-        'Content-Type': 'application/json'
-      }, body: JSON.stringify({
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
         lawyerEmail: lawyerData.email,
         userEmail: appointment_detials.email,
         appointment_date: {
@@ -30,13 +33,13 @@ const EventVerified = () => {
         },
         appointmentTime: appointment_detials.time,
         meeting_type: appointment_detials.type,
-        slot: appointment_detials.appointmentSlot
-      })
-    })
-    if(res.ok){
-      navigate('/successBooking')
-    } else{
-      navigate('/failedBooking')
+        slot: appointment_detials.appointmentSlot,
+      }),
+    });
+    if (res.ok) {
+      navigate("/successBooking");
+    } else {
+      navigate("/failedBooking");
     }
   }
   function handlePayment() {
@@ -67,14 +70,20 @@ const EventVerified = () => {
           <hr />
           <div className="eventtwo">
             <div>
-              <h3 className="advoName">Adv. {lawyerData.name}</h3>
+              <h3 className="advoName">
+                Adv. {lawyerData?.name || "Albert Johnson"}
+              </h3>
 
               <div className="eventMeetingDetails">
-                <p>Meeting Time : {appointment_detials.time}</p>
-                <p>Meeting Date : {appointment_detials.date}</p>
-             
-                <p>Lawyer Contact : {lawyerData.email} </p>
-                <p>Payment Fee : {lawyerData.price} </p>
+                <p>Meeting Time : {appointment_detials?.time || "7:00AM"}</p>
+                <p>
+                  Meeting Date : {appointment_detials?.date || "8th April 2023"}
+                </p>
+
+                <p>
+                  Lawyer Contact : {lawyerData?.email || "LiamPatel@gmail.com"}{" "}
+                </p>
+                <p>Payment Fee : {lawyerData?.price || "$700"} </p>
               </div>
             </div>
 
@@ -94,9 +103,13 @@ const EventVerified = () => {
 
           <div>
             <div className="faaspace"></div>
-            <button className="signInBtn" onClick={handlePayment}>Proceed to Fee Payment</button>
+            <button className="signInBtn" onClick={handlePayment}>
+              Proceed to Fee Payment
+            </button>
             <br />
-            <button className="BookAppBtntwo" onClick={handleBook}>Book an Appoinetment</button>
+            <button className="BookAppBtntwo" onClick={handleBook}>
+              Book an Appoinetment
+            </button>
             <label className="allrightIEIEIEIIEEI">
               © All Copyrights reserved
             </label>

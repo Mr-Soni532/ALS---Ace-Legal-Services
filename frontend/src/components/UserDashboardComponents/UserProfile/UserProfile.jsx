@@ -1,21 +1,23 @@
 import React, { useEffect, useState } from "react";
 import "./UserProfile.css";
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 import HOST from "../../../utils/baseUrl";
 
 const UserProfile = () => {
-  let userData=JSON.parse(localStorage.getItem("userData"));
+  let userData = JSON.parse(localStorage.getItem("userData"));
 
-  const [email,setEmail]=useState("User Email");
-  const [name,setName]=useState("User Name");
-  const [image,setImg]=useState("");
+  const [email, setEmail] = useState("User Email");
+  const [name, setName] = useState("User Name");
+  const [image, setImg] = useState("");
 
   useEffect(() => {
-    if(userData){
+    if (userData) {
       setEmail(userData.email);
       setName(userData.name);
       setImg(userData.img);
-    }else{
+
+      console.log(userData.img);
+    } else {
       const getUser = () => {
         fetch(`${HOST}/auth/login/success`, {
           method: "GET",
@@ -25,7 +27,6 @@ const UserProfile = () => {
             "Content-Type": "application/json",
             "Access-Control-Allow-Credentials": true,
           },
-
         })
           .then((response) => {
             // console.log(response)
@@ -33,14 +34,17 @@ const UserProfile = () => {
             throw new Error("authentication has been failed!");
           })
           .then((resObject) => {
-            let email=resObject.user.email
-            let name=resObject.user.name;
+            let email = resObject.user.email;
+            let name = resObject.user.name;
             let img = resObject.user.img;
-            console.log(name,email,img)
-            localStorage.setItem("userData",JSON.stringify({email,name,img}))
-            setEmail(email)
-            setName(name)
-            setImg(img)
+            console.log(name, email, img);
+            localStorage.setItem(
+              "userData",
+              JSON.stringify({ email, name, img })
+            );
+            setEmail(email);
+            setName(name);
+            setImg(img);
           })
           .catch((err) => {
             console.log(err);
@@ -48,8 +52,6 @@ const UserProfile = () => {
       };
       getUser();
     }
-
-    
   }, []);
   return (
     <div className="UserProfileParent">
@@ -58,8 +60,8 @@ const UserProfile = () => {
           <div className="UserAvatarCard">
             <div>
               <img
-                style={{ width: "108px" }}
-                src= {image || "Images/DashboardImages/avatar.png"}
+                style={{ width: "108px", borderRadius: "50%" }}
+                src={image || "Images/DashboardImages/avatar.png"}
                 alt="AvatarImage"
               />
             </div>

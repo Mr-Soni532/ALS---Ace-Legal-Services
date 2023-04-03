@@ -33,3 +33,27 @@
 .PaginationBox {
   text-align: center;
 }
+.AdminLawyerImage {
+  overflow: hidden;
+  object-fit: cover !important;
+  height: 250px !important;
+}
+.AdminLawyerImage > img {
+  height: 250px !important;
+  width: 250px !important;
+}
+.AdminClientImage {
+  overflow: hidden;
+  object-fit: cover !important;
+  height: 150px !important;
+}
+.AdminClientImage > img {
+  height: 150px !important;
+  border-radius: 50%;
+  width: auto !important;
+}
+
+.customerCard p {
+  text-align: left;
+  font-size: 14px;
+}

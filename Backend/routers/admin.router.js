@@ -5,7 +5,7 @@ const controller = require('../controllers/admin.controller.js')
 // Admin
 AdminRouter.get('/getAllAdmins', controller.fetchAllAdmins)
 AdminRouter.get('/getAdmin/:id', controller.getAdminById)
-AdminRouter.post('/addAdmin',controller.addAdmin)
+AdminRouter.post('/addAdmin', controller.addAdmin)
 
 // Lawyer
 AdminRouter.get('/getAllLawyers', controller.fetchAllLawyer)

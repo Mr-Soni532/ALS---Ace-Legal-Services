@@ -14,6 +14,7 @@ import {
 
 import BarChart from "../../components/AdminCompo/AdminDashCharts/BarChart";
 import { PieChart } from "../../components/AdminCompo/AdminDashCharts/PieChart";
+import HOST from "../../utils/baseUrl";
 
 const AdminDashboard = () => {
   return (

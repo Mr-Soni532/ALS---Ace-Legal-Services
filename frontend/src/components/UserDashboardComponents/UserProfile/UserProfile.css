@@ -5,6 +5,7 @@
 .UserProfileParent > div:nth-child(1) {
   min-height: 200px;
 }
+
 .UserProfileParent > div:nth-child(2) {
   padding: 10px;
 }
@@ -16,11 +17,12 @@
   align-items: center;
 }
 .UserProfileFirst > div:nth-child(1) {
-  width: 28%;
+  width: 40%;
   text-align: left;
 }
 .UserAvatarCard {
   display: flex;
+
   justify-content: left;
   align-items: center;
 }

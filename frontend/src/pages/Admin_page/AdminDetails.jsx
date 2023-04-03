@@ -7,8 +7,23 @@ import SearchBar from "../../components/AdminCompo/SearchCompo";
 import AdminrContext from "../../context/Admin_page/adminContext/adminContext";
 import { DoubleLeftOutlined, DoubleRightOutlined } from "@ant-design/icons";
 import Loading from "../../components/AdminCompo/Loading";
+import HOST from "../../utils/baseUrl";
+import NoDataHere from "../../components/AdminCompo/NoDataHere";
 
 const AdminDetails = () => {
+  const [AllAdmins, setAllAdmins] = useState([]);
+
+  async function GetAllAdmins() {
+    try {
+      let res = await fetch(`${HOST}/admin/getAllAdmins`);
+      let data = await res.json();
+      console.log(data);
+      setAllAdmins(data);
+    } catch (error) {
+      console.log(error);
+      alert(error.message);
+    }
+  }
   const context = useContext(AdminrContext);
 
   const [query, setQuery] = useState(null);
@@ -48,6 +63,7 @@ const AdminDetails = () => {
   data = search(users);
 
   useEffect(() => {
+    GetAllAdmins();
     getUser();
   }, []);
 
@@ -58,8 +74,8 @@ const AdminDetails = () => {
       <div>
         {loading ? (
           <Loading />
-        ) : err ? (
-          <h1>Something went wrong</h1>
+        ) : err || AllAdmins.length == 0 ? (
+          <NoDataHere />
         ) : (
           <>
             <SearchBar
@@ -69,10 +85,11 @@ const AdminDetails = () => {
               setOption={setOption}
             />
             <div className="contentConatinerCust">
-              <DetailsComUser users={sliceTodos()} deletEele={deletEele} />
+              {/* <DetailsComUser users={sliceTodos()} deletEele={deletEele} /> */}
+              <DetailsComUser users={AllAdmins} deletEele={deletEele} />
             </div>
 
-            <div className="PaginationBOXXX">
+            {/* <div className="PaginationBOXXX">
               <DoubleLeftOutlined
                 style={{
                   color: "black",
@@ -96,7 +113,7 @@ const AdminDetails = () => {
                   transform: "translateY(5px) translateX(5px)",
                 }}
               />
-            </div>
+            </div> */}
           </>
         )}
       </div>

@@ -69,6 +69,16 @@
   align-items: center;
   flex-direction: column;
 }
+.NoDataHere {
+  z-index: 10;
+  height: 90vh !important;
+  width: 100%;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
 
 /* ---------------------- */
 
