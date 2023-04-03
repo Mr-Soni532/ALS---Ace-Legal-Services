@@ -119,9 +119,9 @@ DELETE  /admin/deleteUser/:id
 
 ---
 
-# Login Signup Designs
+# User flow & Authentication Design ✅
 
-![planning](https://user-images.githubusercontent.com/112753481/229431878-ef1acd91-1ee6-4f8b-a70d-7bdafadb0481.jpeg)
+![png](https://user-images.githubusercontent.com/112753481/229455850-3ca71159-9d7c-411e-af9a-04ea5058cf38.jpeg)
 
 ---
 
