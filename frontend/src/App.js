@@ -18,6 +18,7 @@ import FailedBooking from './pages/failedBooking/FailedBooking';
 import { useState } from 'react';
 function App() {
   const [isAuthenticated, setAuthentication] = useState(true);
+
   function handleAuthentication(value) {
     setAuthentication(value)
   }

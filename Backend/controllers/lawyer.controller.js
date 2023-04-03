@@ -38,3 +38,8 @@ exports.searchLawyer = async (req,res)=>{
     let data = await LawyerModel.find({[payload.type]: { $regex: myRegexPattern,$options: 'i' }})
     res.status(200).json({data})
 }
+exports.searchLawyerByEmail = async (req,res)=>{
+    let email = req.query.email;
+    let data = await LawyerModel.find({email: email})
+    res.status(200).json({data})
+}

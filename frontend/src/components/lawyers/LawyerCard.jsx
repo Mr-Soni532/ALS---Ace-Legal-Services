@@ -47,13 +47,13 @@ const LawyerCard = ({ data }) => {
           <p className="bio">{data.bio}</p>
         </div>
         <div className="skills-div">
-          {data.skills.map((el) => {
-            return <div className="skill" key={el}>{el}</div>;
+          {data.skills.map((el,index) => {
+            return <div className="skill" key={index}>{el}</div>;
           })}
         </div>
         <div className="languages">
-          {data.languages.map((el) => {
-            return <div className="language" key={el}>{el}</div>;
+          {data.languages.map((el,index) => {
+            return <div className="language" key={index}>{el}</div>;
           })}
         </div>
 
