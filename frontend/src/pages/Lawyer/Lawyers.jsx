@@ -39,12 +39,9 @@ const Lawyers = () => {
       <div className="LawyerArea">
         <LawyerFilterer />
         <div className="lawyer-list">
-          {items?.map((el) => {
-            return (
-              <div key={uuidv4()}>
-                <LawyerCard data={el} />
-              </div>
-            );
+
+          {items?.map((el,index) => {
+            return <div key={index}><LawyerCard data={el}/></div>;
           })}
         </div>
       </div>

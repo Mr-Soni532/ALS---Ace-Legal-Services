@@ -9,7 +9,7 @@ const Appointment_form = () => {
     const context  = useContext(AppointmentContext);
     const {setDetials} = context;
     let navigate = useNavigate()
-    
+    const userData = JSON.parse(localStorage.getItem('userData'))
     function handleForm(formData){
         setDetials(prev => ({
             ...prev, ...formData
@@ -24,14 +24,14 @@ const Appointment_form = () => {
                     <Form.Item
                         name="name"
                         rules={[{ required: false, message: 'Please input your Username!' }]}
-                        initialValue=""
+                        initialValue={userData.name}
                     >
                         <Input inputMode='text' name='name' placeholder="Name" style={styles.input} />
                     </Form.Item>
                     <Form.Item
                         name="email"
                         rules={[{ required: false, message: 'Please input your email address!' }]}
-                        initialValue=""
+                        initialValue={userData.email}
                     >
                         <Input inputMode='email' name='email' placeholder="Email Address" style={styles.input} />
                     </Form.Item>

@@ -1,17 +1,24 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./AppointmentCard.css";
 import ApoBtns from "./ApoBtns";
 import Star from "./Star";
+import HOST from "../../../utils/baseUrl";
+const AppointmentCard = ({ data, index }) => {
+  const [lawyerDetails, setLawyerDetails] = useState({})
+  useEffect(() => {
+    fetch(`${HOST}/lawyer/searchLawyerByEmail?email=${data.lawyerEmail}`)
+      .then(data => data.json()).then(data => setLawyerDetails(data.data[0]))
+  }, [])
 
-const AppointmentCard = () => {
+  let starArr = new Array(lawyerDetails.rating).fill([])
   return (
-    <div className="BigAPCARD" data-aos="fade-right" data-aos-delay="50">
+    <div className="BigAPCARD" data-aos="fade-right" data-aos-delay="50" key={index}>
       <div className="AppointmentCard">
         <div className="Yelowbar"></div>
         <div className="AppRightLOL">
           <div>
             <h1>
-              Adv.Albert Johnson{` `}
+              {lawyerDetails.name}{` `}
               <img
                 style={{ width: "35px", transform: "translateY(8px)" }}
                 src="Images/DashBoardImages/Yellowpog.png"
@@ -20,15 +27,16 @@ const AppointmentCard = () => {
             </h1>
             <p style={{ color: "#675f5f" }}>
               {`(Associate Attorney) -`}
-              <Star size={20} trans={3} />
-              <Star size={20} trans={3} />
-              <Star size={20} trans={3} />
-              <Star size={20} trans={3} />
+              {
+                starArr.map((el, index) => {
+                  return <Star size={20} trans={3} key={index}/>
+                })
+              }
             </p>
 
-            <p className="AdvThings">Meeting time - 7:00 PM</p>
-            <p className="AdvThings">Meeting Date - 28th March 2023</p>
-            <p className="AdvThings">Time Remainig - 4Days</p>
+            <p className="AdvThings">Meeting time - {data.appointmentTime}</p>
+            <p className="AdvThings">Meeting Date - {data.appointment_date.date}</p>
+            {/* <p className="AdvThings">Time Remainig - {data.appointmentTime}</p> */}
             <p
               className="AdvThings"
               style={{ color: "grey", fontSize: "12px" }}

@@ -7,11 +7,13 @@ const AppointmentsArea = () => {
   const [appointment, setAppointment] = useState([]);
 
   useEffect(() => {
+
     const userEmail = JSON.parse(localStorage.getItem("userData"))?.email;
     fetch(`${HOST}appointment/fetch/userEmail?email=${userEmail}`)
       .then((data) => data.json())
       .then((data) => setAppointment(data.data));
   }, [appointment]);
+
 
   return (
     <div className="AppointmentsArea">
@@ -24,11 +26,9 @@ const AppointmentsArea = () => {
         <Empty />
       ) : (
         appointment.map((el, index) => {
-          return (
-            <>
-              <AppointmentCard data={el} index={index} /> <br />
-            </>
-          );
+
+          return (<div key={index}><AppointmentCard data={el} index={index} key={index}/> <br /></div>)
+
         })
       )}
     </div>

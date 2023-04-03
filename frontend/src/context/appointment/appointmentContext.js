@@ -15,9 +15,6 @@ const AppointmentState = ({ children }) => {
     time: '',
     appointmentSlot:-1
   })
-  useEffect(() => {
-    console.log(appointment_detials)
-  }, [appointment_detials])
   return (
     <AppointmentContext.Provider value={{ appointment_detials, setDetials }}>
       {children}

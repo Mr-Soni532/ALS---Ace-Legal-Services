@@ -16,7 +16,7 @@ GoogleRouter.get("/login/success", async (req, res) => {
       verified: true
     }
     let user = await UserModel.find({email: userDetails.email});
-    console.log(user)
+    // console.log(user)
     if(user.length == 0){
       let newUser = new UserModel(userDetails);
       await newUser.save()
