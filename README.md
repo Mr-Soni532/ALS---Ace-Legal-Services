@@ -120,8 +120,8 @@ DELETE  /admin/deleteUser/:id
 ---
 
 # Login Signup Designs
+![loginplan](https://user-images.githubusercontent.com/112753481/229444061-9c257059-f8c9-4a79-89aa-f45349005354.jpeg)
 
-![planning](https://user-images.githubusercontent.com/112753481/229431878-ef1acd91-1ee6-4f8b-a70d-7bdafadb0481.jpeg)
 
 ---
 
