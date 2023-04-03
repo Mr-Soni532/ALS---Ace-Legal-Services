@@ -12,6 +12,7 @@ const ForgotModal = () => {
 
   const handleOk = () => {
     let data={email};
+    console.log(data)
     forgetPassword(data);
     setLoading(true);
     setTimeout(() => {

@@ -39,7 +39,7 @@ GoogleRouter.get("/login/failed", (req, res) => {
 
 GoogleRouter.get("/logout", (req, res) => {
   req.logout();
-  res.redirect("http://localhost:3000/");
+  res.redirect("https://acelegalservices.vercel.app/");
 });
 
 GoogleRouter.get("/google", passport.authenticate('google', { scope: ['profile', 'email'] }));
@@ -47,7 +47,7 @@ GoogleRouter.get("/google", passport.authenticate('google', { scope: ['profile',
 GoogleRouter.get(
   "/google/callback",
   passport.authenticate("google", {
-    successRedirect: "http://localhost:3000/userdashboard",
+    successRedirect: "https://acelegalservices.vercel.app/userdashboard",
     failureRedirect: "/auth/login/failed",
   })
 );
