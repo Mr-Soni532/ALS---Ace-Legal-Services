@@ -59,6 +59,6 @@ app.listen(PORT, async () => {
     await connectToMongo();
     console.log(`ALS backend running @ ${PORT}`)
   } catch (error) {
-    console.log(error)
+    console.log({error: error.message})
   }
 })

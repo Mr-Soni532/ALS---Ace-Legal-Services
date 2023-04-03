@@ -12,7 +12,7 @@ exports.otpEmail = (otp) => {
   <tbody>
         <tr>
           <td style="text-align: center; padding-bottom: 30px;">
-          <img src="https://www.canva.com/design/DAFegOsMcN0/zQ_ODzmnd92JdWiwqwVCWA/view?utm_content=DAFegOsMcN0&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink" alt="Ace Legal Services">
+          <img src="#" alt="Ace Legal Services">
           </td>
           </tr>
           <tr>
@@ -282,7 +282,6 @@ exports.resetPassword = (userName, link) => {
 
 exports.sendAccountDetails = (email, password) => {
   return `
-  <!DOCTYPE html>
 <html>
   <head>
     <title>New Account Details</title>
