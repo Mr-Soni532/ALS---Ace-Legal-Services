@@ -1,22 +1,32 @@
-import React, { useEffect } from 'react'
-import { Button, Result } from 'antd';
-import { useNavigate } from 'react-router';
+import React, { useEffect } from "react";
+import { Button, Result } from "antd";
+import { useNavigate } from "react-router";
+import "./Failedbooking.css";
 const FailedBooking = () => {
-    const navigate = useNavigate()
+  const navigate = useNavigate();
 
-    useEffect(() => {
-        setTimeout(() => {
-            navigate('/')
-        }, 3000)
-    }, [])
-    return (
-        <Result
-            status="500"
-            title="500"
-            subTitle="Sorry, something went wrong."
-            extra={<Button type="danger">Back Home</Button>}
-        />
-    )
-}
+  useEffect(() => {
+    setTimeout(() => {
+      navigate("/");
+    }, 5000);
+  }, []);
+  return (
+    <div className="Faildebokkdiv">
+      <Result
+        status="500"
+        title="500 Error"
+        subTitle="Sorry, Something went wrong."
+        extra={
+          <Button
+            style={{ background: "#ffd41f", color: "black !important" }}
+            info
+          >
+            Back Home
+          </Button>
+        }
+      />
+    </div>
+  );
+};
 
-export default FailedBooking
+export default FailedBooking;

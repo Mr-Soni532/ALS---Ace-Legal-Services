@@ -6,6 +6,7 @@ import "./admin_css/user.css";
 import Headers from "../../components/AdminCompo/Headers";
 import SearchBar from "../../components/AdminCompo/SearchCompo";
 import { DoubleLeftOutlined, DoubleRightOutlined } from "@ant-design/icons";
+import Loading from "../../components/AdminCompo/Loading";
 
 const AdminClient = () => {
   const context = useContext(UserContext);
@@ -54,19 +55,20 @@ const AdminClient = () => {
   return (
     <div className="UserAdminBoxxx">
       <Headers />
-      <SearchBar
-        name="Clients"
-        query={query}
-        setQuery={setQuery}
-        setOption={setOption}
-      />
+
       <div>
         {loading ? (
-          <h1>Loading...</h1>
+          <Loading />
         ) : err ? (
           <h1>Something went wrong</h1>
         ) : (
           <>
+            <SearchBar
+              name="Clients"
+              query={query}
+              setQuery={setQuery}
+              setOption={setOption}
+            />
             <div className="contentConatinerCust">
               <DetailsComUser users={sliceTodos()} deletEele={deletEele} />
             </div>
