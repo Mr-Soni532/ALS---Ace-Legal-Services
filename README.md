@@ -111,6 +111,20 @@ DELETE  /admin/deleteUser/:id
 
 ---
 
+## <br/>
+
+# Project Planning
+
+![planning](https://user-images.githubusercontent.com/112753481/229431735-ddbee4f0-7f80-43d4-844c-a60f58fe0071.jpeg)
+
+---
+
+# Login Signup Designs
+
+![planning](https://user-images.githubusercontent.com/112753481/229431878-ef1acd91-1ee6-4f8b-a70d-7bdafadb0481.jpeg)
+
+---
+
 ## More Project Details :-
 
 - Type : Group Project
