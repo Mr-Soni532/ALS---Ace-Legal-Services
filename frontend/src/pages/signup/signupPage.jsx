@@ -8,7 +8,8 @@ const SignUpPage = () => {
   let [phone, setPhone] = useState("");
   let [gender, setGender] = useState("");
   let [password, setPassword] = useState("");
-  const navigate = useNavigate()
+  const navigate = useNavigate();
+  console.log(HOST);
   const signUp = async (data) => {
     const response = await fetch(`${HOST}/user/signup`, {
       method: "POST",
@@ -17,8 +18,10 @@ const SignUpPage = () => {
       },
       body: JSON.stringify(data),
     });
+    console.log(response)
     const json = await response.json();
-    localStorage.setItem("otp_userId",json.userId)
+    console.log(json)
+    localStorage.setItem("otp_userId",json.data.userId);
     if (json.status === "Pending") {
       alert(json.msg);
       navigate("/verifyOTP");

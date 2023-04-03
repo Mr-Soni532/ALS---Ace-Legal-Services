@@ -7,7 +7,7 @@ mongoose.set('strictQuery', true);
 
 //==============> MONGOOSE CONNECTION
 // const mongoURI = process.env.mongoURI;
-const mongoURI = 'mongodb+srv://bhupenderSoni:amiclone69@nxm.4qrblvw.mongodb.net/ALS?retryWrites=true&w=majority';
+const mongoURI = 'mongodb+srv://sanjayv:sanjay@cluster0.9ycsbw8.mongodb.net/nxm301cw?retryWrites=true&w=majority';
 const connectToMongo = async () => {
     try {
         await mongoose.connect(mongoURI);
