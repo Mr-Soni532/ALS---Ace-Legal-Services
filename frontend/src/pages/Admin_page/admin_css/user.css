@@ -1,5 +1,5 @@
 .contentConatinerCust {
-  height: auto;
+  min-height: 500px;
   display: flex;
   flex-wrap: wrap;
   margin: auto;

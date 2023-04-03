@@ -1,5 +1,6 @@
 import { useContext, useState } from "react";
 import { useEffect } from "react";
+
 import DetailsComUser from "../../components/AdminCompo/userDetails";
 import UserContext from "../../context/Admin_page/userFunction/userContext";
 import "./admin_css/user.css";
@@ -7,8 +8,34 @@ import Headers from "../../components/AdminCompo/Headers";
 import SearchBar from "../../components/AdminCompo/SearchCompo";
 import { DoubleLeftOutlined, DoubleRightOutlined } from "@ant-design/icons";
 import Loading from "../../components/AdminCompo/Loading";
+import HOST from "../../utils/baseUrl";
+import NoDataHere from "../../components/AdminCompo/NoDataHere";
+import { notification } from "antd";
 
 const AdminClient = () => {
+  const [AllClients, setAllClients] = useState([]);
+  const [api, contextHolder] = notification.useNotification();
+
+  const openNotification = (msg) => {
+    api.success({
+      message: msg,
+      description: '"User Has been Deleted Successfully".',
+      placement: "top",
+    });
+  };
+
+  async function GetAllClients() {
+    try {
+      let res = await fetch(`${HOST}/admin/getAllUsers`);
+      let data = await res.json();
+      console.log(data);
+      setAllClients(data);
+    } catch (error) {
+      console.log(error);
+      alert(error.message);
+    }
+  }
+
   const context = useContext(UserContext);
 
   const keys = ["name", "Email", "UserID"];
@@ -32,11 +59,24 @@ const AdminClient = () => {
     setCurrentPage(page);
   };
 
-  const deletEele = (el) => {
-    deletefun(el);
+  const deletEele = async (id) => {
+    console.log(id);
+    try {
+      let res = await fetch(`${HOST}/admin/deleteUser/${id}`, {
+        method: "DELETE",
+      });
+      let data = await res.json();
+      console.log(data);
+      openNotification("Success");
+      setAllClients(AllClients);
+    } catch (error) {
+      console.log(error);
+      alert(error.message);
+    }
   };
 
   useEffect(() => {
+    GetAllClients();
     getUser();
   }, []);
 
@@ -55,12 +95,12 @@ const AdminClient = () => {
   return (
     <div className="UserAdminBoxxx">
       <Headers />
-
+      {contextHolder}
       <div>
         {loading ? (
           <Loading />
         ) : err ? (
-          <h1>Something went wrong</h1>
+          <NoDataHere />
         ) : (
           <>
             <SearchBar
@@ -70,7 +110,7 @@ const AdminClient = () => {
               setOption={setOption}
             />
             <div className="contentConatinerCust">
-              <DetailsComUser users={sliceTodos()} deletEele={deletEele} />
+              <DetailsComUser users={AllClients} deletEele={deletEele} />
             </div>
 
             <div className="PaginationBOXXX">

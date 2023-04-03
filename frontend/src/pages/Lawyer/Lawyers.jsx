@@ -6,28 +6,28 @@ import DashNavbar from "../../components/UserDashboardComponents/DashNavbar/Dash
 import LawyerFilterer from "../../components/lawyers/LawyerFilterer";
 import "./lawyer.css";
 // import { uuid } from 'uuidv4';
-import { v4 as uuidv4 } from 'uuid';
+import { v4 as uuidv4 } from "uuid";
 import HOST from "../../utils/baseUrl";
 const Lawyers = () => {
-  
   const [query, setQuery] = useState("");
   const [option, setOption] = useState("name");
+  const [items, setItems] = useState([]);
 
   useEffect(() => {
     fetch(`${HOST}/lawyer/searchLawyer`, {
-      method: 'post',
-      // authorization: 'bearer ' + JSON.stringify(localStorage.getItem('token')),
+      method: "POST",
+      // authorization: "bearer " + JSON.stringify(localStorage.getItem("token")),
       headers: {
-        'Content-Type': 'application/json'
-    },
+        "Content-Type": "application/json",
+      },
       body: JSON.stringify({
-        type : option,
-        value: query.toLowerCase()
-      })
-    }).then(data => data.json()).then(data => setItems(data.data))
-  }, [query])
-
-  const [items, setItems] = useState([])
+        type: option || "",
+        value: query.toLowerCase() || "",
+      }),
+    })
+      .then((data) => data.json())
+      .then((data) => setItems(data.data));
+  }, [query]);
 
   return (
     <div>
@@ -40,7 +40,11 @@ const Lawyers = () => {
         <LawyerFilterer />
         <div className="lawyer-list">
           {items?.map((el) => {
-            return <div key={uuidv4()}><LawyerCard data={el}/></div>;
+            return (
+              <div key={uuidv4()}>
+                <LawyerCard data={el} />
+              </div>
+            );
           })}
         </div>
       </div>

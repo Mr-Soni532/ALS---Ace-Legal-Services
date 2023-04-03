@@ -134,7 +134,7 @@ exports.fetchAllUsers = async (req, res) => {
 }
 exports.fetchUserById = async (req, res) => {
     try {
-        const users = await UserModel.findById(req.params.id);
+        const users = await UserModel.find(req.params.id);
         res.send(users);
     } catch (error) {
         res.status(500).json({ error: error.message })
@@ -142,9 +142,10 @@ exports.fetchUserById = async (req, res) => {
     }
 }
 exports.deleteUser = async (req, res) => {
+    console.log(req.params.id, "Deleting")
     try {
         await UserModel.findByIdAndDelete(req.params.id)
-        res.status(200).json({ message: 'User has been removed.' });
+        res.status(200).json({ message: 'User has been removed.', done: true });
     } catch (error) {
         res.status(500).json({ error: error.message })
     }
