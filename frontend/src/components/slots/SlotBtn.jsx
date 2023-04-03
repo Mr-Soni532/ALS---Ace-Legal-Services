@@ -10,7 +10,7 @@ const SlotBtn = ({time,active,slot}) => {
         setDetials(prev => ({
             ...prev, ...{time:e.target.innerText},appointmentSlot:slot
         }))
-        navigate('/')
+        navigate('/appointmentReview')
     }
   return (
     <div className={`slot-btn ${!active&&'inactive'}`} onClick={handleClick}>{time}</div>

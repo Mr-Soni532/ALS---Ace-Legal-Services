@@ -2,16 +2,18 @@ const express = require('express');
 const connectToMongo = require('./config/db');
 const cors = require('cors');
 const UserRouter = require('./routers/user.router');
-// const LawyerRouter = require('./routers/lawyer.router');
+const LawyerRouter = require('./routers/lawyer.router');
 const AdminRouter = require('./routers/admin.router');
 const GoogleRouter = require("./routers/googleAuth.router")
 const app = express();
 const passport = require("./config/google.auth");
 const cookieSession = require("cookie-session");
+const AppoinmtentRouter = require('./routers/appointment.router');
 
 //=============> ENV VARIABLES
 require('dotenv').config()
-const PORT = process.env.PORT;
+// const PORT = process.env.PORT;
+const PORT = 4000;
 
 //=============> MIDDLEWARES
 app.use(express.json())
@@ -41,11 +43,12 @@ app.get('/', (req, res) => res.send({ Message: 'ALS server working fine' }))
 
 //=============> ROUTES
 
-app.use('/user', UserRouter)
-// app.use('/lawyer',LawyerRouter)
-app.use('/admin', AdminRouter)
-app.use("/auth", GoogleRouter)
 
+app.use('/user',UserRouter)
+app.use('/lawyer',LawyerRouter)
+app.use('/admin',AdminRouter)
+app.use("/auth",GoogleRouter)
+app.use("/appointment",AppoinmtentRouter)
 
 
 

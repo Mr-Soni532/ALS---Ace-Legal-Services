@@ -4,11 +4,10 @@ const LawyerRouter = express.Router();
 const lawyerController = require('../controllers/lawyer.controller');
 const appointmentController = require('../controllers/appointment.controller.js')
 
-LawyerRouter.post("/login", lawyerController.userLogin);
-LawyerRouter.patch("/forgotpassword", lawyerController.forgetPasswordorgotPassword);
-LawyerRouter.get("/getaUserDataByEmail", lawyerController.getaUserDataByEmail);
+LawyerRouter.post("/login", lawyerController.lawyerLogin);
 
+LawyerRouter.post('/searchLawyer', authorization, lawyerController.searchLawyer)
 
-LawyerRouter.get("/deleteAppointment", appointmentController.deleteAppointment);
+LawyerRouter.get("/deleteAppointment", authorization, appointmentController.deleteAppointment);
 
 module.exports = LawyerRouter;

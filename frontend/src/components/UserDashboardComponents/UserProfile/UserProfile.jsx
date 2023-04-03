@@ -1,17 +1,21 @@
 import React, { useEffect, useState } from "react";
 import "./UserProfile.css";
 import { Link } from 'react-router-dom';
+import HOST from "../../../utils/baseUrl";
 
 const UserProfile = () => {
   let userData=JSON.parse(localStorage.getItem("userData"));
 
   const [email,setEmail]=useState("User Email");
-  const [name,setName]=useState("User Name")
+  const [name,setName]=useState("User Name");
+  const [image,setImg]=useState("");
 
   useEffect(() => {
     if(userData){
       setEmail(userData.email);
       setName(userData.name);
+      setImg(userData.img);
+      console.log(userData.img)
     }else{
       const getUser = () => {
         fetch(`${HOST}/auth/login/success`, {
@@ -30,11 +34,14 @@ const UserProfile = () => {
             throw new Error("authentication has been failed!");
           })
           .then((resObject) => {
-            let email=resObject.user.emails[0].value
-            let name=resObject.user.displayName;
-            console.log(name)
+            let email=resObject.user.email
+            let name=resObject.user.name;
+            let img = resObject.user.img;
+            console.log(name,email,img)
+            localStorage.setItem("userData",JSON.stringify({email,name,img}))
             setEmail(email)
             setName(name)
+            setImg(img)
           })
           .catch((err) => {
             console.log(err);
@@ -53,7 +60,7 @@ const UserProfile = () => {
             <div>
               <img
                 style={{ width: "108px" }}
-                src="Images/DashboardImages/avatar.png"
+                src= {image || "Images/DashboardImages/avatar.png"}
                 alt="AvatarImage"
               />
             </div>

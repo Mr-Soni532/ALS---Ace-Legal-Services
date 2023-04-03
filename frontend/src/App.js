@@ -13,23 +13,34 @@ import EventVerified from './pages/EventVerified/EventVerified';
 import OtpPage from './pages/verifyotp/OtpPage';
 import AdminPage from './pages/Admin_page/AdminPage';
 import AddLawyerForm from './pages/AddForms/AddLawyerForm';
+import BookingSuccess from './pages/bookingSuccess/BookingSuccess';
+import FailedBooking from './pages/failedBooking/FailedBooking';
+import { useState } from 'react';
+import { func } from 'prop-types';
 
 function App() {
+  const [isAuthenticated, setAuthentication] = useState(false);
+  function handleAuthentication(value){
+    setAuthentication(value)
+  }
   return (
     <div className="App">
       <Routes>
         <Route path="/" element={<IndexPage />} />
-        <Route path="/userdashboard" element={<UserDashboard />} />
-        <Route path="/eventverified" element={<EventVerified />} />
-        <Route path="/appointment" element={<Appointment />} />
-        <Route path='/addlawyer' element={<AddLawyerForm />} />
-        <Route path='/verifyOTP' element={<OtpPage />} />
-        <Route path="/bookslot" element={<BookSlot />} />
         <Route path="/signup" element={<SignUpPage />} />
-        <Route path="/lawyers" element={<Lawyers />} />
-        <Route path="/login" element={<LoginPage />} />
+        <Route path="/login" element={<LoginPage setAuthentication={handleAuthentication}/>} />
+        <Route path='/verifyOTP' element={<OtpPage />} />
         <Route path='/admin' element={<AdminPage />} />
         <Route path="*" element={<PageNotFound />} />
+
+        <Route path="/userdashboard" element={isAuthenticated?<UserDashboard />:<LoginPage/>} />
+        <Route path="/appointmentReview" element={isAuthenticated?<EventVerified />:<LoginPage/>} />
+        <Route path='/addlawyer' element={isAuthenticated?<AddLawyerForm />:<LoginPage/>} />
+        <Route path="/appointment" element={isAuthenticated?<Appointment />:<LoginPage/>} />
+        <Route path="/bookslot" element={isAuthenticated?<BookSlot />:<LoginPage/>} />
+        <Route path="/lawyers" element={isAuthenticated?<Lawyers />:<LoginPage/>} />
+        <Route path='/successBooking' element={isAuthenticated?<BookingSuccess/>:<LoginPage/>} />
+        <Route path='/failedBooking' element={isAuthenticated?<FailedBooking/>:<LoginPage/>} />
       </Routes>
     </div>
   );

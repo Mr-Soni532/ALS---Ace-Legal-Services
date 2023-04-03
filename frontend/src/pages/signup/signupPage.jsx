@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "./signupPage.css";
 import { Link, Navigate, useNavigate } from "react-router-dom";
+import HOST from "../../utils/baseUrl";
 const SignUpPage = () => {
   let [name, setName] = useState("");
   let [email, setEmail] = useState("");
@@ -9,7 +10,7 @@ const SignUpPage = () => {
   let [password, setPassword] = useState("");
   const navigate = useNavigate()
   const signUp = async (data) => {
-    const response = await fetch("${HOST}/user/signup", {
+    const response = await fetch(`${HOST}/user/signup`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -17,7 +18,7 @@ const SignUpPage = () => {
       body: JSON.stringify(data),
     });
     const json = await response.json();
-    localStorage.setItem("otp_userId",json.data.userId)
+    localStorage.setItem("otp_userId",json.userId)
     if (json.status === "Pending") {
       alert(json.msg);
       navigate("/verifyOTP");
