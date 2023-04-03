@@ -1,53 +1,98 @@
 .parentlayout {
-    width: 100%;
-    /* height:100vh; */
-    box-sizing: border-box;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  width: 100%;
+  /* height:100vh; */
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
+.AppointmentFormContainer .form-container {
+  border-radius: 15px;
+  height: fit-content !important;
+  box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px,
+    rgba(17, 17, 26, 0.05) 0px 8px 32px;
+}
+.AppointmentFormContainer .form-container > h1 {
+  font-size: 43px !important;
+  color: rgb(105, 51, 239);
+  margin-bottom: 20px;
+}
+.AppointmentFormContainer {
+  width: 90%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  margin-top: 10px;
 
-.container {
-    width: 90%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px;
-    margin-top: 100px;
-    /* border: 2px solid red; */
+  /* border: 2px solid red; */
 }
 
 .col-1 {
-    width: 55%;
-    height: 100%;
+  width: 55%;
+  height: 100%;
+  color: gray;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 
-.col-1>img {
-    width: 100%;
+.col-1 > img {
+  width: 90%;
 }
 
 .col-2 {
-    width: 40%;
-    height: 100%;
-    padding: 50px;
-    /* background: red; */
+  width: 76%;
+  height: 100%;
+  padding: 10px;
+
+  /* background: red; */
+}
+.AppointmentFormContainer input,
+.AppointmentFormContainer textarea,
+.AppointmentFormContainer select {
+  margin-bottom: 0px !important;
+  margin-top: 0px !important;
+  padding: 10px 18px !important;
+  border-radius: 10px !important;
+  color: black !important;
+  border: 1px solid rgb(123, 120, 120) !important;
+}
+.AppointmentFormContainer .ant-btn {
+  padding: 10px 18px !important;
+  height: auto !important;
 }
 
 @media screen and (max-width: 1200px) {
-
-    .col-2 {width: 50%};
+  .col-2 {
+    width: 50%;
+  }
 }
 @media screen and (max-width: 980px) {
-    .container{width: 95%;}
-    .col-2 {width: 55%};
+  .AppointmentFormContainer {
+    width: 95%;
+    padding: 5px;
+  }
+  .col-2 {
+    width: 55%;
+  }
 }
 @media screen and (max-width: 780px) {
-    .container{width: 98%; justify-content: center;}
-    .col-2 {width: 80%}
-    .col-1 {display: none}
-    h1{
-        font-size: 1.5rem;
-    }
+  .AppointmentFormContainer {
+    width: 98%;
+    padding: 2px;
+    justify-content: center;
+  }
+  .col-2 {
+    width: 80%;
+  }
+  .col-1 {
+    display: none;
+  }
+  h1 {
+    font-size: 1.5rem;
+  }
 }
 /* @media screen and (max-width: 540px) {
     body {
