@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Link, Navigate, useNavigate } from "react-router-dom";
 
 import "./otppage.css";
+import HOST from "../../utils/baseUrl";
 const OtpPage = () => {
   const navigate = useNavigate()
   // let [otp, setOtp] = useState("");
@@ -23,7 +24,7 @@ const OtpPage = () => {
     // alert("hi");
   };
   const verifyOTP = async (data) => {
-    const response = await fetch("${HOST}/user/verifyOTP", {
+    const response = await fetch(`${HOST}/user/verifyOTP`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

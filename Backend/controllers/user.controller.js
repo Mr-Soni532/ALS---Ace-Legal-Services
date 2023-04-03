@@ -74,14 +74,13 @@ exports.userLogin = async (req, res) => {
             } else {
                 res.send({ msg: "login failed", status: "error" })
             }
-
-
         })
     }
     else {
         res.send({ Message: "please signup", status: "error" })
     }
 }
+
 const transporter = nodemailer.createTransport({
     service: "gmail",
     auth: {
@@ -127,7 +126,6 @@ exports.verifyOTP = async (req, res) => {
     let payload = { verified: true }
     try {
         let { userId, otp } = req.body;
-        console.log(req.body);
         if (!userId) {
             res.send({ msg: "userId is missing " })
         }
