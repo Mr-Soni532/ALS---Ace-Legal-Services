@@ -21,6 +21,7 @@ const SignUpPage = () => {
     console.log(response)
     const json = await response.json();
     console.log(json)
+    
     localStorage.setItem("otp_userId",json.data.userId);
     if (json.status === "Pending") {
       alert(json.msg);

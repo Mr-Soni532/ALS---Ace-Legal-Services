@@ -39,7 +39,7 @@ const Login = ({ setAuthentication }) => {
     });
 
     const json = await response.json();
-    if (json.ok) {
+    if (json.status==='success') {
       localStorage.setItem("token", json.token);
       localStorage.setItem("userData", JSON.stringify(json.userData));
       setAuthentication(true)
