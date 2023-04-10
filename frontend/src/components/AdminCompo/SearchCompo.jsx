@@ -3,7 +3,7 @@ import "./contentNav.css";
 import { AiOutlineSearch } from "react-icons/ai";
 import { Link } from "react-router-dom";
 import { UserAddOutlined } from "@ant-design/icons";
-const SearchBar = ({ name, query, setQuery, setOption }) => {
+const SearchBar = ({ name, query, setQuery, setOption, processChange }) => {
   return (
     <div className="contentNav">
       <h2 className="SectionNameAdmin">{name}</h2>
@@ -134,7 +134,7 @@ const SearchBar = ({ name, query, setQuery, setOption }) => {
               type="search"
               placeholder="Search..."
               value={query}
-              onChange={(e) => setQuery(e.target.value)}
+              onChange={(e) => processChange(e)}
             />
           </div>
         </div>

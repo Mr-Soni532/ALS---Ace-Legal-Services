@@ -58,7 +58,6 @@ const AdminLawyer = () => {
   };
 
   const deletEele = async (id) => {
-    console.log(id);
     try {
       let res = await fetch(`${HOST}/admin/deleteLawyer/${id}`, {
         method: "DELETE",
@@ -66,28 +65,42 @@ const AdminLawyer = () => {
       let data = await res.json();
       console.log(data);
       openNotification("Success");
-      setAllLawyers(AllLawyers);
+      GetAllLawyers()
     } catch (error) {
       console.log(error);
       alert(error.message);
     }
   };
 
-  const search = (data) => {
-    return data.filter((item) => {
-      if (!query) {
-        return item;
-      } else {
-        return keys.some(() => item[option].toLowerCase().includes(query));
-      }
-    });
-  };
+  // const search = (data) => {
+  //   return data.filter((item) => {
+  //     if (!query) {
+  //       return item;
+  //     } else {
+  //       return keys.some(() => item[option].toLowerCase().includes(query));
+  //     }
+  //   });
+  // };
 
-  data = search(lawyers);
+  data = query;
   useEffect(() => {
     GetAllLawyers();
     getLawyer();
   }, []);
+
+    //! =============> DEBOUNCE
+    function debounce(func, timeout = 300) {
+      let timer;
+      return (...args) => {
+        clearTimeout(timer);
+        timer = setTimeout(() => { func.apply(this, args); }, timeout);
+      };
+    }
+    function saveInput(e) {
+      setQuery(e.target.value)
+    }
+    const processChange = debounce((e) => saveInput(e));
+    //! ===================================================>
 
   return (
     <div>
@@ -98,6 +111,7 @@ const AdminLawyer = () => {
         query={query}
         setQuery={setQuery}
         setOption={setOption}
+        processChange={processChange}
       />
       <div>
         {loading ? (
