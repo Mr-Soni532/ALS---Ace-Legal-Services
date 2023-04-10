@@ -58,7 +58,6 @@ const AdminLawyer = () => {
   };
 
   const deletEele = async (id) => {
-    console.log(id);
     try {
       let res = await fetch(`${HOST}/admin/deleteLawyer/${id}`, {
         method: "DELETE",
@@ -66,7 +65,7 @@ const AdminLawyer = () => {
       let data = await res.json();
       console.log(data);
       openNotification("Success");
-      setAllLawyers(AllLawyers);
+      GetAllLawyers()
     } catch (error) {
       console.log(error);
       alert(error.message);
