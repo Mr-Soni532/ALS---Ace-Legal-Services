@@ -2,7 +2,7 @@ import React from "react";
 
 const DetailsComUser = ({ users, deletEele }) => {
   console.log(users);
-  return users?.length == 0 ? (
+  return users?.length === 0 ? (
     <>
       <h1>No Data here</h1>
     </>

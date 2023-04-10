@@ -16,9 +16,9 @@ const AdminPage = () => {
         children={
           Section === "User" ? (
             <AdminClient />
-          ) : Section == "Lawyer" ? (
+          ) : Section === "Lawyer" ? (
             <AdminLawyer />
-          ) : Section == "Admin" ? (
+          ) : Section ==="Admin" ? (
             <AdminDetails />
           ) : (
             <AdminDashboard />

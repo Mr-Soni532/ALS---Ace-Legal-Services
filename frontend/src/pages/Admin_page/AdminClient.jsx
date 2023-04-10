@@ -68,7 +68,7 @@ const AdminClient = () => {
       let data = await res.json();
       console.log(data);
       openNotification("Success");
-      setAllClients(AllClients);
+    GetAllClients()
     } catch (error) {
       console.log(error);
       alert(error.message);
