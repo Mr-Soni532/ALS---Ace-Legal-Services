@@ -1,5 +1,6 @@
 .SideBarX {
-  height: 100%;
+height: inherit;
+  min-height: 100vh;
   display: flex;
   z-index: 0;
   background-color: rgb(40, 39, 39);
@@ -10,6 +11,7 @@
   width: 100%;
   margin: auto;
   padding: 0px 0px;
+  min-height: 100vh;
 }
 .sidebar {
   background-color: rgb(40, 39, 39);
