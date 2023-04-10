@@ -32,12 +32,12 @@ const OtpPage = () => {
       body: JSON.stringify(data),
     });
     const json = await response.json();
-    if (json.status === "VERIFIED") {
-      alert(json.msg);
-      navigate('/login')
-    } else {
-      alert(json.msg);
-    }
+    navigate('/login')
+    // if (json.status === "VERIFIED") {
+    //   alert(json.msg);
+    // } else {
+    //   alert(json.msg);
+    // }
   };
 
   return (

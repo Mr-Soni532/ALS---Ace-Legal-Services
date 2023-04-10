@@ -12,7 +12,7 @@ const AppointmentsArea = () => {
     fetch(`${HOST}/appointment/fetch/userEmail?email=${userEmail}`)
       .then((data) => data.json())
       .then((data) => setAppointment(data.data));
-  }, [appointment]);
+  }, []);
 
 
   return (
