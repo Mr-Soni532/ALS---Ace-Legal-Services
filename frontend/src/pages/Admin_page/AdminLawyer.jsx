@@ -72,6 +72,22 @@ const AdminLawyer = () => {
     }
   };
 
+  useEffect(() => {
+    fetch(`${HOST}/lawyer/searchLawyer`, {
+      method: "POST",
+      // authorization: "bearer " + JSON.stringify(localStorage.getItem("token")),
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        type: option || "",
+        value: query.toLowerCase() || "",
+      }),
+    })
+      .then((data) => data.json())
+      .then((data) => setAllLawyers(data.data));
+  }, [AllLawyers]);
+  
   // const search = (data) => {
   //   return data.filter((item) => {
   //     if (!query) {
