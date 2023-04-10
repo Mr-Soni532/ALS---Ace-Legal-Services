@@ -72,21 +72,35 @@ const AdminLawyer = () => {
     }
   };
 
-  const search = (data) => {
-    return data.filter((item) => {
-      if (!query) {
-        return item;
-      } else {
-        return keys.some(() => item[option].toLowerCase().includes(query));
-      }
-    });
-  };
+  // const search = (data) => {
+  //   return data.filter((item) => {
+  //     if (!query) {
+  //       return item;
+  //     } else {
+  //       return keys.some(() => item[option].toLowerCase().includes(query));
+  //     }
+  //   });
+  // };
 
-  data = search(lawyers);
+  data = query;
   useEffect(() => {
     GetAllLawyers();
     getLawyer();
   }, []);
+
+    //! =============> DEBOUNCE
+    function debounce(func, timeout = 300) {
+      let timer;
+      return (...args) => {
+        clearTimeout(timer);
+        timer = setTimeout(() => { func.apply(this, args); }, timeout);
+      };
+    }
+    function saveInput(e) {
+      setQuery(e.target.value)
+    }
+    const processChange = debounce((e) => saveInput(e));
+    //! ===================================================>
 
   return (
     <div>
@@ -97,6 +111,7 @@ const AdminLawyer = () => {
         query={query}
         setQuery={setQuery}
         setOption={setOption}
+        processChange={processChange}
       />
       <div>
         {loading ? (
