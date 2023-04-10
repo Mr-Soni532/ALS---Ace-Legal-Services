@@ -37,7 +37,7 @@ const AdminLawyer = () => {
 
   const context = useContext(LawyerContext);
 
-  const [query, setQuery] = useState(null);
+  const [query, setQuery] = useState("");
   const [option, setOption] = useState("name");
   const keys = ["name", "profession", "experience"];
   const { getLawyer, err, loading, lawyers, deletefun } = context;
@@ -81,7 +81,7 @@ const AdminLawyer = () => {
       },
       body: JSON.stringify({
         type: option || "",
-        value: query.toLowerCase() || "",
+        value: query?.toLowerCase() || "",
       }),
     })
       .then((data) => data.json())
