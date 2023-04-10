@@ -2,7 +2,20 @@ import React, { useState } from "react";
 import "./signupPage.css";
 import { Link, Navigate, useNavigate } from "react-router-dom";
 import HOST from "../../utils/baseUrl";
+import { notification } from 'antd';
+
 const SignUpPage = () => {
+
+  const [api, contextHolder] = notification.useNotification();
+
+  const openNotification = () => {
+    api.info({
+      message: "OTP SENT",
+      description: 'OTP send to your Email Address..',
+      placement: 'top',
+    });
+  };
+
   let [name, setName] = useState("");
   let [email, setEmail] = useState("");
   let [phone, setPhone] = useState("");
@@ -24,7 +37,7 @@ const SignUpPage = () => {
     
     localStorage.setItem("otp_userId",json.data.userId);
     if (json.status === "Pending") {
-      alert(json.msg);
+      openNotification()
       navigate("/verifyOTP");
     } else {
       alert(json.msg);
@@ -43,6 +56,7 @@ const SignUpPage = () => {
   };
   return (
     <div className="signUpdiv">
+    {contextHolder}
       <Link to="/">
         <img className="Aclabsolute" src="Images/ACEyellow.png" alt="acelogo" />
       </Link>
