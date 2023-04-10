@@ -4,6 +4,13 @@ import { useNavigate, Redirect, Route, Link } from "react-router-dom";
 import LawyerContext from "../../context/Admin_page/lawyercontext/lawyerContext";
 
 const AddLawyerForm = () => {
+  
+  
+  //! >>>> ---------------------------------------------------------------------<<<<
+  //!            THIS PAGE IS CREATED BY "MOHIMA BAHADUR", BHUT MEHANT <<<<
+  //! >>>> ---------------------------------------------------------------------<<<<
+
+
   const context = useContext(LawyerContext);
   const [err, setError] = useState(false);
   const [loading, setLoading] = useState(false);
@@ -71,7 +78,7 @@ const AddLawyerForm = () => {
 
   return (
     <div className="formContainer">
-      <Link to="/">
+      <Link to="/admin">
         <img
           className="Aclabsolute"
           style={{ top: "40px", left: "90px" }}
