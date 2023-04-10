@@ -61,7 +61,7 @@ const UserProfile = () => {
             <div>
               <img
                 style={{ width: "108px", borderRadius: "50%" }}
-                src={image || "Images/DashboardImages/avatar.png"}
+                src={image || "Images/DashboardImages/user.jpg"}
                 alt="AvatarImage"
               />
             </div>
