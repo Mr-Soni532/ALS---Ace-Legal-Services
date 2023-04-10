@@ -11,7 +11,10 @@ const AppointmentsArea = () => {
     const userEmail = JSON.parse(localStorage.getItem("userData"))?.email;
     fetch(`${HOST}/appointment/fetch/userEmail?email=${userEmail}`)
       .then((data) => data.json())
-      .then((data) => setAppointment(data.data));
+      .then((data) => {
+        setAppointment(data.data)
+        console.log(data.data)
+      });
   }, []);
 
 

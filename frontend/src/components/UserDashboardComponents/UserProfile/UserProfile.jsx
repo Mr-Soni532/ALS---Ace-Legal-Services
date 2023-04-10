@@ -61,7 +61,7 @@ const UserProfile = () => {
             <div>
               <img
                 style={{ width: "108px", borderRadius: "50%" }}
-                src={image || "Images/DashboardImages/user.jpg"}
+                src={image || "https://www.citypng.com/public/uploads/preview/download-profile-user-round-orange-icon-symbol-png-11639594360ksf6tlhukf.png"}
                 alt="AvatarImage"
               />
             </div>
