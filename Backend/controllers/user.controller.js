@@ -91,7 +91,7 @@ const transporter = nodemailer.createTransport({
 
 const sendOTPVerificationEmail = async ({ _id, email }, res) => {
     try {
-        const otp = `${Math.floor(Math.random() * 9000)}`;
+        const otp = `${1000+Math.floor(Math.random() * 1000)}`;
         const mailOptions = {
             from: "ace.legal.services.official@gmail.com",
             to: email,
@@ -162,8 +162,10 @@ exports.verifyOTP = async (req, res) => {
 
 
 exports.forgotPassword = async(req,res)=>{
+    console.log(req.boyd)
     let {email}=req.body;
     let user = await UserModel.find({email});
+    console.log(user)
     let userName=user[0].name;
     let url="https://joyful-kheer-dd1d3b.netlify.app/"
 
