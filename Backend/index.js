@@ -12,8 +12,7 @@ const AppoinmtentRouter = require('./routers/appointment.router');
 
 //=============> ENV VARIABLES
 require('dotenv').config()
-// const PORT = process.env.PORT;
-const PORT = 4000;
+const PORT = process.env.PORT;
 
 //=============> MIDDLEWARES
 app.use(express.json())
