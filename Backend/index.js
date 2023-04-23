@@ -42,8 +42,6 @@ app.get('/', (req, res) => res.send({ Message: 'ALS server working fine' }))
 
 
 //=============> ROUTES
-
-
 app.use('/user',UserRouter)
 app.use('/lawyer',LawyerRouter)
 app.use('/admin',AdminRouter)
