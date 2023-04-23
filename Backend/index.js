@@ -17,8 +17,14 @@ const PORT = process.env.PORT;
 //=============> MIDDLEWARES
 app.use(express.json())
 
-app.use(cors('https://acelegalservices.vercel.app'))
-
+app.use(
+  cors({
+    origin: "https://acelegalservices.vercel.app",
+    methods: "GET,POST,PUT,DELETE",
+    credentials: true,
+  })
+);
+ 
 //=============> Testing endpoint
 app.get('/', (req, res) => res.send({ Message: 'ALS server working fine' }))
 
