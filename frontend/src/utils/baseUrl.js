@@ -1,4 +1,4 @@
-const HOST = 'http://localhost:4000'
-// const HOST = 'https://young-zinc-6102-562h-mr-soni532.vercel.app'
+// const HOST = 'http://localhost:4000'
+const HOST = 'https://als-backend.onrender.com'
 export default HOST 
 
