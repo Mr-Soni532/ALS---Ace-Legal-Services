@@ -1,2 +1,2 @@
-const HOST = 'http://localhost:4500'
+const HOST = 'https://ace-legal-services-backend.vercel.app/'
 export default HOST
