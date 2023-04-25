@@ -18,7 +18,9 @@ const Lawyers = () => {
   async function FetchLawyers() {
     let response = await fetch(`${HOST}/lawyer/searchLawyer`, {
       method: "POST",
-      headers: { "Content-Type": "application/json" },
+      headers: {
+        "Content-Type": "application/json",
+      },
       body: JSON.stringify({
         type: option || "",
         value: query.toLowerCase() || "",

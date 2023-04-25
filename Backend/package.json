@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start" : "index.js",
+    "start": "index.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "server": "nodemon index.js"
   },
@@ -12,9 +12,9 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "cors": "^2.8.5",
     "bcrypt": "^5.1.0",
     "cookie-session": "^2.0.0",
-    "cors": "^2.8.5",
     "dotenv": "^16.0.3",
     "express": "^4.18.2",
     "jsonwebtoken": "^9.0.0",

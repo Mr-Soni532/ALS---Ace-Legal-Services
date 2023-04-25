@@ -1,9 +1,10 @@
 # ACE LEGAL SERVICES ⚖️
 
-> Project Code : young-zinc-6102 <br/>
+- This is the Backend Repository of Ace Legal Services (For Deployement):-
+- Orignal Project Link is Here ---> https://github.com/Mr-Soni532/young-zinc-6102
 
-- Deployed Backend = https://ace-legal-services-backend.vercel.app
-- Deployed Webite = https://acelegalservices.vercel.app
+> Project Code : young-zinc-6102 <br/>
+> Deployed Link : https://acelegalservices.vercel.app/
 
 <p align="center">
   <img src="https://user-images.githubusercontent.com/112753481/229038276-095ee446-00ff-41d9-8f0c-38cbafef63d1.png" alt="Ace Logo">
