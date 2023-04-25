@@ -168,6 +168,7 @@ exports.appointmentSuccess = (clientName, lawyerName, date, time, type) => {
 
 // <!--!  Appointment Rejected -->
 exports.appointmentRejected = (usermail) => {
+  let email = usermail
   let User = usermail.split("@")[0]
   return `
       <html>

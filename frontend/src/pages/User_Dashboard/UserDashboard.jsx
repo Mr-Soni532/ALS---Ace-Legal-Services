@@ -13,9 +13,16 @@ const UserDashboard = () => {
   const [api, contextHolder] = notification.useNotification();
 
   const { Auth, setAuth } = useContext(AuthContext);
-  const { UserDetails, setUserDetails } = useContext(UserContext);
+  const { setUserDetails } = useContext(UserContext);
   const openNotification = (msg, desc) => {
-    api.info({
+    api.success({
+      message: msg,
+      description: desc,
+      placement: "top",
+    });
+  };
+  const FopenNotification = (msg, desc) => {
+    api.error({
       message: msg,
       description: desc,
       placement: "top",
@@ -52,7 +59,7 @@ const UserDashboard = () => {
         openNotification("Login Success", "Succcessfully logged in.");
       } catch (error) {
         console.log(error);
-        openNotification("Login Failed", "Trouble logged in.");
+        FopenNotification("Login Failed", "Trouble logged in.");
       }
     }
   }, []);
@@ -64,7 +71,10 @@ const UserDashboard = () => {
       {contextHolder}
       <DashNavbar UserData={UserData} />
       <UserProfile UserData={UserData} />
-      <AppointmentsArea />
+      <AppointmentsArea
+        notification={openNotification}
+        fnotification={FopenNotification}
+      />
     </div>
   );
 };

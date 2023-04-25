@@ -8,8 +8,10 @@ import "./lawyer.css";
 // import { uuid } from 'uuidv4';
 
 import HOST from "../../utils/baseUrl";
+import Loading from "../../components/AdminCompo/Loading";
 const Lawyers = () => {
   const [query, setQuery] = useState("");
+  const [loading, setLoading] = useState(false);
   const [option, setOption] = useState("name");
   const [items, setItems] = useState([]);
 
@@ -24,9 +26,11 @@ const Lawyers = () => {
     });
     let data = await response.json();
     setItems(data.data);
+    setLoading(false);
   }
 
   useEffect(() => {
+    setLoading(true);
     FetchLawyers();
   }, [query, option]);
 
@@ -38,15 +42,19 @@ const Lawyers = () => {
       </div>
       <div className="LawyerArea">
         <LawyerFilterer />
-        <div className="lawyer-list">
-          {items?.map((el, index) => {
-            return (
-              <div key={index + "456789721"}>
-                <LawyerCard key={index + "7897546"} data={el} />
-              </div>
-            );
-          })}
-        </div>
+        {!loading ? (
+          <div className="lawyer-list">
+            {items?.map((el, index) => {
+              return (
+                <div key={index + "456789721"}>
+                  <LawyerCard key={index + "7897546"} data={el} />
+                </div>
+              );
+            })}
+          </div>
+        ) : (
+          <Loading />
+        )}
       </div>
     </div>
   );

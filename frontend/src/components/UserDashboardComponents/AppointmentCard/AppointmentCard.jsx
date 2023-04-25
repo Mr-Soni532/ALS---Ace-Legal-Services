@@ -3,26 +3,49 @@ import "./AppointmentCard.css";
 import ApoBtns from "./ApoBtns";
 import Star from "./Star";
 import HOST from "../../../utils/baseUrl";
-const AppointmentCard = ({ data, index }) => {
+
+const AppointmentCard = ({
+  data,
+  index,
+  notification,
+  fnotification,
+  RenderAgain,
+}) => {
   const [lawyerDetails, setLawyerDetails] = useState({});
-  useEffect(() => {
+
+  function GetLaywerByEmail() {
     fetch(`${HOST}/lawyer/searchLawyerByEmail?email=${data.lawyerEmail}`)
       .then((data) => data.json())
       .then((data) => setLawyerDetails(data.data[0]));
-  }, []);
+  }
+  useEffect(() => {
+    GetLaywerByEmail();
+  }, [data]);
 
   async function DeleteAppointment(id) {
     if (!id) return;
     try {
-      let res = await fetch(`${HOST}/user/deleteAppointment/${id}`, {
+      let res = await fetch(`${HOST}/user/deleteAppointment`, {
         method: "DELETE",
         headers: {
           "Content-type": "application/json",
         },
+        body: JSON.stringify({ DeleteId: id }),
       });
       let data = await res.json();
-      console.log(data);
+      if (data.success) {
+        notification(
+          "Appointment Cancelled",
+          "Succcessfully cancelled the appointment"
+        );
+        RenderAgain();
+      }
     } catch (error) {
+      fnotification(
+        "Appointment Cancel Unsuccessful",
+        "Cancelling appointment unsuccessful"
+      );
+      RenderAgain();
       console.log(error);
     }
   }

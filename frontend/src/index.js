@@ -16,21 +16,21 @@ import AuthState from './context/AuthContext/AuthState';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
 
-  <React.StrictMode>
-    <BrowserRouter>
-      <AuthState>
-        <AppointmentState>
-          <UserState>
-            <LawyerState>
-              <AdminState>
-                <App />
-              </AdminState>
-            </LawyerState>
-          </UserState>
-        </AppointmentState>
-      </AuthState>
-    </BrowserRouter>
-  </React.StrictMode>
+
+  <BrowserRouter>
+    <AuthState>
+      <AppointmentState>
+        <UserState>
+          <LawyerState>
+            <AdminState>
+              <App />
+            </AdminState>
+          </LawyerState>
+        </UserState>
+      </AppointmentState>
+    </AuthState>
+  </BrowserRouter>
+
 
 );
 

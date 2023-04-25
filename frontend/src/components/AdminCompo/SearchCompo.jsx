@@ -29,7 +29,7 @@ const SearchBar = ({ name, query, setQuery, setOption, processChange }) => {
           >
             <div className="select selectoption">
               <span className="search-by">Search By : </span>
-              <div class="mydict">
+              <div className="mydict">
                 <div>
                   <label>
                     <input
@@ -89,7 +89,7 @@ const SearchBar = ({ name, query, setQuery, setOption, processChange }) => {
         >
           <div className="select">
             <span className="search-by">Search By : </span>
-            <div class="mydict">
+            <div className="mydict">
               <div>
                 <label>
                   <input
@@ -149,7 +149,7 @@ const SearchBar = ({ name, query, setQuery, setOption, processChange }) => {
         >
           <div className="select">
             <span className="search-by">Search By : </span>
-            <div class="mydict">
+            <div className="mydict">
               <div>
                 <label>
                   <input
@@ -228,7 +228,7 @@ export default SearchBar;
   /* <div>
 <div className="select">
     <span className="search-by">Search By : </span>
-    <div class="mydict">
+    <div className="mydict">
       <div>
         <label>
           <input

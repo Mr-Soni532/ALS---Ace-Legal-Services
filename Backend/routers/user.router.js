@@ -15,7 +15,7 @@ UserRouter.get("/:id", controller.getUserByID);
 
 // appointment
 UserRouter.post("/addAppointment", appointmentController.addAppointment);
-UserRouter.delete("/deleteAppointment/:id", appointmentController.deleteAppointment);
+UserRouter.delete("/deleteAppointment", appointmentController.deleteAppointment);
 
 
 module.exports = UserRouter;

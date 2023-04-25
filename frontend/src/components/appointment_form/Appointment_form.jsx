@@ -13,7 +13,6 @@ const Appointment_form = () => {
   let context2 = useContext(UserContext);
 
   const { UserDetails, setUserDetails } = context2;
-  console.log("dsfa", UserDetails);
   let navigate = useNavigate();
 
   function handleForm(formData) {

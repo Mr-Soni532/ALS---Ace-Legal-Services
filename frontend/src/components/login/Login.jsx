@@ -12,8 +12,15 @@ const Login = () => {
   const { Auth, setAuth } = useContext(AuthContext);
   const [api, contextHolder] = notification.useNotification();
 
-  const openNotification = (msg, desc) => {
+  const FopenNotification = (msg, desc) => {
     api.info({
+      message: msg,
+      description: desc,
+      placement: "top",
+    });
+  };
+  const SopenNotification = (msg, desc) => {
+    api.success({
       message: msg,
       description: desc,
       placement: "top",
@@ -45,7 +52,7 @@ const Login = () => {
     if (Data.status === "success") {
       localStorage.setItem("token", Data.token);
       setUserDetails(Data.userData);
-      openNotification("Login Success", "Succcessfully logged in.");
+      SopenNotification("Login Success", "Succcessfully logged in.");
       setAuth(true);
       setTimeout(() => {
         setAuth(true);
@@ -53,7 +60,7 @@ const Login = () => {
         navigate("/userdashboard");
       }, 1000);
     } else {
-      openNotification("Invalid Credentials", "Enter valid account details.");
+      FopenNotification("Invalid Credentials", "Enter valid account details.");
     }
   };
 
@@ -69,7 +76,7 @@ const Login = () => {
       console.log("Hello from lawyer");
     } else {
       if (email === "admin@gmail.com" && password === "admin") {
-        openNotification("Welcome Back Admin.", "Succcessfully logged in.");
+        SopenNotification("Welcome Back Admin.", "Succcessfully logged in.");
         setAuth(true);
         navigate("/admin");
       }

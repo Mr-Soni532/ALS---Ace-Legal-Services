@@ -51,7 +51,7 @@ const EventVerified = () => {
   return (
     <div className="EventVerified">
       {loading ? (
-        <div class="reviewLoader">
+        <div className="reviewLoader">
           <img src="loadingOrange.gif" alt="loadingimg" />
           <h1>Please Wait...</h1>
         </div>

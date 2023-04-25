@@ -4,11 +4,11 @@ import "./AppointmentsArea.css";
 import HOST from "../../../utils/baseUrl";
 import { Empty } from "antd";
 import { UserContext } from "../../../context/Admin_page/userFunction/userState";
-const AppointmentsArea = () => {
+const AppointmentsArea = ({ notification, fnotification }) => {
   const [appointment, setAppointment] = useState([]);
-  const { UserDetails, setUserDetails } = useContext(UserContext);
+  const { UserDetails } = useContext(UserContext);
 
-  useEffect(() => {
+  async function GetAppointments() {
     const userEmail = UserDetails.email;
     fetch(`${HOST}/appointment/fetch/userEmail?email=${userEmail}`)
       .then((data) => data.json())
@@ -16,6 +16,9 @@ const AppointmentsArea = () => {
         console.log("Appointments :", data.data);
         setAppointment(data.data);
       });
+  }
+  useEffect(() => {
+    GetAppointments();
   }, []);
 
   return (
@@ -31,7 +34,15 @@ const AppointmentsArea = () => {
         appointment.map((el, index) => {
           return (
             <div key={index}>
-              <AppointmentCard data={el} index={index} key={index} /> <br />
+              <AppointmentCard
+                notification={notification}
+                fnotification={fnotification}
+                RenderAgain={GetAppointments}
+                data={el}
+                index={index}
+                key={index}
+              />
+              <br />
             </div>
           );
         })
