@@ -54,9 +54,9 @@ const SideMenu = ({ children, ChangeSection }) => {
         {menuItem.map((el, i) => {
           return (
             <div
-              key={i}
+              key={i + "asdfasdf"}
               className={"link"}
-              activeClassname="SMactive"
+              activeclassname={"SMactive"}
               onClick={() => ChangeSection(el.name)}
             >
               <div className="Sidebaricons">{el.icon}</div>

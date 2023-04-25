@@ -24,7 +24,7 @@ const AdminPage = () => {
         return true;
       });
     }, 2000);
-  });
+  }, []);
 
   return !Auth ? (
     <Loading />

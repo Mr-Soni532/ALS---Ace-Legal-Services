@@ -4,12 +4,9 @@ import { useNavigate, Redirect, Route, Link } from "react-router-dom";
 import LawyerContext from "../../context/Admin_page/lawyercontext/lawyerContext";
 
 const AddLawyerForm = () => {
-  
-  
   //! >>>> ---------------------------------------------------------------------<<<<
   //!            THIS PAGE IS CREATED BY "MOHIMA BAHADUR", BHUT MEHANT <<<<
   //! >>>> ---------------------------------------------------------------------<<<<
-
 
   const context = useContext(LawyerContext);
   const [err, setError] = useState(false);
@@ -167,7 +164,7 @@ const AddLawyerForm = () => {
                 <option>Select Option ... </option>
 
                 {genders.map((el, i) => (
-                  <option key={i}>{el}</option>
+                  <option key={i + "sda789"}>{el}</option>
                 ))}
               </select>
             </div>

@@ -46,7 +46,7 @@ const Lawyers = () => {
           <div className="lawyer-list">
             {items?.map((el, index) => {
               return (
-                <div key={index + "456789721"}>
+                <div key={index + "4iop89721"}>
                   <LawyerCard key={index + "7897546"} data={el} />
                 </div>
               );

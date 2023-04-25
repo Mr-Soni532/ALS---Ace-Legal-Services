@@ -58,7 +58,7 @@ const LawyerCard = ({ data }) => {
         <div className="skills-div">
           {data.skills.map((el, index) => {
             return (
-              <div className="skill" key={index + "x"}>
+              <div className="skill" key={index + "rex"}>
                 {el}
               </div>
             );

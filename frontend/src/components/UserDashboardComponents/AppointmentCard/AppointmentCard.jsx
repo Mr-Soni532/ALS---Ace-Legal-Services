@@ -74,7 +74,7 @@ const AppointmentCard = ({
             <p style={{ color: "#675f5f" }}>
               {`(Associate Attorney) -`}
               {starArr.map((el, index) => {
-                return <Star size={20} trans={3} key={index} />;
+                return <Star size={20} trans={3} key={index + "asd231"} />;
               })}
             </p>
 

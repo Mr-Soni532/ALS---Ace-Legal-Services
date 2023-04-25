@@ -38,8 +38,8 @@ const DetailsCom = ({ users, deletEele }) => {
                 <h5 className="adminLayerType">Type : {el.profession}</h5>
                 <p>{el.bio}</p>
                 <div className="skilsDiv">
-                  {el.skills.map((item) => {
-                    return <p>{item}</p>;
+                  {el.skills.map((item, index) => {
+                    return <p key={"heleoshdhf" + index}>{item}</p>;
                   })}
                 </div>
 

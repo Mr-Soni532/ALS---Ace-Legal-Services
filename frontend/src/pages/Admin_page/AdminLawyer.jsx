@@ -105,7 +105,7 @@ const AdminLawyer = () => {
     // GetAllLawyers();
     getLawyer();
     SearchLawyer();
-  }, [AllLawyers]);
+  }, []);
 
   //! =============> DEBOUNCE
   function debounce(func, timeout = 100) {

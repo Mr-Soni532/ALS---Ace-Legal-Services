@@ -33,7 +33,7 @@ const AppointmentsArea = ({ notification, fnotification }) => {
       ) : (
         appointment.map((el, index) => {
           return (
-            <div key={index}>
+            <div key={index + "yuiop"}>
               <AppointmentCard
                 notification={notification}
                 fnotification={fnotification}

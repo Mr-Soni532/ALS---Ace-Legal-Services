@@ -48,7 +48,7 @@ const AdminClient = () => {
     try {
       let res = await fetch(`${HOST}/admin/getAllUsers`);
       let data = await res.json();
-      console.log(data);
+      // console.log(data);
       setAllClients(data);
       setloading(false);
     } catch (error) {
@@ -66,18 +66,6 @@ const AdminClient = () => {
   const [query, setQuery] = useState(null);
   const [option, setOption] = useState("name");
   const [currentPage, setCurrentPage] = useState(1);
-
-  const { UserDetails, setUserDetails } = context;
-  console.log(UserDetails);
-
-  // const userPerpage = 8;
-  // const totalPages = Math.ceil(data.length / userPerpage);
-
-  // const sliceTodos = () => {
-  //   const indexOfLastTodo = currentPage * userPerpage;
-  //   const indexOfFirstTodo = indexOfLastTodo - userPerpage;
-  //   return data.slice(indexOfFirstTodo, indexOfLastTodo);
-  // };
 
   const handlePageChange = (page) => {
     setCurrentPage(page);
@@ -100,15 +88,15 @@ const AdminClient = () => {
     }
   };
 
-  const search = (data) => {
-    return data.filter((item) => {
-      if (!query) {
-        return item;
-      } else {
-        return keys.some(() => item[option].toLowerCase().includes(query));
-      }
-    });
-  };
+  // const search = (data) => {
+  //   return data.filter((item) => {
+  //     if (!query) {
+  //       return item;
+  //     } else {
+  //       return keys.some(() => item[option].toLowerCase().includes(query));
+  //     }
+  //   });
+  // };
 
   // data = search(users);
 
