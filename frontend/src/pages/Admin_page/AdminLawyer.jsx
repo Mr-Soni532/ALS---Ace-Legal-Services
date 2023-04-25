@@ -74,7 +74,7 @@ const AdminLawyer = () => {
         method: "DELETE",
       });
       let data = await res.json();
-      console.log(data);
+      // console.log(data);
       openNotification("Success");
       GetAllLawyers();
     } catch (error) {

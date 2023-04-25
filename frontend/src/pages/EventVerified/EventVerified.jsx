@@ -15,7 +15,7 @@ const EventVerified = () => {
 
   const { appointment_Details } = context;
   let cloneDate = appointment_Details.date;
-  console.log(appointment_Details.date, cloneDate);
+  // console.log(appointment_Details.date, cloneDate);
 
   let newDateArr = cloneDate.split("-").map(Number);
 

@@ -73,7 +73,7 @@ const AdminClient = () => {
 
   const deletEele = async (id) => {
     setloading(true);
-    console.log(id);
+    console.log("Deleting", id);
     try {
       let res = await fetch(`${HOST}/admin/deleteUser/${id}`, {
         method: "DELETE",
