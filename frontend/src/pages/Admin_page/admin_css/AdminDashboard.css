@@ -39,6 +39,8 @@
   height: 250px !important;
 }
 .AdminLawyerImage > img {
+  object-fit: cover;
+  object-position: center;
   height: 250px !important;
   width: 250px !important;
 }

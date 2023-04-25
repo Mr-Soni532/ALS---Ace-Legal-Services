@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./signupPage.css";
 import { Link, Navigate, useNavigate } from "react-router-dom";
 import HOST from "../../utils/baseUrl";
@@ -6,11 +6,12 @@ import { notification } from "antd";
 
 const SignUpPage = () => {
   const [api, contextHolder] = notification.useNotification();
+  const navigate = useNavigate();
 
-  const openNotification = () => {
+  const SopenNotification = (msg, desc) => {
     api.info({
-      message: "OTP SENT",
-      description: "OTP send to your Email Address..",
+      message: msg,
+      description: desc,
       placement: "top",
     });
   };
@@ -20,8 +21,7 @@ const SignUpPage = () => {
   let [phone, setPhone] = useState("");
   let [gender, setGender] = useState("");
   let [password, setPassword] = useState("");
-  const navigate = useNavigate();
-  console.log(HOST);
+
   const signUp = async (data) => {
     const response = await fetch(`${HOST}/user/signup`, {
       method: "POST",
@@ -30,20 +30,22 @@ const SignUpPage = () => {
       },
       body: JSON.stringify(data),
     });
-    console.log(response);
     const json = await response.json();
     console.log(json);
-
-    localStorage.setItem("otp_userId", json.data.userId);
-    if (json.status === "Pending") {
-      openNotification();
-      navigate("/verifyOTP");
+    if (json.success == true) {
+      SopenNotification("Signup Successful", "Please Verify with OTP");
+      setTimeout(() => {
+        navigate("/verifyOTP");
+      }, 1000);
+    } else if (json.exist == true) {
+      SopenNotification("Already Signed In", json.Message);
     } else {
-      alert(json.msg);
+      console.log(json.Message);
+      SopenNotification("Info!", json.Message);
     }
   };
-  const handleSubmit = (event) => {
-    event.preventDefault();
+
+  const handleSubmit = () => {
     let data = {
       email,
       password,
@@ -60,7 +62,13 @@ const SignUpPage = () => {
         <img className="Aclabsolute" src="Images/ACEyellow.png" alt="acelogo" />
       </Link>
       <div>
-        <form className="Signupform">
+        <form
+          className="Signupform"
+          onSubmit={(e) => {
+            e.preventDefault();
+            handleSubmit();
+          }}
+        >
           <h1 className="RegisterTitle">Register</h1>
           <p style={{ color: "grey", fontSize: "13px" }}>
             Signup to Ace Legal Services
@@ -117,9 +125,13 @@ const SignUpPage = () => {
               &nbsp; Sign in
             </Link>
           </span>
-          <button onClick={handleSubmit} className="ContinueRegis">
-            Continue
-          </button>
+          <input
+            type="submit"
+            value="Continue"
+            style={{ cursor: "pointer", margin: "0" }}
+            className="ContinueRegis"
+          />
+
           <div className="social-message">
             <div className="line">-</div>
             <p className="message">Login with social accounts</p>

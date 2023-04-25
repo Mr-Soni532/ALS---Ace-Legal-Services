@@ -8,9 +8,7 @@ const UserProfile = ({ UserData }) => {
 
   const [email, setEmail] = useState("User Email");
   const [name, setName] = useState("User Name");
-  const [image, setImg] = useState(
-    "https://www.citypng.com/public/uploads/preview/download-profile-user-round-orange-icon-symbol-png-11639594360ksf6tlhukf.png"
-  );
+  const [image, setImg] = useState("");
 
   const { UserDetails } = useContext(UserContext);
   useEffect(() => {
@@ -26,7 +24,10 @@ const UserProfile = ({ UserData }) => {
             <div>
               <img
                 style={{ width: "108px", borderRadius: "50%" }}
-                src={image}
+                src={
+                  image ||
+                  "https://www.citypng.com/public/uploads/preview/download-profile-user-round-orange-icon-symbol-png-11639594360ksf6tlhukf.png"
+                }
                 alt="AvatarImage"
               />
             </div>
