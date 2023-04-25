@@ -167,7 +167,8 @@ exports.appointmentSuccess = (clientName, lawyerName, date, time, type) => {
 }
 
 // <!--!  Appointment Rejected -->
-exports.appointmentRejected = () => {
+exports.appointmentRejected = (usermail) => {
+  let User = usermail.split("@")[0]
   return `
       <html>
         <head>
@@ -243,7 +244,7 @@ exports.appointmentRejected = () => {
         <body>
           <div class="container">
             <h1>Appointment Rejection</h1>
-            <p>Dear [User],</p>
+            <p>Dear ${User},</p>
             <p>We regret to inform you that your appointment with our lawyer has been rejected. We apologize for any inconvenience this may have caused.</p>
             <p>If you have any questions or concerns, please feel free to <a href="mailto:ace.legal.services.official@gmail.com">ace.legal.services.official@gmail.com</a>.</p>
             <p>Thank you for your understanding.</p>

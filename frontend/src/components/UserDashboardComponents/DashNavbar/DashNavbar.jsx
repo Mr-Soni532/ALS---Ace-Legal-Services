@@ -1,60 +1,23 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import "./DashNavbar.css";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import HOST from "../../../utils/baseUrl";
-const DashNavbar = () => {
-  let userData=JSON.parse(localStorage.getItem("userData"));
-  const [email,setEmail]=useState("User Email");
-  const [name,setName]=useState("User Name")
-  const [image,setImg]=useState("");
+import { UserContext } from "../../../context/Admin_page/userFunction/userState";
+const DashNavbar = ({ UserData }) => {
+  const [email, setEmail] = useState("User Email");
+  const [name, setName] = useState("User Name");
 
- 
+  // const navigate = useNavigate();
 
+  const { UserDetails } = useContext(UserContext);
   useEffect(() => {
-    if(userData){
-      setEmail(userData.email);
-      setName(userData.name);
-    }else{
-      const getUser = () => {
-        fetch(`${HOST}/auth/login/success`, {
-          method: "GET",
-          credentials: "include",
-          headers: {
-            Accept: "application/json",
-            "Content-Type": "application/json",
-            "Access-Control-Allow-Credentials": true,
-          },
-        })
-          .then((response) => {
-            console.log(response)
-            if (response.status === 200) return response.json();
-            throw new Error("authentication has been failed!");
-          })
-          .then((resObject) => {
-            let email=resObject.user.email
-            let name=resObject.user.name;
-            let img = resObject.user.img;
-            localStorage.setItem("userData",JSON.stringify({name,email,img}));
-            console.log(resObject)
-            setEmail(email)
-            setName(name)
-            setImg(img)
-          })
-          .catch((err) => {
-            console.log(err);
-          });
-      };
-      getUser();
-    }
-    
-
-    
-  }, []);
+    setEmail(UserDetails.email);
+    setName(UserDetails.name);
+  }, [UserDetails]);
 
   const logout = () => {
-   localStorage.clear();  
+    localStorage.clear();
     window.open(`${HOST}/auth/logout`, "_self");
-    
   };
   return (
     <div className="DashNavbarParent" data-aos="fade">

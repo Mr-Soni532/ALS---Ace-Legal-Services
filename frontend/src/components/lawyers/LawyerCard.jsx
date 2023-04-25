@@ -6,14 +6,22 @@ import { useNavigate } from "react-router";
 const LawyerCard = ({ data }) => {
   const navigator = useNavigate();
   function handleClick(e) {
-    localStorage.setItem('lawyerData', JSON.stringify({email: data.email, name: data.name,price: data.price,image: data.image}))
-    navigator('/appointment')
+    localStorage.setItem(
+      "lawyerData",
+      JSON.stringify({
+        email: data.email,
+        name: data.name,
+        price: data.price,
+        image: data.image,
+      })
+    );
+    navigator("/appointment");
   }
 
   function returnStar(bum) {
     let arr = [];
     for (let i = 0; i < bum; i++) {
-      arr.push(<Star size="18" trans="2" />);
+      arr.push(<Star key={i + "xyz"} size="18" trans="2" />);
     }
 
     return arr;
@@ -22,6 +30,7 @@ const LawyerCard = ({ data }) => {
   // console.count(data)
   return (
     <div
+      key={data.email}
       data-email={data.email}
       className="lawyer-card"
       data-aos="fade-right"
@@ -47,13 +56,21 @@ const LawyerCard = ({ data }) => {
           <p className="bio">{data.bio}</p>
         </div>
         <div className="skills-div">
-          {data.skills.map((el,index) => {
-            return <div className="skill" key={index}>{el}</div>;
+          {data.skills.map((el, index) => {
+            return (
+              <div className="skill" key={index + "x"}>
+                {el}
+              </div>
+            );
           })}
         </div>
         <div className="languages">
-          {data.languages.map((el,index) => {
-            return <div className="language" key={index}>{el}</div>;
+          {data.languages.map((el, index) => {
+            return (
+              <div className="language" key={index + "8n"}>
+                {el}
+              </div>
+            );
           })}
         </div>
 

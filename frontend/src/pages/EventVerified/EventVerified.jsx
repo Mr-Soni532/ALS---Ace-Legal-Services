@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import "./EventVerified.css";
 import { Link, useNavigate } from "react-router-dom";
 import { AppointmentContext } from "../../context/appointment/appointmentContext";
@@ -6,17 +6,19 @@ import HOST from "../../utils/baseUrl";
 
 const EventVerified = () => {
   const navigate = useNavigate();
+  const [loading, setloading] = useState(false);
   const context = useContext(AppointmentContext);
-  const { appointment_detials } = context;
+  const { appointment_Details } = context;
 
-  let cloneDate = appointment_detials.date;
-  console.log(appointment_detials.date, cloneDate);
+  let cloneDate = appointment_Details.date;
+  console.log(appointment_Details.date, cloneDate);
 
   let newDateArr = cloneDate.split("-").map(Number);
 
   const lawyerData = JSON.parse(localStorage.getItem("lawyerData"));
 
   async function handleBook() {
+    setloading(true);
     let res = await fetch(`${HOST}/user/addAppointment`, {
       method: "POST",
       headers: {
@@ -24,16 +26,16 @@ const EventVerified = () => {
       },
       body: JSON.stringify({
         lawyerEmail: lawyerData.email,
-        userEmail: appointment_detials.email,
+        userEmail: appointment_Details.email,
         appointment_date: {
-          date: appointment_detials.date,
+          date: appointment_Details.date,
           year: newDateArr[0],
           month: newDateArr[1],
           day: newDateArr[2],
         },
-        appointmentTime: appointment_detials.time,
-        meeting_type: appointment_detials.type,
-        slot: appointment_detials.appointmentSlot,
+        appointmentTime: appointment_Details.time,
+        meeting_type: appointment_Details.type,
+        slot: appointment_Details.appointmentSlot,
       }),
     });
     if (res.ok) {
@@ -43,11 +45,19 @@ const EventVerified = () => {
     }
   }
   function handlePayment() {
-    // Pending
+    //   // Pending
   }
 
   return (
     <div className="EventVerified">
+      {loading ? (
+        <div class="reviewLoader">
+          <img src="loadingOrange.gif" alt="loadingimg" />
+          <h1>Please Wait...</h1>
+        </div>
+      ) : (
+        ""
+      )}
       <div>
         <Link to="/">
           <img
@@ -75,9 +85,9 @@ const EventVerified = () => {
               </h3>
 
               <div className="eventMeetingDetails">
-                <p>Meeting Time : {appointment_detials?.time || "7:00AM"}</p>
+                <p>Meeting Time : {appointment_Details?.time || "7:00AM"}</p>
                 <p>
-                  Meeting Date : {appointment_detials?.date || "8th April 2023"}
+                  Meeting Date : {appointment_Details?.date || "8th April 2023"}
                 </p>
 
                 <p>
@@ -89,11 +99,7 @@ const EventVerified = () => {
 
             <div>
               <div className="AdvoPng">
-                <img
-                  style={{ width: "100px" }}
-                  src={lawyerData.image || "Images/avatar.png"}
-                  alt=""
-                />
+                <img src={lawyerData.image || "Images/avatar.png"} alt="" />
               </div>
             </div>
           </div>

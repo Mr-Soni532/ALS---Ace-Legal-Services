@@ -2,7 +2,7 @@ import { useContext, useState } from "react";
 import { useEffect } from "react";
 
 import DetailsComUser from "../../components/AdminCompo/userDetails";
-import UserContext from "../../context/Admin_page/userFunction/userContext";
+
 import "./admin_css/user.css";
 import Headers from "../../components/AdminCompo/Headers";
 import SearchBar from "../../components/AdminCompo/SearchCompo";
@@ -11,6 +11,7 @@ import Loading from "../../components/AdminCompo/Loading";
 import HOST from "../../utils/baseUrl";
 import NoDataHere from "../../components/AdminCompo/NoDataHere";
 import { notification } from "antd";
+import { UserContext } from "../../context/Admin_page/userFunction/userState";
 
 const AdminClient = () => {
   const [AllClients, setAllClients] = useState([]);
@@ -23,6 +24,9 @@ const AdminClient = () => {
       placement: "top",
     });
   };
+  useEffect(() => {
+    GetAllClients();
+  }, []);
 
   async function GetAllClients() {
     try {
@@ -39,21 +43,24 @@ const AdminClient = () => {
   const context = useContext(UserContext);
 
   const keys = ["name", "Email", "UserID"];
+
+  const [loading, setloading] = useState(false);
+  const [err, seterr] = useState(false);
   const [query, setQuery] = useState(null);
   const [option, setOption] = useState("name");
-
-  const { getUser, users, setUser, loading, err, deletefun } = context;
-  // const [ loadings , setLoading ] = useState(loading)
-  let data = [...users];
   const [currentPage, setCurrentPage] = useState(1);
-  const userPerpage = 8;
-  const totalPages = Math.ceil(data.length / userPerpage);
 
-  const sliceTodos = () => {
-    const indexOfLastTodo = currentPage * userPerpage;
-    const indexOfFirstTodo = indexOfLastTodo - userPerpage;
-    return data.slice(indexOfFirstTodo, indexOfLastTodo);
-  };
+  const { UserDetails, setUserDetails } = context;
+  console.log(UserDetails);
+
+  // const userPerpage = 8;
+  // const totalPages = Math.ceil(data.length / userPerpage);
+
+  // const sliceTodos = () => {
+  //   const indexOfLastTodo = currentPage * userPerpage;
+  //   const indexOfFirstTodo = indexOfLastTodo - userPerpage;
+  //   return data.slice(indexOfFirstTodo, indexOfLastTodo);
+  // };
 
   const handlePageChange = (page) => {
     setCurrentPage(page);
@@ -68,29 +75,24 @@ const AdminClient = () => {
       let data = await res.json();
       console.log(data);
       openNotification("Success");
-    GetAllClients()
+      GetAllClients();
     } catch (error) {
       console.log(error);
       alert(error.message);
     }
   };
 
-  useEffect(() => {
-    GetAllClients();
-    getUser();
-  }, []);
+  // const search = (data) => {
+  //   return data.filter((item) => {
+  //     if (!query) {
+  //       return item;
+  //     } else {
+  //       return keys.some(() => item[option].toLowerCase().includes(query));
+  //     }
+  //   });
+  // };
 
-  const search = (data) => {
-    return data.filter((item) => {
-      if (!query) {
-        return item;
-      } else {
-        return keys.some(() => item[option].toLowerCase().includes(query));
-      }
-    });
-  };
-
-  data = search(users);
+  // data = search(users);
 
   return (
     <div className="UserAdminBoxxx">
@@ -121,7 +123,7 @@ const AdminClient = () => {
                 }}
               />
               <div>
-                {Array.from({ length: totalPages }, (_, index) => (
+                {Array.from({ length: 2 }, (_, index) => (
                   <button
                     className="peginationBtn"
                     key={index + 1}

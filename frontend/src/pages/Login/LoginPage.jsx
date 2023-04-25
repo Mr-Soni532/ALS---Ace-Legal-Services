@@ -2,7 +2,7 @@ import React from "react";
 import Login from "../../components/login/Login";
 import "./login.css";
 import { Link } from "react-router-dom";
-const LoginPage = ({setAuthentication}) => {
+const LoginPage = () => {
   return (
     <div className="loginpage">
       <div>
@@ -13,7 +13,7 @@ const LoginPage = ({setAuthentication}) => {
             alt="acelogo"
           />
         </Link>
-        <Login setAuthentication={setAuthentication}/>
+        <Login />
       </div>
     </div>
   );

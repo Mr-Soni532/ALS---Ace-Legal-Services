@@ -1,14 +1,69 @@
-import React from "react";
+import React, { useContext, useEffect, useState } from "react";
 import DashNavbar from "../../components/UserDashboardComponents/DashNavbar/DashNavbar";
 import UserProfile from "../../components/UserDashboardComponents/UserProfile/UserProfile";
 import AppointmentsArea from "../../components/UserDashboardComponents/AppointmentsArea/AppointmentsArea";
-// import HOST from "../../utils/baseUrl";
-const UserDashboard = () => {
+import HOST from "../../utils/baseUrl";
+import { UserContext } from "../../context/Admin_page/userFunction/userState";
+import { useNavigate } from "react-router-dom";
+import { notification } from "antd";
+import { AuthContext } from "../../context/AuthContext/AuthState";
+import Loading from "../../components/AdminCompo/Loading";
 
-  return (
+const UserDashboard = () => {
+  const [api, contextHolder] = notification.useNotification();
+
+  const { Auth, setAuth } = useContext(AuthContext);
+  const { UserDetails, setUserDetails } = useContext(UserContext);
+  const openNotification = (msg, desc) => {
+    api.info({
+      message: msg,
+      description: desc,
+      placement: "top",
+    });
+  };
+
+  let [UserData, setUserData] = useState({});
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    setTimeout(() => {
+      setAuth((prev) => {
+        if (prev == false) {
+          navigate("/unAuthenticated");
+          return false;
+        }
+        return true;
+      });
+    }, 2000);
+
+    const params = new Proxy(new URLSearchParams(window.location.search), {
+      get: (searchParams, prop) => searchParams.get(prop),
+    });
+    if (params.authsuccess) {
+      GetUserByID(params.userID);
+    }
+    async function GetUserByID(id) {
+      try {
+        let res = await fetch(`${HOST}/user/${id}`);
+        let data = await res.json();
+        setUserDetails(data.user);
+        setUserData(data.user);
+        setAuth(true);
+        openNotification("Login Success", "Succcessfully logged in.");
+      } catch (error) {
+        console.log(error);
+        openNotification("Login Failed", "Trouble logged in.");
+      }
+    }
+  }, []);
+
+  return !Auth ? (
+    <Loading />
+  ) : (
     <div>
-      <DashNavbar />
-      <UserProfile />
+      {contextHolder}
+      <DashNavbar UserData={UserData} />
+      <UserProfile UserData={UserData} />
       <AppointmentsArea />
     </div>
   );

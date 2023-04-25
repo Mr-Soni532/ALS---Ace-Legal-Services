@@ -4,20 +4,20 @@ import { Link, Navigate, useNavigate } from "react-router-dom";
 import "./otppage.css";
 import HOST from "../../utils/baseUrl";
 const OtpPage = () => {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   // let [otp, setOtp] = useState("");
   let [one, setOne] = useState("");
   let [two, setTwo] = useState("");
   let [three, setThree] = useState("");
   let [four, setFour] = useState("");
 
-  let userId=localStorage.getItem("otp_userId");
+  let userId = localStorage.getItem("otp_userId");
   const handleSubmit = (event) => {
     event.preventDefault();
     let formOTP = one + two + three + four;
     let data = {
-      otp:formOTP,
-      userId
+      otp: formOTP,
+      userId,
     };
 
     verifyOTP(data);
@@ -32,7 +32,7 @@ const OtpPage = () => {
       body: JSON.stringify(data),
     });
     const json = await response.json();
-    navigate('/login')
+    navigate("/login");
     // if (json.status === "VERIFIED") {
     //   alert(json.msg);
     // } else {
@@ -86,7 +86,9 @@ const OtpPage = () => {
             }}
           />
         </div>
-        <button type="submit" className="otpvalidate">Verify</button>
+        <button type="submit" className="otpvalidate">
+          Verify
+        </button>
         {/* <p className="resend">You don't receive the code ?<a className="resend-action">resend</a></p> */}
       </form>
     </div>

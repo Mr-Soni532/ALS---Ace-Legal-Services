@@ -63,7 +63,7 @@ const AdminDetails = () => {
   data = search(users);
 
   useEffect(() => {
-    GetAllAdmins();
+    // GetAllAdmins();
     getUser();
   }, []);
 

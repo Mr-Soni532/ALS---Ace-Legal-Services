@@ -18,7 +18,7 @@ const AdminPage = () => {
             <AdminClient />
           ) : Section === "Lawyer" ? (
             <AdminLawyer />
-          ) : Section ==="Admin" ? (
+          ) : Section === "Admin" ? (
             <AdminDetails />
           ) : (
             <AdminDashboard />

@@ -65,7 +65,7 @@ const AdminLawyer = () => {
       let data = await res.json();
       console.log(data);
       openNotification("Success");
-      GetAllLawyers()
+      GetAllLawyers();
     } catch (error) {
       console.log(error);
       alert(error.message);
@@ -87,7 +87,7 @@ const AdminLawyer = () => {
       .then((data) => data.json())
       .then((data) => setAllLawyers(data.data));
   }, [AllLawyers]);
-  
+
   // const search = (data) => {
   //   return data.filter((item) => {
   //     if (!query) {
@@ -104,19 +104,21 @@ const AdminLawyer = () => {
     getLawyer();
   }, []);
 
-    //! =============> DEBOUNCE
-    function debounce(func, timeout = 300) {
-      let timer;
-      return (...args) => {
-        clearTimeout(timer);
-        timer = setTimeout(() => { func.apply(this, args); }, timeout);
-      };
-    }
-    function saveInput(e) {
-      setQuery(e.target.value)
-    }
-    const processChange = debounce((e) => saveInput(e));
-    //! ===================================================>
+  //! =============> DEBOUNCE
+  function debounce(func, timeout = 300) {
+    let timer;
+    return (...args) => {
+      clearTimeout(timer);
+      timer = setTimeout(() => {
+        func.apply(this, args);
+      }, timeout);
+    };
+  }
+  function saveInput(e) {
+    setQuery(e.target.value);
+  }
+  const processChange = debounce((e) => saveInput(e));
+  //! ===================================================>
 
   return (
     <div>

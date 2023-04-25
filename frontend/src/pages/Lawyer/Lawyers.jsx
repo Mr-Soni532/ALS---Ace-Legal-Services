@@ -13,35 +13,38 @@ const Lawyers = () => {
   const [option, setOption] = useState("name");
   const [items, setItems] = useState([]);
 
-  useEffect(() => {
-    fetch(`${HOST}/lawyer/searchLawyer`, {
+  async function FetchLawyers() {
+    let response = await fetch(`${HOST}/lawyer/searchLawyer`, {
       method: "POST",
-      // authorization: "bearer " + JSON.stringify(localStorage.getItem("token")),
-      headers: {
-        "Content-Type": "application/json",
-      },
+      headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
         type: option || "",
         value: query.toLowerCase() || "",
       }),
-    })
-      .then((data) => data.json())
-      .then((data) => setItems(data.data));
-  }, [query]);
+    });
+    let data = await response.json();
+    setItems(data.data);
+  }
+
+  useEffect(() => {
+    FetchLawyers();
+  }, [query, option]);
 
   return (
     <div>
       <DashNavbar />
-
       <div className="search-div">
         <SearchBar query={query} setQuery={setQuery} setOption={setOption} />
       </div>
       <div className="LawyerArea">
         <LawyerFilterer />
         <div className="lawyer-list">
-
-          {items?.map((el,index) => {
-            return <div key={index}><LawyerCard data={el}/></div>;
+          {items?.map((el, index) => {
+            return (
+              <div key={index + "456789721"}>
+                <LawyerCard key={index + "7897546"} data={el} />
+              </div>
+            );
           })}
         </div>
       </div>
