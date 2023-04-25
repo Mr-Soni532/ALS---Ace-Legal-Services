@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import "./signupPage.css";
-import { Link, Navigate, useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import HOST from "../../utils/baseUrl";
 import { notification } from "antd";
 
@@ -32,12 +32,12 @@ const SignUpPage = () => {
     });
     const json = await response.json();
     console.log(json);
-    if (json.success == true) {
+    if (json.success === true) {
       SopenNotification("Signup Successful", "Please Verify with OTP");
       setTimeout(() => {
         navigate("/verifyOTP");
       }, 1000);
-    } else if (json.exist == true) {
+    } else if (json.exist === true) {
       SopenNotification("Already Signed In", json.Message);
     } else {
       console.log(json.Message);

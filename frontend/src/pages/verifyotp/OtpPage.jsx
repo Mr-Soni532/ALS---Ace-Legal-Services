@@ -1,11 +1,10 @@
 import React, { useState } from "react";
-import { Link, Navigate, useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 import "./otppage.css";
 import HOST from "../../utils/baseUrl";
 const OtpPage = () => {
   const navigate = useNavigate();
-  // let [otp, setOtp] = useState("");
   let [one, setOne] = useState("");
   let [two, setTwo] = useState("");
   let [three, setThree] = useState("");
@@ -21,7 +20,6 @@ const OtpPage = () => {
     };
 
     verifyOTP(data);
-    // alert("hi");
   };
   const verifyOTP = async (data) => {
     const response = await fetch(`${HOST}/user/verifyOTP`, {
@@ -31,13 +29,9 @@ const OtpPage = () => {
       },
       body: JSON.stringify(data),
     });
-    const json = await response.json();
+    const resData = await response.json();
+    console.log(resData);
     navigate("/login");
-    // if (json.status === "VERIFIED") {
-    //   alert(json.msg);
-    // } else {
-    //   alert(json.msg);
-    // }
   };
 
   return (

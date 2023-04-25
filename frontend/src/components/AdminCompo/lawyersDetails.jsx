@@ -1,11 +1,18 @@
-import React from "react";
+import React, { useState } from "react";
 import NoDataHere from "./NoDataHere";
+import Loading from "./Loading";
 
 const DetailsCom = ({ users, deletEele }) => {
-  return users?.length == 0 ? (
-    <>
-      <NoDataHere />
-    </>
+  const [loading, setloading] = useState(true);
+
+  setTimeout(() => {
+    setloading((prev) => false);
+  }, 1000);
+
+  return loading ? (
+    <Loading />
+  ) : users?.length === 0 ? (
+    <NoDataHere />
   ) : (
     <>
       {users &&
@@ -32,9 +39,7 @@ const DetailsCom = ({ users, deletEele }) => {
                 <p>{el.bio}</p>
                 <div className="skilsDiv">
                   {el.skills.map((item) => {
-                    if (el !== "") {
-                      return <p>{item}</p>;
-                    }
+                    return <p>{item}</p>;
                   })}
                 </div>
 

@@ -1,22 +1,26 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import "./EventVerified.css";
 import { Link, useNavigate } from "react-router-dom";
 import { AppointmentContext } from "../../context/appointment/appointmentContext";
 import HOST from "../../utils/baseUrl";
+import Loading from "../../components/AdminCompo/Loading";
+import { AuthContext } from "../../context/AuthContext/AuthState";
 
 const EventVerified = () => {
   const navigate = useNavigate();
+
+  const { Auth, setAuth } = useContext(AuthContext);
   const [loading, setloading] = useState(false);
   const context = useContext(AppointmentContext);
-  const { appointment_Details } = context;
 
+  const { appointment_Details } = context;
   let cloneDate = appointment_Details.date;
   console.log(appointment_Details.date, cloneDate);
 
   let newDateArr = cloneDate.split("-").map(Number);
 
   const lawyerData = JSON.parse(localStorage.getItem("lawyerData"));
-
+  // if (!lawyerData) setloading(true);
   async function handleBook() {
     setloading(true);
     let res = await fetch(`${HOST}/user/addAppointment`, {
@@ -46,9 +50,24 @@ const EventVerified = () => {
   }
   function handlePayment() {
     //   // Pending
+    console.log("Handle Payment Function");
   }
 
-  return (
+  useEffect(() => {
+    setTimeout(() => {
+      setAuth((prev) => {
+        if (prev === false) {
+          navigate("/unAuthenticated");
+          return false;
+        }
+        return true;
+      });
+    }, 2000);
+  }, [setAuth, navigate]);
+
+  return !Auth ? (
+    <Loading />
+  ) : (
     <div className="EventVerified">
       {loading ? (
         <div className="reviewLoader">

@@ -32,7 +32,7 @@ const UnAuthenticated = () => {
         src="Images\disconnet.jpg"
         alt="UnAuthenticated"
       />
-      <h1 style={{ fontSize: "60px" }}>Not Authorized</h1>
+      <h1 style={{ fontSize: "60px" }}>401 Unauthorized</h1>
       <h1 style={{ color: "#fdd41d" }}>
         Looks like you are not logged in, redirecting {redirect}
       </h1>

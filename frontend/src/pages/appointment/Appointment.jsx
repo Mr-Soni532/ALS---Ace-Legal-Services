@@ -14,14 +14,14 @@ const Appointment = () => {
   useEffect(() => {
     setTimeout(() => {
       setAuth((prev) => {
-        if (prev == false) {
+        if (prev === false) {
           navigate("/unAuthenticated");
           return false;
         }
         return true;
       });
     }, 2000);
-  }, [Auth]);
+  }, [Auth, setAuth, navigate]);
 
   return !Auth ? (
     <Loading />

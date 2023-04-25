@@ -139,23 +139,10 @@ const AdminLawyer = () => {
         {loading ? (
           <Loading />
         ) : (
-          <>
-            <div className="contentConatiner">
-              {/* <DetailsCom users={sliceTodos()} deletEele={deletEele} /> */}
-              <DetailsCom users={AllLawyers} deletEele={deletEele} />
-            </div>
-            {/* <div style={{ textAlign: "right" }}>
-              {Array.from({ length: totalPages }, (_, index) => (
-                <button
-                  className="peginationBtn"
-                  key={index + 1}
-                  onClick={() => handlePageChange(index + 1)}
-                >
-                  {index + 1}
-                </button>
-              ))}
-            </div> */}
-          </>
+          <div className="contentConatiner">
+            {/* <DetailsCom users={sliceTodos()} deletEele={deletEele} /> */}
+            <DetailsCom users={AllLawyers} deletEele={deletEele} />
+          </div>
         )}
       </div>
     </div>

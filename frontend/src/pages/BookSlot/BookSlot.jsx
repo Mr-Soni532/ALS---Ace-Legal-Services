@@ -7,8 +7,14 @@ import DashNavbar from "../../components/UserDashboardComponents/DashNavbar/Dash
 import { Breadcrumb, Space } from "antd";
 import Stepss from "./Progress";
 import HOST from "../../utils/baseUrl";
+import { AuthContext } from "../../context/AuthContext/AuthState";
+import { useNavigate } from "react-router-dom";
+import Loading from "../../components/AdminCompo/Loading";
 
 const BookSlot = () => {
+  const navigate = useNavigate();
+  const { Auth, setAuth } = useContext(AuthContext);
+
   const context = useContext(AppointmentContext);
   const { setDetails } = context;
   const [inputDate, setInputDate] = useState("");
@@ -59,16 +65,28 @@ const BookSlot = () => {
 
   // updating the appointment context
   useEffect(() => {
+    setTimeout(() => {
+      setAuth((prev) => {
+        if (prev === false) {
+          navigate("/unAuthenticated");
+          return false;
+        }
+        return true;
+      });
+    }, 2000);
+
     setDetails((prev) => ({
       ...prev,
       ...{ date: inputDate },
     }));
-  }, [inputDate, setDetails]);
+  }, [inputDate, setDetails, getAvailableSlots]);
 
   function api() {}
   api();
 
-  return (
+  return !Auth ? (
+    <Loading />
+  ) : (
     <div>
       <DashNavbar />
       <hr /> <br />

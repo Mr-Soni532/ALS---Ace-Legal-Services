@@ -17,6 +17,22 @@ const AdminClient = () => {
   const [AllClients, setAllClients] = useState([]);
   const [api, contextHolder] = notification.useNotification();
 
+  const processChange = debounce((e) => saveInput(e));
+  //! =============> DEBOUNCE
+  function debounce(func, timeout = 100) {
+    let timer;
+    return (...args) => {
+      clearTimeout(timer);
+      timer = setTimeout(() => {
+        func.apply(this, args);
+      }, timeout);
+    };
+  }
+  function saveInput(e) {
+    setQuery(e.target.value);
+    GetAllClients();
+  }
+
   const openNotification = (msg) => {
     api.success({
       message: msg,
@@ -34,6 +50,7 @@ const AdminClient = () => {
       let data = await res.json();
       console.log(data);
       setAllClients(data);
+      setloading(false);
     } catch (error) {
       console.log(error);
       alert(error.message);
@@ -67,6 +84,7 @@ const AdminClient = () => {
   };
 
   const deletEele = async (id) => {
+    setloading(true);
     console.log(id);
     try {
       let res = await fetch(`${HOST}/admin/deleteUser/${id}`, {
@@ -82,15 +100,15 @@ const AdminClient = () => {
     }
   };
 
-  // const search = (data) => {
-  //   return data.filter((item) => {
-  //     if (!query) {
-  //       return item;
-  //     } else {
-  //       return keys.some(() => item[option].toLowerCase().includes(query));
-  //     }
-  //   });
-  // };
+  const search = (data) => {
+    return data.filter((item) => {
+      if (!query) {
+        return item;
+      } else {
+        return keys.some(() => item[option].toLowerCase().includes(query));
+      }
+    });
+  };
 
   // data = search(users);
 
@@ -110,6 +128,7 @@ const AdminClient = () => {
               query={query}
               setQuery={setQuery}
               setOption={setOption}
+              processChange={processChange}
             />
             <div className="contentConatinerCust">
               <DetailsComUser users={AllClients} deletEele={deletEele} />

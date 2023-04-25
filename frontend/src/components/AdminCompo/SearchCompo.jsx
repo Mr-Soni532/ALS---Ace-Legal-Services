@@ -7,7 +7,7 @@ const SearchBar = ({ name, query, setQuery, setOption, processChange }) => {
   return (
     <div className="contentNav">
       <h2 className="SectionNameAdmin">{name}</h2>
-      {name == "Lawyers" ? (
+      {name === "Lawyers" ? (
         <div>
           <Link to="/addlawyer">
             <button className="AddLawyerButton">
@@ -17,7 +17,7 @@ const SearchBar = ({ name, query, setQuery, setOption, processChange }) => {
           </Link>
         </div>
       ) : null}
-      {name == "Lawyers" ? (
+      {name === "Lawyers" ? (
         <>
           <div
             style={{
@@ -78,7 +78,7 @@ const SearchBar = ({ name, query, setQuery, setOption, processChange }) => {
             </div>
           </div>
         </>
-      ) : name == "Clients" ? (
+      ) : name === "Clients" ? (
         <div
           style={{
             width: "70%",
@@ -224,8 +224,8 @@ export default SearchBar;
 //     }
 // })
 
-{
-  /* <div>
+// {
+/* <div>
 <div className="select">
     <span className="search-by">Search By : </span>
     <div className="mydict">
@@ -271,7 +271,7 @@ export default SearchBar;
   <input type="search" placeholder="Search..." />
 </div>
 </div> */
-}
+// }
 
 // {name == "Lawyers" ? (
 //   <select>

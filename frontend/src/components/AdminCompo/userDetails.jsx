@@ -14,7 +14,7 @@ const DetailsComUser = ({ users, deletEele }) => {
             <div
               className="customerCard"
               key={el.id}
-              data-aos="fade-left"
+              data-aos="fade-up"
               data-aos-delay={index * 50}
             >
               <div className="AdminClientImage">

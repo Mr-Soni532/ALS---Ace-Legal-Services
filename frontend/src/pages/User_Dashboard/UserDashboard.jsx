@@ -35,7 +35,7 @@ const UserDashboard = () => {
   useEffect(() => {
     setTimeout(() => {
       setAuth((prev) => {
-        if (prev == false) {
+        if (prev === false) {
           navigate("/unAuthenticated");
           return false;
         }
