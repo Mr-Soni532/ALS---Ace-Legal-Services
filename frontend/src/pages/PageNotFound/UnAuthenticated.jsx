@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-const PageNotFound = () => {
+const UnAuthenticated = () => {
   const [redirect, setRedirect] = useState(5);
   const navigate = useNavigate();
   useEffect(() => {
@@ -30,12 +30,14 @@ const PageNotFound = () => {
       <img
         style={{ width: "500px" }}
         src="Images\disconnet.jpg"
-        alt="pagenotfound"
+        alt="UnAuthenticated"
       />
-      <h1 style={{ fontSize: "60px" }}>404 Page Not Found</h1>
-      <h1 style={{ color: "#fdd41d" }}>Redirecting in {redirect}</h1>
+      <h1 style={{ fontSize: "60px" }}>401 Unauthorized</h1>
+      <h1 style={{ color: "#fdd41d" }}>
+        Looks like you are not logged in, redirecting {redirect}
+      </h1>
     </div>
   );
 };
 
-export default PageNotFound;
+export default UnAuthenticated;

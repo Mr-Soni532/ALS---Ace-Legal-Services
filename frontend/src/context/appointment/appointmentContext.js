@@ -5,7 +5,7 @@ import React, { useState } from "react";
 const AppointmentContext = createContext();
 export { AppointmentContext };
 const AppointmentState = ({ children }) => {
-  const [appointment_detials, setDetials] = useState({
+  const [appointment_Details, setDetails] = useState({
     name: '',
     email: '',
     phone: 0,
@@ -13,15 +13,17 @@ const AppointmentState = ({ children }) => {
     type: '',
     date: '',
     time: '',
-    appointmentSlot:-1
+    appointmentSlot: -1
   })
+  useEffect(() => {
+    console.log(appointment_Details);
+  }, [appointment_Details])
   return (
-    <AppointmentContext.Provider value={{ appointment_detials, setDetials }}>
+    <AppointmentContext.Provider value={{ appointment_Details, setDetails }}>
       {children}
     </AppointmentContext.Provider>
   )
 }
 
 export default AppointmentState
-
 

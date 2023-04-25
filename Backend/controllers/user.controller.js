@@ -15,44 +15,21 @@ exports.fetchAllUsers = async (req, res) => {
 }
 exports.createUser = (req, res) => {
     const { name, gender, phone, email, password } = req.body;
-    UserModel.find({ email })
-        .then((result) => {
-            if (result.length) {
-                res.json(
-
-                    { msg: "you are already available , please login" }
-                )
-            } else {
-                const saltRounds = 10;
-                bcrypt
-                    .hash(password, saltRounds)
-                    .then((hashpassword) => {
-                        const user = new UserModel(
-                            { name, gender, email, phone, password: hashpassword, verified: false }
-                        );
-                        user
-                            .save()
-                            .then((result) => {
-                                sendOTPVerificationEmail(result, res);
-                                // res.send({"status":"success","msg":"Sign up Successfull"});
-                            })
-                            .catch((err) => {
-                                console.log(err);
-                                res.json({
-                                    status: "FAILED",
-                                    msg: "Sign Up Failed"
-                                })
-                            })
-                    })
-                    .catch((err) => {
-                        console.log(err);
-                        res.json({
-                            status: "FAILED",
-                            msg: "Sign Up Failed"
-                        })
-                    })
-            }
-        })
+    let Users = UserModel.find({ email })
+    if (Users.length > 0) {
+        return res.json({ Message: "You have Aready Signed Up , Please login" })
+    }
+    bcrypt.hash(password, 10, async (err, hash) => {
+        if (hash) {
+            const instance = new UserModel({ name, gender, email, phone, password: hash, verified: false });
+            await instance.save()
+            sendOTPVerificationEmail(instance, res);
+            return res.json({ exist: false, success: true, Message: "Sign up Successfull" });
+        } else {
+            console.log(err);
+            return res.json({ exist: false, success: false, Message: "Sign Up Failed", err })
+        }
+    })
 }
 exports.userLogin = async (req, res) => {
     const { email, password } = req.body;
@@ -70,7 +47,10 @@ exports.userLogin = async (req, res) => {
 
             if (result) {
                 const token = jwt.sign({ id: userid }, "ALS");
-                res.send({ msg: "login successful", "token": token, status: "success", "name": username ,"userData":userAvailable})
+                res.send({
+                    msg: "login successful", "token": token, status: "success",
+                    name: username, userData: userAvailable
+                })
             } else {
                 res.send({ msg: "login failed", status: "error" })
             }
@@ -91,7 +71,7 @@ const transporter = nodemailer.createTransport({
 
 const sendOTPVerificationEmail = async ({ _id, email }, res) => {
     try {
-        const otp = `${1000+Math.floor(Math.random() * 1000)}`;
+        const otp = `${1000 + Math.floor(Math.random() * 1000)}`;
         const mailOptions = {
             from: "ace.legal.services.official@gmail.com",
             to: email,
@@ -108,14 +88,6 @@ const sendOTPVerificationEmail = async ({ _id, email }, res) => {
         })
         await newOTPVerification.save();
         await transporter.sendMail(mailOptions);
-        res.json({
-            status: "Pending",
-            msg: "Verification otp email sent",
-            data: {
-                userId: _id,
-                email
-            }
-        })
     } catch (error) {
         res.send(error)
     }
@@ -161,13 +133,13 @@ exports.verifyOTP = async (req, res) => {
 }
 
 
-exports.forgotPassword = async(req,res)=>{
+exports.forgotPassword = async (req, res) => {
     console.log(req.boyd)
-    let {email}=req.body;
-    let user = await UserModel.find({email});
+    let { email } = req.body;
+    let user = await UserModel.find({ email });
     console.log(user)
-    let userName=user[0].name;
-    let url="https://joyful-kheer-dd1d3b.netlify.app/"
+    let userName = user[0].name;
+    let url = "https://joyful-kheer-dd1d3b.netlify.app/"
 
     try {
         const mailOptions = {
@@ -182,8 +154,8 @@ exports.forgotPassword = async(req,res)=>{
         res.json({
             msg: "Password change link is sended",
             Status: "Success",
-            data:{
-                userId:user[0]._id
+            data: {
+                userId: user[0]._id
             }
         })
     } catch (error) {
@@ -202,6 +174,15 @@ exports.getaUserDataByEmail = async (req, res) => {
         }
     } catch (error) {
         res.send({ msg: "Some error" })
+    }
+}
+exports.getUserByID = async (req, res) => {
+    let id = req.params.id;
+    try {
+        let user = await UserModel.findOne({ _id: id });
+        res.json({ Message: "User Data By Google Auth", user })
+    } catch (error) {
+        res.send({ Message: "Some error in Backend" })
     }
 }
 

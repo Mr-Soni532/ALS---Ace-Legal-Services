@@ -3,22 +3,68 @@ import "./AppointmentCard.css";
 import ApoBtns from "./ApoBtns";
 import Star from "./Star";
 import HOST from "../../../utils/baseUrl";
-const AppointmentCard = ({ data, index }) => {
-  const [lawyerDetails, setLawyerDetails] = useState({})
-  useEffect(() => {
-    fetch(`${HOST}/lawyer/searchLawyerByEmail?email=${data.lawyerEmail}`)
-      .then(data => data.json()).then(data => setLawyerDetails(data.data[0]))
-  }, [])
 
-  let starArr = new Array(lawyerDetails.rating).fill([])
+const AppointmentCard = ({
+  data,
+  index,
+  notification,
+  fnotification,
+  RenderAgain,
+}) => {
+  const [lawyerDetails, setLawyerDetails] = useState({});
+
+  function GetLaywerByEmail() {
+    fetch(`${HOST}/lawyer/searchLawyerByEmail?email=${data.lawyerEmail}`)
+      .then((data) => data.json())
+      .then((data) => setLawyerDetails(data.data[0]));
+  }
+  useEffect(() => {
+    GetLaywerByEmail();
+  }, [data]);
+
+  async function DeleteAppointment(id) {
+    if (!id) return;
+    try {
+      let res = await fetch(`${HOST}/user/deleteAppointment`, {
+        method: "DELETE",
+        headers: {
+          "Content-type": "application/json",
+        },
+        body: JSON.stringify({ DeleteId: id }),
+      });
+      let data = await res.json();
+      if (data.success) {
+        notification(
+          "Appointment Cancelled",
+          "Succcessfully cancelled the appointment"
+        );
+        RenderAgain();
+      }
+    } catch (error) {
+      fnotification(
+        "Appointment Cancel Unsuccessful",
+        "Cancelling appointment unsuccessful"
+      );
+      RenderAgain();
+      console.log(error);
+    }
+  }
+
+  let starArr = new Array(lawyerDetails.rating).fill([]);
   return (
-    <div className="BigAPCARD" data-aos="fade-right" data-aos-delay="50" key={index}>
+    <div
+      className="BigAPCARD"
+      data-aos="fade-down"
+      data-aos-delay="50"
+      key={index}
+    >
       <div className="AppointmentCard">
         <div className="Yelowbar"></div>
         <div className="AppRightLOL">
           <div>
             <h1>
-              {lawyerDetails.name}{` `}
+              {lawyerDetails.name}
+              {` `}
               <img
                 style={{ width: "35px", transform: "translateY(8px)" }}
                 src="Images/DashBoardImages/Yellowpog.png"
@@ -27,15 +73,15 @@ const AppointmentCard = ({ data, index }) => {
             </h1>
             <p style={{ color: "#675f5f" }}>
               {`(Associate Attorney) -`}
-              {
-                starArr.map((el, index) => {
-                  return <Star size={20} trans={3} key={index}/>
-                })
-              }
+              {starArr.map((el, index) => {
+                return <Star size={20} trans={3} key={index + "asd231"} />;
+              })}
             </p>
 
             <p className="AdvThings">Meeting time - {data.appointmentTime}</p>
-            <p className="AdvThings">Meeting Date - {data.appointment_date.date}</p>
+            <p className="AdvThings">
+              Meeting Date - {data.appointment_date.date}
+            </p>
             {/* <p className="AdvThings">Time Remainig - {data.appointmentTime}</p> */}
             <p
               className="AdvThings"
@@ -48,6 +94,7 @@ const AppointmentCard = ({ data, index }) => {
             <br />
             <div>
               <ApoBtns
+                deleteFn={DeleteAppointment}
                 text={"Message"}
                 icon={
                   <svg
@@ -62,6 +109,7 @@ const AppointmentCard = ({ data, index }) => {
                 }
               />
               <ApoBtns
+                deleteFn={DeleteAppointment}
                 text={"Reschedule"}
                 icon={
                   <svg
@@ -76,6 +124,8 @@ const AppointmentCard = ({ data, index }) => {
                 }
               />
               <ApoBtns
+                idd={data._id}
+                deleteFn={DeleteAppointment}
                 text={"Cancel Appointment"}
                 icon={
                   <svg

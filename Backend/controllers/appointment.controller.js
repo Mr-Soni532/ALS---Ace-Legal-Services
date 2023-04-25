@@ -16,9 +16,8 @@ const transporter = nodemailer.createTransport({
 
 exports.addAppointment = async (req, res) => {
     let payload = req.body;
-    console.log(req.body)
-    const user = await UserModel.find({email: payload.userEmail});
-    const lawyer = await LawyerModel.find({email: payload.lawyerEmail});
+    const user = await UserModel.find({ email: payload.userEmail });
+    const lawyer = await LawyerModel.find({ email: payload.lawyerEmail });
     console.log(user[0].name, lawyer[0].name, payload.appointment_date?.date, payload?.appointmentTime, payload?.meeting_type)
     payload['userId'] = req.body.userid;
     const mailOptions = {
@@ -39,11 +38,16 @@ exports.addAppointment = async (req, res) => {
 }
 
 exports.deleteAppointment = async (req, res) => {
-    let payload = req.body;
-    const userEMail = await UserModel.findById(payload.userId);
+    let id = req.body.DeleteId
+    console.log("Delete Request=>>", id);
+    let Appointment = await AppointmentModel.find({ _id: id })
+    if (Appointment.length == 0) {
+        return res.status(200).json({ message: 'No Appointment Found', success: true });
+    }
+    let useremail = Appointment[0].userEmail
     try {
-        await AppointmentModel.findByIdAndDelete(req.params.id)
-        await sendEmail(emailTemplate.appointmentRejected())
+        await AppointmentModel.findByIdAndDelete(id)
+        // await sendEmail(emailTemplate.appointmentRejected(useremail))
         res.status(200).json({ message: 'Appointment has been removed', success: true });
     } catch (error) {
         res.status(500).json({ error: error.message, success: false })

@@ -1,4 +1,2 @@
-// const HOST = 'http://localhost:4000'
-const HOST = 'https://als-backend.onrender.com'
-export default HOST 
-
+const HOST = 'https://ace-legal-services-backend.vercel.app'
+export default HOST

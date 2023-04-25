@@ -132,8 +132,11 @@
   line-height: 1.25rem;
   color: black;
 }
-
+.SocialIcons {
+  cursor: pointer;
+}
 .SocialIcons > div {
+  cursor: pointer;
   margin: 5px;
   display: flex;
   z-index: 1;

@@ -34,6 +34,7 @@
 }
 
 .Signupform input {
+  margin: 2px 0px !important;
   font-size: 15px;
   width: 100%;
   border: 2px solid rgb(207, 203, 203);

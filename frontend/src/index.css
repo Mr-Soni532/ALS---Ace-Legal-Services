@@ -11,8 +11,11 @@
   align-items: center;
 }
 img,
-svg {
-  cursor: pointer;
+svg,
+button,
+select,
+a {
+  cursor: pointer !important;
 }
 a,
 a:focus {

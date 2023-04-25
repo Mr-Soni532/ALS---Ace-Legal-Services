@@ -8,14 +8,17 @@ import AppointmentState from './context/appointment/appointmentContext';
 import { BrowserRouter } from 'react-router-dom';
 import UserState from './context/Admin_page/userFunction/userState';
 import AdminState from './context/Admin_page/adminContext/adminState';
-import LawyerContext from './context/Admin_page/lawyercontext/lawyerContext';
 import LawyerState from './context/Admin_page/lawyercontext/lawyerState';
+import AuthState from './context/AuthContext/AuthState';
+
+
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
 
-  <React.StrictMode>
-    <BrowserRouter>
+
+  <BrowserRouter>
+    <AuthState>
       <AppointmentState>
         <UserState>
           <LawyerState>
@@ -25,8 +28,9 @@ root.render(
           </LawyerState>
         </UserState>
       </AppointmentState>
-    </BrowserRouter>
-  </React.StrictMode>
+    </AuthState>
+  </BrowserRouter>
+
 
 );
 

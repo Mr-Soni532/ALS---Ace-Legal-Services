@@ -1,19 +1,29 @@
-import React, { useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import ForgotModal from "./ForgotModal";
 import HOST from "../../utils/baseUrl.js";
 
-import { notification } from 'antd';
+import { notification } from "antd";
+import { UserContext } from "../../context/Admin_page/userFunction/userState";
+import { AuthContext } from "../../context/AuthContext/AuthState";
 
-
-const Login = ({ setAuthentication }) => {
+const Login = () => {
+  const { UserDetails, setUserDetails } = useContext(UserContext);
+  const { Auth, setAuth } = useContext(AuthContext);
   const [api, contextHolder] = notification.useNotification();
 
-  const openNotification = (msg) => {
+  const FopenNotification = (msg, desc) => {
     api.info({
       message: msg,
-      description: 'Enter valid account details.',
-      placement: 'top',
+      description: desc,
+      placement: "top",
+    });
+  };
+  const SopenNotification = (msg, desc) => {
+    api.success({
+      message: msg,
+      description: desc,
+      placement: "top",
     });
   };
 
@@ -38,16 +48,22 @@ const Login = ({ setAuthentication }) => {
       body: JSON.stringify({ email: data.email, password: data.password }),
     });
 
-    const json = await response.json();
-    if (json.status==='success') {
-      localStorage.setItem("token", json.token);
-      localStorage.setItem("userData", JSON.stringify(json.userData));
-      setAuthentication(true)
-      navigate("/userdashboard");
+    const Data = await response.json();
+    if (Data.status === "success") {
+      localStorage.setItem("token", Data.token);
+      setUserDetails(Data.userData);
+      SopenNotification("Login Success", "Succcessfully logged in.");
+      setAuth(true);
+      setTimeout(() => {
+        setAuth(true);
+        console.log("Login Success");
+        navigate("/userdashboard");
+      }, 1000);
     } else {
-      openNotification('Invalid Credentials')
+      FopenNotification("Invalid Credentials", "Enter valid account details.");
     }
   };
+
   const handleSubmit = (event) => {
     event.preventDefault();
     if (value === "User Email") {
@@ -60,13 +76,14 @@ const Login = ({ setAuthentication }) => {
       console.log("Hello from lawyer");
     } else {
       if (email === "admin@gmail.com" && password === "admin") {
-        navigate('/admin')
+        SopenNotification("Welcome Back Admin.", "Succcessfully logged in.");
+        setAuth(true);
+        navigate("/admin");
       }
     }
   };
   const google = () => {
     localStorage.clear();
-    setAuthentication(true)
     window.open(`${HOST}/auth/google`, "_self");
   };
   return (
@@ -156,7 +173,7 @@ const Login = ({ setAuthentication }) => {
               src="https://www.freepnglogos.com/uploads/google-logo-png/google-logo-png-webinar-optimizing-for-success-google-business-webinar-13.png"
               alt="icon"
             />
-            <label >Continue With Google</label>
+            <label>Continue With Google</label>
           </div>
           <div>
             <img

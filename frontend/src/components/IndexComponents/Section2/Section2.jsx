@@ -1,8 +1,14 @@
 import React from "react";
 import "./Section2.css";
 import { SearchOutlined } from "@ant-design/icons";
+import { useNavigate } from "react-router-dom";
 
 const Section2 = () => {
+  let navigate = useNavigate();
+  let redirect = () => {
+    navigate("/lawyers");
+  };
+
   return (
     <section className="SecTwoParent">
       <br />
@@ -13,6 +19,7 @@ const Section2 = () => {
       </h1>
       <br />
       <input
+        onClick={redirect}
         className="BigSearchBar"
         type="text"
         placeholder="Select Your City"

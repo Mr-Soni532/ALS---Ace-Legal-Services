@@ -1,10 +1,31 @@
-import React from "react";
+import React, { useContext, useEffect } from "react";
 import AppointmentForm from "../../components/appointment_form/Appointment_form";
 import "./appointment.styles.css";
 import DashNavbar from "../../components/UserDashboardComponents/DashNavbar/DashNavbar";
 import { Space } from "antd";
+import { AuthContext } from "../../context/AuthContext/AuthState";
+import { useNavigate } from "react-router-dom";
+import Loading from "../../components/AdminCompo/Loading";
+
 const Appointment = () => {
-  return (
+  const { Auth, setAuth } = useContext(AuthContext);
+
+  const navigate = useNavigate();
+  useEffect(() => {
+    setTimeout(() => {
+      setAuth((prev) => {
+        if (prev === false) {
+          navigate("/unAuthenticated");
+          return false;
+        }
+        return true;
+      });
+    }, 2000);
+  }, [Auth, setAuth, navigate]);
+
+  return !Auth ? (
+    <Loading />
+  ) : (
     <>
       <DashNavbar />
       <Space style={{ border: "1px solid wheat" }}>

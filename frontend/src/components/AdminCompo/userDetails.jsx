@@ -1,10 +1,12 @@
 import React from "react";
+import NoDataHere from "./NoDataHere";
 
 const DetailsComUser = ({ users, deletEele }) => {
-  console.log(users);
+  // console.log(users);
+
   return users?.length === 0 ? (
     <>
-      <h1>No Data here</h1>
+      <NoDataHere />
     </>
   ) : (
     <>
@@ -13,8 +15,8 @@ const DetailsComUser = ({ users, deletEele }) => {
           return (
             <div
               className="customerCard"
-              key={el.id}
-              data-aos="fade-left"
+              key={el._id + "hjkb"}
+              data-aos="fade-up"
               data-aos-delay={index * 50}
             >
               <div className="AdminClientImage">

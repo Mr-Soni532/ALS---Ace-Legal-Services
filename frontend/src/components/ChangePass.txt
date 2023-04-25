@@ -87,7 +87,7 @@ async function fetchRes(obj) {
     if (data.done) {
         swal("Done!,Password Has Changed Successfully", " Redirecting...", "success");
         setTimeout(() => {
-            window.location.href = "https://localhost:3000/"
+            window.location.href = "http://localhost:3000/"
         }, 4000)
     } else {
         swal("Error", `${data.msg}`, "error");

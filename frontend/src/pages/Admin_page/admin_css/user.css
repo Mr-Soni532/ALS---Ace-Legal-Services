@@ -1,12 +1,11 @@
 .contentConatinerCust {
   min-height: 500px;
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
   margin: auto;
   row-gap: 10px;
   width: 100%;
-  justify-content: center;
-  justify-items: center;
   padding: 40px 80px;
   transition: all 300ms ease-in-out;
   background-color: #fafafa;
@@ -24,7 +23,7 @@
   margin: 10px;
 }
 .customerCard {
-  width: 23%;
+  width: 100%;
   text-align: center;
   margin: auto;
   background-color: white;

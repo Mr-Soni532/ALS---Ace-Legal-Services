@@ -1,46 +1,46 @@
 import React, { useState } from "react";
 import { Button, Modal } from "antd";
+// import HOST from "../../utils/baseUrl";
 
 const ForgotModal = () => {
   const [loading, setLoading] = useState(false);
   const [open, setOpen] = useState(false);
-  const [email,setEmail]=useState("");
+  const [email, setEmail] = useState("");
 
   const showModal = () => {
     setOpen(true);
+    console.log(email);
   };
 
   const handleOk = () => {
-    let data={email};
-    // console.log('userEmail', data)
-    // forgetPassword(data);
     setLoading(true);
     setTimeout(() => {
       setLoading(false);
       setOpen(false);
     }, 3000);
   };
-  let forgetPassword= async (data)=>{
-      try {
-        let json=await fetch("http://localhost:4000/user/forgotpassword",{
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(data),
-        })
-        let response=await json.json();
-        console.log(response);
-        localStorage.setItem("userID",response.data.userId);
-        if(response.Status==="Success"){
-          alert(response.msg)
-        }else{
-          alert("Can't Find user linked to this email");
-        }
-      } catch (error) {
-        console.log(error)
-      }
-  }
+
+  // let forgetPassword = async (data) => {
+  //   try {
+  //     let json = await fetch(`${HOST}/user/forgotpassword}`, {
+  //       method: "POST",
+  //       headers: {
+  //         "Content-Type": "application/json",
+  //       },
+  //       body: JSON.stringify(data),
+  //     });
+  //     let response = await json.json();
+  //     console.log(response);
+  //     localStorage.setItem("userID", response.data.userId);
+  //     if (response.Status === "Success") {
+  //       alert(response.msg);
+  //     } else {
+  //       alert("Can't Find user linked to this email");
+  //     }
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // };
 
   const handleCancel = () => {
     setOpen(false);
@@ -71,7 +71,12 @@ const ForgotModal = () => {
         ]}
       >
         <p>Email</p>
-        <input className="InputModalt" type="text" placeholder="Enter Email" onChange={(e)=> setEmail(e.target.value)} />
+        <input
+          className="InputModalt"
+          type="text"
+          placeholder="Enter Email"
+          onChange={(e) => setEmail(e.target.value)}
+        />
       </Modal>
     </>
   );

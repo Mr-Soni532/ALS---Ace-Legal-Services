@@ -1,58 +1,21 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import "./UserProfile.css";
-import { Link } from "react-router-dom";
-import HOST from "../../../utils/baseUrl";
+import { Link, useNavigate } from "react-router-dom";
+import { UserContext } from "../../../context/Admin_page/userFunction/userState";
 
-const UserProfile = () => {
-  let userData = JSON.parse(localStorage.getItem("userData"));
+const UserProfile = ({ UserData }) => {
+  // const navigate = useNavigate();
 
   const [email, setEmail] = useState("User Email");
   const [name, setName] = useState("User Name");
   const [image, setImg] = useState("");
 
+  const { UserDetails } = useContext(UserContext);
   useEffect(() => {
-    if (userData) {
-      setEmail(userData.email);
-      setName(userData.name);
-      setImg(userData.img);
-
-      console.log(userData.img);
-    } else {
-      const getUser = () => {
-        fetch(`${HOST}/auth/login/success`, {
-          method: "GET",
-          credentials: "include",
-          headers: {
-            Accept: "application/json",
-            "Content-Type": "application/json",
-            "Access-Control-Allow-Credentials": true,
-          },
-        })
-          .then((response) => {
-            // console.log(response)
-            if (response.status === 200) return response.json();
-            throw new Error("authentication has been failed!");
-          })
-          .then((resObject) => {
-            let email = resObject.user.email;
-            let name = resObject.user.name;
-            let img = resObject.user.img;
-            console.log(name, email, img);
-            localStorage.setItem(
-              "userData",
-              JSON.stringify({ email, name, img })
-            );
-            setEmail(email);
-            setName(name);
-            setImg(img);
-          })
-          .catch((err) => {
-            console.log(err);
-          });
-      };
-      getUser();
-    }
-  }, []);
+    setEmail(UserDetails.email);
+    setName(UserDetails.name);
+    setImg(UserDetails.img);
+  }, [UserDetails]);
   return (
     <div className="UserProfileParent">
       <div className="UserProfileFirst">
@@ -61,7 +24,10 @@ const UserProfile = () => {
             <div>
               <img
                 style={{ width: "108px", borderRadius: "50%" }}
-                src={image || "https://www.citypng.com/public/uploads/preview/download-profile-user-round-orange-icon-symbol-png-11639594360ksf6tlhukf.png"}
+                src={
+                  image ||
+                  "https://www.citypng.com/public/uploads/preview/download-profile-user-round-orange-icon-symbol-png-11639594360ksf6tlhukf.png"
+                }
                 alt="AvatarImage"
               />
             </div>
@@ -83,7 +49,6 @@ const UserProfile = () => {
         </div>
       </div>
       <center>
-        {" "}
         <hr style={{ width: "80%" }} />
       </center>
       <div className="UserProfileSecond">

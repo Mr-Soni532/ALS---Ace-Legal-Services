@@ -1,8 +1,12 @@
 import React from "react";
 
-const ApoBtns = ({ text, icon }) => {
+const ApoBtns = ({ text, icon, idd, deleteFn }) => {
   return (
-    <button className="ApoBtns">
+    <button
+      data-id={idd}
+      onClick={(e) => deleteFn(e.target.dataset.id)}
+      className="ApoBtns"
+    >
       {text} {icon}
     </button>
   );

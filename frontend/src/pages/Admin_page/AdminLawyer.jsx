@@ -9,11 +9,16 @@ import Loading from "../../components/AdminCompo/Loading";
 import "./admin_css/AdminDashboard.css";
 import { notification } from "antd";
 import HOST from "../../utils/baseUrl";
-import NoDataHere from "../../components/AdminCompo/NoDataHere";
+// import NoDataHere from "../../components/AdminCompo/NoDataHere";
 
 const AdminLawyer = () => {
   const [AllLawyers, setAllLawyers] = useState([]);
   const [api, contextHolder] = notification.useNotification();
+  const context = useContext(LawyerContext);
+  const { getLawyer, err, lawyers, deletefun } = context;
+  const [query, setQuery] = useState("");
+  const [loading, setLoading] = useState(true);
+  const [option, setOption] = useState("name");
 
   const openNotification = (msg) => {
     api.success({
@@ -29,53 +34,60 @@ const AdminLawyer = () => {
       let data = await res.json();
       console.log(data);
       setAllLawyers(data);
+      setLoading(false);
     } catch (error) {
       console.log(error);
-      alert(error.message);
+      setLoading(false);
     }
   }
 
-  const context = useContext(LawyerContext);
-
-  const [query, setQuery] = useState("");
-  const [option, setOption] = useState("name");
   const keys = ["name", "profession", "experience"];
-  const { getLawyer, err, loading, lawyers, deletefun } = context;
-  const [currentPage, setCurrentPage] = useState(1);
-  const userPerpage = 4;
-  let data = [...lawyers];
+  // const [currentPage, setCurrentPage] = useState(1);
+  // const userPerpage = 4;
+  let data = [...AllLawyers];
 
-  const totalPages = Math.ceil(data.length / userPerpage);
+  // const totalPages = Math.ceil(data.length / userPerpage);
 
-  function sliceTodos() {
-    const indexOfLastTodo = currentPage * userPerpage;
-    const indexOfFirstTodo = indexOfLastTodo - userPerpage;
-    return data.slice(indexOfFirstTodo, indexOfLastTodo);
-  }
-  console.log(lawyers);
-  const handlePageChange = (page) => {
-    setCurrentPage(page);
+  // function sliceTodos() {
+  //   const indexOfLastTodo = currentPage * userPerpage;
+  //   const indexOfFirstTodo = indexOfLastTodo - userPerpage;
+  //   return data.slice(indexOfFirstTodo, indexOfLastTodo);
+  // }
+  // console.log(lawyers);
+  // const handlePageChange = (page) => {
+  //   setCurrentPage(page);
+  // };
+  const search = (data) => {
+    return data.filter((item) => {
+      if (!query) {
+        return item;
+      } else {
+        return keys.some(() => item[option].toLowerCase().includes(query));
+      }
+    });
   };
 
   const deletEele = async (id) => {
+    setLoading(true);
     try {
       let res = await fetch(`${HOST}/admin/deleteLawyer/${id}`, {
         method: "DELETE",
       });
       let data = await res.json();
-      console.log(data);
+      // console.log(data);
       openNotification("Success");
-      GetAllLawyers()
+      GetAllLawyers();
     } catch (error) {
       console.log(error);
       alert(error.message);
+      setLoading(false);
     }
   };
 
-  useEffect(() => {
+  function SearchLawyer() {
+    setLoading(true);
     fetch(`${HOST}/lawyer/searchLawyer`, {
       method: "POST",
-      // authorization: "bearer " + JSON.stringify(localStorage.getItem("token")),
       headers: {
         "Content-Type": "application/json",
       },
@@ -86,37 +98,31 @@ const AdminLawyer = () => {
     })
       .then((data) => data.json())
       .then((data) => setAllLawyers(data.data));
-  }, [AllLawyers]);
-  
-  // const search = (data) => {
-  //   return data.filter((item) => {
-  //     if (!query) {
-  //       return item;
-  //     } else {
-  //       return keys.some(() => item[option].toLowerCase().includes(query));
-  //     }
-  //   });
-  // };
+    setLoading(false);
+  }
 
-  data = query;
   useEffect(() => {
-    GetAllLawyers();
+    // GetAllLawyers();
     getLawyer();
+    SearchLawyer();
   }, []);
 
-    //! =============> DEBOUNCE
-    function debounce(func, timeout = 300) {
-      let timer;
-      return (...args) => {
-        clearTimeout(timer);
-        timer = setTimeout(() => { func.apply(this, args); }, timeout);
-      };
-    }
-    function saveInput(e) {
-      setQuery(e.target.value)
-    }
-    const processChange = debounce((e) => saveInput(e));
-    //! ===================================================>
+  //! =============> DEBOUNCE
+  function debounce(func, timeout = 100) {
+    let timer;
+    return (...args) => {
+      clearTimeout(timer);
+      timer = setTimeout(() => {
+        func.apply(this, args);
+      }, timeout);
+    };
+  }
+  function saveInput(e) {
+    setQuery(e.target.value);
+    SearchLawyer();
+  }
+  const processChange = debounce((e) => saveInput(e));
+  //! ===================================================>
 
   return (
     <div>
@@ -132,26 +138,11 @@ const AdminLawyer = () => {
       <div>
         {loading ? (
           <Loading />
-        ) : err ? (
-          <NoDataHere />
         ) : (
-          <>
-            <div className="contentConatiner">
-              {/* <DetailsCom users={sliceTodos()} deletEele={deletEele} /> */}
-              <DetailsCom users={AllLawyers} deletEele={deletEele} />
-            </div>
-            {/* <div style={{ textAlign: "right" }}>
-              {Array.from({ length: totalPages }, (_, index) => (
-                <button
-                  className="peginationBtn"
-                  key={index + 1}
-                  onClick={() => handlePageChange(index + 1)}
-                >
-                  {index + 1}
-                </button>
-              ))}
-            </div> */}
-          </>
+          <div className="contentConatiner">
+            {/* <DetailsCom users={sliceTodos()} deletEele={deletEele} /> */}
+            <DetailsCom users={AllLawyers} deletEele={deletEele} />
+          </div>
         )}
       </div>
     </div>

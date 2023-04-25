@@ -17,14 +17,13 @@ const PORT = process.env.PORT;
 //=============> MIDDLEWARES
 app.use(express.json())
 
-app.use(
-  cors({
-    origin: "https://acelegalservices.vercel.app",
-    methods: "GET,POST,PUT,DELETE",
-    credentials: true,
-  })
-);
- 
+app.use(cors({
+  origin: "https://acelegalservices.vercel.app",
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH'],
+  allowedHeaders: ['Content-Type', "Authorization", "Access-Control-Allow-Origin' ", "Access-Control-Allow-Credentials"],
+  credentials: true
+}));
+
 //=============> Testing endpoint
 app.get('/', (req, res) => res.send({ Message: 'ALS server working fine' }))
 
@@ -41,11 +40,11 @@ app.get('/', (req, res) => res.send({ Message: 'ALS server working fine' }))
 
 
 //=============> ROUTES
-app.use('/user',UserRouter)
-app.use('/lawyer',LawyerRouter)
-app.use('/admin',AdminRouter)
-app.use("/auth",GoogleRouter)
-app.use("/appointment",AppoinmtentRouter)
+app.use('/user', UserRouter)
+app.use('/lawyer', LawyerRouter)
+app.use('/admin', AdminRouter)
+app.use("/auth", GoogleRouter)
+app.use("/appointment", AppoinmtentRouter)
 
 
 
@@ -56,6 +55,6 @@ app.listen(PORT, async () => {
     await connectToMongo();
     console.log(`ALS backend running @ ${PORT}`)
   } catch (error) {
-    console.log({error: error.message})
+    console.log({ error: error.message })
   }
 })
