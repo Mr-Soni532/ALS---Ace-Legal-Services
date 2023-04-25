@@ -1,10 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 import "./lawyerCard.css";
 import Star from "../UserDashboardComponents/AppointmentCard/Star";
 import { useNavigate } from "react-router";
 
 const LawyerCard = ({ data }) => {
   const navigator = useNavigate();
+
+  let [stars, setstars] = useState([]);
+
   function handleClick(e) {
     localStorage.setItem(
       "lawyerData",
@@ -18,13 +21,12 @@ const LawyerCard = ({ data }) => {
     navigator("/appointment");
   }
 
-  function returnStar(bum) {
+  function returnStar(times) {
     let arr = [];
-    for (let i = 0; i < bum; i++) {
+    for (let i = 0; i < times; i++) {
       arr.push(<Star key={i + "xyz"} size="18" trans="2" />);
     }
-
-    return arr;
+    setstars(arr);
   }
 
   // console.count(data)
@@ -48,7 +50,7 @@ const LawyerCard = ({ data }) => {
             {data.name}
           </h1>
           <p>
-            {data.profession} {returnStar(data.rating)}
+            {data.profession} {stars.join("")}
           </p>
           <p className="experience">Experience: {data.experience}</p>
         </div>
