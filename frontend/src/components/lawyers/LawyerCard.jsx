@@ -28,7 +28,7 @@ const LawyerCard = ({ data }) => {
     }
     setstars(arr);
   }
-
+  returnStar(data.rating);
   // console.count(data)
   return (
     <div

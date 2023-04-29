@@ -19,7 +19,13 @@ const AppointmentCard = ({
       .then((data) => setLawyerDetails(data.data[0]));
   }
   useEffect(() => {
-    GetLaywerByEmail();
+    let initiate = true;
+    if (initiate) {
+      GetLaywerByEmail();
+    }
+    return () => {
+      initiate = false;
+    };
   }, [data]);
 
   async function DeleteAppointment(id) {
